@@ -486,21 +486,41 @@
   <aside class="sidebar-ad" id="sidebarAd">
     <!-- Vertical Ad Unit -->
     <ins class="adsbygoogle"
-         style="display:block; min-width: 160px; width: 160px; max-width: 300px; height: 600px; margin: 0 auto;"
+         id="adsbygoogle-vertical"
+         style="display:block; min-width: 160px; width: 100%; max-width: 300px; min-height: 600px; height: 600px; margin: 0 auto;"
          data-ad-client="ca-pub-7542838934089345"
          data-ad-slot="7568755718"
          data-ad-format="auto"
-         data-full-width-responsive="false"></ins>
+         data-full-width-responsive="true"></ins>
     <script>
-    // Hide ad if main content is missing (for AdSense policy compliance)
+    // AdSense best practices: Only load ad after content is visible, lazy load with IntersectionObserver
     document.addEventListener('DOMContentLoaded', function() {
       var mainContent = document.getElementById('mainContent');
       var sidebarAd = document.getElementById('sidebarAd');
+      var adIns = document.getElementById('adsbygoogle-vertical');
+      // Hide ad if main content is missing (AdSense policy)
       if (!mainContent || mainContent.offsetHeight < 100) {
         if (sidebarAd) sidebarAd.style.display = 'none';
+        return;
+      }
+      // Lazy load ad with IntersectionObserver
+      if ('IntersectionObserver' in window && adIns) {
+        var adLoaded = false;
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && !adLoaded) {
+              adLoaded = true;
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              observer.disconnect();
+            }
+          });
+        }, { rootMargin: '0px', threshold: 0 });
+        observer.observe(adIns);
+      } else if (adIns) {
+        // Fallback: load ad immediately
+        (adsbygoogle = window.adsbygoogle || []).push({});
       }
     });
-      (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </aside>
   </div>
