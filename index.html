@@ -126,6 +126,10 @@
         max-width: 100%;
         min-width: 0;
         height: auto;
+        order: 2;
+      }
+      .main-content {
+        order: 1;
       }
     }
     /* CSS Reset */
@@ -366,7 +370,7 @@
 </head>
 <body>
   <div class="main-layout">
-    <div class="main-content">
+    <div class="main-content" id="mainContent">
       <header>
         <h1>UTC to IST &amp; Timezone Converter</h1>
         <p>Convert UTC to IST, GMT, EST, PST, and other local times instantly.</p>
@@ -479,7 +483,7 @@
     <p>© 2025 Harshit1711 | UTC to IST Converter</p>
   </footer>
   </div>
-  <aside class="sidebar-ad">
+  <aside class="sidebar-ad" id="sidebarAd">
     <!-- Vertical Ad Unit -->
     <ins class="adsbygoogle"
          style="display:block; min-width: 160px; width: 160px; max-width: 300px; height: 600px; margin: 0 auto;"
@@ -488,6 +492,14 @@
          data-ad-format="auto"
          data-full-width-responsive="false"></ins>
     <script>
+    // Hide ad if main content is missing (for AdSense policy compliance)
+    document.addEventListener('DOMContentLoaded', function() {
+      var mainContent = document.getElementById('mainContent');
+      var sidebarAd = document.getElementById('sidebarAd');
+      if (!mainContent || mainContent.offsetHeight < 100) {
+        if (sidebarAd) sidebarAd.style.display = 'none';
+      }
+    });
       (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </aside>
