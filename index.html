@@ -100,6 +100,7 @@
     .main-content {
       flex: 1 1 0%;
       min-width: 0;
+      min-height: 400px; /* Ensure enough content height for AdSense policy */
     }
     .sidebar-ad {
       flex: 0 0 180px;
@@ -509,10 +510,14 @@
       var mainContent = document.getElementById('mainContent');
       var sidebarAd = document.getElementById('sidebarAd');
       var adIns = document.getElementById('adsbygoogle-vertical');
-      // Hide ad if main content is missing (AdSense policy)
-      if (!mainContent || mainContent.offsetHeight < 100) {
+      // Hide ad if main content is missing or too short (AdSense policy)
+      if (!mainContent || mainContent.offsetHeight < 300 || mainContent.textContent.trim().length < 100) {
         if (sidebarAd) sidebarAd.style.display = 'none';
         return;
+      }
+      // On mobile, move ad below content for compliance
+      if (window.innerWidth <= 900 && sidebarAd && mainContent && sidebarAd.parentNode === mainContent.parentNode) {
+        mainContent.parentNode.appendChild(sidebarAd);
       }
       // Lazy load ad with IntersectionObserver
       if ('IntersectionObserver' in window && adIns) {
