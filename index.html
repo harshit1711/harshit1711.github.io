@@ -363,17 +363,42 @@
   </style>
 </head>
 <body>
+  <noscript>
+    <div style="background:#fffbe6; border:2px solid #ffe58f; border-radius:10px; padding:1.5rem; margin-bottom:2rem; color:#7a5a00; font-size:1.1rem;">
+      <strong>JavaScript is disabled.</strong> This tool works best with JavaScript enabled, but you can still use the timezone reference table and read the explanations below.<br><br>
+      <b>How to use this tool:</b> UTC (Coordinated Universal Time) is the global time standard. To convert UTC to IST, add 5 hours 30 minutes. For other timezones, see the table below.<br><br>
+      <b>Timezone Reference Table:</b>
+      <table style="width:100%; border-collapse:collapse; margin-top:1rem; font-size:1rem;">
+        <thead><tr style="background:#f3f6fb;"><th style="border:1px solid #b8c3d7; padding:6px;">Timezone</th><th style="border:1px solid #b8c3d7; padding:6px;">Offset from UTC</th><th style="border:1px solid #b8c3d7; padding:6px;">Example (UTC 12:00)</th></tr></thead>
+        <tbody>
+          <tr><td style="border:1px solid #b8c3d7; padding:6px;">IST (India)</td><td style="border:1px solid #b8c3d7; padding:6px;">+05:30</td><td style="border:1px solid #b8c3d7; padding:6px;">17:30</td></tr>
+          <tr><td style="border:1px solid #b8c3d7; padding:6px;">EST (US East)</td><td style="border:1px solid #b8c3d7; padding:6px;">-05:00</td><td style="border:1px solid #b8c3d7; padding:6px;">07:00</td></tr>
+          <tr><td style="border:1px solid #b8c3d7; padding:6px;">PST (US West)</td><td style="border:1px solid #b8c3d7; padding:6px;">-08:00</td><td style="border:1px solid #b8c3d7; padding:6px;">04:00</td></tr>
+          <tr><td style="border:1px solid #b8c3d7; padding:6px;">CET (Europe)</td><td style="border:1px solid #b8c3d7; padding:6px;">+01:00</td><td style="border:1px solid #b8c3d7; padding:6px;">13:00</td></tr>
+          <tr><td style="border:1px solid #b8c3d7; padding:6px;">JST (Japan)</td><td style="border:1px solid #b8c3d7; padding:6px;">+09:00</td><td style="border:1px solid #b8c3d7; padding:6px;">21:00</td></tr>
+        </tbody>
+      </table>
+      <br>
+      <b>Note:</b> For full functionality (live conversion, copy buttons), please enable JavaScript in your browser settings.
+    </div>
+  </noscript>
+  <main id="main" tabindex="-1">
   <div class="main-layout">
-    <div class="main-content" id="mainContent">
+  <div class="main-content" id="mainContent" role="main">
       <header>
         <h1>UTC to IST &amp; Timezone Converter</h1>
-        <p>Convert UTC to IST, GMT, EST, PST, and other local times instantly.</p>
+        <p>Convert UTC to IST, GMT, EST, PST, and other local times instantly. This free tool helps you convert between major world time zones with ease and accuracy.</p>
       </header>
+
+      <section id="how-it-works" aria-label="How It Works" style="background:#e6f0fa; border-radius:12px; margin-bottom:2.5rem; padding:1.25rem 2rem; box-shadow:inset 0 0 8px rgba(10,84,160,0.06);">
+        <h2>How It Works</h2>
+        <p>Enter any date and time in the input fields below. The converter instantly calculates the equivalent time in your chosen timezone. All calculations are performed in your browser for privacy and speed. The timezone reference table below provides quick manual conversions for common zones.</p>
+      </section>
 
       <section class="time-display" aria-label="Current Time Display">
     <h2>Current Time</h2>
     <p>UTC Time: 
-      <span id="utcTime" class="time-text">Loading...</span>
+  <span id="utcTime" class="time-text">2025-09-19 12:00:00.000</span>
       <button class="copy-btn" data-copy-target="utcTime" aria-label="Copy UTC Time" title="Copy UTC Time" tabindex="0" aria-live="polite" aria-atomic="true">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
           <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
@@ -384,7 +409,7 @@
     </p>
 
     <p>Local Time:
-      <span id="localTime" class="time-text">Loading...</span>
+  <span id="localTime" class="time-text">2025-09-19 17:30:00.000</span>
       <button class="copy-btn" data-copy-target="localTime" aria-label="Copy Local Time" title="Copy Local Time" tabindex="0" aria-live="polite" aria-atomic="true">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
           <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
@@ -395,7 +420,7 @@
     </p>
 
     <p>EST Time:
-      <span id="estTime" class="time-text">Loading...</span>
+  <span id="estTime" class="time-text">2025-09-19 07:00:00.000</span>
       <button class="copy-btn" data-copy-target="estTime" aria-label="Copy EST Time" title="Copy EST Time" tabindex="0" aria-live="polite" aria-atomic="true">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
           <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
@@ -406,7 +431,7 @@
     </p>
 
     <p>PST Time:
-      <span id="pstTime" class="time-text">Loading...</span>
+  <span id="pstTime" class="time-text">2025-09-19 04:00:00.000</span>
       <button class="copy-btn" data-copy-target="pstTime" aria-label="Copy PST Time" title="Copy PST Time" tabindex="0" aria-live="polite" aria-atomic="true">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
           <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
@@ -417,7 +442,7 @@
     </p>
 
     <p>CET Time:
-      <span id="cetTime" class="time-text">Loading...</span>
+  <span id="cetTime" class="time-text">2025-09-19 13:00:00.000</span>
       <button class="copy-btn" data-copy-target="cetTime" aria-label="Copy CET Time" title="Copy CET Time" tabindex="0" aria-live="polite" aria-atomic="true">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
           <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
@@ -428,7 +453,7 @@
     </p>
 
     <p>JST Time:
-      <span id="jstTime" class="time-text">Loading...</span>
+  <span id="jstTime" class="time-text">2025-09-19 21:00:00.000</span>
       <button class="copy-btn" data-copy-target="jstTime" aria-label="Copy JST Time" title="Copy JST Time" tabindex="0" aria-live="polite" aria-atomic="true">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
           <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
@@ -439,23 +464,42 @@
     </p>
   </section>
 
+
   <section class="converter" aria-label="Convert Local Time to UTC">
-  <h2>Convert Local Time to UTC</h2>
-  <label for="localTimeInput">Paste your time or date here (any format supported)</label>
-  <input type="text" id="localTimeInput" placeholder="Paste your time here..." aria-describedby="localToUTCResult" />
+    <h2>Convert Local Time to UTC</h2>
+    <label for="localTimeInput">Paste your time or date here (any format supported)</label>
+    <input type="text" id="localTimeInput" placeholder="Paste your time here..." aria-describedby="localToUTCResult" />
     <button id="convertLocalToUTCBtn">Convert to UTC</button>
-    <p class="result" id="localToUTCResult" aria-live="polite" role="status"></p>
+    <p class="result" id="localToUTCResult" aria-live="polite" role="status">Example: 2025-09-19 15:00:00 → UTC: 2025-09-19 09:30:00.000</p>
   </section>
 
+
   <section class="converter" aria-label="Convert UTC Time to Local">
-  <h2>Convert UTC Time to Local</h2>
-  <label for="utcTimeInput">Paste your UTC time or date here (any format supported)</label>
-  <input type="text" id="utcTimeInput" placeholder="Paste your UTC time here..." aria-describedby="utcToLocalResult" />
+    <h2>Convert UTC Time to Local</h2>
+    <label for="utcTimeInput">Paste your UTC time or date here (any format supported)</label>
+    <input type="text" id="utcTimeInput" placeholder="Paste your UTC time here..." aria-describedby="utcToLocalResult" />
     <button id="convertUTCToLocalBtn">Convert to Local Time</button>
-    <p class="result" id="utcToLocalResult" aria-live="polite" role="status"></p>
+    <p class="result" id="utcToLocalResult" aria-live="polite" role="status">Example: 2025-09-19 09:30:00 → Local: 2025-09-19 15:00:00.000</p>
+  </section>
+
+
+  <section id="tz-table" aria-label="Timezone Reference Table" style="background:#fffbe6; border-radius:12px; margin-bottom:2.5rem; padding:1.5rem 2rem; box-shadow:inset 0 0 8px rgba(0,0,0,0.04);">
+    <h2>Timezone Reference Table</h2>
+    <table style="width:100%; border-collapse:collapse; font-size:1rem;">
+      <thead><tr style="background:#f3f6fb;"><th style="border:1px solid #b8c3d7; padding:6px;">Timezone</th><th style="border:1px solid #b8c3d7; padding:6px;">Offset from UTC</th><th style="border:1px solid #b8c3d7; padding:6px;">Example (UTC 12:00)</th></tr></thead>
+      <tbody>
+        <tr><td style="border:1px solid #b8c3d7; padding:6px;">IST (India)</td><td style="border:1px solid #b8c3d7; padding:6px;">+05:30</td><td style="border:1px solid #b8c3d7; padding:6px;">17:30</td></tr>
+        <tr><td style="border:1px solid #b8c3d7; padding:6px;">EST (US East)</td><td style="border:1px solid #b8c3d7; padding:6px;">-05:00</td><td style="border:1px solid #b8c3d7; padding:6px;">07:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7; padding:6px;">PST (US West)</td><td style="border:1px solid #b8c3d7; padding:6px;">-08:00</td><td style="border:1px solid #b8c3d7; padding:6px;">04:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7; padding:6px;">CET (Europe)</td><td style="border:1px solid #b8c3d7; padding:6px;">+01:00</td><td style="border:1px solid #b8c3d7; padding:6px;">13:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7; padding:6px;">JST (Japan)</td><td style="border:1px solid #b8c3d7; padding:6px;">+09:00</td><td style="border:1px solid #b8c3d7; padding:6px;">21:00</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.95rem; color:#7a5a00; margin-top:1rem;">Use this table to quickly convert UTC to common timezones. For more, use the converter above.</p>
   </section>
 
   <p class="footnote">* All times are displayed in 24-hour format with milliseconds.</p>
+
 
   <!-- About Us Section -->
   <section id="about" aria-label="About Us" style="background:#f3f6fb; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(0,0,0,0.04);">
@@ -464,12 +508,27 @@
     <p>This site is maintained by <strong>Harshit Yadav</strong>, a technology enthusiast passionate about building helpful web tools. We focus on accuracy, privacy, and a seamless user experience. No login or registration is required, and your data is never stored.</p>
   </section>
 
+  <!-- Privacy Policy Section -->
+  <section id="privacy" aria-label="Privacy Policy" style="background:#f3f6fb; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(0,0,0,0.04);">
+    <h2>Privacy Policy</h2>
+    <p>Your privacy is important to us. This site does not collect, store, or share any personal information. No cookies or tracking scripts are used, except for Google AdSense, which may use cookies to serve relevant ads. By using this site, you consent to the use of cookies by Google as described in their <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Ad Policy</a>.</p>
+    <p>We do not require registration or login. Any data you enter is processed only in your browser and never sent to our servers.</p>
+  </section>
+
+  <!-- Terms and Disclaimer Section -->
+  <section id="terms" aria-label="Terms and Disclaimer" style="background:#e6f0fa; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(10,84,160,0.06);">
+    <h2>Terms &amp; Disclaimer</h2>
+    <p>This tool is provided for informational purposes only. While we strive for accuracy, we do not guarantee the correctness of any time conversion. Always double-check critical times, especially for business or travel. By using this site, you agree to use it at your own risk.</p>
+    <p>We are not responsible for any loss or damage resulting from the use of this tool.</p>
+  </section>
+
+
   <!-- Contact Us Section -->
   <section id="contact" aria-label="Contact Us" style="background:#e6f0fa; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(10,84,160,0.06);">
     <h2>Contact Us</h2>
     <p>Have questions, feedback, or suggestions? We’d love to hear from you!</p>
     <ul style="list-style:none; padding-left:0;">
-      <li><strong>Email:</strong> <a href="mailto:harshit1996yadav@gmail" rel="noopener">harshit1996yadav@gmail</a></li>
+      <li><strong>Email:</strong> <a href="mailto:harshit1996yadav@gmail.com" rel="noopener">harshit1996yadav@gmail.com</a></li>
       <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/harshityadav196/" target="_blank" rel="noopener">linkedin.com/in/harshityadav196</a></li>
     </ul>
     <p style="font-size:0.95rem; color:#637381;">We respect your privacy. Your email will only be used to respond to your inquiry. Typical response time: 1-2 business days.</p>
@@ -492,10 +551,11 @@
   </section>
 
   <footer>
-    <p>© 2025 Harshit1711 | UTC to IST Converter</p>
+    <p>© 2025 Harshit1711 | UTC to IST Converter<br>
+    Last updated: September 19, 2025</p>
   </footer>
   </div>
-  <aside class="sidebar-ad" id="sidebarAd">
+  <aside class="sidebar-ad" id="sidebarAd" role="complementary" aria-label="Advertisement">
     <!-- Vertical Ad Unit -->
     <ins class="adsbygoogle"
          id="adsbygoogle-vertical"
@@ -510,32 +570,40 @@
       var mainContent = document.getElementById('mainContent');
       var sidebarAd = document.getElementById('sidebarAd');
       var adIns = document.getElementById('adsbygoogle-vertical');
-      // Hide ad if main content is missing or too short (AdSense policy)
-      if (!mainContent || mainContent.offsetHeight < 300 || mainContent.textContent.trim().length < 100) {
-        if (sidebarAd) sidebarAd.style.display = 'none';
-        return;
+      // Strengthened AdSense gating: require 400+ chars and 1s delay
+      function loadAdIfReady() {
+        if (!mainContent || mainContent.offsetHeight < 300 || mainContent.textContent.trim().length < 400) {
+          if (sidebarAd) sidebarAd.style.display = 'none';
+          return;
+        }
+        // On mobile, move ad below content for compliance
+        if (window.innerWidth <= 900 && sidebarAd && mainContent && sidebarAd.parentNode === mainContent.parentNode) {
+          mainContent.parentNode.appendChild(sidebarAd);
+        }
+        // Lazy load ad with IntersectionObserver and 1s delay
+        if ('IntersectionObserver' in window && adIns) {
+          var adLoaded = false;
+          var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting && !adLoaded) {
+                adLoaded = true;
+                setTimeout(function() {
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+                }, 1000);
+                observer.disconnect();
+              }
+            });
+          }, { rootMargin: '0px', threshold: 0 });
+          observer.observe(adIns);
+        } else if (adIns) {
+          // Fallback: load ad after 1s delay
+          setTimeout(function() {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          }, 1000);
+        }
       }
-      // On mobile, move ad below content for compliance
-      if (window.innerWidth <= 900 && sidebarAd && mainContent && sidebarAd.parentNode === mainContent.parentNode) {
-        mainContent.parentNode.appendChild(sidebarAd);
-      }
-      // Lazy load ad with IntersectionObserver
-      if ('IntersectionObserver' in window && adIns) {
-        var adLoaded = false;
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting && !adLoaded) {
-              adLoaded = true;
-              (adsbygoogle = window.adsbygoogle || []).push({});
-              observer.disconnect();
-            }
-          });
-        }, { rootMargin: '0px', threshold: 0 });
-        observer.observe(adIns);
-      } else if (adIns) {
-        // Fallback: load ad immediately
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      }
+      // Wait for DOM and content to be ready
+      setTimeout(loadAdIfReady, 500);
     });
     </script>
   </aside>
@@ -725,5 +793,6 @@
       });
     });
   </script>
+</main>
 </body>
 </html>
