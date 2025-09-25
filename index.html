@@ -555,58 +555,6 @@
     Last updated: September 19, 2025</p>
   </footer>
   </div>
-  <aside class="sidebar-ad" id="sidebarAd" role="complementary" aria-label="Advertisement">
-    <!-- Vertical Ad Unit -->
-    <ins class="adsbygoogle"
-         id="adsbygoogle-vertical"
-         style="display:block; min-width: 160px; width: 100%; max-width: 300px; min-height: 600px; height: 600px; margin: 0 auto;"
-         data-ad-client="ca-pub-7542838934089345"
-         data-ad-slot="7568755718"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-    // AdSense best practices: Only load ad after content is visible, lazy load with IntersectionObserver
-    document.addEventListener('DOMContentLoaded', function() {
-      var mainContent = document.getElementById('mainContent');
-      var sidebarAd = document.getElementById('sidebarAd');
-      var adIns = document.getElementById('adsbygoogle-vertical');
-      // Strengthened AdSense gating: require 400+ chars and 1s delay
-      function loadAdIfReady() {
-        if (!mainContent || mainContent.offsetHeight < 300 || mainContent.textContent.trim().length < 400) {
-          if (sidebarAd) sidebarAd.style.display = 'none';
-          return;
-        }
-        // On mobile, move ad below content for compliance
-        if (window.innerWidth <= 900 && sidebarAd && mainContent && sidebarAd.parentNode === mainContent.parentNode) {
-          mainContent.parentNode.appendChild(sidebarAd);
-        }
-        // Lazy load ad with IntersectionObserver and 1s delay
-        if ('IntersectionObserver' in window && adIns) {
-          var adLoaded = false;
-          var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-              if (entry.isIntersecting && !adLoaded) {
-                adLoaded = true;
-                setTimeout(function() {
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                }, 1000);
-                observer.disconnect();
-              }
-            });
-          }, { rootMargin: '0px', threshold: 0 });
-          observer.observe(adIns);
-        } else if (adIns) {
-          // Fallback: load ad after 1s delay
-          setTimeout(function() {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          }, 1000);
-        }
-      }
-      // Wait for DOM and content to be ready
-      setTimeout(loadAdIfReady, 500);
-    });
-    </script>
-  </aside>
   </div>
 
   <script>
@@ -794,5 +742,57 @@
     });
   </script>
 </main>
+<aside class="sidebar-ad" id="sidebarAd" role="complementary" aria-label="Advertisement">
+  <!-- Vertical Ad Unit -->
+  <ins class="adsbygoogle"
+       id="adsbygoogle-vertical"
+       style="display:block; min-width: 160px; width: 100%; max-width: 300px; min-height: 600px; height: 600px; margin: 0 auto;"
+       data-ad-client="ca-pub-7542838934089345"
+       data-ad-slot="7568755718"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+  // AdSense best practices: Only load ad after content is visible, lazy load with IntersectionObserver
+  document.addEventListener('DOMContentLoaded', function() {
+    var mainContent = document.getElementById('mainContent');
+    var sidebarAd = document.getElementById('sidebarAd');
+    var adIns = document.getElementById('adsbygoogle-vertical');
+    // Strengthened AdSense gating: require 400+ chars and 1s delay
+    function loadAdIfReady() {
+      if (!mainContent || mainContent.offsetHeight < 300 || mainContent.textContent.trim().length < 400) {
+        if (sidebarAd) sidebarAd.style.display = 'none';
+        return;
+      }
+      // On mobile, move ad below content for compliance
+      if (window.innerWidth <= 900 && sidebarAd && mainContent && sidebarAd.parentNode === mainContent.parentNode) {
+        mainContent.parentNode.appendChild(sidebarAd);
+      }
+      // Lazy load ad with IntersectionObserver and 1s delay
+      if ('IntersectionObserver' in window && adIns) {
+        var adLoaded = false;
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && !adLoaded) {
+              adLoaded = true;
+              setTimeout(function() {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              }, 1000);
+              observer.disconnect();
+            }
+          });
+        }, { rootMargin: '0px', threshold: 0 });
+        observer.observe(adIns);
+      } else if (adIns) {
+        // Fallback: load ad after 1s delay
+        setTimeout(function() {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }, 1000);
+      }
+    }
+    // Wait for DOM and content to be ready
+    setTimeout(loadAdIfReady, 500);
+  });
+  </script>
+</aside>
 </body>
 </html>
