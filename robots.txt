@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
 
-# Optional: Set crawl delay for all bots (remove or adjust as needed)
-Crawl-delay: 5
-
-# Point to the sitemap for better indexing
+# Sitemap location
 Sitemap: https://harshit1711.github.io/sitemap.xml
