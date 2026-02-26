@@ -3,1000 +3,308 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="UTC to IST & Timezone Converter | Harshit1711" />
-    <meta property="og:description" content="Free UTC to IST and timezone converter. Convert UTC, IST, GMT, EST, PST, and other time zones instantly." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://har  <!-- About Us Section -->
-  <section id="about" aria-label="About Us" style="background:#f3f6fb; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(0,0,0,0.04);">
-    <h2>About This Timezone Converter</h2>
-    <p><strong>UTC to IST &amp; Timezone Converter</strong> is a comprehensive, free tool designed to help you convert between UTC, IST, GMT, EST, PST, CET, JST, and other time zones instantly. Our mission is to make global time conversion simple and accessible for everyone—whether you're a developer, remote worker, traveler, or business professional.</p>
-    <p>This tool offers several key features:</p>
-    <ul style="margin:1rem 0; padding-left:1.5rem;">
-      <li><strong>Real-time updates:</strong> Live clock showing current time in multiple zones</li>
-      <li><strong>Flexible input:</strong> Accepts various date/time formats for easy conversion</li>
-      <li><strong>Copy functionality:</strong> One-click copying of converted times</li>
-      <li><strong>Mobile responsive:</strong> Works perfectly on all devices and screen sizes</li>
-      <li><strong>No registration:</strong> Use immediately without any signup or login</li>
-      <li><strong>Privacy focused:</strong> All calculations done in your browser</li>
-    </ul>
-    <p>This site is maintained by <strong>Harshit Yadav</strong>, a technology enthusiast passionate about building helpful web tools. We focus on accuracy, privacy, and a seamless user experience. Your data is never stored on our servers, ensuring complete privacy.</p>
-  </section>
-  
-  <!-- Why Use UTC Section -->
-  <section id="why-utc" aria-label="Why Use UTC" style="background:#e6f0fa; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(10,84,160,0.06);">
-    <h2>Why UTC is Important</h2>
-    <p><strong>UTC (Coordinated Universal Time)</strong> serves as the global time standard, making it essential for international communication, business, and technology. Understanding UTC helps you:</p>
-    <ul style="margin:1rem 0; padding-left:1.5rem;">
-      <li><strong>Coordinate globally:</strong> Schedule meetings across multiple time zones</li>
-      <li><strong>Database consistency:</strong> Store timestamps in a universal format</li>
-      <li><strong>API development:</strong> Ensure consistent time handling in applications</li>
-      <li><strong>Travel planning:</strong> Calculate arrival/departure times accurately</li>
-      <li><strong>Financial trading:</strong> Track market hours across different exchanges</li>
-      <li><strong>Scientific research:</strong> Maintain precise time records for experiments</li>
-    </ul>
-    <p>By using UTC as a reference point, you eliminate confusion caused by daylight saving time changes and regional time differences. This converter makes it easy to work with UTC while still displaying times in familiar local formats.</p>
-  </section>
-</head>
-<body>
-  <noscript>
-    <div style="background:#fffbe6; border:2px solid #ffe58f; border-radius:10px; padding:1.5rem; margin-bottom:2rem; color:#7a5a00; font-size:1.1rem;">
-      <strong>JavaScript is disabled.</strong> This comprehensive timezone converter works best with JavaScript enabled for real-time updates and interactive features. However, you can still use the detailed timezone reference information and manual conversion guides below.<br><br>
-      <b>Manual Timezone Conversion Guide:</b> UTC (Coordinated Universal Time) serves as the global time standard used worldwide. To convert UTC to IST (Indian Standard Time), add 5 hours and 30 minutes. For converting to other major timezones, use the comprehensive conversion table below as your reference.<br><br>
-      <b>Timezone Reference Table:</b>
-      <table style="width:100%; border-collapse:collapse; margin-top:1rem; font-size:1rem;">
-        <thead><tr style="background:#f3f6fb;"><th style="border:1px solid #b8c3d7; padding:6px;">Timezone</th><th style="border:1px solid #b8c3d7; padding:6px;">Offset from UTC</th><th style="border:1px solid #b8c3d7; padding:6px;">Example (UTC 12:00)</th></tr></thead>
-        <tbody>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">IST (India)</td><td style="border:1px solid #b8c3d7; padding:6px;">+05:30</td><td style="border:1px solid #b8c3d7; padding:6px;">17:30</td></tr>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">EST (US East)</td><td style="border:1px solid #b8c3d7; padding:6px;">-05:00</td><td style="border:1px solid #b8c3d7; padding:6px;">07:00</td></tr>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">PST (US West)</td><td style="border:1px solid #b8c3d7; padding:6px;">-08:00</td><td style="border:1px solid #b8c3d7; padding:6px;">04:00</td></tr>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">CET (Europe)</td><td style="border:1px solid #b8c3d7; padding:6px;">+01:00</td><td style="border:1px solid #b8c3d7; padding:6px;">13:00</td></tr>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">JST (Japan)</td><td style="border:1px solid #b8c3d7; padding:6px;">+09:00</td><td style="border:1px solid #b8c3d7; padding:6px;">21:00</td></tr>
-        </tbody>
-      </table>
-      <br>
-      <b>Note:</b> For full functionality (live conversion, copy buttons), please enable JavaScript in your browser settings.
-    </div>
-  </noscript>
-  <main id="main" tabindex="-1">
-  <div class="main-layout">
-  <div class="main-content" id="mainContent" role="main">
-    <meta property="og:locale" content="en_US" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="UTC to IST & Timezone Converter | Harshit1711" />
-    <meta name="twitter:description" content="Free UTC to IST and timezone converter. Convert UTC, IST, GMT, EST, PST, and other time zones instantly." />
-    <!-- Structured Data: Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Harshit1711",
-      "url": "https://harshit1711.github.io/",
-      "logo": "https://harshit1711.github.io/favicon.ico"
-    }
-    </script>
-    <!-- Structured Data: FAQ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do I convert UTC to IST (Indian Standard Time)?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "To convert UTC to IST, simply add 5 hours and 30 minutes. For example, 12:00 UTC is 17:30 IST. Use the converter above to get accurate results instantly."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I convert local time to UTC?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Enter your local time in the tool and click 'Convert to UTC'. The tool automatically adjusts for your system’s timezone offset."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is UTC time used for?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "UTC (Coordinated Universal Time) is the world’s time standard. It is widely used in software development, aviation, astronomy, finance, and global business communication."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the difference between UTC and GMT?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "GMT (Greenwich Mean Time) is a time zone, while UTC is a time standard. In practice, they are often the same, but UTC is more precise and is used globally in computing and communication systems."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I convert UTC to my country’s timezone?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! Enter your UTC time in the converter, and it will instantly show your local timezone time, whether you’re in IST, EST, PST, CET, or any other region."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why should developers use UTC?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Storing and processing timestamps in UTC avoids confusion with daylight savings and different local times. This ensures consistency across servers and databases worldwide."
-          }
-        }
-      ]
-    }
-    </script>
-    <!-- Sitemap and robots.txt (add these files to your root directory) -->
-    <!-- <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" /> -->
-    <!-- <meta name="robots" content="index, follow"> -->
-  <title>UTC to IST & Timezone Converter | Harshit1711</title>
-  <meta name="description" content="Free UTC to IST timezone converter tool. Convert between UTC, IST, GMT, EST, PST, CET, JST and all world timezones instantly. Real-time clock, developer guide, and comprehensive timezone reference for professionals." />
-  <meta name="keywords" content="UTC to IST, UTC converter, timezone converter, convert UTC to local time, UTC vs GMT, convert UTC to EST, convert UTC to PST, UTC online tool" />
+  <title>UTC to IST &amp; Timezone Converter | Harshit1711</title>
+  <meta name="description" content="Convert UTC to IST instantly. See the current IST time right now. Free timezone converter for UTC, IST, EST, PST, GMT, CET, JST. World clock, epoch converter, meeting planner and duration calculator. No signup needed." />
+  <meta name="keywords" content="UTC to IST, IST time now, what time is it in India, timezone converter, UTC converter, convert UTC to IST, epoch converter, unix timestamp converter, world clock, meeting time zone planner, time difference calculator" />
   <meta name="author" content="Harshit1711" />
   <link rel="canonical" href="https://harshit1711.github.io/" />
+  <meta property="og:title" content="UTC to IST &amp; Timezone Converter | Harshit1711" />
+  <meta property="og:description" content="Free UTC to IST and timezone converter. Convert UTC, IST, GMT, EST, PST, and other time zones instantly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://harshit1711.github.io/" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UTC to IST &amp; Timezone Converter | Harshit1711" />
+  <meta name="twitter:description" content="Free UTC to IST and timezone converter. Convert UTC, IST, GMT, EST, PST, and other time zones instantly." />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"UTC to IST Timezone Converter","url":"https://harshit1711.github.io/","description":"Free UTC to IST and multi-timezone converter with world clock, epoch converter, meeting planner, and duration calculator.","author":{"@type":"Person","name":"Harshit Yadav"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert UTC to IST?","acceptedAnswer":{"@type":"Answer","text":"Add 5 hours and 30 minutes to UTC. For example, 12:00 UTC = 17:30 IST."}},{"@type":"Question","name":"What is the difference between UTC and GMT?","acceptedAnswer":{"@type":"Answer","text":"GMT is a time zone; UTC is a time standard. They show the same time but UTC is more precise and universally used in computing."}},{"@type":"Question","name":"Why should developers use UTC?","acceptedAnswer":{"@type":"Answer","text":"Storing timestamps in UTC avoids daylight saving confusion and ensures consistency across servers and databases worldwide."}}]}
+  </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7542838934089345" crossorigin="anonymous"></script>
   <style>
-    .main-layout {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 2.5rem;
-    }
-    .main-content {
-      flex: 1 1 0%;
-      min-width: 0;
-      min-height: 400px; /* Ensure enough content height for AdSense policy */
-    }
-    .sidebar-ad {
-      flex: 0 0 180px;
-      min-width: 160px;
-      max-width: 300px;
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: sticky;
-      top: 2.5rem;
-      height: fit-content;
-      z-index: 10;
-      background: #fffbe6;
-      border: 1px solid #e6c200;
-      border-radius: 10px;
-    }
-    @media (max-width: 900px) {
-      .main-layout {
-        flex-direction: column;
-        gap: 0;
-      }
-      .sidebar-ad {
-        position: static;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        height: auto;
-        order: 2;
-        /* visually separate ad from content on mobile */
-        border: 1.5px solid #e6c200;
-        background: #fffbe6;
-        border-radius: 10px;
-      }
-      .main-content {
-        order: 1;
-        /* Add extra space below main content so ad is not immediately visible */
-        margin-bottom: 2.5rem;
-      }
-    }
-    /* Optionally hide sidebar ad on very small screens, but keep bottom ad */
-    @media (max-width: 600px) {
-      .sidebar-ad {
-        display: none !important;
-      }
-      #bottom-ad {
-        margin: 1.5rem 0;
-        padding: 0.5rem;
-      }
-    }
-    /* CSS Reset */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1.5rem 2rem;
-      background-color: #f9fbfd;
-      color: #222f3e;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    h1, h2 {
-      color: #0a54a0;
-      font-weight: 700;
-      margin: 0 0 0.25rem 0;
-      line-height: 1.15;
-    }
-    h1 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 0.35rem;
-    }
-    h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-      border-bottom: 2px solid #0a54a0;
-      padding-bottom: 0.25rem;
-    }
-    p {
-      margin: 0.75rem 0 1.25rem;
-      font-size: 1rem;
-    }
-    header > p {
-      font-size: 1.125rem;
-      color: #3d4651;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-weight: 500;
-    }
-    .time-display {
-      background: #e6f0fa;
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 0 15px rgba(10, 84, 160, 0.12);
-    }
-    .time-display p {
-      font-size: 1.125rem;
-      line-height: 1.4;
-      color: #1c2025;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      position: relative;
-      justify-content: space-between;
-    }
-    .time-text {
-      font-family: 'Courier New', monospace;
-      background-color: #c5d7f5;
-      padding: 0.15rem 0.6rem;
-      border-radius: 6px;
-      color: #0a2e72;
-      user-select: all;
-      min-width: 160px;
-      text-align: center;
-      flex-grow: 1;
-      margin-right: 0.5rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .copy-btn {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      margin-left: 4px;
-      width: 20px;
-      height: 20px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #0a54a0;
-      transition: color 0.2s ease;
-      flex-shrink: 0;
-    }
-    .copy-btn:hover {
-      color: #093f78;
-    }
-    .copied-tooltip {
-      position: absolute;
-      top: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #0a54a0;
-      color: white;
-      font-size: 0.75rem;
-      padding: 4px 8px;
-      border-radius: 4px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease-in-out;
-      z-index: 10;
-      user-select: none;
-    }
-    .copied-tooltip.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .converter {
-      background: #f3f6fb;
-      border-radius: 12px;
-      padding: 1.75rem 2rem;
-      margin-bottom: 2.5rem;
-      box-shadow: inset 0 0 8px rgba(0,0,0,0.04);
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 0.6rem 1rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 2px solid #b8c3d7;
-      transition: border-color 0.3s ease;
-      outline-offset: 2px;
-    }
-    input[type="text"]:focus {
-      border-color: #0a54a0;
-      outline: none;
-    }
-    button {
-      width: 100%;
-      padding: 0.9rem 0;
-      background-color: #0a54a0;
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.25s ease;
-      margin-top: 1rem;
-    }
-    button:hover,
-    button:focus {
-      background-color: #093f78;
-    }
-    .result {
-      margin-top: 1rem;
-      color: #0a54a0;
-      font-weight: 600;
-      font-family: 'Courier New', monospace;
-      font-size: 1.125rem;
-      min-height: 2rem;
-      text-align: center;
-    }
-    .footnote {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #637381;
-      margin-bottom: 3rem;
-    }
-    #faq {
-      padding-top: 1rem;
-      border-top: 3px solid #0a54a0;
-    }
-    #faq h2 {
-      text-align: left;
-      margin-bottom: 1.5rem;
-    }
-    #faq h3 {
-      font-weight: 700;
-      color: #0a3a86;
-      font-size: 1.2rem;
-      margin-top: 1.75rem;
-      margin-bottom: 0.5rem;
-      line-height: 1.25;
-    }
-    #faq p {
-      font-weight: 400;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #2c3e50;
-      margin-bottom: 1.5rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #707070;
-      padding: 1rem 0;
-      border-top: 1px solid #d3d6db;
-      user-select: none;
-    }
-    @media (max-width: 480px) {
-      body {
-        padding: 1rem 1.25rem;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      h2 {
-        font-size: 1.4rem;
-      }
-      .time-display p {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-      }
-      .time-text {
-        min-width: auto;
-        width: 100%;
-        margin-right: 0;
-        text-align: left;
-      }
-      .copy-btn {
-        position: static;
-        width: 24px;
-        height: 24px;
-      }
-    }
-    .sidebar-ad {
-      background: #fffbe6;
-      border: 1px solid #e6c200;
-      border-radius: 10px;
-      margin-top: 2rem;
-    }
-    /* Hide ads if they fail to load properly */
-    .adsbygoogle:empty {
-      display: none !important;
-    }
-    .adsbygoogle[data-ad-status="unfilled"] {
-      display: none !important;
-    }
-    /* Ensure ad containers collapse if ads don't load */
-    ins.adsbygoogle:empty + script {
-      display: none;
-    }
+    *,*::before,*::after{box-sizing:border-box}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;max-width:1200px;margin:2rem auto;padding:1.5rem 2rem;background:#f9fbfd;color:#222f3e;line-height:1.6;-webkit-font-smoothing:antialiased}
+    .main-layout{display:flex;flex-direction:row;align-items:flex-start;gap:2.5rem}
+    .main-content{flex:1 1 0%;min-width:0}
+    .sidebar-ad{flex:0 0 180px;min-width:160px;max-width:300px;margin-top:2.5rem;display:flex;flex-direction:column;align-items:center;position:sticky;top:2.5rem;height:fit-content;z-index:10;background:#fffbe6;border:1px solid #e6c200;border-radius:10px}
+    @media(max-width:900px){.main-layout{flex-direction:column;gap:0}.sidebar-ad{position:static;margin-top:2rem;margin-bottom:2rem;width:100%;max-width:100%;min-width:0;height:auto;order:2}.main-content{order:1;margin-bottom:2.5rem}}
+    @media(max-width:600px){.sidebar-ad{display:none!important}}
+    h1,h2{color:#0a54a0;font-weight:700;margin:0 0 0.25rem;line-height:1.15}
+    h1{font-size:2.5rem;text-align:center;margin-bottom:0.35rem}
+    h2{font-size:1.75rem;margin-bottom:0.75rem;border-bottom:2px solid #0a54a0;padding-bottom:0.25rem}
+    p{margin:0.75rem 0 1.25rem;font-size:1rem}
+    header>p{font-size:1.125rem;color:#3d4651;text-align:center;margin-bottom:2rem;font-weight:500}
+    footer{text-align:center;font-size:0.9rem;color:#707070;padding:1rem 0;border-top:1px solid #d3d6db}
+    input[type=text],input[type=datetime-local],input[type=date]{width:100%;padding:0.6rem 1rem;font-size:1rem;border-radius:8px;border:2px solid #b8c3d7;transition:border-color 0.3s;outline-offset:2px}
+    input:focus{border-color:#0a54a0;outline:none}
+    button{width:100%;padding:0.9rem 0;background:#0a54a0;color:#fff;font-weight:700;font-size:1.2rem;border:none;border-radius:10px;cursor:pointer;transition:background 0.25s;margin-top:1rem}
+    button:hover,button:focus{background:#093f78}
+    select{width:100%;padding:0.6rem 1rem;font-size:1rem;border-radius:8px;border:2px solid #b8c3d7;background:#fff}
+    .time-display{background:#e6f0fa;border-radius:12px;padding:1.5rem 2rem;margin-bottom:2.5rem;box-shadow:0 0 15px rgba(10,84,160,0.12)}
+    .time-display p{font-size:1.125rem;line-height:1.4;color:#1c2025;margin-bottom:1rem;font-weight:600;display:flex;align-items:center;gap:0.4rem;justify-content:space-between}
+    .time-text{font-family:'Courier New',monospace;background:#c5d7f5;padding:0.15rem 0.6rem;border-radius:6px;color:#0a2e72;user-select:all;min-width:160px;text-align:center;flex-grow:1;margin-right:0.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .copy-btn{background:transparent;border:none;cursor:pointer;padding:0;margin-left:4px;width:20px;height:20px;position:relative;display:flex;align-items:center;justify-content:center;color:#0a54a0;transition:color 0.2s;flex-shrink:0}
+    .copy-btn:hover{color:#093f78}
+    .copied-tooltip{position:absolute;top:-30px;left:50%;transform:translateX(-50%);background:#0a54a0;color:#fff;font-size:0.75rem;padding:4px 8px;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:10}
+    .copied-tooltip.show{opacity:1}
+    .converter{background:#f3f6fb;border-radius:12px;padding:1.75rem 2rem;margin-bottom:2.5rem;box-shadow:inset 0 0 8px rgba(0,0,0,0.04)}
+    .result{margin-top:1rem;color:#0a54a0;font-weight:600;font-family:'Courier New',monospace;font-size:1.125rem;min-height:2rem;text-align:center}
+    .footnote{text-align:center;font-size:0.85rem;color:#637381;margin-bottom:3rem}
+    .qc-grid{display:grid;grid-template-columns:1fr auto 1fr auto;gap:0.75rem;align-items:end}
+    .two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .two-col-grid-lg{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+    @media(max-width:600px){.qc-grid{grid-template-columns:1fr 1fr}.qc-arrow{display:none!important}.qc-time{grid-column:1/-1}.two-col-grid,.two-col-grid-lg{grid-template-columns:1fr}}
+    #tool-nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:2px solid #d0dff5;padding:0;margin:0 -0.5rem 2rem;display:flex;flex-wrap:wrap;gap:0;box-shadow:0 2px 10px rgba(10,84,160,0.10)}
+    #tool-nav .tnav-btn{flex:1 1 auto;min-width:100px;padding:0.7rem 0.5rem;background:transparent;border:none;border-bottom:3px solid transparent;color:#3d4651;font-size:0.88rem;font-weight:600;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:0;margin-top:0;width:auto;white-space:nowrap;text-align:center;letter-spacing:0.01em}
+    #tool-nav .tnav-btn:hover{background:#e6f0fa;color:#0a54a0}
+    #tool-nav .tnav-btn.active{border-bottom-color:#0a54a0;color:#0a54a0;background:#f0f6ff}
+    @media(max-width:640px){#tool-nav .tnav-btn{font-size:0.78rem;padding:0.6rem 0.35rem;min-width:72px}}
+    @media(max-width:480px){body{padding:0.75rem 0.9rem}h1{font-size:2rem}h2{font-size:1.4rem}.time-display p{flex-direction:column;align-items:flex-start;gap:0.25rem}.time-text{min-width:auto;width:100%;margin-right:0;text-align:left}#tool-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap}#tool-nav .tnav-btn{font-size:0.72rem;padding:0.55rem 0.5rem;min-width:60px}}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
+    .accordion-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;padding:1rem 1.25rem;background:#f3f6fb;border-radius:10px;margin-bottom:0.5rem;transition:background 0.18s}
+    .accordion-header:hover{background:#e6f0fa}
+    .accordion-header h2{margin:0;font-size:1.25rem;border-bottom:none;padding:0}
+    .accordion-arrow{font-size:1.1rem;color:#0a54a0;transition:transform 0.25s;flex-shrink:0}
+    .accordion-header.open .accordion-arrow{transform:rotate(180deg)}
+    .accordion-body{display:none;padding:0.25rem 0 0.75rem}
+    .accordion-body.open{display:block}
+    .adsbygoogle:empty{display:none!important}
   </style>
 </head>
 <body>
-  <noscript>
-    <div style="background:#fffbe6; border:2px solid #ffe58f; border-radius:10px; padding:1.5rem; margin-bottom:2rem; color:#7a5a00; font-size:1.1rem;">
-      <strong>JavaScript is disabled.</strong> This comprehensive timezone converter works best with JavaScript enabled for real-time updates and interactive features. However, you can still use the detailed timezone reference information and manual conversion guides below.<br><br>
-      <b>Manual Timezone Conversion Guide:</b> UTC (Coordinated Universal Time) serves as the global time standard used worldwide. To convert UTC to IST (Indian Standard Time), add 5 hours and 30 minutes. For converting to other major timezones, use the comprehensive conversion table below as your reference.<br><br>
-      <b>Timezone Reference Table:</b>
-      <table style="width:100%; border-collapse:collapse; margin-top:1rem; font-size:1rem;">
-        <thead><tr style="background:#f3f6fb;"><th style="border:1px solid #b8c3d7; padding:6px;">Timezone</th><th style="border:1px solid #b8c3d7; padding:6px;">Offset from UTC</th><th style="border:1px solid #b8c3d7; padding:6px;">Example (UTC 12:00)</th></tr></thead>
-        <tbody>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">IST (India)</td><td style="border:1px solid #b8c3d7; padding:6px;">+05:30</td><td style="border:1px solid #b8c3d7; padding:6px;">17:30</td></tr>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">EST (US East)</td><td style="border:1px solid #b8c3d7; padding:6px;">-05:00</td><td style="border:1px solid #b8c3d7; padding:6px;">07:00</td></tr>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">PST (US West)</td><td style="border:1px solid #b8c3d7; padding:6px;">-08:00</td><td style="border:1px solid #b8c3d7; padding:6px;">04:00</td></tr>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">CET (Europe)</td><td style="border:1px solid #b8c3d7; padding:6px;">+01:00</td><td style="border:1px solid #b8c3d7; padding:6px;">13:00</td></tr>
-          <tr><td style="border:1px solid #b8c3d7; padding:6px;">JST (Japan)</td><td style="border:1px solid #b8c3d7; padding:6px;">+09:00</td><td style="border:1px solid #b8c3d7; padding:6px;">21:00</td></tr>
-        </tbody>
-      </table>
-      <br>
-      <b>Note:</b> For full functionality (live conversion, copy buttons), please enable JavaScript in your browser settings.
-    </div>
-  </noscript>
-  <main id="main" tabindex="-1">
-  <div class="main-layout">
-  <div class="main-content" id="mainContent" role="main">
-      <header>
-        <h1>UTC to IST &amp; Timezone Converter</h1>
-        <p>Convert UTC to IST, GMT, EST, PST, and other local times instantly. This free tool helps you convert between major world time zones with ease and accuracy.</p>
-      </header>
+<noscript><div style="background:#fffbe6;border:2px solid #ffe58f;border-radius:10px;padding:1.5rem;margin-bottom:2rem;color:#7a5a00;font-size:1.1rem;"><strong>JavaScript is disabled.</strong> This timezone converter requires JavaScript.<br><br><b>Quick Reference:</b> UTC+0:00=UTC | UTC+5:30=IST | UTC-5:00=EST | UTC-8:00=PST | UTC+1:00=CET | UTC+9:00=JST</div></noscript>
+<main id="main" tabindex="-1">
+<div class="main-layout">
+<div class="main-content" id="mainContent" role="main">
 
-      <section id="how-it-works" aria-label="How It Works" style="background:#e6f0fa; border-radius:12px; margin-bottom:2.5rem; padding:1.25rem 2rem; box-shadow:inset 0 0 8px rgba(10,84,160,0.06);">
-        <h2>How It Works</h2>
-        <p>Enter any date and time in the input fields below. The converter instantly calculates the equivalent time in your chosen timezone. All calculations are performed in your browser for privacy and speed. The timezone reference table below provides quick manual conversions for common zones.</p>
-      </section>
+<header>
+  <h1>&#x1F310; UTC &amp; IST Timezone Converter</h1>
+  <p>Live clocks, timezone converter, world clock, Unix epoch converter, meeting planner, and duration calculator &mdash; all free, no signup.</p>
+</header>
 
-      <section class="time-display" aria-label="Current Time Display">
-    <h2>Current Time</h2>
-    <p>UTC Time: 
-  <span id="utcTime" class="time-text">2025-09-19 12:00:00.000</span>
-      <button class="copy-btn" data-copy-target="utcTime" aria-label="Copy UTC Time" title="Copy UTC Time" tabindex="0" aria-live="polite" aria-atomic="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
-          <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
-          <path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/>
-        </svg>
-        <span class="copied-tooltip" role="alert" aria-hidden="true">Copied!</span>
-      </button>
-    </p>
+<nav id="tool-nav" aria-label="Tool navigation">
+  <button class="tnav-btn active" onclick="showTab('tab-home',this)">&#x1F3E0; Home</button>
+  <button class="tnav-btn" onclick="showTab('tab-tzconv',this)">&#x1F504; Convert</button>
+  <button class="tnav-btn" onclick="showTab('tab-worldclock',this)">&#x1F30D; World Clock</button>
+  <button class="tnav-btn" onclick="showTab('tab-epoch',this)">&#x23F1; Epoch</button>
+  <button class="tnav-btn" onclick="showTab('tab-meeting',this)">&#x1F4C5; Meeting</button>
+  <button class="tnav-btn" onclick="showTab('tab-duration',this)">&#x23F3; Duration</button>
+  <button class="tnav-btn" onclick="showTab('tab-info',this)">&#x2139; Info</button>
+</nav>
+<!-- TAB: HOME -->
+<div id="tab-home" class="tab-panel active">
+<section id="quick-convert" aria-label="Quick Timezone Convert" style="background:linear-gradient(135deg,#0a54a0 0%,#1a73c8 100%);border-radius:14px;margin-bottom:2rem;padding:1.5rem 2rem;box-shadow:0 4px 18px rgba(10,84,160,0.18);">
+  <h2 style="color:#fff;margin-bottom:0.25rem;font-size:1.35rem;border:none;">&#x26A1; Quick Convert</h2>
+  <p style="color:#cde3f7;margin-bottom:1rem;font-size:0.95rem;">Pick two timezones and a time &mdash; get the answer instantly.</p>
+  <div class="qc-grid">
+    <div><label for="qcFrom" style="color:#cde3f7;font-size:0.85rem;font-weight:600;display:block;margin-bottom:0.3rem;">From</label><select id="qcFrom" style="width:100%;padding:0.6rem 0.75rem;font-size:1rem;border-radius:8px;border:none;background:#fff;"></select></div>
+    <div class="qc-arrow" style="padding-bottom:0.5rem;color:#fff;font-size:1.4rem;font-weight:700;">&rarr;</div>
+    <div><label for="qcTo" style="color:#cde3f7;font-size:0.85rem;font-weight:600;display:block;margin-bottom:0.3rem;">To</label><select id="qcTo" style="width:100%;padding:0.6rem 0.75rem;font-size:1rem;border-radius:8px;border:none;background:#fff;"></select></div>
+    <div class="qc-time"><label for="qcTime" style="color:#cde3f7;font-size:0.85rem;font-weight:600;display:block;margin-bottom:0.3rem;">Time (in From zone)</label><input type="datetime-local" id="qcTime" onchange="quickConvert()" style="padding:0.6rem 0.75rem;font-size:1rem;border-radius:8px;border:none;background:#fff;" /></div>
+  </div>
+  <div id="qcResult" style="margin-top:1rem;background:rgba(255,255,255,0.15);border-radius:10px;padding:0.9rem 1.25rem;color:#fff;font-size:1.2rem;font-weight:700;min-height:3rem;display:none;"></div>
+</section>
 
-    <p>Local Time:
-  <span id="localTime" class="time-text">2025-09-19 17:30:00.000</span>
-      <button class="copy-btn" data-copy-target="localTime" aria-label="Copy Local Time" title="Copy Local Time" tabindex="0" aria-live="polite" aria-atomic="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
-          <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
-          <path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/>
-        </svg>
-        <span class="copied-tooltip" role="alert" aria-hidden="true">Copied!</span>
-      </button>
-    </p>
+<section class="time-display" aria-label="Current Time Display">
+  <h2>Current Time</h2>
+  <p>UTC: <span id="utcTime" class="time-text">--</span><button class="copy-btn" data-copy-target="utcTime" aria-label="Copy UTC Time"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert">Copied!</span></button></p>
+  <p>Local: <span id="localTime" class="time-text">--</span><button class="copy-btn" data-copy-target="localTime" aria-label="Copy Local Time"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert">Copied!</span></button></p>
+  <p style="background:#fff8e6;border-radius:8px;padding:0.4rem 0.75rem;border-left:4px solid #f5a623;">IST &#x1F1EE;&#x1F1F3;: <span id="istTime" class="time-text" style="background:#fde7a0;color:#7a4a00;">--</span><button class="copy-btn" data-copy-target="istTime" aria-label="Copy IST Time"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert">Copied!</span></button></p>
+  <p>EST: <span id="estTime" class="time-text">--</span><button class="copy-btn" data-copy-target="estTime" aria-label="Copy EST Time"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert">Copied!</span></button></p>
+  <p>PST: <span id="pstTime" class="time-text">--</span><button class="copy-btn" data-copy-target="pstTime" aria-label="Copy PST Time"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert">Copied!</span></button></p>
+  <p>CET: <span id="cetTime" class="time-text">--</span><button class="copy-btn" data-copy-target="cetTime" aria-label="Copy CET Time"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert">Copied!</span></button></p>
+  <p>JST: <span id="jstTime" class="time-text">--</span><button class="copy-btn" data-copy-target="jstTime" aria-label="Copy JST Time"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert">Copied!</span></button></p>
+</section>
 
-    <p>EST Time:
-  <span id="estTime" class="time-text">2025-09-19 07:00:00.000</span>
-      <button class="copy-btn" data-copy-target="estTime" aria-label="Copy EST Time" title="Copy EST Time" tabindex="0" aria-live="polite" aria-atomic="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
-          <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
-          <path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/>
-        </svg>
-        <span class="copied-tooltip" role="alert" aria-hidden="true">Copied!</span>
-      </button>
-    </p>
+<section class="converter" aria-label="Local to UTC Converter">
+  <h2>Local Time &rarr; UTC</h2>
+  <p>Enter your local time to convert it to UTC. Accepts formats like <code>2026-02-26 17:30:00</code>, <code>17:30</code>, or <code>Feb 26, 2026 5:30 PM</code>.</p>
+  <input type="text" id="localTimeInput" placeholder="e.g. 2026-02-26 17:30:00" />
+  <button id="convertLocalToUTCBtn">Convert to UTC</button>
+  <div id="localToUTCResult" class="result"></div>
+</section>
 
-    <p>PST Time:
-  <span id="pstTime" class="time-text">2025-09-19 04:00:00.000</span>
-      <button class="copy-btn" data-copy-target="pstTime" aria-label="Copy PST Time" title="Copy PST Time" tabindex="0" aria-live="polite" aria-atomic="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
-          <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
-          <path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/>
-        </svg>
-        <span class="copied-tooltip" role="alert" aria-hidden="true">Copied!</span>
-      </button>
-    </p>
+<section class="converter" aria-label="UTC to Local Converter">
+  <h2>UTC &rarr; Local Time</h2>
+  <p>Enter a UTC time to see it in your local timezone. Accepts the same flexible formats.</p>
+  <input type="text" id="utcTimeInput" placeholder="e.g. 2026-02-26 12:00:00" />
+  <button id="convertUTCToLocalBtn">Convert to Local</button>
+  <div id="utcToLocalResult" class="result"></div>
+</section>
 
-    <p>CET Time:
-  <span id="cetTime" class="time-text">2025-09-19 13:00:00.000</span>
-      <button class="copy-btn" data-copy-target="cetTime" aria-label="Copy CET Time" title="Copy CET Time" tabindex="0" aria-live="polite" aria-atomic="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
-          <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
-          <path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/>
-        </svg>
-        <span class="copied-tooltip" role="alert" aria-hidden="true">Copied!</span>
-      </button>
-    </p>
-
-    <p>JST Time:
-  <span id="jstTime" class="time-text">2025-09-19 21:00:00.000</span>
-      <button class="copy-btn" data-copy-target="jstTime" aria-label="Copy JST Time" title="Copy JST Time" tabindex="0" aria-live="polite" aria-atomic="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="img">
-          <path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/>
-          <path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/>
-        </svg>
-        <span class="copied-tooltip" role="alert" aria-hidden="true">Copied!</span>
-      </button>
-    </p>
-  </section>
-
-
-  <section class="converter" aria-label="Convert Local Time to UTC">
-    <h2>Convert Local Time to UTC</h2>
-    <label for="localTimeInput">Paste your time or date here (any format supported)</label>
-    <input type="text" id="localTimeInput" placeholder="Paste your time here..." aria-describedby="localToUTCResult" />
-    <button id="convertLocalToUTCBtn">Convert to UTC</button>
-    <p class="result" id="localToUTCResult" aria-live="polite" role="status">Example: 2025-09-19 15:00:00 → UTC: 2025-09-19 09:30:00.000</p>
-  </section>
-
-
-  <section class="converter" aria-label="Convert UTC Time to Local">
-    <h2>Convert UTC Time to Local</h2>
-    <label for="utcTimeInput">Paste your UTC time or date here (any format supported)</label>
-    <input type="text" id="utcTimeInput" placeholder="Paste your UTC time here..." aria-describedby="utcToLocalResult" />
-    <button id="convertUTCToLocalBtn">Convert to Local Time</button>
-    <p class="result" id="utcToLocalResult" aria-live="polite" role="status">Example: 2025-09-19 09:30:00 → Local: 2025-09-19 15:00:00.000</p>
-  </section>
-
-
-  <section id="tz-table" aria-label="Timezone Reference Table" style="background:#fffbe6; border-radius:12px; margin-bottom:2.5rem; padding:1.5rem 2rem; box-shadow:inset 0 0 8px rgba(0,0,0,0.04);">
-    <h2>Timezone Reference Table</h2>
-    <table style="width:100%; border-collapse:collapse; font-size:1rem;">
-      <thead><tr style="background:#f3f6fb;"><th style="border:1px solid #b8c3d7; padding:6px;">Timezone</th><th style="border:1px solid #b8c3d7; padding:6px;">Offset from UTC</th><th style="border:1px solid #b8c3d7; padding:6px;">Example (UTC 12:00)</th></tr></thead>
+<section id="tz-table" aria-label="Timezone Reference Table" style="background:#fffbe6;border-radius:12px;margin-bottom:2.5rem;padding:1.5rem 2rem;">
+  <h2>Timezone Reference Table</h2>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:1rem;min-width:340px;">
+      <thead><tr style="background:#f3f6fb;"><th style="border:1px solid #b8c3d7;padding:8px;">Timezone</th><th style="border:1px solid #b8c3d7;padding:8px;">Offset from UTC</th><th style="border:1px solid #b8c3d7;padding:8px;">Example (UTC 12:00)</th></tr></thead>
       <tbody>
-        <tr><td style="border:1px solid #b8c3d7; padding:6px;">IST (India)</td><td style="border:1px solid #b8c3d7; padding:6px;">+05:30</td><td style="border:1px solid #b8c3d7; padding:6px;">17:30</td></tr>
-        <tr><td style="border:1px solid #b8c3d7; padding:6px;">EST (US East)</td><td style="border:1px solid #b8c3d7; padding:6px;">-05:00</td><td style="border:1px solid #b8c3d7; padding:6px;">07:00</td></tr>
-        <tr><td style="border:1px solid #b8c3d7; padding:6px;">PST (US West)</td><td style="border:1px solid #b8c3d7; padding:6px;">-08:00</td><td style="border:1px solid #b8c3d7; padding:6px;">04:00</td></tr>
-        <tr><td style="border:1px solid #b8c3d7; padding:6px;">CET (Europe)</td><td style="border:1px solid #b8c3d7; padding:6px;">+01:00</td><td style="border:1px solid #b8c3d7; padding:6px;">13:00</td></tr>
-        <tr><td style="border:1px solid #b8c3d7; padding:6px;">JST (Japan)</td><td style="border:1px solid #b8c3d7; padding:6px;">+09:00</td><td style="border:1px solid #b8c3d7; padding:6px;">21:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7;padding:8px;">IST (India)</td><td style="border:1px solid #b8c3d7;padding:8px;">+05:30</td><td style="border:1px solid #b8c3d7;padding:8px;">17:30</td></tr>
+        <tr><td style="border:1px solid #b8c3d7;padding:8px;">EST (US East)</td><td style="border:1px solid #b8c3d7;padding:8px;">-05:00</td><td style="border:1px solid #b8c3d7;padding:8px;">07:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7;padding:8px;">PST (US West)</td><td style="border:1px solid #b8c3d7;padding:8px;">-08:00</td><td style="border:1px solid #b8c3d7;padding:8px;">04:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7;padding:8px;">CET (Europe)</td><td style="border:1px solid #b8c3d7;padding:8px;">+01:00</td><td style="border:1px solid #b8c3d7;padding:8px;">13:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7;padding:8px;">JST (Japan)</td><td style="border:1px solid #b8c3d7;padding:8px;">+09:00</td><td style="border:1px solid #b8c3d7;padding:8px;">21:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7;padding:8px;">AEST (Australia)</td><td style="border:1px solid #b8c3d7;padding:8px;">+10:00</td><td style="border:1px solid #b8c3d7;padding:8px;">22:00</td></tr>
+        <tr><td style="border:1px solid #b8c3d7;padding:8px;">GST (Dubai)</td><td style="border:1px solid #b8c3d7;padding:8px;">+04:00</td><td style="border:1px solid #b8c3d7;padding:8px;">16:00</td></tr>
       </tbody>
     </table>
-    <p style="font-size:0.95rem; color:#7a5a00; margin-top:1rem;">Use this table to quickly convert UTC to common timezones. For more, use the converter above.</p>
-  </section>
-
-  <p class="footnote">* All times are displayed in 24-hour format with milliseconds.</p>
-
-
-  <!-- About Us Section -->
-  <section id="about" aria-label="About Us" style="background:#f3f6fb; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(0,0,0,0.04);">
-    <h2>About Us</h2>
-    <p><strong>UTC to IST &amp; Timezone Converter</strong> is a free, user-friendly tool designed to help you convert between UTC, IST, GMT, EST, PST, CET, JST, and other time zones instantly. Our mission is to make global time conversion simple and accessible for everyone—whether you’re a developer, remote worker, traveler, or business professional.</p>
-    <p>This site is maintained by <strong>Harshit Yadav</strong>, a technology enthusiast passionate about building helpful web tools. We focus on accuracy, privacy, and a seamless user experience. No login or registration is required, and your data is never stored.</p>
-  </section>
-
-  <!-- Privacy Policy Section -->
-  <section id="privacy" aria-label="Privacy Policy" style="background:#f3f6fb; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(0,0,0,0.04);">
-    <h2>Privacy Policy</h2>
-    <p>Your privacy is important to us. This site does not collect, store, or share any personal information. No cookies or tracking scripts are used, except for Google AdSense, which may use cookies to serve relevant ads. By using this site, you consent to the use of cookies by Google as described in their <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Ad Policy</a>.</p>
-    <p>We do not require registration or login. Any data you enter is processed only in your browser and never sent to our servers.</p>
-  </section>
-
-  <!-- Terms and Disclaimer Section -->
-  <section id="terms" aria-label="Terms and Disclaimer" style="background:#e6f0fa; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(10,84,160,0.06);">
-    <h2>Terms &amp; Disclaimer</h2>
-    <p>This tool is provided for informational purposes only. While we strive for accuracy, we do not guarantee the correctness of any time conversion. Always double-check critical times, especially for business or travel. By using this site, you agree to use it at your own risk.</p>
-    <p>We are not responsible for any loss or damage resulting from the use of this tool.</p>
-  </section>
-
-
-  <!-- Contact Us Section -->
-  <section id="contact" aria-label="Contact Us" style="background:#e6f0fa; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(10,84,160,0.06);">
-    <h2>Contact Us</h2>
-    <p>Have questions, feedback, or suggestions? We’d love to hear from you!</p>
-    <ul style="list-style:none; padding-left:0;">
-      <li><strong>Email:</strong> <a href="mailto:harshit1996yadav@gmail.com" rel="noopener">harshit1996yadav@gmail.com</a></li>
-      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/harshityadav196/" target="_blank" rel="noopener">linkedin.com/in/harshityadav196</a></li>
-    </ul>
-    <p style="font-size:0.95rem; color:#637381;">We respect your privacy. Your email will only be used to respond to your inquiry. Typical response time: 1-2 business days.</p>
-  </section>
-
-  <section id="faq" aria-label="Frequently Asked Questions">
-    <h2>Frequently Asked Questions</h2>
-    <h3>🔹 How do I convert UTC to IST (Indian Standard Time)?</h3>
-    <p>To convert <strong>UTC to IST</strong>, simply add 5 hours and 30 minutes. For example, <code>12:00 UTC</code> is <code>17:30 IST</code>. Use the converter above to get accurate results instantly.</p>
-    <h3>🔹 How do I convert local time to UTC?</h3>
-    <p>Enter your local time in the format <code>YYYY-MM-DD HH:mm:ss</code> into the tool and click "Convert to UTC". The tool automatically adjusts for your system’s timezone offset.</p>
-    <h3>🔹 What is UTC time used for?</h3>
-    <p><strong>UTC (Coordinated Universal Time)</strong> is the world’s time standard. It is widely used in software development, aviation, astronomy, finance, and global business communication.</p>
-    <h3>🔹 What is the difference between UTC and GMT?</h3>
-    <p><strong>GMT (Greenwich Mean Time)</strong> is a time zone, while <strong>UTC</strong> is a time standard. In practice, they are often the same, but UTC is more precise and is used globally in computing and communication systems.</p>
-    <h3>🔹 Can I convert UTC to my country’s timezone?</h3>
-    <p>Yes! Enter your UTC time in the converter, and it will instantly show your <strong>local timezone time</strong>, whether you’re in IST, EST, PST, CET, or any other region.</p>
-    <h3>🔹 Why should developers use UTC?</h3>
-    <p>Storing and processing timestamps in <strong>UTC</strong> avoids confusion with daylight savings and different local times. This ensures consistency across servers and databases worldwide.</p>
-    
-    <h3>🔹 How accurate is this timezone converter?</h3>
-    <p>This converter uses your browser's built-in JavaScript Date functions, which are synchronized with your system clock and automatically handle daylight saving time transitions. The accuracy depends on your device's clock settings. For mission-critical applications, always verify important times with authoritative sources.</p>
-    
-    <h3>🔹 Does this tool work offline?</h3>
-    <p>Once loaded, this timezone converter works entirely in your browser without requiring an internet connection. All calculations are performed locally using JavaScript, ensuring privacy and fast performance. However, you'll need an internet connection initially to load the page and for the live time updates to be accurate.</p>
-  </section>
-  
-  <!-- Developer Tutorial Section -->
-  <section id="developer-guide" aria-label="Developer Guide" style="background:#e6f0fa; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(10,84,160,0.06);">
-    <h2>Developer's Guide to Timezone Handling</h2>
-    <p>Proper timezone handling is crucial for modern applications. Here's a comprehensive guide for developers working with timezones and UTC:</p>
-    
-    <h3 style="color:#0a54a0; font-size:1.1rem; margin-top:1.5rem;">Best Practices for UTC</h3>
-    <ul style="margin:0.5rem 0; padding-left:1.5rem; line-height:1.7;">
-      <li><strong>Always store in UTC:</strong> Database timestamps should always be in UTC to avoid ambiguity</li>
-      <li><strong>Convert for display only:</strong> Convert to local time only when displaying to users</li>
-      <li><strong>Use ISO 8601 format:</strong> YYYY-MM-DDTHH:mm:ss.sssZ ensures universal compatibility</li>
-      <li><strong>Handle DST transitions:</strong> Be aware of daylight saving time changes in your calculations</li>
-      <li><strong>Test across timezones:</strong> Always test your application with different timezone settings</li>
-    </ul>
-    
-    <h3 style="color:#0a54a0; font-size:1.1rem; margin-top:1.5rem;">Common Timezone Mistakes</h3>
-    <ul style="margin:0.5rem 0; padding-left:1.5rem; line-height:1.7;">
-      <li><strong>Mixing local and UTC times:</strong> Can cause data inconsistencies and bugs</li>
-      <li><strong>Ignoring DST changes:</strong> Calculations may be off by an hour during transitions</li>
-      <li><strong>Assuming fixed offsets:</strong> Some regions change their UTC offset seasonally</li>
-      <li><strong>Client-side timezone detection:</strong> Can be unreliable; always verify server-side</li>
-      <li><strong>Hardcoding timezone offsets:</strong> Use proper timezone libraries instead</li>
-    </ul>
-    
-    <h3 style="color:#0a54a0; font-size:1.1rem; margin-top:1.5rem;">Recommended Libraries</h3>
-    <p>For robust timezone handling in your applications, consider these libraries:</p>
-    <ul style="margin:0.5rem 0; padding-left:1.5rem; line-height:1.7;">
-      <li><strong>JavaScript:</strong> Moment.js with timezone, date-fns-tz, Day.js with timezone plugin</li>
-      <li><strong>Python:</strong> pytz, dateutil, zoneinfo (Python 3.9+)</li>
-      <li><strong>Java:</strong> java.time package, Joda-Time library</li>
-      <li><strong>PHP:</strong> DateTime class with DateTimeZone, Carbon library</li>
-      <li><strong>C#:</strong> DateTimeOffset, NodaTime library</li>
-    </ul>
-  </section>
-  
-  <!-- Business Use Cases Section -->
-  <section id="business-cases" aria-label="Business Use Cases" style="background:#f3f6fb; border-radius:12px; margin-bottom:2.5rem; padding:1.75rem 2rem; box-shadow:inset 0 0 8px rgba(0,0,0,0.04);">
-    <h2>Business Applications of Timezone Conversion</h2>
-    <p>Understanding timezone conversion is essential for various business scenarios. Here are real-world applications where accurate time conversion matters:</p>
-    
-    <h3 style="color:#0a54a0; font-size:1.1rem; margin-top:1.5rem;">Global Business Operations</h3>
-    <ul style="margin:0.5rem 0; padding-left:1.5rem; line-height:1.7;">
-      <li><strong>Meeting scheduling:</strong> Coordinate calls across multiple time zones efficiently</li>
-      <li><strong>Project deadlines:</strong> Set clear, unambiguous deadlines for international teams</li>
-      <li><strong>Customer support:</strong> Provide 24/7 coverage with proper shift scheduling</li>
-      <li><strong>Marketing campaigns:</strong> Time email sends and social media posts for optimal engagement</li>
-      <li><strong>Event planning:</strong> Schedule webinars and conferences for global audiences</li>
-    </ul>
-    
-    <h3 style="color:#0a54a0; font-size:1.1rem; margin-top:1.5rem;">Financial & Trading</h3>
-    <ul style="margin:0.5rem 0; padding-left:1.5rem; line-height:1.7;">
-      <li><strong>Market hours:</strong> Track opening and closing times of global stock exchanges</li>
-      <li><strong>Economic releases:</strong> Schedule trades around major economic announcements</li>
-      <li><strong>Settlement times:</strong> Ensure timely processing of international transactions</li>
-      <li><strong>Compliance reporting:</strong> Meet regulatory deadlines across different jurisdictions</li>
-    </ul>
-    
-    <h3 style="color:#0a54a0; font-size:1.1rem; margin-top:1.5rem;">Technology & Development</h3>
-    <ul style="margin:0.5rem 0; padding-left:1.5rem; line-height:1.7;">
-      <li><strong>Server maintenance:</strong> Schedule updates during low-traffic hours globally</li>
-      <li><strong>Log analysis:</strong> Correlate events across distributed systems</li>
-      <li><strong>User analytics:</strong> Understand user behavior patterns by local time</li>
-      <li><strong>API rate limiting:</strong> Implement time-based restrictions correctly</li>
-      <li><strong>Backup scheduling:</strong> Coordinate data backups across multiple data centers</li>
-    </ul>
-  </section>
-
-  <!-- Bottom Ad Unit - Horizontal Display Ad -->
-  <section id="bottom-ad" aria-label="Advertisement" style="text-align:center; margin:3rem auto 2rem; padding:1rem; background:#fffbe6; border:1px solid #e6c200; border-radius:10px; max-width:728px; clear:both;">
-    <p style="font-size:0.8rem; color:#999; margin:0 0 0.5rem; text-transform:uppercase; letter-spacing:1px;">Advertisement</p>
-    <ins class="adsbygoogle"
-         style="display:block; margin:0 auto;"
-         data-ad-client="ca-pub-7542838934089345"
-         data-ad-slot="9876543210"
-         data-ad-format="rectangle"
-         data-full-width-responsive="true"></ins>
-    <script>
-    // Load bottom ad after a delay to ensure content is loaded
-    setTimeout(function() {
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {
-        console.log('Bottom ad failed to load');
-      }
-    }, 2000);
-    </script>
-  </section>
-
-  <footer>
-    <p>© 2025 Harshit1711 | UTC to IST Timezone Converter Tool<br>
-    Last updated: September 28, 2025 | Free timezone conversion for developers and professionals</p>
-  </footer>
   </div>
+  <p style="font-size:0.95rem;color:#7a5a00;margin-top:1rem;">Use this table as a quick reference. For any timezone, use the full converter on the Convert tab.</p>
+</section>
+<p class="footnote">* All times are in 24-hour format with milliseconds.</p>
+</div><!-- /tab-home -->
+<!-- TAB: TZ CONVERTER -->
+<div id="tab-tzconv" class="tab-panel">
+<section aria-label="Timezone Converter" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>Timezone Converter</h2>
+  <p>Pick any two cities and a time &mdash; instantly see the converted result. Perfect for scheduling international meetings.</p>
+  <div class="two-col-grid" style="margin-bottom:1rem;">
+    <div><label for="tzFrom" style="font-weight:600;display:block;margin-bottom:0.4rem;">From Timezone</label><select id="tzFrom"></select></div>
+    <div><label for="tzTo" style="font-weight:600;display:block;margin-bottom:0.4rem;">To Timezone</label><select id="tzTo"></select></div>
   </div>
+  <div style="margin-bottom:1rem;"><label for="tzInputTime" style="font-weight:600;display:block;margin-bottom:0.4rem;">Date &amp; Time</label><input type="datetime-local" id="tzInputTime" /></div>
+  <button onclick="convertTimezone()" style="max-width:300px;">Convert</button>
+  <div id="tzResult" style="margin-top:1rem;color:#0a54a0;font-weight:600;font-size:1.1rem;min-height:2rem;text-align:center;"></div>
+</section>
+</div>
 
-  <script>
-    // Helper to pad numbers
-    function pad(num) {
-      return num.toString().padStart(2, '0');
-    }
-    // Format date with milliseconds
-    function formatDate(date) {
-      return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} `
-           + `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}.${date.getMilliseconds().toString().padStart(3, '0')}`;
-    }
-    // Update times every 100 ms
-    function updateCurrentTime() {
-      const now = new Date();
-      const utcNow = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-      document.getElementById('utcTime').textContent = formatDate(utcNow);
-      document.getElementById('localTime').textContent = formatDate(now);
-      document.getElementById('estTime').textContent = formatDate(new Date(utcNow.getTime() - 5 * 3600000));
-      document.getElementById('pstTime').textContent = formatDate(new Date(utcNow.getTime() - 8 * 3600000));
-      document.getElementById('cetTime').textContent = formatDate(new Date(utcNow.getTime() + 1 * 3600000));
-      document.getElementById('jstTime').textContent = formatDate(new Date(utcNow.getTime() + 9 * 3600000));
-    }
-    // Helper: Try to parse a flexible date/time string
-    function parseFlexibleDateTime(input, assumeUTC = false) {
-      input = input.trim();
-      if (!input) return null;
-      // If only time, use today
-      const timeOnly = /^([01]?\d|2[0-3]):[0-5]\d(:[0-5]\d)?(\.[0-9]+)?$/;
-      const dateOnly = /^\d{4}-\d{2}-\d{2}$/;
-      // If only time, use today
-      if (timeOnly.test(input)) {
-        const now = assumeUTC ? new Date(new Date().toISOString().slice(0,10) + 'T00:00:00Z') : new Date();
-        const [h, m, s = '0'] = input.split(':');
-        if (assumeUTC) {
-          // Construct a UTC date
-          return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), h, m, s));
-        } else {
-          // Construct a local date
-          return new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m, s);
-        }
-      }
-      // If only date, use midnight
-      if (dateOnly.test(input)) {
-        if (assumeUTC) {
-          return new Date(input + 'T00:00:00Z');
-        } else {
-          return new Date(input + 'T00:00:00');
-        }
-      }
-      // If ISO-like
-      const isoLike = /^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z)?$/i;
-      if (isoLike.test(input)) {
-        if (assumeUTC && !input.endsWith('Z')) {
-          // Force parse as UTC
-          return new Date(input.replace(' ', 'T') + 'Z');
-        }
-        return new Date(input.replace(' ', 'T'));
-      }
-      // Try Date.parse fallback
-      if (assumeUTC) {
-        // Try to parse as UTC by appending Z if not present
-        if (!/z$/i.test(input)) {
-          let tryDate = new Date(input + 'Z');
-          if (!isNaN(tryDate.getTime())) return tryDate;
-        }
-      }
-      let date = new Date(input);
-      if (isNaN(date.getTime())) return null;
-      return date;
-    }
+<!-- TAB: WORLD CLOCK -->
+<div id="tab-worldclock" class="tab-panel">
+<section aria-label="World Clock" style="background:#e6f0fa;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>World Clock</h2>
+  <p>Live current time in major cities around the world, updated every second.</p>
+  <div id="worldClockGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:1rem;"></div>
+</section>
+</div>
 
-    // Convert Local to UTC (robust)
-    function convertLocalToUTC() {
-      const input = document.getElementById('localTimeInput').value.trim();
-      const resultField = document.getElementById('localToUTCResult');
-      if (!input) {
-        resultField.textContent = 'Please enter a date/time.';
-        return;
-      }
-      const localDate = parseFlexibleDateTime(input, false);
-      if (!localDate) {
-        resultField.textContent = 'Could not understand the date/time. Try any format, e.g. "2025-09-06 15:00:00", "15:00", "2025-09-06", or "Sep 6, 2025 3:00 PM".';
-        return;
-      }
-  // Convert local time to UTC by subtracting the timezone offset
-  const utcDate = new Date(localDate.getTime() + localDate.getTimezoneOffset() * 60000);
-      // Show UTC Time with copy button
-      resultField.innerHTML =
-        '<span style="display: flex; align-items: center; gap: 0.4rem; justify-content: center;">'
-        + 'UTC Time: <span class="time-text result-copy">' + formatDate(utcDate) + '</span>'
-        + '<button class="copy-btn result-copy-btn" aria-label="Copy UTC Time" title="Copy UTC Time" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert" aria-hidden="true">Copied!</span></button>'
-        + '</span>';
-    }
+<!-- TAB: EPOCH -->
+<div id="tab-epoch" class="tab-panel">
+<section aria-label="Unix Epoch Converter" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>Unix / Epoch Timestamp Converter</h2>
+  <p>Convert between Unix epoch (seconds or milliseconds) and human-readable date/time &mdash; essential for developers debugging logs and APIs.</p>
+  <div class="two-col-grid-lg">
+    <div>
+      <h3 style="font-size:1.1rem;color:#0a54a0;margin-bottom:0.75rem;">Epoch &rarr; Date</h3>
+      <label for="epochInput" style="font-weight:600;display:block;margin-bottom:0.4rem;">Unix Timestamp</label>
+      <input type="text" id="epochInput" placeholder="e.g. 1700000000 or 1700000000000" />
+      <button onclick="epochToDate()" style="margin-top:0.75rem;">Convert to Date</button>
+      <div id="epochToDateResult" style="margin-top:0.75rem;color:#0a54a0;font-weight:600;min-height:1.5rem;"></div>
+      <p style="margin-top:0.5rem;font-size:0.9rem;color:#555;">Current epoch: <strong id="liveEpoch">&ndash;</strong></p>
+    </div>
+    <div>
+      <h3 style="font-size:1.1rem;color:#0a54a0;margin-bottom:0.75rem;">Date &rarr; Epoch</h3>
+      <label for="dateToEpochInput" style="font-weight:600;display:block;margin-bottom:0.4rem;">Date &amp; Time (local)</label>
+      <input type="datetime-local" id="dateToEpochInput" />
+      <button onclick="dateToEpoch()" style="margin-top:0.75rem;">Convert to Epoch</button>
+      <div id="dateToEpochResult" style="margin-top:0.75rem;color:#0a54a0;font-weight:600;min-height:1.5rem;"></div>
+    </div>
+  </div>
+</section>
+</div>
 
-    // Convert UTC to Local (robust)
-    function convertUTCToLocal() {
-      const input = document.getElementById('utcTimeInput').value.trim();
-      const resultField = document.getElementById('utcToLocalResult');
-      if (!input) {
-        resultField.textContent = 'Please enter a date/time.';
-        return;
-      }
-      // Always parse as UTC by appending 'Z' if not present
-      let utcInput = input;
-      // If input does not end with Z or have a timezone, append Z
-      if (!/[zZ]|[+-]\d{2}:?\d{2}$/.test(utcInput)) {
-        if (/^\d{4}-\d{2}-\d{2}( |T)\d{2}:\d{2}(:\d{2})?(\.\d+)?$/.test(utcInput)) {
-          utcInput = utcInput.replace(' ', 'T') + 'Z';
-        } else if (/^([01]?\d|2[0-3]):[0-5]\d(:[0-5]\d)?(\.[0-9]+)?$/.test(utcInput)) {
-          // Only time, use today as date
-          const now = new Date();
-          utcInput = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + 'T' + utcInput + 'Z';
-        } else if (/^\d{4}-\d{2}-\d{2}$/.test(utcInput)) {
-          utcInput = utcInput + 'T00:00:00Z';
-        } else {
-          utcInput = utcInput + 'Z';
-        }
-      }
-      let utcDate = new Date(utcInput);
-      if (isNaN(utcDate.getTime())) {
-        resultField.textContent = 'Could not understand the date/time. Try any format, e.g. "2025-09-06 09:30:00", "09:30", "2025-09-06", or "Sep 6, 2025 9:30 AM".';
-        return;
-      }
-      // Now utcDate is in UTC, just display as local
-      // Show Local Time with copy button
-      resultField.innerHTML =
-        '<span style="display: flex; align-items: center; gap: 0.4rem; justify-content: center;">'
-        + 'Local Time: <span class="time-text result-copy">' + formatDate(utcDate) + '</span>'
-        + '<button class="copy-btn result-copy-btn" aria-label="Copy Local Time" title="Copy Local Time" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10 1H3a2 2 0 0 0-2 2v9H1V3a3 3 0 0 1 3-3h7v1z"/><path d="M14 3H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm1 11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v9z"/></svg><span class="copied-tooltip" role="alert" aria-hidden="true">Copied!</span></button>'
-        + '</span>';
-    // Copy button handler for result fields
-    document.addEventListener('click', function(e) {
-      if (e.target.closest('.result-copy-btn')) {
-        const btn = e.target.closest('.result-copy-btn');
-        const textSpan = btn.parentElement.querySelector('.result-copy');
-        const textToCopy = textSpan ? textSpan.textContent.trim() : '';
-        if (!textToCopy) return;
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          let tooltip = btn.querySelector('.copied-tooltip');
-          if (tooltip) {
-            tooltip.classList.add('show');
-            tooltip.setAttribute('aria-hidden', 'false');
-            setTimeout(() => {
-              tooltip.classList.remove('show');
-              tooltip.setAttribute('aria-hidden', 'true');
-            }, 1500);
-          }
-        });
-      }
-    });
-    }
-    // Copy button handler with tooltip
-    document.addEventListener('DOMContentLoaded', () => {
-      updateCurrentTime();
-      setInterval(updateCurrentTime, 100);
-      document.getElementById('convertLocalToUTCBtn').addEventListener('click', convertLocalToUTC);
-      document.getElementById('convertUTCToLocalBtn').addEventListener('click', convertUTCToLocal);
+<!-- TAB: MEETING PLANNER -->
+<div id="tab-meeting" class="tab-panel">
+<section aria-label="Meeting Planner" style="background:#e6f0fa;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>Meeting Planner &mdash; Find the Best Time</h2>
+  <p>See what time it will be across multiple cities at once. Green rows show typical working hours (9 AM&ndash;6 PM).</p>
+  <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1rem;align-items:flex-end;">
+    <div><label for="meetingDate" style="font-weight:600;display:block;margin-bottom:0.4rem;">Date</label><input type="date" id="meetingDate" style="padding:0.6rem 1rem;font-size:1rem;border-radius:8px;border:2px solid #b8c3d7;" /></div>
+    <button onclick="buildMeetingGrid()" style="width:auto;padding:0.6rem 1.5rem;font-size:1rem;margin-top:0;">Show Times</button>
+  </div>
+  <div style="overflow-x:auto;"><table id="meetingTable" style="width:100%;border-collapse:collapse;font-size:0.95rem;min-width:600px;"></table></div>
+  <p style="font-size:0.85rem;color:#3a6090;margin-top:0.75rem;">Green = working hours (9 AM &ndash; 6 PM) | White = outside working hours</p>
+</section>
+</div>
 
-      document.querySelectorAll('.copy-btn').forEach(button => {
-        button.addEventListener('click', () => {
-          const targetId = button.getAttribute('data-copy-target');
-          const textToCopy = document.getElementById(targetId).textContent.trim();
-          if (!textToCopy) return;
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            let tooltip = button.querySelector('.copied-tooltip');
-            if (!tooltip) {
-              tooltip = document.createElement('span');
-              tooltip.className = 'copied-tooltip';
-              tooltip.textContent = 'Copied!';
-              button.appendChild(tooltip);
-            }
-            tooltip.classList.add('show');
-            // Announce for screen readers
-            tooltip.setAttribute('aria-hidden', 'false');
-            setTimeout(() => {
-              tooltip.classList.remove('show');
-              tooltip.setAttribute('aria-hidden', 'true');
-            }, 1500);
-          }).catch(() => {
-            alert('Failed to copy!');
-          });
-        });
-      });
-    });
-  </script>
-</main>
-<aside class="sidebar-ad" id="sidebarAd" aria-label="Advertisement">
-  <!-- Sidebar Vertical Ad Unit -->
-  <p style="font-size:0.75rem; color:#999; margin:0 0 1rem; text-align:center; text-transform:uppercase; letter-spacing:1px;">Advertisement</p>
-  <ins class="adsbygoogle"
-       id="adsbygoogle-vertical"
-       style="display:block; min-width: 160px; width: 100%; max-width: 300px; min-height: 600px; height: 600px; margin: 0 auto;"
-       data-ad-client="ca-pub-7542838934089345"
-       data-ad-slot="1357924680"
-       data-ad-format="vertical"
-       data-full-width-responsive="true"></ins>
-  <script>
-  // Load sidebar ad after DOM is ready and content is visible
-  document.addEventListener('DOMContentLoaded', function() {
-    var adIns = document.getElementById('adsbygoogle-vertical');
-    var mainContent = document.getElementById('mainContent');
-    
-    if (adIns && mainContent) {
-      // Wait for content to be ready, then load ad
-      setTimeout(function() {
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-          console.log('Sidebar ad failed to load');
-          // Hide ad container if it fails to load
-          var sidebarAd = document.getElementById('sidebarAd');
-          if (sidebarAd) sidebarAd.style.display = 'none';
-        }
-      }, 1500);
-    }
-  });
-  </script>
-  
-  <!-- Ad fallback script to hide blank ad boxes -->
-  <script>
-  // Check for failed ad loads and hide containers
-  setTimeout(function() {
-    // Check sidebar ad
-    var sidebarAd = document.getElementById('adsbygoogle-vertical');
-    var sidebarContainer = document.getElementById('sidebarAd');
-    if (sidebarAd && sidebarContainer) {
-      // If ad is empty or has no content after loading time
-      if (sidebarAd.innerHTML.trim() === '' || 
-          sidebarAd.offsetHeight <= 50 ||
-          sidebarAd.getAttribute('data-ad-status') === 'unfilled') {
-        sidebarContainer.style.display = 'none';
-        console.log('Sidebar ad hidden - no content loaded');
-      }
-    }
-    
-    // Check bottom ad
-    var bottomAdSection = document.getElementById('bottom-ad');
-    var bottomAd = bottomAdSection ? bottomAdSection.querySelector('.adsbygoogle') : null;
-    if (bottomAd && bottomAdSection) {
-      if (bottomAd.innerHTML.trim() === '' || 
-          bottomAd.offsetHeight <= 50 ||
-          bottomAd.getAttribute('data-ad-status') === 'unfilled') {
-        bottomAdSection.style.display = 'none';
-        console.log('Bottom ad hidden - no content loaded');
-      }
-    }
-  }, 5000); // Check after 5 seconds
-  
-  // Alternative: Hide ads immediately if AdSense script fails
-  window.addEventListener('load', function() {
-    if (typeof adsbygoogle === 'undefined') {
-      var sidebarContainer = document.getElementById('sidebarAd');
-      var bottomAdSection = document.getElementById('bottom-ad');
-      if (sidebarContainer) sidebarContainer.style.display = 'none';
-      if (bottomAdSection) bottomAdSection.style.display = 'none';
-      console.log('AdSense script not loaded - hiding ad containers');
-    }
-  });
-  </script>
+<!-- TAB: DURATION -->
+<div id="tab-duration" class="tab-panel">
+<section aria-label="Duration Calculator" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>Date &amp; Duration Calculator</h2>
+  <p>Calculate the exact time between any two dates &mdash; useful for project deadlines, age calculation, countdowns, and contract durations.</p>
+  <div class="two-col-grid" style="margin-bottom:1rem;">
+    <div><label for="durStart" style="font-weight:600;display:block;margin-bottom:0.4rem;">Start Date &amp; Time</label><input type="datetime-local" id="durStart" /></div>
+    <div><label for="durEnd" style="font-weight:600;display:block;margin-bottom:0.4rem;">End Date &amp; Time</label><input type="datetime-local" id="durEnd" /></div>
+  </div>
+  <button onclick="calcDuration()" style="max-width:300px;">Calculate Duration</button>
+  <div id="durationResult" style="margin-top:1.25rem;min-height:2rem;"></div>
+</section>
+</div>
+<!-- TAB: INFO -->
+<div id="tab-info" class="tab-panel">
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>About This Tool</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p><strong>UTC to IST &amp; Timezone Converter</strong> is a free tool to convert between UTC, IST, GMT, EST, PST, CET, JST and other timezones instantly. Built for developers, remote workers, travelers, and business professionals worldwide.</p><p>Maintained by <strong>Harshit Yadav</strong>. All calculations run entirely in your browser &mdash; no data is ever sent to a server.</p></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Privacy Policy</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p>This site does not collect, store, or share any personal information. No user tracking is performed by this site. Google AdSense may use cookies to serve relevant ads &mdash; see <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's Ad Policy</a>.</p><p>No registration or login is required. Any data you enter is processed only in your browser.</p></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Terms &amp; Disclaimer</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p>This tool is provided for informational purposes only. While we strive for accuracy, we do not guarantee the correctness of any conversion. Always verify critical times for business or travel. Use at your own risk.</p></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Contact Us</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p>Have feedback or suggestions?</p><ul style="list-style:none;padding-left:0;"><li><strong>Email:</strong> <a href="mailto:harshit1996yadav@gmail.com">harshit1996yadav@gmail.com</a></li><li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/harshityadav196/" target="_blank" rel="noopener">linkedin.com/in/harshityadav196</a></li></ul></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Frequently Asked Questions</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><h3 style="color:#0a3a86;">How do I convert UTC to IST?</h3><p>Add 5 hours and 30 minutes. So <code>12:00 UTC</code> = <code>17:30 IST</code>. Use the Quick Convert bar on the Home tab for instant results.</p><h3 style="color:#0a3a86;">What is the difference between UTC and GMT?</h3><p>GMT is a time zone; UTC is a time standard. They show the same time value, but UTC is more precise and is the global standard used in computing and communications.</p><h3 style="color:#0a3a86;">Why should developers store timestamps in UTC?</h3><p>UTC avoids ambiguity from daylight saving time changes and regional offsets. Databases and APIs that store UTC timestamps work correctly for users in any timezone.</p><h3 style="color:#0a3a86;">Does this tool work offline?</h3><p>Yes &mdash; once the page is loaded, all timezone calculations run locally in your browser with no internet connection required.</p><h3 style="color:#0a3a86;">What is a Unix epoch timestamp?</h3><p>A Unix timestamp is the number of seconds (or milliseconds) since January 1, 1970 00:00:00 UTC. Use the Epoch tab to convert between timestamps and readable dates.</p></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Developer's Guide to Timezone Handling</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><h3 style="color:#0a54a0;font-size:1.1rem;">Best Practices</h3><ul style="padding-left:1.5rem;line-height:1.8;"><li><strong>Always store in UTC</strong> &mdash; convert to local time only for display.</li><li><strong>Use ISO 8601 format</strong> &mdash; <code>YYYY-MM-DDTHH:mm:ss.sssZ</code> ensures universal compatibility.</li><li><strong>Handle DST transitions</strong> &mdash; use IANA timezone names (e.g. <code>America/New_York</code>) not fixed offsets.</li><li><strong>Test across timezones</strong> &mdash; run your app with different system timezone settings.</li></ul><h3 style="color:#0a54a0;font-size:1.1rem;margin-top:1rem;">Common Mistakes</h3><ul style="padding-left:1.5rem;line-height:1.8;"><li>Mixing local and UTC times &mdash; causes data inconsistencies.</li><li>Assuming fixed UTC offsets &mdash; regions change offsets seasonally.</li><li>Ignoring DST transitions &mdash; off-by-one-hour bugs appear twice a year.</li></ul></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Business Applications of Timezone Conversion</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><h3 style="color:#0a54a0;font-size:1.1rem;">Global Operations</h3><ul style="padding-left:1.5rem;line-height:1.8;"><li>Schedule calls and meetings across multiple time zones.</li><li>Set clear international project deadlines.</li><li>Time marketing emails and social posts for optimal engagement.</li><li>Plan webinars and conferences for global audiences.</li></ul><h3 style="color:#0a54a0;font-size:1.1rem;margin-top:1rem;">Finance &amp; Technology</h3><ul style="padding-left:1.5rem;line-height:1.8;"><li>Track global stock market opening and closing times.</li><li>Schedule server maintenance during low-traffic windows.</li><li>Correlate events in distributed system logs across regions.</li><li>Coordinate data backups across multiple data centers.</li></ul></div></div>
+</div><!-- /tab-info -->
+
+<section id="bottom-ad" aria-label="Advertisement" style="text-align:center;margin:3rem auto 2rem;padding:1rem;background:#fffbe6;border:1px solid #e6c200;border-radius:10px;max-width:728px;">
+  <p style="font-size:0.8rem;color:#999;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:1px;">Advertisement</p>
+  <ins class="adsbygoogle" style="display:block;margin:0 auto;" data-ad-client="ca-pub-7542838934089345" data-ad-slot="1669945205" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</section>
+
+<footer>
+  <p>&copy; 2026 Harshit1711 | UTC to IST Timezone Converter Tool<br>Last updated: February 2026 | Free timezone conversion for developers and professionals</p>
+  <p style="margin-top:0.5rem;font-size:0.85rem;">
+    <a href="#" onclick="showTab('tab-info',document.querySelectorAll('.tnav-btn')[6]);return false;" style="color:#0a54a0;margin:0 0.5rem;">About</a> |
+    <a href="#" onclick="showTab('tab-info',document.querySelectorAll('.tnav-btn')[6]);return false;" style="color:#0a54a0;margin:0 0.5rem;">Privacy Policy</a> |
+    <a href="mailto:harshit1996yadav@gmail.com" style="color:#0a54a0;margin:0 0.5rem;">Contact</a>
+  </p>
+</footer>
+</div><!-- /main-content -->
+
+<aside class="sidebar-ad" aria-label="Advertisement">
+  <p style="font-size:0.75rem;color:#999;margin:0.75rem 0 0.5rem;text-align:center;text-transform:uppercase;letter-spacing:1px;">Advertisement</p>
+  <ins class="adsbygoogle" style="display:block;min-width:160px;width:100%;max-width:300px;min-height:600px;" data-ad-client="ca-pub-7542838934089345" data-ad-slot="9479793672" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </aside>
+</div><!-- /main-layout -->
+</main>
+<script>
+function pad(n){return String(n).padStart(2,'0')}
+function formatDate(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+' '+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds())+'.'+String(d.getMilliseconds()).padStart(3,'0')}
+function updateCurrentTime(){var now=new Date(),utc=new Date(now.getTime()+now.getTimezoneOffset()*60000);document.getElementById('utcTime').textContent=formatDate(utc);document.getElementById('localTime').textContent=formatDate(now);document.getElementById('istTime').textContent=formatDate(new Date(utc.getTime()+5.5*3600000));document.getElementById('estTime').textContent=formatDate(new Date(utc.getTime()-5*3600000));document.getElementById('pstTime').textContent=formatDate(new Date(utc.getTime()-8*3600000));document.getElementById('cetTime').textContent=formatDate(new Date(utc.getTime()+1*3600000));document.getElementById('jstTime').textContent=formatDate(new Date(utc.getTime()+9*3600000))}
+document.addEventListener('click',function(e){var btn=e.target.closest('.copy-btn');if(!btn)return;var id=btn.getAttribute('data-copy-target'),text=id&&document.getElementById(id)?document.getElementById(id).textContent.trim():'';if(!text)return;navigator.clipboard.writeText(text).then(function(){var tip=btn.querySelector('.copied-tooltip');if(tip){tip.classList.add('show');setTimeout(function(){tip.classList.remove('show')},1500)}})});
+function parseFlexible(input,asUTC){input=input.trim();if(!input)return null;var t=/^([01]?\d|2[0-3]):[0-5]\d(:[0-5]\d)?$/.test(input),d=/^\d{4}-\d{2}-\d{2}$/.test(input);if(t){var now=new Date(),p=input.split(':'),h=+p[0],m=+p[1],s=p[2]?+p[2]:0;return asUTC?new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate(),h,m,s)):new Date(now.getFullYear(),now.getMonth(),now.getDate(),h,m,s)}if(d)return new Date(input+(asUTC?'T00:00:00Z':'T00:00:00'));var iso=/^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(:\d{2})?(\.\d+)?Z?$/i.test(input);if(iso){var ss=input.replace(' ','T');if(asUTC&&!ss.endsWith('Z'))return new Date(ss+'Z');return new Date(ss)}var r=new Date(asUTC?input+'Z':input);return isNaN(r)?null:r}
+function convertLocalToUTC(){var i=document.getElementById('localTimeInput').value,res=document.getElementById('localToUTCResult'),d=parseFlexible(i,false);if(!d){res.textContent='Could not parse. Try: 2026-02-26 17:30:00';return}var u=new Date(d.getTime()+d.getTimezoneOffset()*60000);res.innerHTML='UTC Time: <span class="time-text" style="display:inline-block;">'+formatDate(u)+'</span>'}
+function convertUTCToLocal(){var i=document.getElementById('utcTimeInput').value,res=document.getElementById('utcToLocalResult'),d=parseFlexible(i,true);if(!d){res.textContent='Could not parse. Try: 2026-02-26 12:00:00';return}res.innerHTML='Local Time: <span class="time-text" style="display:inline-block;">'+formatDate(d)+'</span>'}
+var TZ_LIST=[{label:"UTC (UTC+0)",tz:"UTC"},{label:"London (GMT/BST)",tz:"Europe/London"},{label:"New York (EST/EDT)",tz:"America/New_York"},{label:"Chicago (CST/CDT)",tz:"America/Chicago"},{label:"Denver (MST/MDT)",tz:"America/Denver"},{label:"Los Angeles (PST/PDT)",tz:"America/Los_Angeles"},{label:"Sao Paulo (BRT)",tz:"America/Sao_Paulo"},{label:"Paris / Berlin (CET/CEST)",tz:"Europe/Paris"},{label:"Dubai (GST)",tz:"Asia/Dubai"},{label:"Mumbai / Delhi (IST)",tz:"Asia/Kolkata"},{label:"Dhaka (BST)",tz:"Asia/Dhaka"},{label:"Bangkok (ICT)",tz:"Asia/Bangkok"},{label:"Singapore / KL (SGT)",tz:"Asia/Singapore"},{label:"Shanghai / Beijing (CST)",tz:"Asia/Shanghai"},{label:"Tokyo (JST)",tz:"Asia/Tokyo"},{label:"Seoul (KST)",tz:"Asia/Seoul"},{label:"Sydney (AEST/AEDT)",tz:"Australia/Sydney"},{label:"Auckland (NZST/NZDT)",tz:"Pacific/Auckland"},{label:"Honolulu (HST)",tz:"Pacific/Honolulu"},{label:"Nairobi (EAT)",tz:"Africa/Nairobi"},{label:"Cairo (EET)",tz:"Africa/Cairo"},{label:"Lagos (WAT)",tz:"Africa/Lagos"}];
+function getOffsetMinutes(date,tz){var parts=new Intl.DateTimeFormat('en-US',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).formatToParts(date);function g(t){return parseInt(parts.find(function(p){return p.type===t}).value,10)}var h=g('hour');if(h===24)h=0;return(Date.UTC(g('year'),g('month')-1,g('day'),h,g('minute'),g('second'))-date.getTime())/60000}
+function fmtForTz(date,tz){return date.toLocaleString('en-CA',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).replace(',','')}
+function populateTzSelects(){['tzFrom','tzTo'].forEach(function(id,idx){var sel=document.getElementById(id);TZ_LIST.forEach(function(t){var o=document.createElement('option');o.value=t.tz;o.textContent=t.label;if(idx===0&&t.tz==='UTC')o.selected=true;if(idx===1&&t.tz==='Asia/Kolkata')o.selected=true;sel.appendChild(o)})});var el=document.getElementById('tzInputTime');if(el){var now=new Date();el.value=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate())+'T'+pad(now.getHours())+':'+pad(now.getMinutes())}}
+function convertTimezone(){var f=document.getElementById('tzFrom').value,t=document.getElementById('tzTo').value,v=document.getElementById('tzInputTime').value,res=document.getElementById('tzResult');if(!v){res.textContent='Please select a date and time.';return}try{var fl=TZ_LIST.find(function(x){return x.tz===f}).label,tl=TZ_LIST.find(function(x){return x.tz===t}).label,nu=new Date(v+':00Z'),tu=new Date(nu.getTime()-getOffsetMinutes(nu,f)*60000);res.innerHTML='<span style="color:#093f78">'+fl+'</span> &rarr; <span style="color:#093f78">'+tl+'</span><br><span style="font-family:monospace;font-size:1.15rem;">'+fmtForTz(tu,t)+'</span>'}catch(e){res.textContent='Conversion error.'}}
+function populateQcSelects(){['qcFrom','qcTo'].forEach(function(id,idx){var sel=document.getElementById(id);TZ_LIST.forEach(function(t){var o=document.createElement('option');o.value=t.tz;o.textContent=t.label;sel.appendChild(o)});if(idx===0)sel.value='UTC';if(idx===1)sel.value='Asia/Kolkata';sel.addEventListener('change',quickConvert)});var el=document.getElementById('qcTime');if(el){var now=new Date();el.value=now.getUTCFullYear()+'-'+pad(now.getUTCMonth()+1)+'-'+pad(now.getUTCDate())+'T'+pad(now.getUTCHours())+':'+pad(now.getUTCMinutes());quickConvert()}}
+function quickConvert(){var f=document.getElementById('qcFrom').value,t=document.getElementById('qcTo').value,v=document.getElementById('qcTime').value,res=document.getElementById('qcResult');if(!v){res.style.display='none';return}try{var fl=TZ_LIST.find(function(x){return x.tz===f}).label,tl=TZ_LIST.find(function(x){return x.tz===t}).label,nu=new Date(v+':00Z'),tu=new Date(nu.getTime()-getOffsetMinutes(nu,f)*60000),ts=tu.toLocaleTimeString('en-GB',{timeZone:t,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}),ds=tu.toLocaleDateString('en-GB',{timeZone:t,weekday:'short',day:'numeric',month:'short',year:'numeric'});res.style.display='block';res.innerHTML='&#x2705; <span style="opacity:0.85;font-size:1rem;">'+fl+'</span> &rarr; <span style="opacity:0.85;font-size:1rem;">'+tl+'</span><br><span style="font-size:1.6rem;letter-spacing:0.02em;">'+ts+'</span><span style="font-size:1rem;margin-left:1rem;opacity:0.85;">'+ds+'</span>'}catch(e){res.style.display='block';res.textContent='Conversion error.'}}
+var WORLD_CITIES=[{city:"New York",tz:"America/New_York"},{city:"London",tz:"Europe/London"},{city:"Paris",tz:"Europe/Paris"},{city:"Dubai",tz:"Asia/Dubai"},{city:"Mumbai",tz:"Asia/Kolkata"},{city:"Singapore",tz:"Asia/Singapore"},{city:"Tokyo",tz:"Asia/Tokyo"},{city:"Sydney",tz:"Australia/Sydney"},{city:"Los Angeles",tz:"America/Los_Angeles"},{city:"Sao Paulo",tz:"America/Sao_Paulo"},{city:"Cairo",tz:"Africa/Cairo"},{city:"Nairobi",tz:"Africa/Nairobi"},{city:"Beijing",tz:"Asia/Shanghai"},{city:"Seoul",tz:"Asia/Seoul"},{city:"Auckland",tz:"Pacific/Auckland"}];
+function buildWorldClock(){var grid=document.getElementById('worldClockGrid');if(!grid||grid.dataset.built)return;grid.dataset.built='1';WORLD_CITIES.forEach(function(c){var card=document.createElement('div');card.style.cssText='background:#fff;border-radius:10px;padding:1rem 1.25rem;box-shadow:0 2px 8px rgba(10,84,160,0.10);text-align:center;';card.innerHTML='<div style="font-weight:700;color:#0a54a0;font-size:1rem;margin-bottom:0.35rem;">'+c.city+'</div><div class="wc-time" data-tz="'+c.tz+'" style="font-family:monospace;font-size:1.25rem;color:#1c2025;font-weight:600;">&ndash;</div><div class="wc-date" data-tz="'+c.tz+'" style="font-size:0.82rem;color:#637381;margin-top:0.2rem;">&ndash;</div>';grid.appendChild(card)})}
+function updateWorldClock(){var now=new Date();document.querySelectorAll('.wc-time[data-tz]').forEach(function(el){el.textContent=now.toLocaleTimeString('en-GB',{timeZone:el.dataset.tz,hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit'})});document.querySelectorAll('.wc-date[data-tz]').forEach(function(el){el.textContent=now.toLocaleDateString('en-GB',{timeZone:el.dataset.tz,weekday:'short',day:'numeric',month:'short'})})}
+function updateLiveEpoch(){var el=document.getElementById('liveEpoch');if(el)el.textContent=Math.floor(Date.now()/1000)}
+function epochToDate(){var raw=document.getElementById('epochInput').value.trim(),res=document.getElementById('epochToDateResult');if(!raw||isNaN(Number(raw))){res.textContent='Please enter a valid number.';return}var ms=raw.length>=13?+raw:+raw*1000,d=new Date(ms);res.innerHTML='<div>UTC: <code>'+d.toUTCString()+'</code></div><div>Local: <code>'+d.toLocaleString()+'</code></div><div>ISO 8601: <code>'+d.toISOString()+'</code></div><div style="font-size:0.9rem;color:#637381;">('+( raw.length>=13?'milliseconds':'seconds')+')</div>'}
+function dateToEpoch(){var val=document.getElementById('dateToEpochInput').value,res=document.getElementById('dateToEpochResult');if(!val){res.textContent='Please select a date and time.';return}var d=new Date(val);res.innerHTML='<div>Seconds: <strong style="font-family:monospace;font-size:1.1rem;">'+Math.floor(d.getTime()/1000)+'</strong></div><div>Milliseconds: <code>'+d.getTime()+'</code></div>'}
+var MEETING_TZ=[{city:"Los Angeles",tz:"America/Los_Angeles"},{city:"New York",tz:"America/New_York"},{city:"London",tz:"Europe/London"},{city:"Paris",tz:"Europe/Paris"},{city:"Dubai",tz:"Asia/Dubai"},{city:"Mumbai",tz:"Asia/Kolkata"},{city:"Singapore",tz:"Asia/Singapore"},{city:"Tokyo",tz:"Asia/Tokyo"},{city:"Sydney",tz:"Australia/Sydney"}];
+function buildMeetingGrid(){var dv=document.getElementById('meetingDate').value,tbl=document.getElementById('meetingTable');if(!dv){tbl.innerHTML='<tr><td>Please select a date.</td></tr>';return}var h='<thead><tr><th style="padding:6px 10px;background:#0a54a0;color:#fff;text-align:left;">Hour (UTC)</th>';MEETING_TZ.forEach(function(m){h+='<th style="padding:6px 8px;background:#0a54a0;color:#fff;text-align:center;font-size:0.85rem;">'+m.city+'</th>'});h+='</tr></thead><tbody>';for(var i=0;i<24;i++){var ud=new Date(dv+'T'+pad(i)+':00:00Z'),aw=MEETING_TZ.some(function(m){var lh=parseInt(ud.toLocaleString('en-US',{timeZone:m.tz,hour:'numeric',hour12:false}),10);return lh>=9&&lh<18});h+='<tr style="'+(aw?'background:#e6f9ee;':'')+'"><td style="padding:5px 10px;font-family:monospace;font-weight:600;color:#637381;font-size:0.9rem;">'+pad(i)+':00</td>';MEETING_TZ.forEach(function(m){var lh=parseInt(ud.toLocaleString('en-US',{timeZone:m.tz,hour:'numeric',hour12:false}),10),wk=lh>=9&&lh<18,ls=ud.toLocaleTimeString('en-GB',{timeZone:m.tz,hour:'2-digit',minute:'2-digit',hour12:false});h+='<td style="padding:5px 8px;text-align:center;font-family:monospace;font-size:0.9rem;color:'+(wk?'#0a6e35':'#9aabbf')+';font-weight:'+(wk?'700':'400')+';">'+ls+'</td>'});h+='</tr>'}tbl.innerHTML=h+'</tbody>'}
+function calcDuration(){var s=document.getElementById('durStart').value,e=document.getElementById('durEnd').value,res=document.getElementById('durationResult');if(!s||!e){res.innerHTML='<span style="color:#c0392b;">Please select both start and end.</span>';return}var abs=Math.abs(new Date(e)-new Date(s)),sign=new Date(e)<new Date(s)?'-':'',days=Math.floor(abs/86400000),hours=Math.floor((abs%86400000)/3600000),mins=Math.floor((abs%3600000)/60000),secs=Math.floor((abs%60000)/1000);res.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem;margin-top:0.5rem;">'+[['Days',days],['Hours',hours],['Minutes',mins],['Seconds',secs]].map(function(x){return'<div style="background:#e6f0fa;border-radius:10px;padding:1rem;text-align:center;"><div style="font-size:1.75rem;font-weight:700;color:#0a54a0;">'+sign+x[1]+'</div><div style="font-size:0.9rem;color:#637381;">'+x[0]+'</div></div>'}).join('')+'</div><div style="margin-top:1rem;font-size:0.95rem;color:#3d4651;"><strong>Total:</strong> '+sign+Math.floor(abs/1000).toLocaleString()+' seconds | '+sign+Math.floor(abs/60000).toLocaleString()+' minutes | '+sign+Math.floor(abs/3600000).toLocaleString()+' hours</div>'}
+function showTab(id,btn){document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('.tnav-btn').forEach(function(b){b.classList.remove('active')});var panel=document.getElementById(id);if(panel)panel.classList.add('active');if(btn)btn.classList.add('active');if(id==='tab-worldclock'){buildWorldClock();updateWorldClock()}if(id==='tab-meeting'){var md=document.getElementById('meetingDate');if(md&&md.value)buildMeetingGrid()}}
+function toggleAccordion(header){var body=header.nextElementSibling,isOpen=body.classList.contains('open');body.classList.toggle('open',!isOpen);header.classList.toggle('open',!isOpen);header.setAttribute('aria-expanded',String(!isOpen))}
+document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('accordion-header')){e.preventDefault();toggleAccordion(e.target)}});
+document.addEventListener('DOMContentLoaded',function(){
+  updateCurrentTime();setInterval(updateCurrentTime,100);
+  populateTzSelects();populateQcSelects();
+  buildWorldClock();updateWorldClock();setInterval(updateWorldClock,1000);
+  updateLiveEpoch();setInterval(updateLiveEpoch,1000);
+  var now=new Date(),pad2=function(n){return String(n).padStart(2,'0')};
+  var md=document.getElementById('meetingDate');if(md){md.value=now.getFullYear()+'-'+pad2(now.getMonth()+1)+'-'+pad2(now.getDate());buildMeetingGrid()}
+  var fmt=function(d){return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate())+'T'+pad2(d.getHours())+':'+pad2(d.getMinutes())};
+  var ds=document.getElementById('durStart'),de=document.getElementById('durEnd');
+  if(ds)ds.value=fmt(new Date(now.getTime()-3*3600000));if(de)de.value=fmt(now);
+  document.getElementById('convertLocalToUTCBtn').addEventListener('click',convertLocalToUTC);
+  document.getElementById('convertUTCToLocalBtn').addEventListener('click',convertUTCToLocal);
+});
+</script>
 </body>
 </html>
