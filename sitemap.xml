@@ -1,4 +1,4 @@
-content = """<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
@@ -98,8 +98,3 @@ content = """<?xml version="1.0" encoding="UTF-8"?>
   </url>
 
 </urlset>
-"""
-import os
-with open(r'C:\Users\1036131\Downloads\sitemap.xml', 'w', encoding='utf-8', newline='\n') as f:
-    f.write(content)
-print('Done. Size:', os.path.getsize(r'C:\Users\1036131\Downloads\sitemap.xml'), 'bytes')
