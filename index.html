@@ -1279,8 +1279,7 @@ function buildDiffCards(){
   grid.dataset.built='1';
   var now=new Date();
   var istOff=5.5*3600000;
-  var utcMs=now.getTime()+now.getTimezoneOffset()*60000;
-  var istNow=new Date(utcMs+istOff);
+  var istNow=new Date(now.getTime()+istOff);
   DIFF_CARDS.forEach(function(c){
     try{
       var tzParts=new Intl.DateTimeFormat('en-US',{timeZone:c.tz,hour:'2-digit',minute:'2-digit',hour12:true}).formatToParts(now);
@@ -1308,6 +1307,7 @@ function openGuide(accId){showTab('tab-info',document.querySelectorAll('.tnav-bt
 function copySnippet(id,btn){var el=document.getElementById(id);if(!el)return;var text=el.innerText||el.textContent;navigator.clipboard.writeText(text.trim()).then(function(){var orig=btn.innerHTML;btn.innerHTML='&#10003; Copied!';btn.style.background='#4caf50';setTimeout(function(){btn.innerHTML=orig;btn.style.background='#fff2'},1800)})}
 function pad(n){return String(n).padStart(2,'0')}
 function formatDate(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+' '+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds())+'.'+String(d.getMilliseconds()).padStart(3,'0')}
+function formatDateUTC(d){return d.getUTCFullYear()+'-'+pad(d.getUTCMonth()+1)+'-'+pad(d.getUTCDate())+' '+pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())+':'+pad(d.getUTCSeconds())+'.'+String(d.getUTCMilliseconds()).padStart(3,'0')}
 var INSTANT_CITIES=[
   {city:'New York',country:'USA',tz:'America/New_York'},
   {city:'London',country:'UK',tz:'Europe/London'},
@@ -1346,14 +1346,13 @@ function buildInstantCityClocks(){
 }
 function updateInstantCityClocks(){
   var now=new Date();
-  var utcMs=now.getTime()+now.getTimezoneOffset()*60000;
-  var istNow=new Date(utcMs+5.5*3600000);
+  var istNow=new Date(now.getTime()+5.5*3600000);
   var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var istEl=document.getElementById('icc-ist');
-  if(istEl)istEl.textContent=pad(istNow.getHours())+':'+pad(istNow.getMinutes())+':'+pad(istNow.getSeconds());
+  if(istEl)istEl.textContent=pad(istNow.getUTCHours())+':'+pad(istNow.getUTCMinutes())+':'+pad(istNow.getUTCSeconds());
   var istDEl=document.getElementById('icc-ist-date');
-  if(istDEl)istDEl.textContent=days[istNow.getDay()]+' '+istNow.getDate()+' '+months[istNow.getMonth()];
+  if(istDEl)istDEl.textContent=days[istNow.getUTCDay()]+' '+istNow.getUTCDate()+' '+months[istNow.getUTCMonth()];
   INSTANT_CITIES.forEach(function(c){
     var safeId='icc-'+c.tz.replace(/[^a-z]/gi,'-');
     var tEl=document.getElementById(safeId);
@@ -1424,15 +1423,15 @@ function runPeConvert(){
 var HERO_DIFFS=[{label:'New York',tz:'America/New_York'},{label:'London',tz:'Europe/London'},{label:'Los Angeles',tz:'America/Los_Angeles'},{label:'Dubai',tz:'Asia/Dubai'},{label:'Singapore',tz:'Asia/Singapore'}];
 function updateHeroClock(){
   var now=new Date();
-  var istMs=now.getTime()+(now.getTimezoneOffset()*60000)+5.5*3600000;
+  var istMs=now.getTime()+5.5*3600000;
   var ist=new Date(istMs);
-  var hh=String(ist.getHours()).padStart(2,'0'),mm=String(ist.getMinutes()).padStart(2,'0'),ss=String(ist.getSeconds()).padStart(2,'0');
+  var hh=String(ist.getUTCHours()).padStart(2,'0'),mm=String(ist.getUTCMinutes()).padStart(2,'0'),ss=String(ist.getUTCSeconds()).padStart(2,'0');
   var heroTime=document.getElementById('heroIstTime');
   if(heroTime)heroTime.textContent=hh+':'+mm+':'+ss;
   var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var heroDate=document.getElementById('heroIstDate');
-  if(heroDate)heroDate.textContent=days[ist.getDay()]+', '+ist.getDate()+' '+months[ist.getMonth()]+' '+ist.getFullYear();
+  if(heroDate)heroDate.textContent=days[ist.getUTCDay()]+', '+ist.getUTCDate()+' '+months[ist.getUTCMonth()]+' '+ist.getUTCFullYear();
   var strip=document.getElementById('heroDiffStrip');
   if(strip&&!strip.dataset.built){
     strip.dataset.built='1';
@@ -1456,7 +1455,7 @@ function updateHeroClock(){
         var tzH=parseInt(tzParts.find(function(p){return p.type==='hour'}).value,10);
         var tzM=parseInt(tzParts.find(function(p){return p.type==='minute'}).value,10);
         var tzTotalMin=tzH*60+tzM;
-        var istTotalMin=(ist.getHours()*60+ist.getMinutes());
+        var istTotalMin=(ist.getUTCHours()*60+ist.getUTCMinutes());
         var diff=istTotalMin-tzTotalMin;
         if(diff>750)diff-=1440;if(diff<-750)diff+=1440;
         var sign=diff>=0?'+':'-';
@@ -1468,7 +1467,7 @@ function updateHeroClock(){
     });
   }
 }
-function updateCurrentTime(){var now=new Date(),utc=new Date(now.getTime()+now.getTimezoneOffset()*60000);document.getElementById('utcTime').textContent=formatDate(utc);document.getElementById('localTime').textContent=formatDate(now);document.getElementById('istTime').textContent=formatDate(new Date(utc.getTime()+5.5*3600000));document.getElementById('estTime').textContent=formatDate(new Date(utc.getTime()-5*3600000));document.getElementById('pstTime').textContent=formatDate(new Date(utc.getTime()-8*3600000));document.getElementById('cetTime').textContent=formatDate(new Date(utc.getTime()+1*3600000));document.getElementById('jstTime').textContent=formatDate(new Date(utc.getTime()+9*3600000))}
+function updateCurrentTime(){var now=new Date(),utcMs=now.getTime(),utc=new Date(utcMs);document.getElementById('utcTime').textContent=formatDateUTC(utc);document.getElementById('localTime').textContent=formatDate(now);document.getElementById('istTime').textContent=formatDateUTC(new Date(utcMs+5.5*3600000));document.getElementById('estTime').textContent=formatDateUTC(new Date(utcMs-5*3600000));document.getElementById('pstTime').textContent=formatDateUTC(new Date(utcMs-8*3600000));document.getElementById('cetTime').textContent=formatDateUTC(new Date(utcMs+1*3600000));document.getElementById('jstTime').textContent=formatDateUTC(new Date(utcMs+9*3600000))}
 document.addEventListener('click',function(e){var btn=e.target.closest('.copy-btn');if(!btn)return;var id=btn.getAttribute('data-copy-target'),text=id&&document.getElementById(id)?document.getElementById(id).textContent.trim():'';if(!text)return;navigator.clipboard.writeText(text).then(function(){var tip=btn.querySelector('.copied-tooltip');if(tip){tip.classList.add('show');setTimeout(function(){tip.classList.remove('show')},1500)}})});
 function parseFlexible(input,asUTC){input=input.trim();if(!input)return null;var t=/^([01]?\d|2[0-3]):[0-5]\d(:[0-5]\d)?$/.test(input),d=/^\d{4}-\d{2}-\d{2}$/.test(input);if(t){var now=new Date(),p=input.split(':'),h=+p[0],m=+p[1],s=p[2]?+p[2]:0;return asUTC?new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate(),h,m,s)):new Date(now.getFullYear(),now.getMonth(),now.getDate(),h,m,s)}if(d)return new Date(input+(asUTC?'T00:00:00Z':'T00:00:00'));var iso=/^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(:\d{2})?(\.\d+)?Z?$/i.test(input);if(iso){var ss=input.replace(' ','T');if(asUTC&&!ss.endsWith('Z'))return new Date(ss+'Z');return new Date(ss)}var r=new Date(asUTC?input+'Z':input);return isNaN(r)?null:r}
 function convertLocalToUTC(){var i=document.getElementById('localTimeInput').value,res=document.getElementById('localToUTCResult'),d=parseFlexible(i,false);if(!d){res.textContent='Could not parse. Try: 2026-02-26 17:30:00';return}var u=new Date(d.getTime()+d.getTimezoneOffset()*60000);res.innerHTML='UTC Time: <span class="time-text" style="display:inline-block;">'+formatDate(u)+'</span>'}
@@ -1596,7 +1595,7 @@ function parseCron(){
     +'</tr></thead><tbody>';
   fires.forEach(function(d,i){
     var utcStr=d.toISOString().replace('T',' ').substring(0,16)+' UTC';
-    var istMs=d.getTime()+(d.getTimezoneOffset()*60000)+5.5*3600000;
+    var istMs=d.getTime()+5.5*3600000;
     var ist=new Date(istMs);
     var istStr=pad(ist.getUTCHours())+':'+pad(ist.getUTCMinutes())+' IST '
       +['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][ist.getUTCDay()];
@@ -1711,12 +1710,12 @@ function updateCallWidget(){
   var tz=sel.value;
   var now=new Date();
   // Current IST hour
-  var istMs=now.getTime()+(now.getTimezoneOffset()*60000)+5.5*3600000;
+  var istMs=now.getTime()+5.5*3600000;
   var istNow=new Date(istMs);
   var istH=istNow.getUTCHours()+istNow.getUTCMinutes()/60;
   var indiaOpen=istH>=9&&istH<18;
   // Current hour in selected city
-  var cityH=parseFloat(now.toLocaleString('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',hour12:false}).replace(':','.'));
+  var cityH=parseInt(now.toLocaleString('en-US',{timeZone:tz,hour:'numeric',hour12:false}),10);
   var cityOpen=cityH>=9&&cityH<18;
   var bothOpen=indiaOpen&&cityOpen;
   var cityStr=now.toLocaleTimeString('en-US',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:true});
@@ -1762,13 +1761,12 @@ function buildCallTimeline(tz,now){
   if(!barEl)return;
   // For each hour 0–23 UTC, compute IST and city hours
   var cells='<div style="display:flex;height:32px;border-radius:6px;overflow:hidden;gap:1px;">';
+  var now_h=now.getUTCHours();
   for(var h=0;h<24;h++){
     var probe=new Date(now);probe.setUTCHours(h,0,0,0);
-    var istMs2=probe.getTime()+(probe.getTimezoneOffset()*60000)+5.5*3600000;
-    var istH2=new Date(istMs2).getUTCHours();
+    var istH2=(h*60+330)%1440/60|0;
     var cityH2=parseInt(probe.toLocaleString('en-US',{timeZone:tz,hour:'numeric',hour12:false}),10);
     var iInd=istH2>=9&&istH2<18,iCity=cityH2>=9&&cityH2<18;
-    var now_h=now.getUTCHours();
     var border=h===now_h?'3px solid #0a54a0':'none';
     var bg;
     if(iInd&&iCity)bg='#2e7d32';
