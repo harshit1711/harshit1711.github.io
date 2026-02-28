@@ -117,6 +117,11 @@
   <button class="tnav-btn" onclick="showTab('tab-epoch',this)">&#x23F1; Epoch</button>
   <button class="tnav-btn" onclick="showTab('tab-meeting',this)">&#x1F4C5; Meeting</button>
   <button class="tnav-btn" onclick="showTab('tab-duration',this)">&#x23F3; Duration</button>
+  <button class="tnav-btn" onclick="showTab('tab-abbr',this)" id="btn-abbr">&#x1F3F7; TZ Abbr</button>
+  <button class="tnav-btn" onclick="showTab('tab-cron',this)" id="btn-cron">&#x2699; Cron</button>
+  <button class="tnav-btn" onclick="showTab('tab-timestamp',this)" id="btn-timestamp">&#x1F4CB; Timestamp</button>
+  <button class="tnav-btn" onclick="showTab('tab-callnow',this)" id="btn-callnow">&#x1F4DE; Call India?</button>
+  <button class="tnav-btn" onclick="showTab('tab-dst',this)" id="btn-dst">&#x1F501; DST Clock</button>
   <button class="tnav-btn" onclick="showTab('tab-info',this)">&#x2139; Info</button>
 </nav>
 <!-- TAB: HOME -->
@@ -451,6 +456,124 @@
   <div id="durationResult" style="margin-top:1.25rem;min-height:2rem;"></div>
 </section>
 </div>
+
+<!-- TAB: TZ ABBREVIATION DECODER -->
+<div id="tab-abbr" class="tab-panel">
+<section aria-label="Timezone Abbreviation Decoder" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>&#x1F3F7; Timezone Abbreviation Decoder</h2>
+  <p style="color:#3d4651;">Paste any timezone abbreviation — <code>IST</code>, <code>CST</code>, <code>EST</code>, <code>PST</code>, <code>BST</code> etc — and instantly see every possible meaning with live current times.</p>
+  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1.25rem;">
+    <input type="text" id="abbrInput" placeholder="e.g. IST, CST, EDT, BST…" style="max-width:260px;text-transform:uppercase;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;" oninput="decodeAbbr()" />
+    <span style="font-size:0.9rem;color:#888;">Results appear as you type</span>
+  </div>
+  <div id="abbrResult"></div>
+  <div style="margin-top:1.5rem;background:#fff8e6;border-radius:10px;padding:1rem 1.25rem;border-left:4px solid #f7931e;">
+    <div style="font-weight:700;color:#c05000;margin-bottom:0.5rem;font-size:0.9rem;">&#9888; Why this matters</div>
+    <div style="font-size:0.88rem;color:#7a4a00;line-height:1.7;">
+      <strong>IST</strong> = India Standard Time <em>or</em> Israel Standard Time <em>or</em> Irish Standard Time<br>
+      <strong>CST</strong> = US Central Time <em>or</em> China Standard Time <em>or</em> Cuba Standard Time<br>
+      <strong>BST</strong> = British Summer Time <em>or</em> Bangladesh Standard Time<br>
+      Always confirm which region is meant before scheduling!
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- TAB: CRON TO IST -->
+<div id="tab-cron" class="tab-panel">
+<section aria-label="Cron Expression to IST" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>&#x2699; Cron Expression &rarr; IST Preview</h2>
+  <p style="color:#3d4651;">Enter a cron expression (UTC-based) and see the next 8 fire times in UTC, IST, and your local time — side by side. Essential for debugging cron jobs running on Indian servers.</p>
+  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1rem;">
+    <div style="flex:1;min-width:200px;">
+      <label for="cronInput" style="font-weight:600;display:block;margin-bottom:0.4rem;">Cron Expression <span style="font-weight:400;color:#888;font-size:0.85rem;">(UTC)</span></label>
+      <input type="text" id="cronInput" placeholder="e.g. 0 9 * * 1-5" style="font-family:monospace;font-size:1.05rem;" />
+    </div>
+    <button onclick="parseCron()" style="width:auto;padding:0.65rem 1.5rem;font-size:1rem;margin-top:0;">Preview</button>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;">
+    <span style="font-size:0.82rem;color:#637381;font-weight:600;margin-right:0.25rem;">Quick fill:</span>
+    <button onclick="setCron('0 9 * * 1-5')" style="width:auto;padding:0.25rem 0.75rem;font-size:0.8rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-weight:600;">Weekdays 9 AM</button>
+    <button onclick="setCron('0 0 * * *')" style="width:auto;padding:0.25rem 0.75rem;font-size:0.8rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-weight:600;">Daily midnight</button>
+    <button onclick="setCron('0 14 * * *')" style="width:auto;padding:0.25rem 0.75rem;font-size:0.8rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-weight:600;">Daily 2 PM UTC</button>
+    <button onclick="setCron('30 5 * * *')" style="width:auto;padding:0.25rem 0.75rem;font-size:0.8rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-weight:600;">Daily 5:30 AM UTC</button>
+    <button onclick="setCron('0 */6 * * *')" style="width:auto;padding:0.25rem 0.75rem;font-size:0.8rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-weight:600;">Every 6 hours</button>
+  </div>
+  <div id="cronResult"></div>
+  <p style="font-size:0.82rem;color:#888;margin-top:1rem;">Format: <code>minute hour day-of-month month day-of-week</code> &bull; Assumes UTC timezone as most production cron jobs run in UTC.</p>
+</section>
+</div>
+
+<!-- TAB: ISO/RFC TIMESTAMP PARSER -->
+<div id="tab-timestamp" class="tab-panel">
+<section aria-label="ISO Timestamp Parser" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>&#x1F4CB; ISO / RFC Timestamp Parser</h2>
+  <p style="color:#3d4651;">Paste any timestamp string from an API log, email header, or calendar file — instantly decoded across all timezones.</p>
+  <div style="margin-bottom:1rem;">
+    <label for="tsInput" style="font-weight:600;display:block;margin-bottom:0.4rem;">Paste Timestamp</label>
+    <input type="text" id="tsInput" placeholder="e.g. 2026-03-15T14:30:00+05:30" style="font-family:monospace;font-size:1rem;" oninput="parseTimestamp()" />
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem;">
+    <span style="font-size:0.82rem;color:#637381;font-weight:600;margin-right:0.25rem;">Examples:</span>
+    <button onclick="setTs('2026-03-15T14:30:00+05:30')" style="width:auto;padding:0.25rem 0.7rem;font-size:0.78rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-family:monospace;">ISO 8601 +05:30</button>
+    <button onclick="setTs('2026-03-15T09:00:00Z')" style="width:auto;padding:0.25rem 0.7rem;font-size:0.78rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-family:monospace;">ISO UTC Z</button>
+    <button onclick="setTs('Sun, 15 Mar 2026 09:00:00 +0000')" style="width:auto;padding:0.25rem 0.7rem;font-size:0.78rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-family:monospace;">RFC 2822</button>
+    <button onclick="setTs('Mar 15, 2026 2:30 PM IST')" style="width:auto;padding:0.25rem 0.7rem;font-size:0.78rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-family:monospace;">Natural</button>
+    <button onclick="setTs('1742042400')" style="width:auto;padding:0.25rem 0.7rem;font-size:0.78rem;background:#e6f0fa;color:#0a54a0;border:1px solid #b8c3d7;border-radius:6px;margin-top:0;font-family:monospace;">Unix epoch</button>
+  </div>
+  <div id="tsResult"></div>
+</section>
+</div>
+
+<!-- TAB: CAN I CALL INDIA NOW -->
+<div id="tab-callnow" class="tab-panel">
+<section aria-label="Can I call India now" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>&#x1F4DE; Can I Call India Right Now?</h2>
+  <p style="color:#3d4651;">Pick your city — see instantly if India business hours (9 AM–6 PM IST) overlap with your current time right now, and find the best window today.</p>
+  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1.5rem;">
+    <select id="callCitySelect" onchange="updateCallWidget()" style="font-size:1rem;padding:0.6rem 1rem;border-radius:8px;border:2px solid #b8c3d7;max-width:300px;background:#fff;"></select>
+    <span style="font-size:0.88rem;color:#888;">Updates live every minute</span>
+  </div>
+  <div id="callResult" style="margin-bottom:1.5rem;"></div>
+  <div id="callTimeline" style="background:#fff;border-radius:12px;padding:1.25rem 1.5rem;border:1px solid #e0eaff;">
+    <div style="font-weight:700;color:#0a3a86;margin-bottom:0.75rem;font-size:0.95rem;">&#128197; Today&rsquo;s overlap window</div>
+    <div id="callTimelineBar"></div>
+    <div id="callTimelineLabels" style="display:flex;justify-content:space-between;font-size:0.75rem;color:#888;margin-top:0.3rem;"></div>
+  </div>
+</section>
+</div>
+
+<!-- TAB: DST TRANSITION COUNTDOWN -->
+<div id="tab-dst" class="tab-panel">
+<section aria-label="DST Transition Countdown" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
+  <h2>&#x1F501; DST Transition Countdown</h2>
+  <p style="color:#3d4651;">India never observes DST — but the US, UK and EU do. When their clocks change, <strong>your IST meeting time shifts</strong>. See exactly when, and by how much.</p>
+  <div id="dstCountdowns" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-top:1rem;"></div>
+  <div style="margin-top:2rem;">
+    <div style="font-weight:700;color:#0a3a86;margin-bottom:0.75rem;">&#128336; Check how a recurring meeting shifts</div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:flex-end;margin-bottom:1rem;">
+      <div>
+        <label style="font-weight:600;display:block;margin-bottom:0.3rem;font-size:0.9rem;">Your meeting time</label>
+        <input type="time" id="dstMeetTime" value="09:00" style="font-size:1rem;padding:0.5rem 0.75rem;border-radius:8px;border:2px solid #b8c3d7;width:150px;" />
+      </div>
+      <div>
+        <label style="font-weight:600;display:block;margin-bottom:0.3rem;font-size:0.9rem;">In timezone</label>
+        <select id="dstMeetTz" style="font-size:1rem;padding:0.5rem 0.75rem;border-radius:8px;border:2px solid #b8c3d7;background:#fff;">
+          <option value="America/New_York">New York (ET)</option>
+          <option value="America/Los_Angeles">Los Angeles (PT)</option>
+          <option value="America/Chicago">Chicago (CT)</option>
+          <option value="Europe/London">London (GMT/BST)</option>
+          <option value="Europe/Berlin">Berlin/Paris (CET/CEST)</option>
+          <option value="Australia/Sydney">Sydney (AEST/AEDT)</option>
+        </select>
+      </div>
+      <button onclick="checkDstShift()" style="width:auto;padding:0.6rem 1.25rem;font-size:1rem;margin-top:0;">Check shift</button>
+    </div>
+    <div id="dstShiftResult"></div>
+  </div>
+</section>
+</div>
+
 <!-- TAB: INFO -->
 <div id="tab-info" class="tab-panel">
   <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>About This Tool</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p><strong>UTC to IST &amp; Timezone Converter</strong> is a free tool to convert between UTC, IST, GMT, EST, PST, CET, JST and other timezones instantly. Built for developers, remote workers, travelers, and business professionals worldwide.</p><p>Maintained by <strong>Harshit Yadav</strong>. All calculations run entirely in your browser &mdash; no data is ever sent to a server.</p></div></div>
@@ -1366,7 +1489,417 @@ function dateToEpoch(){var val=document.getElementById('dateToEpochInput').value
 var MEETING_TZ=[{city:"Los Angeles",tz:"America/Los_Angeles"},{city:"New York",tz:"America/New_York"},{city:"London",tz:"Europe/London"},{city:"Paris",tz:"Europe/Paris"},{city:"Dubai",tz:"Asia/Dubai"},{city:"Mumbai",tz:"Asia/Kolkata"},{city:"Singapore",tz:"Asia/Singapore"},{city:"Tokyo",tz:"Asia/Tokyo"},{city:"Sydney",tz:"Australia/Sydney"}];
 function buildMeetingGrid(){var dv=document.getElementById('meetingDate').value,tbl=document.getElementById('meetingTable');if(!dv){tbl.innerHTML='<tr><td>Please select a date.</td></tr>';return}var h='<thead><tr><th style="padding:6px 10px;background:#0a54a0;color:#fff;text-align:left;">Hour (UTC)</th>';MEETING_TZ.forEach(function(m){h+='<th style="padding:6px 8px;background:#0a54a0;color:#fff;text-align:center;font-size:0.85rem;">'+m.city+'</th>'});h+='</tr></thead><tbody>';for(var i=0;i<24;i++){var ud=new Date(dv+'T'+pad(i)+':00:00Z'),aw=MEETING_TZ.some(function(m){var lh=parseInt(ud.toLocaleString('en-US',{timeZone:m.tz,hour:'numeric',hour12:false}),10);return lh>=9&&lh<18});h+='<tr style="'+(aw?'background:#e6f9ee;':'')+'"><td style="padding:5px 10px;font-family:monospace;font-weight:600;color:#637381;font-size:0.9rem;">'+pad(i)+':00</td>';MEETING_TZ.forEach(function(m){var lh=parseInt(ud.toLocaleString('en-US',{timeZone:m.tz,hour:'numeric',hour12:false}),10),wk=lh>=9&&lh<18,ls=ud.toLocaleTimeString('en-GB',{timeZone:m.tz,hour:'2-digit',minute:'2-digit',hour12:false});h+='<td style="padding:5px 8px;text-align:center;font-family:monospace;font-size:0.9rem;color:'+(wk?'#0a6e35':'#9aabbf')+';font-weight:'+(wk?'700':'400')+';">'+ls+'</td>'});h+='</tr>'}tbl.innerHTML=h+'</tbody>'}
 function calcDuration(){var s=document.getElementById('durStart').value,e=document.getElementById('durEnd').value,res=document.getElementById('durationResult');if(!s||!e){res.innerHTML='<span style="color:#c0392b;">Please select both start and end.</span>';return}var abs=Math.abs(new Date(e)-new Date(s)),sign=new Date(e)<new Date(s)?'-':'',days=Math.floor(abs/86400000),hours=Math.floor((abs%86400000)/3600000),mins=Math.floor((abs%3600000)/60000),secs=Math.floor((abs%60000)/1000);res.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem;margin-top:0.5rem;">'+[['Days',days],['Hours',hours],['Minutes',mins],['Seconds',secs]].map(function(x){return'<div style="background:#e6f0fa;border-radius:10px;padding:1rem;text-align:center;"><div style="font-size:1.75rem;font-weight:700;color:#0a54a0;">'+sign+x[1]+'</div><div style="font-size:0.9rem;color:#637381;">'+x[0]+'</div></div>'}).join('')+'</div><div style="margin-top:1rem;font-size:0.95rem;color:#3d4651;"><strong>Total:</strong> '+sign+Math.floor(abs/1000).toLocaleString()+' seconds | '+sign+Math.floor(abs/60000).toLocaleString()+' minutes | '+sign+Math.floor(abs/3600000).toLocaleString()+' hours</div>'}
-function showTab(id,btn){document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('.tnav-btn').forEach(function(b){b.classList.remove('active')});var panel=document.getElementById(id);if(panel)panel.classList.add('active');if(btn)btn.classList.add('active');if(id==='tab-worldclock'){buildWorldClock();updateWorldClock()}if(id==='tab-meeting'){var md=document.getElementById('meetingDate');if(md&&md.value)buildMeetingGrid()}}
+// ── TZ ABBREVIATION DECODER ──────────────────────────────────────────
+var TZ_ABBR_DB = {
+  'IST': [{name:'India Standard Time',tz:'Asia/Kolkata',flag:'🇮🇳',offset:'+05:30'},{name:'Israel Standard Time',tz:'Asia/Jerusalem',flag:'🇮🇱',offset:'+02:00'},{name:'Irish Standard Time',tz:'Europe/Dublin',flag:'🇮🇪',offset:'+01:00 (summer)'}],
+  'CST': [{name:'US Central Standard Time',tz:'America/Chicago',flag:'🇺🇸',offset:'−06:00'},{name:'China Standard Time',tz:'Asia/Shanghai',flag:'🇨🇳',offset:'+08:00'},{name:'Cuba Standard Time',tz:'America/Havana',flag:'🇨🇺',offset:'−05:00'}],
+  'EST': [{name:'US Eastern Standard Time',tz:'America/New_York',flag:'🇺🇸',offset:'−05:00'},{name:'Australian Eastern Standard Time',tz:'Australia/Brisbane',flag:'🇦🇺',offset:'+10:00'}],
+  'PST': [{name:'US Pacific Standard Time',tz:'America/Los_Angeles',flag:'🇺🇸',offset:'−08:00'},{name:'Philippine Standard Time',tz:'Asia/Manila',flag:'🇵🇭',offset:'+08:00'},{name:'Pakistan Standard Time',tz:'Asia/Karachi',flag:'🇵🇰',offset:'+05:00'}],
+  'BST': [{name:'British Summer Time (UK DST)',tz:'Europe/London',flag:'🇬🇧',offset:'+01:00'},{name:'Bangladesh Standard Time',tz:'Asia/Dhaka',flag:'🇧🇩',offset:'+06:00'}],
+  'EDT': [{name:'US Eastern Daylight Time',tz:'America/New_York',flag:'🇺🇸',offset:'−04:00'}],
+  'PDT': [{name:'US Pacific Daylight Time',tz:'America/Los_Angeles',flag:'🇺🇸',offset:'−07:00'}],
+  'CDT': [{name:'US Central Daylight Time',tz:'America/Chicago',flag:'🇺🇸',offset:'−05:00'}],
+  'MDT': [{name:'US Mountain Daylight Time',tz:'America/Denver',flag:'🇺🇸',offset:'−06:00'}],
+  'MST': [{name:'US Mountain Standard Time',tz:'America/Denver',flag:'🇺🇸',offset:'−07:00'},{name:'Myanmar Standard Time',tz:'Asia/Rangoon',flag:'🇲🇲',offset:'+06:30'}],
+  'GMT': [{name:'Greenwich Mean Time',tz:'UTC',flag:'🌐',offset:'+00:00'},{name:'UK Winter Time (same as GMT)',tz:'Europe/London',flag:'🇬🇧',offset:'+00:00'}],
+  'UTC': [{name:'Coordinated Universal Time',tz:'UTC',flag:'🌐',offset:'+00:00'}],
+  'CET': [{name:'Central European Time',tz:'Europe/Berlin',flag:'🇪🇺',offset:'+01:00'},{name:'Central European Summer Time (CEST)',tz:'Europe/Berlin',flag:'🇪🇺',offset:'+02:00 (summer)'}],
+  'JST': [{name:'Japan Standard Time',tz:'Asia/Tokyo',flag:'🇯🇵',offset:'+09:00'}],
+  'SGT': [{name:'Singapore Standard Time',tz:'Asia/Singapore',flag:'🇸🇬',offset:'+08:00'}],
+  'HKT': [{name:'Hong Kong Time',tz:'Asia/Hong_Kong',flag:'🇭🇰',offset:'+08:00'}],
+  'KST': [{name:'Korea Standard Time',tz:'Asia/Seoul',flag:'🇰🇷',offset:'+09:00'}],
+  'GST': [{name:'Gulf Standard Time (UAE/Dubai)',tz:'Asia/Dubai',flag:'🇦🇪',offset:'+04:00'},{name:'South Georgia Time',tz:'Atlantic/South_Georgia',flag:'🇬🇸',offset:'−02:00'}],
+  'AEST': [{name:'Australian Eastern Standard Time',tz:'Australia/Sydney',flag:'🇦🇺',offset:'+10:00'}],
+  'AEDT': [{name:'Australian Eastern Daylight Time',tz:'Australia/Sydney',flag:'🇦🇺',offset:'+11:00'}],
+  'NZST': [{name:'New Zealand Standard Time',tz:'Pacific/Auckland',flag:'🇳🇿',offset:'+12:00'}],
+  'WET':  [{name:'Western European Time',tz:'Europe/Lisbon',flag:'🇵🇹',offset:'+00:00'}],
+  'EET':  [{name:'Eastern European Time',tz:'Europe/Helsinki',flag:'🇫🇮',offset:'+02:00'}],
+  'AST':  [{name:'Atlantic Standard Time',tz:'America/Halifax',flag:'🇨🇦',offset:'−04:00'},{name:'Arabia Standard Time',tz:'Asia/Riyadh',flag:'🇸🇦',offset:'+03:00'}],
+  'CAT':  [{name:'Central Africa Time',tz:'Africa/Harare',flag:'🌍',offset:'+02:00'}],
+  'EAT':  [{name:'East Africa Time',tz:'Africa/Nairobi',flag:'🌍',offset:'+03:00'}],
+  'WAT':  [{name:'West Africa Time',tz:'Africa/Lagos',flag:'🌍',offset:'+01:00'}],
+  'BRT':  [{name:'Brasilia Time',tz:'America/Sao_Paulo',flag:'🇧🇷',offset:'−03:00'}],
+  'ART':  [{name:'Argentina Time',tz:'America/Argentina/Buenos_Aires',flag:'🇦🇷',offset:'−03:00'}],
+  'PET':  [{name:'Peru Time',tz:'America/Lima',flag:'🇵🇪',offset:'−05:00'}],
+  'ICT':  [{name:'Indochina Time (Bangkok/Hanoi)',tz:'Asia/Bangkok',flag:'🇹🇭',offset:'+07:00'}],
+  'WIB':  [{name:'Western Indonesia Time',tz:'Asia/Jakarta',flag:'🇮🇩',offset:'+07:00'}],
+  'PKT':  [{name:'Pakistan Standard Time',tz:'Asia/Karachi',flag:'🇵🇰',offset:'+05:00'}],
+  'NPT':  [{name:'Nepal Standard Time',tz:'Asia/Kathmandu',flag:'🇳🇵',offset:'+05:45'}],
+  'LKT':  [{name:'Sri Lanka Time',tz:'Asia/Colombo',flag:'🇱🇰',offset:'+05:30'}],
+  'BDT':  [{name:'Bangladesh Standard Time',tz:'Asia/Dhaka',flag:'🇧🇩',offset:'+06:00'}],
+  'MMT':  [{name:'Myanmar Time',tz:'Asia/Rangoon',flag:'🇲🇲',offset:'+06:30'}],
+  'ACST': [{name:'Australian Central Standard Time',tz:'Australia/Darwin',flag:'🇦🇺',offset:'+09:30'}],
+  'AWST': [{name:'Australian Western Standard Time',tz:'Australia/Perth',flag:'🇦🇺',offset:'+08:00'}]
+};
+function decodeAbbr(){
+  var val=document.getElementById('abbrInput').value.trim().toUpperCase();
+  var res=document.getElementById('abbrResult');
+  if(!val){res.innerHTML='';return;}
+  var matches=TZ_ABBR_DB[val];
+  if(!matches){
+    // fuzzy: find any key that starts with val
+    var fuzzy=Object.keys(TZ_ABBR_DB).filter(function(k){return k.startsWith(val)});
+    if(!fuzzy.length){res.innerHTML='<div style="color:#c0392b;padding:1rem;">No timezone abbreviation found for <strong>'+val+'</strong>. Try: IST, CST, EST, PST, BST, GMT, UTC…</div>';return;}
+    matches=[];fuzzy.forEach(function(k){TZ_ABBR_DB[k].forEach(function(m){matches.push(Object.assign({abbr:k},m))})});
+  } else {
+    matches=matches.map(function(m){return Object.assign({abbr:val},m)});
+  }
+  var now=new Date();
+  var html='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">';
+  matches.forEach(function(m){
+    var timeStr='—';
+    try{timeStr=now.toLocaleTimeString('en-US',{timeZone:m.tz,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});}catch(e){}
+    var istOff='';
+    try{
+      var off=Math.round(getOffsetMinutes(now,m.tz));
+      var diff=off-330;
+      var sign=diff>=0?'+':'';
+      var dh=Math.floor(Math.abs(diff)/60),dm=Math.abs(diff)%60;
+      istOff=sign+(diff===0?'same as IST':dh+'h'+(dm?dm+'m':'')+(diff>0?' ahead of IST':' behind IST'));
+    }catch(e){}
+    html+='<div style="background:#fff;border-radius:12px;padding:1.1rem 1.25rem;border:2px solid '+(m.abbr==='IST'&&m.tz==='Asia/Kolkata'?'#f7931e':'#e0eaff')+';">'
+      +'<div style="font-size:1.5rem;font-weight:800;font-family:monospace;color:#0a3a86;">'+timeStr+'</div>'
+      +'<div style="font-weight:700;color:#222;margin:0.25rem 0;">'+m.flag+' '+m.name+'</div>'
+      +'<div style="font-size:0.82rem;color:#637381;">Abbr: <strong>'+m.abbr+'</strong> &bull; Offset: '+m.offset+'</div>'
+      +(istOff?'<div style="font-size:0.82rem;color:#888;margin-top:0.2rem;">'+istOff+'</div>':'')
+      +'</div>';
+  });
+  res.innerHTML=html+'</div>';
+  if(matches.length>1){
+    res.innerHTML+='<div style="margin-top:1rem;padding:0.75rem 1rem;background:#fff8e6;border-radius:8px;border-left:3px solid #f7931e;font-size:0.88rem;color:#7a4a00;">&#9888; <strong>'+val+'</strong> has '+matches.length+' different meanings depending on region. Confirm which one before scheduling.</div>';
+  }
+}
+
+// ── CRON PARSER ──────────────────────────────────────────────────────
+function setCron(val){document.getElementById('cronInput').value=val;parseCron();}
+function parseCron(){
+  var expr=document.getElementById('cronInput').value.trim();
+  var res=document.getElementById('cronResult');
+  if(!expr){res.innerHTML='';return;}
+  var parts=expr.split(/\s+/);
+  if(parts.length<5){res.innerHTML='<div style="color:#c0392b;padding:0.75rem;">Need 5 fields: minute hour day month weekday</div>';return;}
+  var minute=parts[0],hour=parts[1],dom=parts[2],month=parts[3],dow=parts[4];
+  // Human description
+  var desc=cronDescribe(minute,hour,dom,month,dow);
+  // Next 8 fire times from now
+  var fires=cronNextFires(minute,hour,dom,month,dow,8);
+  if(!fires.length){res.innerHTML='<div style="color:#c0392b;padding:0.75rem;">Could not compute fire times. Try a simpler expression.</div>';return;}
+  var now=new Date();
+  var html='<div style="background:#e6f0fa;border-radius:10px;padding:0.9rem 1.25rem;margin-bottom:1rem;font-size:1rem;color:#0a3a86;font-weight:700;">&#128172; '+desc+'</div>';
+  html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:0.9rem;min-width:520px;">';
+  html+='<thead><tr style="background:#0a54a0;color:#fff;">'
+    +'<th style="padding:7px 10px;text-align:left;">#</th>'
+    +'<th style="padding:7px 10px;">UTC</th>'
+    +'<th style="padding:7px 10px;background:#c05000;">🇮🇳 IST</th>'
+    +'<th style="padding:7px 10px;">Your Local</th>'
+    +'<th style="padding:7px 10px;">In</th>'
+    +'</tr></thead><tbody>';
+  fires.forEach(function(d,i){
+    var utcStr=d.toISOString().replace('T',' ').substring(0,16)+' UTC';
+    var istMs=d.getTime()+(d.getTimezoneOffset()*60000)+5.5*3600000;
+    var ist=new Date(istMs);
+    var istStr=pad(ist.getUTCHours())+':'+pad(ist.getUTCMinutes())+' IST '
+      +['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][ist.getUTCDay()];
+    var localStr=d.toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});
+    var inMs=d-now,inH=Math.floor(inMs/3600000),inM=Math.floor((inMs%3600000)/60000);
+    var inStr=inH>0?inH+'h '+inM+'m':inM+'m';
+    html+='<tr style="background:'+(i%2?'#f5f8fd':'#fff')+';"><td style="padding:6px 10px;color:#888;font-weight:700;">'+(i+1)+'</td>'
+      +'<td style="padding:6px 10px;font-family:monospace;color:#3d4651;">'+utcStr+'</td>'
+      +'<td style="padding:6px 10px;font-family:monospace;font-weight:700;color:#c05000;background:#fff8e6;">'+istStr+'</td>'
+      +'<td style="padding:6px 10px;font-family:monospace;color:#555;">'+localStr+'</td>'
+      +'<td style="padding:6px 10px;color:#0a54a0;font-weight:700;">'+inStr+'</td></tr>';
+  });
+  res.innerHTML=html+'</tbody></table></div>';
+}
+function cronDescribe(min,hr,dom,month,dow){
+  var s='Runs ';
+  var mins=min==='*'?'every minute':(min.startsWith('*/')? 'every '+min.slice(2)+' minutes':'at minute '+min);
+  var hrs=hr==='*'?'every hour':(hr.startsWith('*/')? 'every '+hr.slice(2)+' hours':'at '+pad(parseInt(hr,10))+':00 UTC');
+  var days=dow==='*'?(dom==='*'?'every day':'on day '+dom+' of the month'):'on '+dow.split('-').map(function(d){return['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d]||d}).join('–');
+  return s+mins+', '+hrs+', '+days;
+}
+function cronNextFires(minExpr,hrExpr,domExpr,monthExpr,dowExpr,count){
+  var results=[];
+  var d=new Date();d.setSeconds(0,0);d.setMinutes(d.getMinutes()+1);
+  var limit=d.getTime()+366*24*3600000;
+  function match(expr,val,min,max){
+    if(expr==='*')return true;
+    if(expr.startsWith('*/')){var step=parseInt(expr.slice(2),10);return(val-min)%step===0;}
+    if(expr.includes(',')){return expr.split(',').some(function(p){return match(p,val,min,max);});}
+    if(expr.includes('-')){var pts=expr.split('-');return val>=parseInt(pts[0],10)&&val<=parseInt(pts[1],10);}
+    return parseInt(expr,10)===val;
+  }
+  while(results.length<count&&d.getTime()<limit){
+    var mo=d.getUTCMonth()+1,dy=d.getUTCDate(),h=d.getUTCHours(),m=d.getUTCMinutes(),dw=d.getUTCDay();
+    if(match(monthExpr,mo,1,12)&&match(domExpr,dy,1,31)&&match(dowExpr,dw,0,6)&&match(hrExpr,h,0,23)&&match(minExpr,m,0,59)){
+      results.push(new Date(d));
+    }
+    d.setMinutes(d.getMinutes()+1);
+  }
+  return results;
+}
+
+// ── ISO/RFC TIMESTAMP PARSER ─────────────────────────────────────────
+function setTs(val){document.getElementById('tsInput').value=val;parseTimestamp();}
+function parseTimestamp(){
+  var raw=document.getElementById('tsInput').value.trim();
+  var res=document.getElementById('tsResult');
+  if(!raw){res.innerHTML='';return;}
+  var d=null;
+  // Unix epoch (all digits)
+  if(/^\d{9,13}$/.test(raw)){
+    var n=parseInt(raw,10);
+    d=new Date(raw.length<=10?n*1000:n);
+  } else {
+    d=new Date(raw);
+  }
+  if(!d||isNaN(d.getTime())){
+    res.innerHTML='<div style="color:#c0392b;padding:0.75rem;">Could not parse <strong>'+raw+'</strong>. Try ISO 8601, RFC 2822, or a Unix timestamp.</div>';
+    return;
+  }
+  var zones=[
+    {label:'🌐 UTC',tz:'UTC',bold:false},
+    {label:'🇮🇳 IST',tz:'Asia/Kolkata',bold:true},
+    {label:'🇺🇸 New York (ET)',tz:'America/New_York',bold:false},
+    {label:'🇺🇸 Los Angeles (PT)',tz:'America/Los_Angeles',bold:false},
+    {label:'🇬🇧 London',tz:'Europe/London',bold:false},
+    {label:'🇩🇪 Berlin/Paris',tz:'Europe/Berlin',bold:false},
+    {label:'🇦🇪 Dubai',tz:'Asia/Dubai',bold:false},
+    {label:'🇸🇬 Singapore',tz:'Asia/Singapore',bold:false},
+    {label:'🇯🇵 Tokyo',tz:'Asia/Tokyo',bold:false},
+    {label:'🇦🇺 Sydney',tz:'Australia/Sydney',bold:false},
+    {label:'📍 Your local',tz:null,bold:false}
+  ];
+  var html='<div style="background:#e6f9ee;border-radius:10px;padding:0.8rem 1.2rem;margin-bottom:1rem;">'
+    +'<div style="font-size:0.82rem;color:#888;margin-bottom:0.2rem;">Parsed as</div>'
+    +'<div style="font-family:monospace;font-weight:700;font-size:1rem;color:#0a3a86;">'+d.toISOString()+'</div>'
+    +'<div style="font-size:0.85rem;color:#555;margin-top:0.2rem;">Unix: '+d.getTime()+' ms &bull; '+Math.floor(d.getTime()/1000)+' s</div>'
+    +'</div>';
+  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0.75rem;">';
+  zones.forEach(function(z){
+    var str;
+    if(!z.tz){
+      str=d.toLocaleString('en-US',{weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+    } else {
+      str=d.toLocaleString('en-US',{timeZone:z.tz,weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+    }
+    html+='<div style="background:'+(z.bold?'#fff8e6':'#fff')+';border:2px solid '+(z.bold?'#f7931e':'#e0eaff')+';border-radius:10px;padding:0.8rem 1rem;">'
+      +'<div style="font-size:0.78rem;font-weight:700;color:#637381;margin-bottom:0.2rem;">'+z.label+'</div>'
+      +'<div style="font-family:monospace;font-weight:'+(z.bold?'800':'600')+';font-size:0.95rem;color:'+(z.bold?'#c05000':'#0a3a86')+';">'+str+'</div>'
+      +'</div>';
+  });
+  res.innerHTML=html+'</div>';
+}
+
+// ── CAN I CALL INDIA NOW ──────────────────────────────────────────────
+var CALL_CITIES=[
+  {label:'New York (ET)',tz:'America/New_York'},{label:'Los Angeles (PT)',tz:'America/Los_Angeles'},
+  {label:'Chicago (CT)',tz:'America/Chicago'},{label:'London (GMT/BST)',tz:'Europe/London'},
+  {label:'Berlin / Paris (CET)',tz:'Europe/Berlin'},{label:'Dubai (GST)',tz:'Asia/Dubai'},
+  {label:'Singapore (SGT)',tz:'Asia/Singapore'},{label:'Sydney (AEST)',tz:'Australia/Sydney'},
+  {label:'Tokyo (JST)',tz:'Asia/Tokyo'},{label:'Toronto (ET)',tz:'America/Toronto'},
+  {label:'Vancouver (PT)',tz:'America/Vancouver'},{label:'Auckland (NZST)',tz:'Pacific/Auckland'}
+];
+function buildCallSelect(){
+  var sel=document.getElementById('callCitySelect');
+  if(!sel||sel.options.length>1)return;
+  CALL_CITIES.forEach(function(c){var o=document.createElement('option');o.value=c.tz;o.textContent=c.label;sel.appendChild(o);});
+}
+function updateCallWidget(){
+  var sel=document.getElementById('callCitySelect');
+  if(!sel)return;
+  var tz=sel.value;
+  var now=new Date();
+  // Current IST hour
+  var istMs=now.getTime()+(now.getTimezoneOffset()*60000)+5.5*3600000;
+  var istNow=new Date(istMs);
+  var istH=istNow.getUTCHours()+istNow.getUTCMinutes()/60;
+  var indiaOpen=istH>=9&&istH<18;
+  // Current hour in selected city
+  var cityH=parseFloat(now.toLocaleString('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',hour12:false}).replace(':','.'));
+  var cityOpen=cityH>=9&&cityH<18;
+  var bothOpen=indiaOpen&&cityOpen;
+  var cityStr=now.toLocaleTimeString('en-US',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:true});
+  var istStr=istNow.getUTCHours()%12||12;
+  var istMin=pad(istNow.getUTCMinutes());
+  var istAmPm=istNow.getUTCHours()>=12?'PM':'AM';
+  var res=document.getElementById('callResult');
+  if(bothOpen){
+    res.innerHTML='<div style="background:#e6f9ee;border:3px solid #2e7d32;border-radius:14px;padding:1.5rem 2rem;text-align:center;">'
+      +'<div style="font-size:3rem;margin-bottom:0.5rem;">✅</div>'
+      +'<div style="font-size:1.4rem;font-weight:800;color:#1b5e20;">Yes! Good time to call India</div>'
+      +'<div style="color:#2e7d32;margin-top:0.5rem;">India is in business hours &mdash; <strong>'+istStr+':'+istMin+' '+istAmPm+' IST</strong></div>'
+      +'<div style="color:#555;font-size:0.9rem;margin-top:0.3rem;">Your time: '+cityStr+' &bull; Both sides in working hours</div>'
+      +'</div>';
+  } else if(indiaOpen&&!cityOpen){
+    res.innerHTML='<div style="background:#fff8e6;border:3px solid #f7931e;border-radius:14px;padding:1.5rem 2rem;text-align:center;">'
+      +'<div style="font-size:3rem;margin-bottom:0.5rem;">🟡</div>'
+      +'<div style="font-size:1.4rem;font-weight:800;color:#c05000;">India is open — your side isn\'t</div>'
+      +'<div style="color:#c05000;margin-top:0.5rem;">India: <strong>'+istStr+':'+istMin+' '+istAmPm+' IST</strong> (working hours)</div>'
+      +'<div style="color:#555;font-size:0.9rem;margin-top:0.3rem;">Your time: '+cityStr+' (outside 9–6)</div>'
+      +'</div>';
+  } else if(!indiaOpen&&cityOpen){
+    res.innerHTML='<div style="background:#fff8e6;border:3px solid #f7931e;border-radius:14px;padding:1.5rem 2rem;text-align:center;">'
+      +'<div style="font-size:3rem;margin-bottom:0.5rem;">🟡</div>'
+      +'<div style="font-size:1.4rem;font-weight:800;color:#c05000;">You\'re in office — India isn\'t</div>'
+      +'<div style="color:#c05000;margin-top:0.5rem;">India: <strong>'+istStr+':'+istMin+' '+istAmPm+' IST</strong> (outside 9–6)</div>'
+      +'<div style="color:#555;font-size:0.9rem;margin-top:0.3rem;">Your time: '+cityStr+'</div>'
+      +'</div>';
+  } else {
+    res.innerHTML='<div style="background:#fdecea;border:3px solid #c0392b;border-radius:14px;padding:1.5rem 2rem;text-align:center;">'
+      +'<div style="font-size:3rem;margin-bottom:0.5rem;">❌</div>'
+      +'<div style="font-size:1.4rem;font-weight:800;color:#c0392b;">Not a good time — both sides are off</div>'
+      +'<div style="color:#c0392b;margin-top:0.5rem;">India: <strong>'+istStr+':'+istMin+' '+istAmPm+' IST</strong></div>'
+      +'<div style="color:#555;font-size:0.9rem;margin-top:0.3rem;">Your time: '+cityStr+'</div>'
+      +'</div>';
+  }
+  // Timeline bar: 24h, highlight IST 9-18 and city 9-18 overlap in green
+  buildCallTimeline(tz,now);
+}
+function buildCallTimeline(tz,now){
+  var barEl=document.getElementById('callTimelineBar');
+  var labEl=document.getElementById('callTimelineLabels');
+  if(!barEl)return;
+  // For each hour 0–23 UTC, compute IST and city hours
+  var cells='<div style="display:flex;height:32px;border-radius:6px;overflow:hidden;gap:1px;">';
+  for(var h=0;h<24;h++){
+    var probe=new Date(now);probe.setUTCHours(h,0,0,0);
+    var istMs2=probe.getTime()+(probe.getTimezoneOffset()*60000)+5.5*3600000;
+    var istH2=new Date(istMs2).getUTCHours();
+    var cityH2=parseInt(probe.toLocaleString('en-US',{timeZone:tz,hour:'numeric',hour12:false}),10);
+    var iInd=istH2>=9&&istH2<18,iCity=cityH2>=9&&cityH2<18;
+    var now_h=now.getUTCHours();
+    var border=h===now_h?'3px solid #0a54a0':'none';
+    var bg;
+    if(iInd&&iCity)bg='#2e7d32';
+    else if(iInd||iCity)bg='#f7931e';
+    else bg='#e0eaff';
+    cells+='<div title="'+pad(h)+':00 UTC" style="flex:1;background:'+bg+';outline:'+border+';cursor:default;"></div>';
+  }
+  cells+='</div>';
+  cells+='<div style="margin-top:0.4rem;display:flex;gap:1rem;font-size:0.78rem;">'
+    +'<span><span style="display:inline-block;width:12px;height:12px;background:#2e7d32;border-radius:2px;vertical-align:middle;margin-right:3px;"></span>Both open</span>'
+    +'<span><span style="display:inline-block;width:12px;height:12px;background:#f7931e;border-radius:2px;vertical-align:middle;margin-right:3px;"></span>One side open</span>'
+    +'<span><span style="display:inline-block;width:12px;height:12px;background:#e0eaff;border-radius:2px;vertical-align:middle;margin-right:3px;"></span>Both closed</span>'
+    +'<span style="color:#0a54a0;font-weight:700;">│ = now (UTC)</span>'
+    +'</div>';
+  barEl.innerHTML=cells;
+  var lbls='';
+  [0,6,12,18,23].forEach(function(h){lbls+='<span>'+pad(h)+':00</span>';});
+  labEl.innerHTML=lbls;
+}
+
+// ── DST COUNTDOWN & SHIFT CHECKER ────────────────────────────────────
+var DST_EVENTS=[
+  {name:'🇺🇸 US springs forward',desc:'Clocks +1h → EST becomes EDT',date:'2026-03-08T02:00:00',tz:'America/New_York',delta:+60,hint:'Meetings set in EST will shift 1h earlier in IST'},
+  {name:'🇬🇧 UK springs forward',desc:'GMT becomes BST (+1h)',date:'2026-03-29T01:00:00',tz:'Europe/London',delta:+60,hint:'London-India meetings shift 1h earlier in IST'},
+  {name:'🇪🇺 EU springs forward',desc:'CET becomes CEST (+1h)',date:'2026-03-29T02:00:00',tz:'Europe/Berlin',delta:+60,hint:'Berlin/Paris meetings shift 1h earlier in IST'},
+  {name:'🇺🇸 US falls back',desc:'Clocks −1h → EDT becomes EST',date:'2026-11-01T02:00:00',tz:'America/New_York',delta:-60,hint:'Meetings set in EDT will shift 1h later in IST'},
+  {name:'🇬🇧 UK falls back',desc:'BST becomes GMT (−1h)',date:'2026-10-25T01:00:00',tz:'Europe/London',delta:-60,hint:'London-India meetings shift 1h later in IST'},
+  {name:'🇪🇺 EU falls back',desc:'CEST becomes CET (−1h)',date:'2026-10-25T03:00:00',tz:'Europe/Berlin',delta:-60,hint:'Berlin/Paris meetings shift 1h later in IST'},
+  {name:'🇦🇺 Australia springs forward',desc:'AEST becomes AEDT (+1h)',date:'2026-10-04T02:00:00',tz:'Australia/Sydney',delta:+60,hint:'Sydney meetings shift 1h later in IST (AU moves ahead)'}
+];
+function buildDstCountdowns(){
+  var el=document.getElementById('dstCountdowns');if(!el)return;
+  var now=new Date();
+  var html='';
+  DST_EVENTS.forEach(function(ev){
+    var target=new Date(ev.date);
+    var diff=target-now;
+    if(diff<-3600000)return; // skip past events (more than 1h ago)
+    var past=diff<0;
+    var abs=Math.abs(diff);
+    var days=Math.floor(abs/86400000);
+    var hrs=Math.floor((abs%86400000)/3600000);
+    var mins=Math.floor((abs%3600000)/60000);
+    var color=past?'#888':(days<7?'#c0392b':'#0a54a0');
+    var badge=past?'<span style="background:#888;color:#fff;border-radius:4px;padding:2px 8px;font-size:0.75rem;">JUST HAPPENED</span>'
+      :(days===0?'<span style="background:#c0392b;color:#fff;border-radius:4px;padding:2px 8px;font-size:0.75rem;">TODAY</span>'
+      :(days<7?'<span style="background:#e65100;color:#fff;border-radius:4px;padding:2px 8px;font-size:0.75rem;">THIS WEEK</span>':''));
+    html+='<div style="background:#fff;border-radius:12px;padding:1.25rem 1.4rem;border:2px solid '+(days<7&&!past?'#c0392b':'#e0eaff')+';">'
+      +'<div style="font-weight:700;font-size:0.95rem;color:#222;margin-bottom:0.15rem;">'+ev.name+' '+badge+'</div>'
+      +'<div style="font-size:0.82rem;color:#637381;margin-bottom:0.6rem;">'+ev.desc+'</div>'
+      +'<div style="font-size:'+(past?'1rem':'1.5rem')+';font-weight:800;color:'+color+';font-family:monospace;margin-bottom:0.3rem;">'
+      +(past?'Already happened':(days+'d '+hrs+'h '+mins+'m away'))
+      +'</div>'
+      +'<div style="font-size:0.8rem;color:#888;">'+new Date(ev.date).toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+'</div>'
+      +'<div style="font-size:0.82rem;color:#c05000;margin-top:0.5rem;font-style:italic;">'+ev.hint+'</div>'
+      +'</div>';
+  });
+  if(!html)html='<div style="color:#2e7d32;font-weight:700;padding:1rem;">No DST transitions in the near future. All tracked transitions for 2026 have passed.</div>';
+  el.innerHTML=html;
+}
+function checkDstShift(){
+  var timeVal=document.getElementById('dstMeetTime').value;
+  var tz=document.getElementById('dstMeetTz').value;
+  var res=document.getElementById('dstShiftResult');
+  if(!timeVal){res.innerHTML='<span style="color:#c0392b;">Please select a time.</span>';return;}
+  var h=parseInt(timeVal.split(':')[0],10),m=parseInt(timeVal.split(':')[1],10);
+  // Find DST events for this tz
+  var events=DST_EVENTS.filter(function(e){return e.tz===tz;});
+  if(!events.length){res.innerHTML='<div style="padding:0.75rem;color:#2e7d32;">This timezone has no tracked DST transitions.</div>';return;}
+  var html='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:0.5rem;">';
+  events.forEach(function(ev){
+    // IST equivalent before and after transition
+    var offBefore=ev.delta>0?330-(ev.delta):330; // IST is fixed, the other tz moves
+    // Before: what is IST when it's h:m in that tz
+    var beforeDate=new Date(ev.date);beforeDate.setDate(beforeDate.getDate()-1);
+    var tzOffBefore=Math.round(getOffsetMinutes(beforeDate,tz));
+    var istMinBefore=((h*60+m-tzOffBefore+330)+1440)%1440;
+    var ibH=Math.floor(istMinBefore/60),ibM=istMinBefore%60;
+    // After: one day after transition
+    var afterDate=new Date(ev.date);afterDate.setDate(afterDate.getDate()+1);
+    var tzOffAfter=Math.round(getOffsetMinutes(afterDate,tz));
+    var istMinAfter=((h*60+m-tzOffAfter+330)+1440)%1440;
+    var iaH=Math.floor(istMinAfter/60),iaM=istMinAfter%60;
+    var srcH12=h%12||12,srcAmPm=h>=12?'PM':'AM';
+    var shifted=ibH!==iaH||ibM!==iaM;
+    html+='<div style="background:#fff;border-radius:12px;padding:1.1rem 1.3rem;border:2px solid '+(shifted?'#c0392b':'#2e7d32')+';">'
+      +'<div style="font-weight:700;font-size:0.92rem;margin-bottom:0.5rem;">'+ev.name+'</div>'
+      +'<div style="font-size:0.88rem;color:#555;margin-bottom:0.6rem;">Your '+srcH12+':'+pad(m)+' '+srcAmPm+' meeting in India:</div>'
+      +'<div style="display:flex;gap:1rem;flex-wrap:wrap;">'
+      +'<div><div style="font-size:0.75rem;color:#888;">Before transition</div>'
+      +'<div style="font-family:monospace;font-weight:700;font-size:1.1rem;color:#0a54a0;">'+(ibH%12||12)+':'+pad(ibM)+' '+(ibH>=12?'PM':'AM')+' IST</div></div>'
+      +'<div style="font-size:1.3rem;color:#637381;align-self:center;">&rarr;</div>'
+      +'<div><div style="font-size:0.75rem;color:#888;">After transition</div>'
+      +'<div style="font-family:monospace;font-weight:700;font-size:1.1rem;color:'+(shifted?'#c0392b':'#2e7d32')+'">'+(iaH%12||12)+':'+pad(iaM)+' '+(iaH>=12?'PM':'AM')+' IST</div></div>'
+      +'</div>'
+      +(shifted?'<div style="margin-top:0.6rem;font-size:0.82rem;background:#fdecea;border-radius:6px;padding:0.4rem 0.6rem;color:#c0392b;">⚠️ Shifts '+(iaH*60+iaM>ibH*60+ibM?'later':'earlier')+' by '+(ev.delta>0?ev.delta:-ev.delta)+' minutes in IST</div>'
+        :'<div style="margin-top:0.6rem;font-size:0.82rem;color:#2e7d32;">✅ No change — India IST is fixed</div>')
+      +'</div>';
+  });
+  res.innerHTML=html+'</div>';
+}
+
+// ── HASH ROUTING: open correct tab from URL ───────────────────────────
+function routeFromHash(){
+  var h=window.location.hash.replace('#','');
+  var map={abbr:'btn-abbr',cron:'btn-cron',timestamp:'btn-timestamp',callnow:'btn-callnow',dst:'btn-dst',
+           home:'',convert:'',worldclock:'',epoch:'',meeting:'',duration:'',info:''};
+  var tabMap={abbr:'tab-abbr',cron:'tab-cron',timestamp:'tab-timestamp',callnow:'tab-callnow',dst:'tab-dst',
+              home:'tab-home',convert:'tab-tzconv',worldclock:'tab-worldclock',epoch:'tab-epoch',
+              meeting:'tab-meeting',duration:'tab-duration',info:'tab-info'};
+  if(h&&tabMap[h]){
+    var btn=document.getElementById(map[h])||document.querySelector('[onclick*="'+tabMap[h]+'"]');
+    showTab(tabMap[h],btn);
+  }
+}
+window.addEventListener('hashchange',routeFromHash);
+
+
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
+  var panel=document.getElementById(id);
+  if(panel)panel.style.display='block';
+  document.querySelectorAll('.tnav-btn').forEach(function(b){b.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  if(id==='tab-worldclock'){buildWorldClock();updateWorldClock();}
+  if(id==='tab-home'){buildDiffCards();buildInstantCityClocks();updateInstantCityClocks();}
+  if(id==='tab-callnow'){buildCallSelect();updateCallWidget();}
+  if(id==='tab-dst'){buildDstCountdowns();}
+  if(id==='tab-abbr'){var ai=document.getElementById('abbrInput');if(ai&&ai.value)decodeAbbr();}
+  window.location.hash=id.replace('tab-','').replace('tzconv','convert');
+}
 function toggleAccordion(header){var body=header.nextElementSibling,isOpen=body.classList.contains('open');body.classList.toggle('open',!isOpen);header.classList.toggle('open',!isOpen);header.setAttribute('aria-expanded',String(!isOpen))}
 document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('accordion-header')){e.preventDefault();toggleAccordion(e.target)}});
 function buildUtcIstTable(){
@@ -1417,6 +1950,9 @@ document.addEventListener('DOMContentLoaded',function(){
   if(ds)ds.value=fmt(new Date(now.getTime()-3*3600000));if(de)de.value=fmt(now);
   document.getElementById('convertLocalToUTCBtn').addEventListener('click',convertLocalToUTC);
   document.getElementById('convertUTCToLocalBtn').addEventListener('click',convertUTCToLocal);
+  buildCallSelect();updateCallWidget();setInterval(updateCallWidget,60000);
+  buildDstCountdowns();setInterval(buildDstCountdowns,60000);
+  routeFromHash();
 });
 </script>
 </body>
