@@ -90,21 +90,67 @@
     .snav-btn:hover{background:#f0f6ff;color:#0a54a0;border-left-color:#b8d0f8;}
     .snav-btn.active{background:#e8f1ff;color:#0a54a0;border-left-color:#0a54a0;font-weight:700;}
     .snav-btn .snav-icon{font-size:1rem;flex-shrink:0;width:1.2rem;text-align:center;}
-    /* ── sidebar toggle button: always fixed, repositions with sidebar ── */
-    #snav-toggle{position:fixed;top:0;left:220px;z-index:300;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#0a54a0;color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:2px 0 8px rgba(10,84,160,0.18);transition:left 0.25s;border-radius:0 0 8px 0;padding:0;flex-shrink:0;}
+    /* ═══════════════════════════════════════════════════════════
+       SIDEBAR — industry-standard CSS-class-driven layout
+       State stored on <body data-nav="open|closed">
+       JS never touches style.left — CSS owns all positioning
+    ═══════════════════════════════════════════════════════════ */
+
+    /* ── Toggle button: fixed, always visible ── */
+    #snav-toggle{
+      position:fixed;top:0;z-index:300;
+      width:44px;height:44px;
+      display:flex;align-items:center;justify-content:center;
+      background:#0a54a0;color:#fff;
+      border:none;border-radius:0 0 8px 0;
+      font-size:1.2rem;cursor:pointer;
+      box-shadow:2px 2px 8px rgba(10,84,160,0.2);
+      transition:left 0.25s;
+      padding:0;
+    }
     #snav-toggle:hover{background:#0c62b8;}
-    #snav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:199;}
-    /* desktop: sidebar always visible, shifts toggle right */
-    #sidenav{position:fixed;top:0;left:0;height:100vh;transform:translateX(0);box-shadow:2px 0 12px rgba(10,84,160,0.08);transition:transform 0.25s;}
-    #content-area{flex:1 1 0%;min-width:0;padding:1.5rem 2rem;margin-left:220px;transition:margin-left 0.25s;}
-    #app-shell.nav-collapsed #sidenav{transform:translateX(-220px);}
-    #app-shell.nav-collapsed #content-area{margin-left:0;}
+
+    /* ── Overlay (mobile only) ── */
+    #snav-overlay{
+      display:none;position:fixed;inset:0;
+      background:rgba(0,0,0,0.35);z-index:199;
+    }
+
+    /* ── Sidebar ── */
+    #sidenav{
+      position:fixed;top:0;left:0;height:100vh;
+      box-shadow:2px 0 12px rgba(10,84,160,0.08);
+      transition:transform 0.25s;
+      z-index:200;
+    }
+
+    /* ── Content area ── */
+    #content-area{
+      flex:1 1 0%;min-width:0;
+      padding:1.5rem 2rem;
+      transition:margin-left 0.25s;
+    }
+
+    /* ══ DESKTOP (>860px): sidebar always rendered, toggle rides its edge ══ */
+    @media(min-width:861px){
+      #sidenav{transform:translateX(0);}
+      #content-area{margin-left:220px;}
+      #snav-toggle{left:220px;}
+      /* Collapsed state on desktop */
+      body[data-nav="closed"] #sidenav{transform:translateX(-220px);}
+      body[data-nav="closed"] #content-area{margin-left:0;}
+      body[data-nav="closed"] #snav-toggle{left:0;}
+    }
+
+    /* ══ MOBILE (≤860px): sidebar off-screen by default, slides in on open ══ */
     @media(max-width:860px){
       #sidenav{transform:translateX(-100%);}
-      #sidenav.open{transform:translateX(0);}
-      #snav-overlay.open{display:block;}
-      #snav-toggle{left:0 !important;border-radius:0 0 8px 0;}
-      #content-area{padding:1rem;margin-left:0 !important;margin-top:48px;}
+      #content-area{margin-left:0 !important;padding:1rem;margin-top:48px;}
+      #snav-toggle{left:0;}
+      /* Open state on mobile */
+      body[data-nav="open"] #sidenav{transform:translateX(0);}
+      body[data-nav="open"] #snav-toggle{left:220px;}
+      body[data-nav="open"] #snav-overlay{display:block;}
     }
     @media(max-width:480px){#content-area{padding:0.75rem 0.8rem;margin-top:48px;}}
     /* ── keep existing component styles ── */
@@ -2528,27 +2574,49 @@ window.addEventListener('hashchange',routeFromHash);
 
 
 /* ===== SIDEBAR NAV JS ===== */
-function toggleSidenav(){
-  var btn=document.getElementById('snav-toggle');
-  var isMobile=window.innerWidth<=860;
-  if(isMobile){
-    var nav=document.getElementById('sidenav');
-    var ov=document.getElementById('snav-overlay');
-    var open=nav.classList.contains('open');
-    nav.classList.toggle('open',!open);
-    ov.classList.toggle('open',!open);
-    btn.style.left=open?'0':'220px';
-  } else {
-    var shell=document.getElementById('app-shell');
-    var collapsed=shell.classList.toggle('nav-collapsed');
-    btn.style.left=collapsed?'0':'220px';
+(function(){
+  // Single source of truth: body[data-nav]
+  // Desktop default: 'open'  |  Mobile default: 'closed'
+  function isMobile(){ return window.innerWidth<=860; }
+
+  function initNav(){
+    // Set initial state based on viewport — no inline styles ever
+    document.body.setAttribute('data-nav', isMobile() ? 'closed' : 'open');
   }
-}
-function closeSidenav(){
-  document.getElementById('sidenav').classList.remove('open');
-  document.getElementById('snav-overlay').classList.remove('open');
-  document.getElementById('snav-toggle').style.left='0';
-}
+
+  window.toggleSidenav=function(){
+    var current=document.body.getAttribute('data-nav');
+    if(isMobile()){
+      document.body.setAttribute('data-nav', current==='open' ? 'closed' : 'open');
+    } else {
+      document.body.setAttribute('data-nav', current==='closed' ? 'open' : 'closed');
+    }
+  };
+
+  window.closeSidenav=function(){
+    // Only closes on mobile; on desktop sidebar never closes on nav-item click
+    if(isMobile()){
+      document.body.setAttribute('data-nav','closed');
+    }
+  };
+
+  // On window resize: re-initialise state so desktop/mobile defaults are correct
+  var resizeTimer;
+  window.addEventListener('resize',function(){
+    clearTimeout(resizeTimer);
+    resizeTimer=setTimeout(function(){
+      // If crossing breakpoint, reset to correct default
+      document.body.setAttribute('data-nav', isMobile() ? 'closed' : 'open');
+    },150);
+  });
+
+  // Init on DOM ready
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initNav);
+  } else {
+    initNav();
+  }
+}());
 function toggleSnavGroup(id){
   var grp=document.getElementById(id);
   if(grp)grp.classList.toggle('collapsed');
