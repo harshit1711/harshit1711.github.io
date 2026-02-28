@@ -71,10 +71,11 @@
     .two-col-grid-lg{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
     @media(max-width:600px){.qc-grid{grid-template-columns:1fr 1fr}.qc-arrow{display:none!important}.qc-time{grid-column:1/-1}.two-col-grid,.two-col-grid-lg{grid-template-columns:1fr}}
     /* ── SIDEBAR NAV ─────────────────────────────────────────────── */
-    #app-shell{display:flex;align-items:flex-start;gap:0;min-height:100vh;}
-    #sidenav{width:220px;min-width:220px;flex-shrink:0;background:#fff;border-right:1.5px solid #d0dff5;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;z-index:200;transition:transform 0.25s;}
+    #app-shell{display:block;min-height:100vh;}
+    #sidenav{width:220px;background:#fff;border-right:1.5px solid #d0dff5;overflow-y:auto;display:flex;flex-direction:column;z-index:200;}
     #sidenav-inner{padding:0 0 2rem;flex:1;}
-    #sidenav-logo{padding:1rem 1.1rem 0.6rem;border-bottom:1px solid #e8eef8;}
+    #sidenav-logo{padding:0.8rem 1.1rem 0.6rem;border-bottom:1px solid #e8eef8;}
+    #sidenav-logo .snav-brand{display:block;}
     #sidenav-logo .snav-title{font-size:0.95rem;font-weight:800;color:#0a54a0;line-height:1.2;}
     #sidenav-logo .snav-ist{font-size:1.3rem;font-weight:800;font-family:monospace;color:#c05000;}
     .snav-group{margin-top:0.6rem;}
@@ -89,18 +90,23 @@
     .snav-btn:hover{background:#f0f6ff;color:#0a54a0;border-left-color:#b8d0f8;}
     .snav-btn.active{background:#e8f1ff;color:#0a54a0;border-left-color:#0a54a0;font-weight:700;}
     .snav-btn .snav-icon{font-size:1rem;flex-shrink:0;width:1.2rem;text-align:center;}
-    /* hamburger */
-    #snav-toggle{display:none;position:fixed;top:0.75rem;left:0.75rem;z-index:300;background:#0a54a0;color:#fff;border:none;border-radius:8px;width:40px;height:40px;font-size:1.3rem;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(10,84,160,0.3);margin:0;padding:0;}
+    /* ── sidebar toggle button: always fixed, repositions with sidebar ── */
+    #snav-toggle{position:fixed;top:0;left:220px;z-index:300;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#0a54a0;color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:2px 0 8px rgba(10,84,160,0.18);transition:left 0.25s;border-radius:0 0 8px 0;padding:0;flex-shrink:0;}
+    #snav-toggle:hover{background:#0c62b8;}
     #snav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:199;}
-    #content-area{flex:1 1 0%;min-width:0;padding:1.5rem 2rem;}
+    /* desktop: sidebar always visible, shifts toggle right */
+    #sidenav{position:fixed;top:0;left:0;height:100vh;transform:translateX(0);box-shadow:2px 0 12px rgba(10,84,160,0.08);transition:transform 0.25s;}
+    #content-area{flex:1 1 0%;min-width:0;padding:1.5rem 2rem;margin-left:220px;transition:margin-left 0.25s;}
+    #app-shell.nav-collapsed #sidenav{transform:translateX(-220px);}
+    #app-shell.nav-collapsed #content-area{margin-left:0;}
     @media(max-width:860px){
-      #sidenav{position:fixed;top:0;left:0;height:100vh;transform:translateX(-100%);box-shadow:4px 0 20px rgba(0,0,0,0.15);}
+      #sidenav{transform:translateX(-100%);}
       #sidenav.open{transform:translateX(0);}
       #snav-overlay.open{display:block;}
-      #snav-toggle{display:flex;}
-      #content-area{padding:1rem 1rem 1rem 1rem;margin-top:3rem;}
+      #snav-toggle{left:0 !important;border-radius:0 0 8px 0;}
+      #content-area{padding:1rem;margin-left:0 !important;margin-top:48px;}
     }
-    @media(max-width:480px){#content-area{padding:0.75rem 0.8rem;margin-top:3.2rem;}}
+    @media(max-width:480px){#content-area{padding:0.75rem 0.8rem;margin-top:48px;}}
     /* ── keep existing component styles ── */
     .tab-panel{display:none}
     .tab-panel.active{display:block}
@@ -131,8 +137,7 @@
 <body>
 <noscript><div style="background:#fffbe6;border:2px solid #ffe58f;border-radius:10px;padding:1.5rem;margin-bottom:2rem;color:#7a5a00;font-size:1.1rem;"><strong>JavaScript is disabled.</strong> This timezone converter requires JavaScript.<br><br><b>Quick Reference:</b> UTC+0:00=UTC | UTC+5:30=IST | UTC-5:00=EST | UTC-8:00=PST | UTC+1:00=CET | UTC+9:00=JST</div></noscript>
 
-<!-- Hamburger (mobile only) -->
-<button id="snav-toggle" aria-label="Open navigation" onclick="toggleSidenav()">&#9776;</button>
+<button id="snav-toggle" onclick="toggleSidenav()" aria-label="Toggle navigation" title="Toggle sidebar">&#9776;</button>
 <div id="snav-overlay" onclick="closeSidenav()"></div>
 
 <div id="app-shell">
@@ -141,8 +146,10 @@
 <nav id="sidenav" aria-label="Tool navigation">
   <div id="sidenav-inner">
     <div id="sidenav-logo">
-      <div class="snav-title">&#x1F1EE;&#x1F1F3; WorkIndia</div>
-      <div class="snav-ist" id="snavIstClock">--:--</div>
+      <div class="snav-brand">
+        <div class="snav-title">&#x1F1EE;&#x1F1F3; WorkIndia</div>
+        <div class="snav-ist" id="snavIstClock">--:--</div>
+      </div>
     </div>
 
     <!-- TIME -->
@@ -2522,17 +2529,25 @@ window.addEventListener('hashchange',routeFromHash);
 
 /* ===== SIDEBAR NAV JS ===== */
 function toggleSidenav(){
-  var nav=document.getElementById('sidenav');
-  var ov=document.getElementById('snav-overlay');
-  var open=nav.classList.contains('open');
-  nav.classList.toggle('open',!open);
-  ov.classList.toggle('open',!open);
-  document.getElementById('snav-toggle').innerHTML=open?'&#9776;':'&#10005;';
+  var btn=document.getElementById('snav-toggle');
+  var isMobile=window.innerWidth<=860;
+  if(isMobile){
+    var nav=document.getElementById('sidenav');
+    var ov=document.getElementById('snav-overlay');
+    var open=nav.classList.contains('open');
+    nav.classList.toggle('open',!open);
+    ov.classList.toggle('open',!open);
+    btn.style.left=open?'0':'220px';
+  } else {
+    var shell=document.getElementById('app-shell');
+    var collapsed=shell.classList.toggle('nav-collapsed');
+    btn.style.left=collapsed?'0':'220px';
+  }
 }
 function closeSidenav(){
   document.getElementById('sidenav').classList.remove('open');
   document.getElementById('snav-overlay').classList.remove('open');
-  document.getElementById('snav-toggle').innerHTML='&#9776;';
+  document.getElementById('snav-toggle').style.left='0';
 }
 function toggleSnavGroup(id){
   var grp=document.getElementById(id);
