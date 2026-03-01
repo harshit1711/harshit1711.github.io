@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a54a0" />
   <title>WorkIndia — Tools for Everyone Working With India | Time, Holidays, Markets & More</title>
   <meta name="description" content="Is India open right now? WorkIndia gives you live IST time, India office hours status, EST/PST/GMT to IST converter, NSE/BSE market hours, India public holidays, shift overlap planner and NRI tools — free, instant, no signup." />
   <meta name="keywords" content="is India open right now, India office hours, India working hours today, India holiday today, EST to IST, PST to IST, GMT to IST, what time is it in India, India time for remote teams, NSE market hours EST, BSE open time UK, India US work overlap, India UK time difference, India timezone converter, India shift planner, India public holidays 2026, is today a holiday in India, NRI 183 day rule, invoice due date calculator, notice period calculator India, work with India tools" />
@@ -26,7 +27,9 @@
   <link rel="apple-touch-icon" href="https://harshit1711.github.io/og-image.png" />
   <link rel="sitemap" type="application/xml" href="https://harshit1711.github.io/sitemap.xml" />
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
   <link rel="preconnect" href="https://www.googletagservices.com" />
+  <link rel="dns-prefetch" href="https://www.googletagservices.com" />
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"WorkIndia","alternateName":"WorkIndia — Tools for Working With India","url":"https://harshit1711.github.io/","description":"Free tools for global professionals working with India: live IST clock, India office hours status, timezone converter, NSE/BSE market hours, India public holidays, shift planner, NRI 183-day tracker, invoice and notice period calculators.","author":{"@type":"Person","name":"Harshit Yadav"}}
   </script>
@@ -59,7 +62,7 @@
     .copied-tooltip.show{opacity:1}
     .converter{background:#f3f6fb;border-radius:12px;padding:1.75rem 2rem;margin-bottom:2.5rem;box-shadow:inset 0 0 8px rgba(0,0,0,0.04)}
     .result{margin-top:1rem;color:#0a54a0;font-weight:600;font-family:'Courier New',monospace;font-size:1.125rem;min-height:2rem;text-align:center}
-    .footnote{text-align:center;font-size:0.85rem;color:#637381;margin-bottom:3rem}
+    .footnote{text-align:center;font-size:0.85rem;color:#595f6b;margin-bottom:3rem}
     .qc-grid{display:grid;grid-template-columns:1fr auto 1fr auto;gap:0.75rem;align-items:end}
     .two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
     .two-col-grid-lg{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
@@ -71,7 +74,7 @@
     #sidenav-logo{padding:0.8rem 1.1rem 0.6rem;border-bottom:1px solid #e8eef8;}
     #sidenav-logo .snav-brand{display:block;}
     #sidenav-logo .snav-title{font-size:0.95rem;font-weight:800;color:#0a54a0;line-height:1.2;}
-    #sidenav-logo .snav-ist{font-size:1.3rem;font-weight:800;font-family:monospace;color:#c05000;}
+    #sidenav-logo .snav-ist{font-size:1.3rem;font-weight:800;font-family:monospace;color:#7a3500;}
     .snav-group{margin-top:0.6rem;}
     .snav-group-hdr{display:flex;align-items:center;justify-content:space-between;padding:0.45rem 1.1rem 0.3rem;cursor:pointer;user-select:none;}
     .snav-group-hdr:hover{background:#f0f6ff;}
@@ -147,6 +150,18 @@
       body[data-nav="open"] #snav-overlay{display:block;}
     }
     @media(max-width:480px){#content-area{padding:0.75rem 0.8rem;margin-top:48px;}}
+    /* ── Mobile performance ── */
+    @media(max-width:600px){
+      #heroIstTime{font-size:2.1rem!important;letter-spacing:0.02em!important;}
+      #instantCityClocks{min-height:340px!important;}
+      .city-clock-card{contain:layout style;}
+      section#quick-convert{contain:layout;}
+    }
+    .tab-panel:not(.active){content-visibility:auto;contain-intrinsic-size:0 500px;}
+    .snav-btn{touch-action:manipulation;}
+    button{touch-action:manipulation;}
+    #snav-toggle{touch-action:manipulation;will-change:left;}
+    #sidenav{will-change:transform;}
     /* ── keep existing component styles ── */
     .tab-panel{display:none}
     .tab-panel.active{display:block}
@@ -164,11 +179,11 @@
     .city-clock-card{background:#fff;border-radius:12px;padding:1rem 1.1rem;box-shadow:0 2px 10px rgba(10,84,160,0.10);border:1px solid #e0eaff;text-align:center;}
     .city-clock-card .cc-city{font-size:0.8rem;font-weight:700;color:#637381;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.1rem;}
     .city-clock-card .cc-time{font-size:1.55rem;font-weight:800;font-family:'Courier New',monospace;color:#0a3a86;line-height:1.1;}
-    .city-clock-card .cc-date{font-size:0.76rem;color:#888;margin-top:0.1rem;}
+    .city-clock-card .cc-date{font-size:0.76rem;color:#6b7280;margin-top:0.1rem;}
     .city-clock-card .cc-diff{font-size:0.76rem;font-weight:700;margin-top:0.3rem;padding:0.12rem 0.5rem;border-radius:10px;display:inline-block;}
     .city-clock-card.ist-card{background:linear-gradient(135deg,#fff8e6 0%,#fff3d0 100%);border:2px solid #f7931e;}
-    .city-clock-card.ist-card .cc-city{color:#c05000;font-size:0.85rem;}
-    .city-clock-card.ist-card .cc-time{color:#c05000;font-size:1.9rem;}
+    .city-clock-card.ist-card .cc-city{color:#7a3500;font-size:0.85rem;}
+    .city-clock-card.ist-card .cc-time{color:#7a3500;font-size:1.9rem;}
     /* legacy tnav stubs — keep for JS compatibility */
     .tnav-group-label{display:none;}
     .tnav-divider{display:none;}
@@ -308,7 +323,7 @@
 <div id="tab-home" class="tab-panel active">
 
 <!-- HERO: "Is India open right now?" — primary value prop for global audience -->
-<section aria-label="India office hours status" style="background:linear-gradient(135deg,#0a54a0 0%,#1a75d2 100%);border-radius:16px;margin-bottom:1.5rem;padding:1.5rem 2rem;box-shadow:0 4px 20px rgba(10,84,160,0.25);text-align:center;">
+<section aria-label="India office hours status" style="background:linear-gradient(135deg,#0a54a0 0%,#1a75d2 100%);border-radius:16px;margin-bottom:1.5rem;padding:1.5rem 2rem;box-shadow:0 4px 20px rgba(10,84,160,0.25);text-align:center;contain:layout style;">
   <!-- Status badge — rendered by JS -->
   <div id="indiaStatusBadge" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.15);border-radius:30px;padding:0.35rem 1rem;margin-bottom:0.75rem;font-size:0.9rem;font-weight:700;color:#fff;"></div>
   <!-- IST clock -->
@@ -324,18 +339,18 @@
 <section id="quick-convert" aria-label="What time is it in these cities right now">
 
   <!-- INSTANT CITY CLOCKS: zero interaction needed -->
-  <div id="instantCityClocks" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.9rem;margin-bottom:1.5rem;"></div>
+  <div id="instantCityClocks" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.9rem;margin-bottom:1.5rem;min-height:160px;"></div>
 
   <!-- PLAIN ENGLISH CONVERTER -->
   <div style="background:#fff;border-radius:14px;padding:1.4rem 1.75rem;box-shadow:0 2px 14px rgba(10,84,160,0.10);border:2px solid #d0dff5;">
     <div style="font-size:1rem;font-weight:700;color:#0a3a86;margin-bottom:0.9rem;">&#128337; What time will it be in India?</div>
     <div style="display:flex;flex-wrap:wrap;gap:0.65rem;align-items:center;">
       <span style="font-size:0.95rem;color:#444;white-space:nowrap;">It&rsquo;s</span>
-      <input type="time" id="peTime" style="padding:0.5rem 0.7rem;font-size:1.1rem;font-weight:700;border-radius:8px;border:2px solid #b8c3d7;width:175px;min-width:175px;" />
+      <input type="time" id="peTime" aria-label="Enter time to convert" style="padding:0.5rem 0.7rem;font-size:1.1rem;font-weight:700;border-radius:8px;border:2px solid #b8c3d7;width:175px;min-width:175px;" />
       <span style="font-size:0.95rem;color:#444;white-space:nowrap;">in</span>
       <select id="peCity" aria-label="Select city or timezone" style="padding:0.5rem 0.7rem;font-size:0.95rem;border-radius:8px;border:2px solid #b8c3d7;background:#fff;flex:1;min-width:160px;"></select>
     </div>
-    <div id="peResult" style="margin-top:0.9rem;background:#fff8e6;border-left:4px solid #f7931e;border-radius:0 10px 10px 0;padding:0.8rem 1.2rem;font-size:1.2rem;font-weight:700;color:#c05000;display:none;"></div>
+    <div id="peResult" style="margin-top:0.9rem;background:#fff8e6;border-left:4px solid #f7931e;border-radius:0 10px 10px 0;padding:0.8rem 1.2rem;font-size:1.2rem;font-weight:700;color:#7a3500;display:none;"></div>
   </div>
 
 </section>
@@ -411,7 +426,7 @@
       </div>
     </div>
     <div style="background:#fff;border-radius:10px;padding:1rem 1.25rem;border-left:4px solid #1a73c8;">
-      <div style="font-weight:700;color:#1a73c8;margin-bottom:0.5rem;">PST → IST <span style="font-size:0.8rem;color:#637381;">(add 13h 30m)</span></div>
+      <div style="font-weight:700;color:#1558a0;margin-bottom:0.5rem;">PST → IST <span style="font-size:0.8rem;color:#595f6b;">(add 13h 30m)</span></div>
       <div style="font-size:0.9rem;line-height:2;font-family:monospace;color:#222f3e;">
         9:00 AM PST = 10:30 PM IST<br>
         12:00 PM PST = 1:30 AM IST (+1d)<br>
@@ -429,7 +444,7 @@
       </div>
     </div>
     <div style="background:#fff;border-radius:10px;padding:1rem 1.25rem;border-left:4px solid #e65100;">
-      <div style="font-weight:700;color:#e65100;margin-bottom:0.5rem;">CET → IST <span style="font-size:0.8rem;color:#637381;">(add 4h 30m)</span></div>
+      <div style="font-weight:700;color:#b54000;margin-bottom:0.5rem;">CET → IST <span style="font-size:0.8rem;color:#595f6b;">(add 4h 30m)</span></div>
       <div style="font-size:0.9rem;line-height:2;font-family:monospace;color:#222f3e;">
         9:00 AM CET = 1:30 PM IST<br>
         12:00 PM CET = 4:30 PM IST<br>
@@ -463,16 +478,16 @@
     </div>
 
     <div style="background:#fff;border-radius:10px;padding:1rem 1.25rem;border-left:4px solid #1a73c8;">
-      <div style="font-weight:700;color:#1a73c8;margin-bottom:0.6rem;font-size:0.95rem;">&#127482;&#127480; PST &rarr; IST <span style="font-size:0.8rem;font-weight:400;color:#637381;">(add 13h 30m)</span></div>
+      <div style="font-weight:700;color:#1558a0;margin-bottom:0.6rem;font-size:0.95rem;">&#127482;&#127480; PST &rarr; IST <span style="font-size:0.8rem;font-weight:400;color:#595f6b;">(add 13h 30m)</span></div>
       <table style="width:100%;font-size:0.88rem;border-collapse:collapse;">
-        <tr><td style="padding:3px 0;color:#555;">6 AM PST</td><td style="font-weight:700;color:#1a73c8;">= 7:30 PM IST</td></tr>
-        <tr style="background:#f0f6ff;"><td style="padding:3px 0;color:#555;">8 AM PST</td><td style="font-weight:700;color:#1a73c8;">= 9:30 PM IST</td></tr>
-        <tr><td style="padding:3px 0;color:#555;">9 AM PST</td><td style="font-weight:700;color:#1a73c8;">= 10:30 PM IST</td></tr>
-        <tr style="background:#f0f6ff;"><td style="padding:3px 0;color:#555;">10 AM PST</td><td style="font-weight:700;color:#1a73c8;">= 11:30 PM IST</td></tr>
-        <tr><td style="padding:3px 0;color:#555;">12 PM PST</td><td style="font-weight:700;color:#1a73c8;">= 1:30 AM IST +1d</td></tr>
-        <tr style="background:#f0f6ff;"><td style="padding:3px 0;color:#555;">3 PM PST</td><td style="font-weight:700;color:#1a73c8;">= 4:30 AM IST +1d</td></tr>
-        <tr><td style="padding:3px 0;color:#555;">5 PM PST</td><td style="font-weight:700;color:#1a73c8;">= 6:30 AM IST +1d</td></tr>
-        <tr style="background:#f0f6ff;"><td style="padding:3px 0;color:#555;">6 PM PST</td><td style="font-weight:700;color:#1a73c8;">= 7:30 AM IST +1d</td></tr>
+        <tr><td style="padding:3px 0;color:#555;">6 AM PST</td><td style="font-weight:700;color:#1558a0;">= 7:30 PM IST</td></tr>
+        <tr style="background:#f0f6ff;"><td style="padding:3px 0;color:#555;">8 AM PST</td><td style="font-weight:700;color:#1558a0;">= 9:30 PM IST</td></tr>
+        <tr><td style="padding:3px 0;color:#555;">9 AM PST</td><td style="font-weight:700;color:#1558a0;">= 10:30 PM IST</td></tr>
+        <tr style="background:#f0f6ff;"><td style="padding:3px 0;color:#555;">10 AM PST</td><td style="font-weight:700;color:#1558a0;">= 11:30 PM IST</td></tr>
+        <tr><td style="padding:3px 0;color:#555;">12 PM PST</td><td style="font-weight:700;color:#1558a0;">= 1:30 AM IST +1d</td></tr>
+        <tr style="background:#f0f6ff;"><td style="padding:3px 0;color:#555;">3 PM PST</td><td style="font-weight:700;color:#1558a0;">= 4:30 AM IST +1d</td></tr>
+        <tr><td style="padding:3px 0;color:#555;">5 PM PST</td><td style="font-weight:700;color:#1558a0;">= 6:30 AM IST +1d</td></tr>
+        <tr style="background:#f0f6ff;"><td style="padding:3px 0;color:#555;">6 PM PST</td><td style="font-weight:700;color:#1558a0;">= 7:30 AM IST +1d</td></tr>
       </table>
     </div>
 
@@ -491,16 +506,16 @@
     </div>
 
     <div style="background:#fff;border-radius:10px;padding:1rem 1.25rem;border-left:4px solid #e65100;">
-      <div style="font-weight:700;color:#e65100;margin-bottom:0.6rem;font-size:0.95rem;">&#127462;&#127466; Dubai / CET &rarr; IST</div>
+      <div style="font-weight:700;color:#b54000;margin-bottom:0.6rem;font-size:0.95rem;">&#127462;&#127466; Dubai / CET &rarr; IST</div>
       <table style="width:100%;font-size:0.88rem;border-collapse:collapse;">
-        <tr><td style="padding:3px 0;color:#555;">9 AM GST (Dubai)</td><td style="font-weight:700;color:#e65100;">= 10:30 AM IST</td></tr>
-        <tr style="background:#fff8f5;"><td style="padding:3px 0;color:#555;">12 PM GST (Dubai)</td><td style="font-weight:700;color:#e65100;">= 1:30 PM IST</td></tr>
-        <tr><td style="padding:3px 0;color:#555;">5 PM GST (Dubai)</td><td style="font-weight:700;color:#e65100;">= 6:30 PM IST</td></tr>
-        <tr style="background:#fff8f5;"><td style="padding:3px 0;color:#555;">9 AM CET (Berlin)</td><td style="font-weight:700;color:#e65100;">= 1:30 PM IST</td></tr>
-        <tr><td style="padding:3px 0;color:#555;">12 PM CET (Berlin)</td><td style="font-weight:700;color:#e65100;">= 4:30 PM IST</td></tr>
-        <tr style="background:#fff8f5;"><td style="padding:3px 0;color:#555;">5 PM CET (Berlin)</td><td style="font-weight:700;color:#e65100;">= 9:30 PM IST</td></tr>
-        <tr><td style="padding:3px 0;color:#555;">9 AM SGT (Singapore)</td><td style="font-weight:700;color:#e65100;">= 6:30 AM IST</td></tr>
-        <tr style="background:#fff8f5;"><td style="padding:3px 0;color:#555;">9 AM AEST (Sydney)</td><td style="font-weight:700;color:#e65100;">= 3:30 AM IST</td></tr>
+        <tr><td style="padding:3px 0;color:#555;">9 AM GST (Dubai)</td><td style="font-weight:700;color:#b54000;">= 10:30 AM IST</td></tr>
+        <tr style="background:#fff8f5;"><td style="padding:3px 0;color:#555;">12 PM GST (Dubai)</td><td style="font-weight:700;color:#b54000;">= 1:30 PM IST</td></tr>
+        <tr><td style="padding:3px 0;color:#555;">5 PM GST (Dubai)</td><td style="font-weight:700;color:#b54000;">= 6:30 PM IST</td></tr>
+        <tr style="background:#fff8f5;"><td style="padding:3px 0;color:#555;">9 AM CET (Berlin)</td><td style="font-weight:700;color:#b54000;">= 1:30 PM IST</td></tr>
+        <tr><td style="padding:3px 0;color:#555;">12 PM CET (Berlin)</td><td style="font-weight:700;color:#b54000;">= 4:30 PM IST</td></tr>
+        <tr style="background:#fff8f5;"><td style="padding:3px 0;color:#555;">5 PM CET (Berlin)</td><td style="font-weight:700;color:#b54000;">= 9:30 PM IST</td></tr>
+        <tr><td style="padding:3px 0;color:#555;">9 AM SGT (Singapore)</td><td style="font-weight:700;color:#b54000;">= 6:30 AM IST</td></tr>
+        <tr style="background:#fff8f5;"><td style="padding:3px 0;color:#555;">9 AM AEST (Sydney)</td><td style="font-weight:700;color:#b54000;">= 3:30 AM IST</td></tr>
       </table>
     </div>
 
@@ -510,10 +525,10 @@
 
 <!-- Plain-language time difference section for non-technical users -->
 <section aria-label="India time difference from major cities" style="background:#fff3e0;border-radius:12px;margin-bottom:2.5rem;padding:1.5rem 2rem;border:1px solid #ffcc80;">
-  <h2 style="font-size:1.3rem;color:#e65100;margin-bottom:0.3rem;">&#127758; How Far Ahead is India Right Now?</h2>
+  <h2 style="font-size:1.3rem;color:#b54000;margin-bottom:0.3rem;">&#127758; How Far Ahead is India Right Now?</h2>
   <p style="font-size:0.95rem;color:#7a4a00;margin:0 0 1rem;">India does not observe Daylight Saving Time &mdash; IST is always UTC+5:30, a fixed offset year-round.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.85rem;" id="diffCardsGrid"></div>
-  <p style="font-size:0.85rem;color:#888;margin-top:0.9rem;">&#128161; Tip: India is ahead of the US and Europe but behind Japan, Singapore &amp; Australia. The +5:30 half-hour offset is unique to India, Sri Lanka, and Nepal region.</p>
+  <p style="font-size:0.85rem;color:#6b7280;margin-top:0.9rem;">&#128161; Tip: India is ahead of the US and Europe but behind Japan, Singapore &amp; Australia. The +5:30 half-hour offset is unique to India, Sri Lanka, and Nepal region.</p>
 </section>
 
 <section aria-label="Developer guides" style="margin:2.5rem 0 1rem;">
@@ -522,9 +537,9 @@
 
     <div onclick="openGuide('acc-dst')" style="background:#fff8f0;border:1px solid #f5c18a;border-radius:12px;padding:1.1rem 1.25rem;cursor:pointer;transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(200,80,0,0.13)'" onmouseout="this.style.boxShadow=''">
       <div style="font-size:1.5rem;margin-bottom:0.4rem;">&#9200;</div>
-      <div style="font-weight:700;color:#c05000;font-size:0.97rem;margin-bottom:0.3rem;">DST Bugs &amp; Fixes</div>
+      <div style="font-weight:700;color:#7a3500;font-size:0.97rem;margin-bottom:0.3rem;">DST Bugs &amp; Fixes</div>
       <div style="font-size:0.85rem;color:#555;line-height:1.5;">Hardcoded offsets, cron skip/double-fire, ambiguous DB timestamps — and how to fix all of them.</div>
-      <div style="margin-top:0.65rem;font-size:0.8rem;color:#c05000;font-weight:600;">JavaScript &bull; SQL &bull; Node-cron &#8594;</div>
+      <div style="margin-top:0.65rem;font-size:0.8rem;color:#7a3500;font-weight:600;">JavaScript &bull; SQL &bull; Node-cron &#8594;</div>
     </div>
 
     <div onclick="openGuide('acc-gotchas')" style="background:#f0f5ff;border:1px solid #b0c8f5;border-radius:12px;padding:1.1rem 1.25rem;cursor:pointer;transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(10,60,160,0.12)'" onmouseout="this.style.boxShadow=''">
@@ -752,7 +767,7 @@
   </div>
   <div id="abbrResult"></div>
   <div style="margin-top:1.5rem;background:#fff8e6;border-radius:10px;padding:1rem 1.25rem;border-left:4px solid #f7931e;">
-    <div style="font-weight:700;color:#c05000;margin-bottom:0.5rem;font-size:0.9rem;">&#9888; Why this matters</div>
+    <div style="font-weight:700;color:#7a3500;margin-bottom:0.5rem;font-size:0.9rem;">&#9888; Why this matters</div>
     <div style="font-size:0.88rem;color:#7a4a00;line-height:1.7;">
       <strong>IST</strong> = India Standard Time <em>or</em> Israel Standard Time <em>or</em> Irish Standard Time<br>
       <strong>CST</strong> = US Central Time <em>or</em> China Standard Time <em>or</em> Cuba Standard Time<br>
@@ -1620,7 +1635,7 @@ System.out.println(istTime.format(fmt)); <span style="color:#888">// 2026-02-26 
 <footer>
   <p>&copy; 2026 WorkIndia by Harshit1711 | Tools for Global Professionals Working With India<br>Last updated: February 2026 | Free, instant, no signup required</p>
   <p style="margin-top:0.5rem;font-size:0.85rem;">
-    <a href="javascript:void(0)" onclick="showTab('tab-info',document.getElementById('snav-info'));window.scrollTo(0,0);" style="color:#0a54a0;margin:0 0.5rem;">About</a> |
+    <a href="#info" onclick="showTab('tab-info',document.getElementById('snav-info'));window.scrollTo(0,0);return false;" style="color:#0a54a0;margin:0 0.5rem;">About</a> |
     <a href="/privacy.html" style="color:#0a54a0;margin:0 0.5rem;">Privacy Policy</a> |
     <a href="mailto:harshit1996yadav@gmail.com" style="color:#0a54a0;margin:0 0.5rem;">Contact</a>
   </p>
@@ -1822,13 +1837,13 @@ function buildInstantCityClocks(){
   grid.dataset.built='1';
   var istCard=document.createElement('div');
   istCard.className='city-clock-card ist-card';
-  istCard.innerHTML='<div class="cc-city">India (IST)</div><div class="cc-time" id="icc-ist">--:--:--</div><div class="cc-date" id="icc-ist-date"></div><div class="cc-diff" style="background:#fff3d0;color:#c05000;">UTC +5:30 &bull; No DST</div>';
+  istCard.innerHTML='<div class="cc-city" style="color:#7a3500">India (IST)</div><div class="cc-time" id="icc-ist">--:--:--</div><div class="cc-date" id="icc-ist-date"></div><div class="cc-diff" style="background:#fff3d0;color:#7a3500;">UTC +5:30 &bull; No DST</div>';
   grid.appendChild(istCard);
   INSTANT_CITIES.forEach(function(c){
     var card=document.createElement('div');
     card.className='city-clock-card';
     var safeId='icc-'+c.tz.replace(/[^a-z]/gi,'-');
-    card.innerHTML='<div class="cc-city">'+c.city+'</div><div style="font-size:0.73rem;color:#bbb;margin-bottom:0.1rem;">'+c.country+'</div><div class="cc-time" id="'+safeId+'">--:--:--</div><div class="cc-date" id="'+safeId+'-date"></div><div class="cc-diff" id="'+safeId+'-diff"></div>';
+    card.innerHTML='<div class="cc-city">'+c.city+'</div><div style="font-size:0.73rem;color:#6b7280;margin-bottom:0.1rem;">'+c.country+'</div><div class="cc-time" id="'+safeId+'">--:--:--</div><div class="cc-date" id="'+safeId+'-date"></div><div class="cc-diff" id="'+safeId+'-diff"></div>';
     grid.appendChild(card);
   });
 }
@@ -2312,7 +2327,7 @@ function parseCron(){
     var inStr=inH>0?inH+'h '+inM+'m':inM+'m';
     html+='<tr style="background:'+(i%2?'#f5f8fd':'#fff')+';"><td style="padding:6px 10px;color:#888;font-weight:700;">'+(i+1)+'</td>'
       +'<td style="padding:6px 10px;font-family:monospace;color:#3d4651;">'+utcStr+'</td>'
-      +'<td style="padding:6px 10px;font-family:monospace;font-weight:700;color:#c05000;background:#fff8e6;">'+istStr+'</td>'
+      +'<td style="padding:6px 10px;font-family:monospace;font-weight:700;color:#7a3500;background:#fff8e6;">'+istStr+'</td>'
       +'<td style="padding:6px 10px;font-family:monospace;color:#555;">'+localStr+'</td>'
       +'<td style="padding:6px 10px;color:#0a54a0;font-weight:700;">'+inStr+'</td></tr>';
   });
@@ -2441,15 +2456,15 @@ function updateCallWidget(){
   } else if(indiaOpen&&!cityOpen){
     res.innerHTML='<div style="background:#fff8e6;border:3px solid #f7931e;border-radius:14px;padding:1.5rem 2rem;text-align:center;">'
       +'<div style="font-size:3rem;margin-bottom:0.5rem;">🟡</div>'
-      +'<div style="font-size:1.4rem;font-weight:800;color:#c05000;">India is open — your side isn\'t</div>'
-      +'<div style="color:#c05000;margin-top:0.5rem;">India: <strong>'+istStr+':'+istMin+' '+istAmPm+' IST</strong> (working hours)</div>'
+      +'<div style="font-size:1.4rem;font-weight:800;color:#7a3500;">India is open — your side isn\'t</div>'
+      +'<div style="color:#7a3500;margin-top:0.5rem;">India: <strong>'+istStr+':'+istMin+' '+istAmPm+' IST</strong> (working hours)</div>'
       +'<div style="color:#555;font-size:0.9rem;margin-top:0.3rem;">Your time: '+cityStr+' (outside 9–6)</div>'
       +'</div>';
   } else if(!indiaOpen&&cityOpen){
     res.innerHTML='<div style="background:#fff8e6;border:3px solid #f7931e;border-radius:14px;padding:1.5rem 2rem;text-align:center;">'
       +'<div style="font-size:3rem;margin-bottom:0.5rem;">🟡</div>'
-      +'<div style="font-size:1.4rem;font-weight:800;color:#c05000;">You\'re in office — India isn\'t</div>'
-      +'<div style="color:#c05000;margin-top:0.5rem;">India: <strong>'+istStr+':'+istMin+' '+istAmPm+' IST</strong> (outside 9–6)</div>'
+      +'<div style="font-size:1.4rem;font-weight:800;color:#7a3500;">You\'re in office — India isn\'t</div>'
+      +'<div style="color:#7a3500;margin-top:0.5rem;">India: <strong>'+istStr+':'+istMin+' '+istAmPm+' IST</strong> (outside 9–6)</div>'
       +'<div style="color:#555;font-size:0.9rem;margin-top:0.3rem;">Your time: '+cityStr+'</div>'
       +'</div>';
   } else {
@@ -2529,7 +2544,7 @@ function buildDstCountdowns(){
       +(past?'Already happened':(days+'d '+hrs+'h '+mins+'m away'))
       +'</div>'
       +'<div style="font-size:0.8rem;color:#888;">'+new Date(ev.date).toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+'</div>'
-      +'<div style="font-size:0.82rem;color:#c05000;margin-top:0.5rem;font-style:italic;">'+ev.hint+'</div>'
+      +'<div style="font-size:0.82rem;color:#7a3500;margin-top:0.5rem;font-style:italic;">'+ev.hint+'</div>'
       +'</div>';
   });
   if(!html)html='<div style="color:#2e7d32;font-weight:700;padding:1rem;">No DST transitions in the near future. All tracked transitions for 2026 have passed.</div>';
@@ -2578,20 +2593,44 @@ function checkDstShift(){
 }
 
 // ── HASH ROUTING: open correct tab from URL ───────────────────────────
+// Lookup table: hash key or filename stem → tab ID
+var _ROUTE_MAP={
+  abbr:'tab-abbr','timezone-abbreviations':'tab-abbr',
+  cron:'tab-cron','cron-to-ist':'tab-cron',
+  timestamp:'tab-timestamp','timestamp-converter':'tab-timestamp',
+  callnow:'tab-callnow','call-india':'tab-callnow',
+  dst:'tab-dst','dst-tracker':'tab-dst',
+  date:'tab-duration','date-calculator':'tab-duration',duration:'tab-duration',
+  home:'tab-home',
+  convert:'tab-tzconv','ist-converter':'tab-tzconv',
+  worldclock:'tab-worldclock','world-clock':'tab-worldclock',
+  epoch:'tab-epoch','epoch-converter':'tab-epoch',
+  meeting:'tab-meeting','meeting-planner':'tab-meeting',
+  info:'tab-info',
+  market:'tab-market','nse-bse-market-hours':'tab-market',
+  shift:'tab-shift','india-shift-planner':'tab-shift',
+  holidays:'tab-holidays','india-holidays-2026':'tab-holidays',
+  nri183:'tab-nri183','nri-183-days':'tab-nri183',
+  invoice:'tab-invoice','invoice-due-date':'tab-invoice',
+  notice:'tab-notice','notice-period-calculator':'tab-notice'
+};
 function routeFromHash(){
+  // 1. Try hash (works on file://, and on https:// from redirect pages)
   var h=window.location.hash.replace('#','');
-  var map={abbr:'btn-abbr',cron:'btn-cron',timestamp:'btn-timestamp',callnow:'btn-callnow',dst:'btn-dst',date:'btn-date',
-           home:'',convert:'',worldclock:'',epoch:'',meeting:'',duration:'btn-date',info:'',
-           market:'btn-market',shift:'btn-shift',holidays:'btn-holidays',nri183:'btn-nri183',invoice:'btn-invoice',notice:'btn-notice'};
-  var tabMap={abbr:'tab-abbr',cron:'tab-cron',timestamp:'tab-timestamp',callnow:'tab-callnow',dst:'tab-dst',date:'tab-duration',
-              home:'tab-home',convert:'tab-tzconv',worldclock:'tab-worldclock',epoch:'tab-epoch',
-              meeting:'tab-meeting',duration:'tab-duration',info:'tab-info',
-              market:'tab-market',shift:'tab-shift',holidays:'tab-holidays',nri183:'tab-nri183',invoice:'tab-invoice',notice:'tab-notice'};
-  if(h&&tabMap[h]){
-    var btn=document.getElementById(map[h])||document.querySelector('[onclick*="'+tabMap[h]+'"]');
-    showTab(tabMap[h],btn);
+  // 2. Try path stem (works on https:// direct loads: /nse-bse-market-hours.html)
+  if(!h){
+    var stem=window.location.pathname.replace(/^\/|index\.html$/g,'').replace('.html','');
+    if(stem)h=stem;
+  }
+  var tabId=_ROUTE_MAP[h];
+  if(tabId){
+    var btn=document.querySelector('[onclick*="'+tabId+'"]');
+    showTab(tabId,btn);
   }
 }
+// popstate fires on browser back/forward with history API
+// hashchange fires when redirect pages push a #hash onto the URL
+window.addEventListener('popstate',routeFromHash);
 window.addEventListener('hashchange',routeFromHash);
 
 
@@ -2654,6 +2693,28 @@ function updateSnavIstClock(){
   if(el)el.textContent=pad(h)+':'+pad(m)+':'+pad(s);
 }
 
+var _BASE_URL='https://harshit1711.github.io';
+// Each tab maps to: title, description, and its own clean canonical URL (matching existing redirect pages)
+var _TAB_META={
+  'tab-home':      {t:'WorkIndia — Is India Open Right Now? Live IST Clock & Tools',        d:'Live IST clock, India office hours status, EST/PST/GMT to IST converter, NSE/BSE market hours, India holidays & shift planner. Free, instant, no signup.',u:'/'},
+  'tab-tzconv':    {t:'IST Time Zone Converter — Convert IST to UTC, EST, PST, GMT | WorkIndia', d:'Instantly convert any timezone to IST (India Standard Time) and back. Free online timezone converter for global professionals working with India.',u:'/ist-converter.html'},
+  'tab-worldclock':{t:'World Clock — Live Time in India, USA, UK, Dubai, Singapore & Tokyo | WorkIndia',d:'See the current local time in major world cities alongside IST. Perfect for scheduling calls and meetings across timezones.',u:'/world-clock.html'},
+  'tab-meeting':   {t:'India Meeting Planner — Schedule Meetings Between IST and USA, UK, EU | WorkIndia',d:'Find the best meeting time between India (IST) and US, UK, Europe, or Australia. Visual overlap planner for remote teams.',u:'/meeting-planner.html'},
+  'tab-callnow':   {t:'Is It a Good Time to Call India Right Now? | WorkIndia',              d:'Check if Indian offices are open right now. See current IST time, office hours, and whether it is a good time to call India.',u:'/call-india.html'},
+  'tab-dst':       {t:'DST Transition Countdown — Daylight Saving Time Tracker for India Teams | WorkIndia',d:'Track Daylight Saving Time changes and see how they affect the time difference between India and the US, UK, and Europe.',u:'/dst-tracker.html'},
+  'tab-duration':  {t:'Date Calculator India — Days Between Dates, Business Days & Countdown | WorkIndia',d:'Calculate exact days between two dates, business days, age in days, and countdown to any future date. Free, instant.',u:'/date-calculator.html'},
+  'tab-epoch':     {t:'Unix Epoch Converter — Epoch to IST & Human Readable Time | WorkIndia',d:'Convert Unix epoch timestamps to human-readable dates and back. Supports seconds and milliseconds. Free, instant.',u:'/epoch-converter.html'},
+  'tab-timestamp': {t:'Timestamp Converter India — UTC to IST & ISO 8601 | WorkIndia',      d:'Convert UTC timestamps to local time in any timezone. Supports ISO 8601 and Unix formats. Free timezone timestamp tool.',u:'/timestamp-converter.html'},
+  'tab-market':    {t:'NSE BSE Market Hours — Is the Indian Stock Market Open Right Now? | WorkIndia',d:'Live NSE and BSE market status. See if Indian stock markets are open right now and their hours in EST, PST, GMT and IST.',u:'/nse-bse-market-hours.html'},
+  'tab-shift':     {t:'India Shift Planner — Find Your IST Work Hours for Night Shifts & BPO | WorkIndia',d:'Plan shift overlaps between India and US, UK, or Europe teams. See exactly which hours both locations are working simultaneously.',u:'/india-shift-planner.html'},
+  'tab-holidays':  {t:'India Public Holidays 2026 — Complete Gazetted Holiday List | WorkIndia',d:'Complete list of India public holidays in 2026. National, bank, and state holidays with dates in IST for global teams.',u:'/india-holidays-2026.html'},
+  'tab-nri183':    {t:'NRI 183-Day Rule Calculator — India Tax Residency Day Tracker | WorkIndia',d:'Track your India stay days for NRI tax residency status. Calculates days spent in India and remaining days under the 183-day rule.',u:'/nri-183-days.html'},
+  'tab-invoice':   {t:'Invoice Due Date Calculator India — Net 30, 45, 60, 90 Day Terms | WorkIndia',d:'Calculate invoice due dates from invoice date, with NET 30 / NET 60 / NET 90 payment terms. Free instant invoice calculator.',u:'/invoice-due-date.html'},
+  'tab-notice':    {t:'Notice Period Calculator India — Last Working Day Calculator | WorkIndia',d:'Calculate your last working day based on notice period. Supports 30, 60, 90-day and 1-year notice periods for Indian employment contracts.',u:'/notice-period-calculator.html'},
+  'tab-abbr':      {t:'Timezone Abbreviations Guide — IST, EST, PST, GMT, BST Decoded | WorkIndia',d:'Decode any timezone abbreviation — IST, EST, PST, CST, BST, CET and 200+ more. Includes UTC offset and current local time.',u:'/timezone-abbreviations.html'},
+  'tab-cron':      {t:'Cron Expression to IST Converter — When Does My Cron Job Run in India? | WorkIndia',d:'Convert cron job schedules to India Standard Time (IST). See when your cron jobs will run in IST, EST, and UTC. Free online cron to IST tool.',u:'/cron-to-ist.html'},
+  'tab-info':      {t:'About WorkIndia — Free Tools for Working With India',                 d:'WorkIndia is a free toolkit for global professionals working with India. Live IST clock, timezone converter, market hours, holidays & more.',u:'/'}
+};
 function showTab(id,btn){
   document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
   var panel=document.getElementById(id);
@@ -2670,6 +2731,21 @@ function showTab(id,btn){
     var grp=snavBtn.closest('.snav-group');
     if(grp)grp.classList.remove('collapsed');
   }
+  // ── Update page title + meta for rich link previews when URL is shared ──
+  var meta=_TAB_META[id]||_TAB_META['tab-home'];
+  document.title=meta.t;
+  var ogT=document.querySelector('meta[property="og:title"]');if(ogT)ogT.setAttribute('content',meta.t);
+  var ogD=document.querySelector('meta[property="og:description"]');if(ogD)ogD.setAttribute('content',meta.d);
+  var twT=document.querySelector('meta[name="twitter:title"]');if(twT)twT.setAttribute('content',meta.t);
+  var twD=document.querySelector('meta[name="twitter:description"]');if(twD)twD.setAttribute('content',meta.d);
+  var canonicalUrl=_BASE_URL+meta.u;
+  var ogU=document.querySelector('meta[property="og:url"]');if(ogU)ogU.setAttribute('content',canonicalUrl);
+  var canonEl=document.querySelector('link[rel="canonical"]');if(canonEl)canonEl.setAttribute('href',canonicalUrl);
+  // On GitHub Pages: use clean path (/nse-bse-market-hours.html)
+  // On file:// locally: path-based replaceState throws SecurityError, so use hash instead
+  var isDeployed=window.location.protocol==='https:';
+  var urlToSet=isDeployed ? meta.u : ('#'+(meta.u==='/'?'home':meta.u.replace(/^\/|\.html$/g,'')));
+  history.replaceState({tab:id},meta.t,urlToSet);
   if(id==='tab-worldclock'){buildWorldClock();updateWorldClock();}
   if(id==='tab-home'){buildDiffCards();buildInstantCityClocks();updateInstantCityClocks();}
   if(id==='tab-callnow'){buildCallSelect();updateCallWidget();}
@@ -2680,7 +2756,6 @@ function showTab(id,btn){
   if(id==='tab-market'){buildMarketTab();}
   if(id==='tab-shift'){buildShiftPlan();}
   if(id==='tab-holidays'){buildHolidayTab();}
-  window.location.hash=id.replace('tab-','').replace('tzconv','convert').replace('duration','date');
 }
 function toggleAccordion(header){var body=header.nextElementSibling,isOpen=body.classList.contains('open');body.classList.toggle('open',!isOpen);header.classList.toggle('open',!isOpen);header.setAttribute('aria-expanded',String(!isOpen))}
 document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('accordion-header')){e.preventDefault();toggleAccordion(e.target)}});
@@ -3019,16 +3094,36 @@ function calcNotice(){
 }
 
 document.addEventListener('DOMContentLoaded',function(){
-  // ── Critical path: hero clock + nav (paint-blocking if omitted) ──
+  // ── Critical path: hero clock + nav ──
   updateHeroClock();updateSnavIstClock();
-  setInterval(function(){updateCurrentTime();updateHeroClock();updateInstantCityClocks();updateSnavIstClock();},1000);
 
-  // ── Home tab essentials ──
-  populateTzSelects();populateQcSelects();
-  buildPeSelect();
-  buildUtcIstTable();
-  buildDiffCards();
-  buildInstantCityClocks();updateInstantCityClocks();
+  // ── rAF-based 1s ticker: lightweight, yields to browser between frames ──
+  var _lastSec=-1;
+  function _tick(){
+    var now=new Date();
+    var s=now.getSeconds();
+    if(s!==_lastSec){
+      _lastSec=s;
+      updateHeroClock();
+      updateSnavIstClock();
+      updateCurrentTime();
+    }
+    requestAnimationFrame(_tick);
+  }
+  requestAnimationFrame(_tick);
+
+  // ── City clocks: build DOM once, then update every 10s ──
+  buildInstantCityClocks();
+  updateInstantCityClocks();
+  setInterval(updateInstantCityClocks,10000);
+
+  // ── Home tab essentials — deferred so first paint is not blocked ──
+  setTimeout(function(){
+    populateTzSelects();populateQcSelects();
+    buildPeSelect();
+    buildUtcIstTable();
+    buildDiffCards();
+  },200);
 
   // ── Wire up static buttons ──
   document.getElementById('convertLocalToUTCBtn').addEventListener('click',convertLocalToUTC);
@@ -3039,8 +3134,9 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // ── Defer all heavy per-tab inits until after first paint ──
   setTimeout(function(){
-    // Epoch live ticker
-    updateLiveEpoch();setInterval(updateLiveEpoch,1000);
+    // Epoch live ticker — only needs updating every 1s when visible
+    updateLiveEpoch();
+    setInterval(function(){if(document.getElementById('tab-epoch')&&document.getElementById('tab-epoch').style.display!=='none')updateLiveEpoch();},1000);
 
     // Pre-fill today's date fields
     var now=new Date(),pad2=function(n){return String(n).padStart(2,'0')};
@@ -3052,8 +3148,8 @@ document.addEventListener('DOMContentLoaded',function(){
     // Heavy tab builds — only if that tab is currently active, otherwise lazy on first open
     var activeTab=document.querySelector('.tab-panel.active');
     var activeId=activeTab?activeTab.id:'tab-home';
-    if(activeId==='tab-worldclock'){buildWorldClock();updateWorldClock();setInterval(updateWorldClock,1000);}
-    else{setInterval(function(){if(document.getElementById('tab-worldclock').style.display!=='none')updateWorldClock();},1000);}
+    if(activeId==='tab-worldclock'){buildWorldClock();updateWorldClock();setInterval(updateWorldClock,5000);}
+    else{setInterval(function(){if(document.getElementById('tab-worldclock')&&document.getElementById('tab-worldclock').style.display!=='none')updateWorldClock();},5000);}
     if(activeId==='tab-meeting'){var md2=document.getElementById('meetingDate');if(md2)buildMeetingGrid();}
     if(activeId==='tab-callnow'){buildCallSelect();updateCallWidget();}
     if(activeId==='tab-dst'){buildDstCountdowns();}
