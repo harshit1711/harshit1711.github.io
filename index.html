@@ -181,6 +181,26 @@
   </style>
 </head>
 <body>
+<!-- SEO: crawlable links to dedicated tool pages — real URLs Google can index -->
+<nav aria-label="Tool index" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+  <a href="/age-calculator.html">Age Calculator India</a>
+  <a href="/ist-converter.html">IST Timezone Converter</a>
+  <a href="/world-clock.html">World Clock India</a>
+  <a href="/meeting-planner.html">India Meeting Planner</a>
+  <a href="/call-india.html">Is It a Good Time to Call India?</a>
+  <a href="/dst-tracker.html">DST Transition Countdown</a>
+  <a href="/date-calculator.html">Date Calculator India</a>
+  <a href="/epoch-converter.html">Unix Epoch Converter IST</a>
+  <a href="/timestamp-converter.html">Timestamp Converter India</a>
+  <a href="/nse-bse-market-hours.html">NSE BSE Market Hours</a>
+  <a href="/india-shift-planner.html">India Shift Planner</a>
+  <a href="/india-holidays-2026.html">India Public Holidays 2026</a>
+  <a href="/nri-183-days.html">NRI 183 Day Tax Tracker</a>
+  <a href="/invoice-due-date.html">Invoice Due Date Calculator</a>
+  <a href="/notice-period-calculator.html">Notice Period Calculator India</a>
+  <a href="/cron-to-ist.html">Cron to IST Converter</a>
+  <a href="/timezone-abbreviations.html">Timezone Abbreviations Guide</a>
+</nav>
 <noscript><div style="background:#fffbe6;border:2px solid #ffe58f;border-radius:10px;padding:1.5rem;margin-bottom:2rem;color:#7a5a00;font-size:1.1rem;"><strong>JavaScript is disabled.</strong> This timezone converter requires JavaScript.<br><br><b>Quick Reference:</b> UTC+0:00=UTC | UTC+5:30=IST | UTC-5:00=EST | UTC-8:00=PST | UTC+1:00=CET | UTC+9:00=JST</div></noscript>
 
 <button id="snav-toggle" onclick="toggleSidenav()" aria-label="Toggle navigation" title="Toggle sidebar">&#9776;</button>
@@ -2825,30 +2845,33 @@ function shiftPreset(idx){
 }
 
 /* ===== STATE-WISE INDIA HOLIDAYS 2026 ===== */
+// Source: India Ministry of Personnel circular + india.gov.in official calendar
+// G = Gazetted (mandatory), R = Restricted, Non-Gaz = Non-Gazetted
 var INDIA_HOLIDAYS_2026=[
   {date:'2026-01-01',name:'New Year\'s Day',states:'All'},
   {date:'2026-01-14',name:'Makar Sankranti / Pongal',states:'TN,AP,TG,KA,GJ,MH,UP,UK'},
   {date:'2026-01-26',name:'Republic Day',states:'All'},
   {date:'2026-02-26',name:'Maha Shivaratri',states:'All'},
-  {date:'2026-03-20',name:'Holi',states:'All'},
-  {date:'2026-03-30',name:'Ram Navami',states:'All'},
-  {date:'2026-04-02',name:'Good Friday',states:'All'},
-  {date:'2026-04-06',name:'Mahavir Jayanti',states:'All'},
+  {date:'2026-03-04',name:'Holi',states:'All'},
+  {date:'2026-03-21',name:'Eid ul-Fitr (Id-ul-Fitr)',states:'All'},
+  {date:'2026-03-26',name:'Ram Navami',states:'All'},
+  {date:'2026-03-31',name:'Mahavir Jayanti',states:'All'},
+  {date:'2026-04-03',name:'Good Friday',states:'All'},
   {date:'2026-04-14',name:'Ambedkar Jayanti / Tamil New Year',states:'All'},
   {date:'2026-05-01',name:'Labour Day / Maharashtra Day',states:'All'},
-  {date:'2026-05-12',name:'Buddha Purnima',states:'All'},
-  {date:'2026-06-17',name:'Eid ul-Adha (Bakrid)',states:'All'},
-  {date:'2026-07-07',name:'Muharram',states:'All'},
+  {date:'2026-05-01',name:'Buddha Purnima',states:'All'},
+  {date:'2026-06-27',name:'Eid ul-Adha (Bakrid)',states:'All'},
+  {date:'2026-07-17',name:'Muharram (Ashura)',states:'All'},
   {date:'2026-08-15',name:'Independence Day',states:'All'},
-  {date:'2026-08-25',name:'Janmashtami',states:'All'},
+  {date:'2026-08-22',name:'Janmashtami',states:'All'},
+  {date:'2026-09-05',name:'Milad-un-Nabi (Eid-e-Milad)',states:'All'},
   {date:'2026-09-05',name:'Teachers\' Day',states:'Non-Gazetted'},
-  {date:'2026-09-16',name:'Milad-un-Nabi (Eid-e-Milad)',states:'All'},
   {date:'2026-10-02',name:'Gandhi Jayanti',states:'All'},
-  {date:'2026-10-20',name:'Dussehra (Vijayadashami)',states:'All'},
-  {date:'2026-10-28',name:'Diwali (Lakshmi Puja)',states:'All'},
-  {date:'2026-10-29',name:'Diwali (Naraka Chaturdashi)',states:'All'},
-  {date:'2026-11-04',name:'Chhath Puja',states:'BR,JH,UP,UK'},
-  {date:'2026-11-05',name:'Guru Nanak Jayanti',states:'All'},
+  {date:'2026-10-21',name:'Dussehra (Vijayadashami)',states:'All'},
+  {date:'2026-10-28',name:'Diwali (Naraka Chaturdashi)',states:'All'},
+  {date:'2026-10-29',name:'Diwali (Lakshmi Puja)',states:'All'},
+  {date:'2026-11-02',name:'Chhath Puja',states:'BR,JH,UP,UK'},
+  {date:'2026-11-24',name:'Guru Nanak Jayanti',states:'All'},
   {date:'2026-12-25',name:'Christmas Day',states:'All'}
 ];
 function buildHolidayTab(){

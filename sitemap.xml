@@ -4,15 +4,34 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Primary page — SPA, all tools served from root -->
+  <!-- Primary page -->
   <url>
     <loc>https://harshit1711.github.io/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Privacy policy — standalone page, already indexed -->
+  <!-- Individual tool pages: each is a real .html file with its own SEO title/description -->
+  <url><loc>https://harshit1711.github.io/age-calculator.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://harshit1711.github.io/ist-converter.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://harshit1711.github.io/world-clock.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harshit1711.github.io/meeting-planner.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harshit1711.github.io/call-india.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harshit1711.github.io/dst-tracker.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harshit1711.github.io/date-calculator.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harshit1711.github.io/epoch-converter.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://harshit1711.github.io/timestamp-converter.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://harshit1711.github.io/nse-bse-market-hours.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harshit1711.github.io/india-shift-planner.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://harshit1711.github.io/india-holidays-2026.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://harshit1711.github.io/nri-183-days.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harshit1711.github.io/invoice-due-date.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://harshit1711.github.io/notice-period-calculator.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://harshit1711.github.io/cron-to-ist.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://harshit1711.github.io/timezone-abbreviations.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Privacy policy -->
   <url>
     <loc>https://harshit1711.github.io/privacy.html</loc>
     <lastmod>2026-02-28</lastmod>
