@@ -153,7 +153,7 @@
     /* ── Mobile performance ── */
     @media(max-width:600px){
       #heroIstTime{font-size:2.1rem!important;letter-spacing:0.02em!important;}
-      #instantCityClocks{min-height:340px!important;}
+      #instantCityClocks{min-height:620px!important;}
       .city-clock-card{contain:layout style;}
       section#quick-convert{contain:layout;}
     }
@@ -325,21 +325,21 @@
 <!-- HERO: "Is India open right now?" — primary value prop for global audience -->
 <section aria-label="India office hours status" style="background:linear-gradient(135deg,#0a54a0 0%,#1a75d2 100%);border-radius:16px;margin-bottom:1.5rem;padding:1.5rem 2rem;box-shadow:0 4px 20px rgba(10,84,160,0.25);text-align:center;contain:layout style;">
   <!-- Status badge — rendered by JS -->
-  <div id="indiaStatusBadge" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.15);border-radius:30px;padding:0.35rem 1rem;margin-bottom:0.75rem;font-size:0.9rem;font-weight:700;color:#fff;"></div>
+  <div id="indiaStatusBadge" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.15);border-radius:30px;padding:0.35rem 1rem;margin-bottom:0.75rem;font-size:0.9rem;font-weight:700;color:#fff;">&#x23F3; Loading...</div>
   <!-- IST clock -->
   <div style="color:rgba(255,255,255,0.7);font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:0.15rem;">India Standard Time &mdash; UTC+5:30 &mdash; No DST ever</div>
   <div id="heroIstTime" style="font-size:3rem;font-weight:800;color:#fff;font-family:'Courier New',monospace;letter-spacing:0.04em;line-height:1.1;">--:--:--</div>
-  <div id="heroIstDate" style="font-size:1rem;color:#b8d8ff;font-weight:600;margin-top:0.15rem;"></div>
+  <div id="heroIstDate" style="font-size:1rem;color:#b8d8ff;font-weight:600;margin-top:0.15rem;min-height:1.5em;"></div>
   <!-- Next event line -->
   <div id="heroNextEvent" style="margin-top:0.6rem;font-size:0.85rem;color:rgba(255,255,255,0.75);min-height:1.2em;"></div>
   <!-- Diff strip -->
-  <div style="margin-top:0.9rem;display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem;" id="heroDiffStrip"></div>
+  <div style="margin-top:0.9rem;display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem;min-height:2.5rem;" id="heroDiffStrip"></div>
 </section>
 
 <section id="quick-convert" aria-label="What time is it in these cities right now">
 
   <!-- INSTANT CITY CLOCKS: zero interaction needed -->
-  <div id="instantCityClocks" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.9rem;margin-bottom:1.5rem;min-height:160px;"></div>
+  <div id="instantCityClocks" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.9rem;margin-bottom:1.5rem;min-height:310px;"></div>
 
   <!-- PLAIN ENGLISH CONVERTER -->
   <div style="background:#fff;border-radius:14px;padding:1.4rem 1.75rem;box-shadow:0 2px 14px rgba(10,84,160,0.10);border:2px solid #d0dff5;">
@@ -1628,8 +1628,7 @@ System.out.println(istTime.format(fmt)); <span style="color:#888">// 2026-02-26 
 
 <section id="bottom-ad" aria-label="Advertisement" style="text-align:center;margin:3rem auto 2rem;padding:1rem;background:#fffbe6;border:1px solid #e6c200;border-radius:10px;max-width:728px;">
   <p style="font-size:0.8rem;color:#999;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:1px;">Advertisement</p>
-  <ins class="adsbygoogle" style="display:block;margin:0 auto;" data-ad-client="ca-pub-7542838934089345" data-ad-slot="1669945205" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <ins class="adsbygoogle" style="display:block;margin:0 auto;min-height:90px;" data-ad-client="ca-pub-7542838934089345" data-ad-slot="1669945205" data-ad-format="auto" data-full-width-responsive="true"></ins>
 </section>
 
 <footer>
@@ -1653,117 +1652,37 @@ System.out.println(istTime.format(fmt)); <span style="color:#888">// 2026-02-26 
 <aside class="sidebar-ad" aria-label="Advertisement">
   <p style="font-size:0.75rem;color:#999;margin:0.75rem 0 0.5rem;text-align:center;text-transform:uppercase;letter-spacing:1px;">Advertisement</p>
   <ins class="adsbygoogle" style="display:block;min-width:160px;width:100%;max-width:300px;min-height:600px;" data-ad-client="ca-pub-7542838934089345" data-ad-slot="9479793672" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </aside>
 </div><!-- /main-layout -->
 </main>
 </div><!-- /content-area -->
 </div><!-- /app-shell -->
 <div style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
-  <h2>What time is it in India right now?</h2>
-  <p>India Standard Time (IST) is UTC+5:30. India is 5 hours and 30 minutes ahead of UTC. India does not observe Daylight Saving Time so IST is fixed year-round.</p>
-  <h2>India time vs USA time</h2>
-  <p>India IST is 10 hours and 30 minutes ahead of US Eastern Standard Time EST. India IST is 13 hours and 30 minutes ahead of US Pacific Standard Time PST. India is 11 hours and 30 minutes ahead of US Central Standard Time CST.</p>
-  <h2>India time vs UK time</h2>
-  <p>India IST is 5 hours and 30 minutes ahead of UK GMT in winter. India IST is 4 hours and 30 minutes ahead of UK BST in summer when UK observes DST. India does not change its clocks.</p>
-  <h2>India time vs Europe time</h2>
-  <p>India IST is 4 hours and 30 minutes ahead of Central European Time CET in winter. India is 3 hours and 30 minutes ahead of CEST in European summer.</p>
-  <h2>India time vs Dubai time</h2>
-  <p>India IST is 1 hour and 30 minutes ahead of Dubai UAE Gulf Standard Time GST which is UTC+4.</p>
-  <h2>India time vs Singapore time</h2>
-  <p>Singapore SGT UTC+8 is 2 hours and 30 minutes ahead of India IST UTC+5:30.</p>
-  <h2>India time vs Japan time</h2>
-  <p>Japan JST UTC+9 is 3 hours and 30 minutes ahead of India IST UTC+5:30.</p>
-  <h2>India time vs Australia time</h2>
-  <p>Australia Eastern Standard Time AEST UTC+10 is 4 hours and 30 minutes ahead of India IST.</p>
-  <h2>What is IST time zone?</h2>
-  <p>IST stands for India Standard Time. The offset is UTC+5:30. All of India uses a single time zone. IST was established in 1947. The 82.5 degrees East meridian passes through Mirzapur in Uttar Pradesh which is the reference meridian for IST.</p>
-  <h2>EST to IST conversion</h2>
-  <p>To convert EST to IST add 10 hours 30 minutes. 9 AM EST is 7:30 PM IST. 12 PM EST is 10:30 PM IST. 5 PM EST is 3:30 AM IST next day. 8 AM EST is 6:30 PM IST.</p>
-  <h2>PST to IST conversion</h2>
-  <p>To convert PST to IST add 13 hours 30 minutes. 9 AM PST is 10:30 PM IST. 12 PM PST is 1:30 AM IST next day. 6 PM PST is 7:30 AM IST next day.</p>
-  <h2>GMT to IST conversion</h2>
-  <p>To convert GMT to IST add 5 hours 30 minutes. 9 AM GMT is 2:30 PM IST. 12 PM GMT is 5:30 PM IST. 6 PM GMT is 11:30 PM IST.</p>
-  <h2>Schedule meeting India USA time</h2>
-  <p>Best overlap for India and USA East Coast is 7:30 AM to 11:30 AM EST which is 6 PM to 10 PM IST. Best overlap for India and USA West Coast is 7:30 AM to 9:30 AM PST which is 9 PM to 11 PM IST.</p>
-  <h2>India working hours in EST PST GMT</h2>
-  <p>India business hours are 9 AM to 6 PM IST. In EST that is 10:30 PM to 7:30 AM. In PST that is 7:30 PM to 4:30 AM. In GMT that is 3:30 AM to 12:30 PM. In CET that is 4:30 AM to 1:30 PM.</p>
+  <p><strong>What time is it in India right now?</strong> India Standard Time (IST) is UTC+5:30. India is 5 hours and 30 minutes ahead of UTC. India does not observe Daylight Saving Time so IST is fixed year-round.</p>
+  <p><strong>India time vs USA time:</strong> India IST is 10 hours 30 minutes ahead of EST, 13 hours 30 minutes ahead of PST, 11 hours 30 minutes ahead of CST.</p>
+  <p><strong>India time vs UK time:</strong> India IST is 5 hours 30 minutes ahead of UK GMT in winter and 4 hours 30 minutes ahead of BST in summer. India does not change its clocks.</p>
+  <p><strong>India time vs Europe, Dubai, Singapore, Japan, Australia:</strong> CET +4:30, Dubai GST UTC+4 +1:30, Singapore SGT UTC+8 -2:30, Japan JST UTC+9 -3:30, Australia AEST UTC+10 -4:30.</p>
+  <p><strong>What is IST time zone?</strong> IST is India Standard Time UTC+5:30. All of India uses a single time zone. IST was established in 1947. The 82.5 degrees East meridian is the reference.</p>
+  <p><strong>EST to IST:</strong> Add 10 hours 30 minutes. 9 AM EST = 7:30 PM IST. 12 PM EST = 10:30 PM IST. 5 PM EST = 3:30 AM IST next day. 8 AM EST = 6:30 PM IST.</p>
+  <p><strong>PST to IST:</strong> Add 13 hours 30 minutes. 9 AM PST = 10:30 PM IST. 12 PM PST = 1:30 AM IST next day. 6 PM PST = 7:30 AM IST next day.</p>
+  <p><strong>GMT to IST:</strong> Add 5 hours 30 minutes. 9 AM GMT = 2:30 PM IST. 12 PM GMT = 5:30 PM IST. 6 PM GMT = 11:30 PM IST.</p>
+  <p><strong>India USA meeting overlap:</strong> Best overlap India and USA East Coast: 7:30 AM–11:30 AM EST = 6–10 PM IST. USA West Coast: 7:30–9:30 AM PST = 9–11 PM IST.</p>
+  <p><strong>India working hours globally:</strong> 9 AM–6 PM IST = 10:30 PM–7:30 AM EST = 7:30 PM–4:30 AM PST = 3:30 AM–12:30 PM GMT = 4:30 AM–1:30 PM CET.</p>
   <p>Free online tool to convert UTC to IST instantly. Convert between UTC, IST, GMT, EST, PST, CET, JST and 20+ other timezones. No signup required. Works in your browser.</p>
-  <h2>Timezone Converter</h2>
-  <p>Convert any time between two timezones. Supports UTC, IST (India Standard Time), EST (Eastern Standard Time), PST (Pacific Standard Time), GMT, CET (Central European Time), JST (Japan Standard Time), and more.</p>
-  <h2>World Clock</h2>
-  <p>Live current time in New York, London, Paris, Dubai, Mumbai, Singapore, Tokyo, Sydney, Los Angeles, Sao Paulo, Cairo, Nairobi, Beijing, Seoul, and Auckland.</p>
-  <h2>Unix Epoch Timestamp Converter</h2>
-  <p>Convert Unix epoch timestamps (seconds or milliseconds) to human-readable date and time. Also convert any date back to Unix epoch. Essential tool for developers debugging logs and APIs.</p>
-  <h2>Meeting Planner</h2>
-  <p>Find the best meeting time across multiple cities worldwide. See working hours (9 AM to 6 PM) highlighted in green across all major timezones simultaneously.</p>
-  <h2>Date &amp; Duration Calculator</h2>
-  <p>Calculate the exact duration between any two dates and times in days, hours, minutes, and seconds. Useful for project deadlines, age calculation, countdowns, and contract durations.</p>
-  <h2>Frequently Asked Questions</h2>
-  <h3>How do I convert UTC to IST?</h3>
-  <p>Add 5 hours and 30 minutes to UTC. For example, 12:00 UTC = 17:30 IST. India Standard Time (IST) is UTC+5:30.</p>
-  <h3>What is the difference between UTC and GMT?</h3>
-  <p>GMT is a time zone; UTC is a time standard. They show the same time value, but UTC is more precise and is the global standard used in computing and communications.</p>
-  <h3>Why should developers store timestamps in UTC?</h3>
-  <p>UTC avoids ambiguity from daylight saving time changes and regional offsets. Databases and APIs that store UTC timestamps work correctly for users in any timezone.</p>
-  <h3>Does this tool work offline?</h3>
-  <p>Yes - once the page is loaded, all timezone calculations run locally in your browser with no internet connection required.</p>
-  <h3>What is a Unix epoch timestamp?</h3>
-  <p>A Unix timestamp is the number of seconds (or milliseconds) since January 1, 1970 00:00:00 UTC. Use the Epoch tab to convert between timestamps and readable dates.</p>
-  <h3>What is IST time now?</h3>
-  <p>IST (India Standard Time) is UTC+5:30. This tool shows the live current IST time updated every 100 milliseconds.</p>
-  <h3>How to convert EST to IST?</h3>
-  <p>Add 10 hours 30 minutes to EST to get IST. EST is UTC-5:00 and IST is UTC+5:30, making the difference 10.5 hours.</p>
-  <h2>Daylight Saving Time DST Bugs and Fixes for Developers</h2>
-  <p>Daylight Saving Time causes production bugs twice a year. The US springs forward on March 8 2026 and falls back on November 1 2026. Europe springs forward March 29. India IST never observes DST.</p>
-  <h3>How to avoid DST bugs in JavaScript?</h3>
-  <p>Never hardcode UTC offsets like -5 for EST. Use IANA timezone names such as America/New_York with toLocaleString or Intl.DateTimeFormat. The IANA database handles EST vs EDT automatically.</p>
-  <h3>Why do cron jobs run twice or skip on DST day?</h3>
-  <p>A cron job scheduled at 2 AM local time skips entirely on spring-forward day because 2 AM never exists. On fall-back day it runs twice because 2 AM repeats. Fix: schedule all cron jobs in UTC using node-cron timezone UTC option.</p>
-  <h3>Should databases store local time or UTC?</h3>
-  <p>Always store timestamps in UTC. MySQL DATETIME has no timezone and becomes ambiguous during DST. Use MySQL TIMESTAMP or PostgreSQL TIMESTAMPTZ which store UTC internally. Unix epoch milliseconds as BIGINT are also timezone-free and unambiguous.</p>
-  <h3>What is the 2 AM problem in daylight saving time?</h3>
-  <p>During spring-forward transitions clocks jump from 1:59 AM to 3:00 AM making 2:00 AM to 2:59 AM non-existent. During fall-back transitions clocks roll back from 2:59 AM to 2:00 AM making that hour occur twice.</p>
-  <h2>Java Datetime Bugs and Best Practices</h2>
-  <p>Java developers should avoid the legacy java.util.Date and Calendar API. The java.util.Date constructor takes a 0-indexed month making March month index 2 not 3. Use java.time package introduced in Java 8 with LocalDate ZonedDateTime and Instant classes.</p>
-  <h3>How to fix JVM timezone issues in Spring Boot?</h3>
-  <p>The JVM uses the system default timezone which differs between developer machines and production servers. Fix by setting TimeZone.setDefault UTC at application startup or passing -Duser.timezone=UTC as a JVM argument. For Spring Boot with Hibernate add spring.jpa.properties.hibernate.jdbc.time_zone=UTC to application.properties.</p>
-  <h3>Hibernate JPA timezone best practices</h3>
-  <p>Avoid LocalDateTime in JPA entities as it has no timezone context. Use Instant for UTC timestamps and annotate columns with TIMESTAMP WITH TIME ZONE. Configure hibernate.jdbc.time_zone=UTC to ensure consistent UTC storage.</p>
-  <h2>Python Datetime Bugs and Best Practices</h2>
-  <p>Python datetime objects are either naive without timezone or aware with timezone. Mixing naive and aware datetimes raises TypeError. Always use timezone-aware datetimes from the start.</p>
-  <h3>What is wrong with datetime.utcnow() in Python?</h3>
-  <p>datetime.utcnow() is deprecated in Python 3.12. Despite its name it returns a naive datetime object with no timezone information. Replace it with datetime.now(timezone.utc) which returns a proper timezone-aware UTC datetime.</p>
-  <h3>pytz localize vs replace in Python</h3>
-  <p>When using pytz do not use replace(tzinfo=tz) to attach a timezone to a naive datetime. This can assign the historical LMT offset for India which is +5:21 not +5:30. Use pytz.timezone.localize() instead. In Python 3.9+ use zoneinfo.ZoneInfo where replace is safe.</p>
-  <h3>Django USE_TZ timezone setting</h3>
-  <p>Set USE_TZ=True in Django settings.py to ensure all datetimes are stored as UTC. Use django.utils.timezone.now() instead of datetime.now() in views and models. The TIME_ZONE setting controls display timezone not storage timezone.</p>
-  <h2>Go Golang Datetime Bugs and Best Practices</h2>
-  <p>Go uses a unique reference time for format strings: Mon Jan 2 15:04:05 MST 2006. Using YYYY-MM-DD or HH:mm in Go format strings outputs literal text not formatted values.</p>
-  <h3>Go time format reference time explained</h3>
-  <p>In Go time formatting use 2006 for year, 01 for month, 02 for day, 15 for 24-hour, 04 for minute, 05 for second. Use time.RFC3339 constant for ISO 8601 format. The magic reference date is January 2 15:04:05 2006 MST.</p>
-  <h3>Go time.Parse vs time.ParseInLocation</h3>
-  <p>time.Parse in Go assumes UTC when no timezone is in the format string. Use time.ParseInLocation with a loaded location to parse times in a specific timezone like Asia/Kolkata for IST.</p>
-  <h3>Go time comparison Equal vs ==</h3>
-  <p>In Go the == operator for time.Time values compares both the wall clock and the location. UTC 06:30 and IST 12:00 representing the same instant will not be equal with ==. Use the .Equal() method or compare .Unix() values to compare instants regardless of timezone.</p>
-  <h2>Why is IST UTC plus 5 hours 30 minutes?</h2>
-  <p>India Standard Time is UTC+5:30 because India spans from 68 degrees East to 97 degrees East longitude. The geographic center at 82.5 degrees East corresponds exactly to UTC+5:30. India uses a single nationwide timezone for administrative unity. India has never observed Daylight Saving Time making IST a fixed stable offset ideal for computing.</p>
-  <h2>India US Working Hours Overlap</h2>
-  <p>India IST overlaps with US Eastern time 7:30 PM to 11:30 PM IST. India overlaps with US Pacific time 10:30 PM to 12:30 AM IST. India overlaps with UK GMT 2:30 PM to 6 PM IST. India overlaps with Central Europe CET 1:30 PM to 6 PM IST. India overlaps with Singapore SGT 9 AM to 3:30 PM IST.</p>
-  <h2>Specific EST to IST conversions</h2>
-  <p>6 AM EST in India is 4:30 PM IST. 7 AM EST in India is 5:30 PM IST. 8 AM EST in India is 6:30 PM IST. 9 AM EST in India is 7:30 PM IST. 10 AM EST in India is 8:30 PM IST. 11 AM EST in India is 9:30 PM IST. 12 PM EST in India is 10:30 PM IST. 1 PM EST in India is 11:30 PM IST. 2 PM EST in India is 12:30 AM IST next day. 3 PM EST in India is 1:30 AM IST next day. 4 PM EST in India is 2:30 AM IST next day. 5 PM EST in India is 3:30 AM IST next day. 6 PM EST in India is 4:30 AM IST next day. 8 PM EST in India is 6:30 AM IST next day.</p>
-  <h2>Specific PST to IST conversions</h2>
-  <p>6 AM PST in India is 7:30 PM IST. 7 AM PST in India is 8:30 PM IST. 8 AM PST in India is 9:30 PM IST. 9 AM PST in India is 10:30 PM IST. 10 AM PST in India is 11:30 PM IST. 11 AM PST in India is 12:30 AM IST next day. 12 PM PST in India is 1:30 AM IST next day. 3 PM PST in India is 4:30 AM IST next day. 5 PM PST in India is 6:30 AM IST next day. 6 PM PST in India is 7:30 AM IST next day.</p>
-  <h2>Specific GMT to IST conversions</h2>
-  <p>6 AM GMT in India is 11:30 AM IST. 7 AM GMT in India is 12:30 PM IST. 8 AM GMT in India is 1:30 PM IST. 9 AM GMT in India is 2:30 PM IST. 10 AM GMT in India is 3:30 PM IST. 11 AM GMT in India is 4:30 PM IST. 12 PM GMT in India is 5:30 PM IST. 1 PM GMT in India is 6:30 PM IST. 3 PM GMT in India is 8:30 PM IST. 5 PM GMT in India is 10:30 PM IST. 6 PM GMT in India is 11:30 PM IST. 8 PM GMT in India is 1:30 AM IST next day.</p>
-  <h2>Specific EDT to IST conversions (US summer time)</h2>
-  <p>EDT is UTC minus 4. Add 9 hours 30 minutes to EDT to get IST. 9 AM EDT in India is 6:30 PM IST. 12 PM EDT in India is 9:30 PM IST. 5 PM EDT in India is 2:30 AM IST next day.</p>
-  <h2>Specific PDT to IST conversions (US West Coast summer)</h2>
-  <p>PDT is UTC minus 7. Add 12 hours 30 minutes to PDT to get IST. 9 AM PDT in India is 9:30 PM IST. 12 PM PDT in India is 12:30 AM IST next day.</p>
-  <h2>India time now live clock</h2>
-  <p>Current India time right now. IST live clock. What time is it in India today. India time today. IST clock online. India standard time now. Current time in Mumbai. Current time in Delhi. Current time in Bangalore. Current time in Chennai. Current time in Kolkata. Current time in Hyderabad. Current time in Pune.</p>
-  <h2>Time difference questions</h2>
-  <p>How many hours is India ahead of New York? India is 10 hours 30 minutes ahead of New York EST. How many hours is India ahead of London? India is 5 hours 30 minutes ahead of London in winter. How many hours is India ahead of California? India is 13 hours 30 minutes ahead of California PST. Is India ahead or behind USA? India is ahead of all US time zones. What time zone is India in? India is in the IST time zone which is UTC plus 5 hours 30 minutes.</p>
+  <p><strong>Timezone Converter:</strong> Supports UTC, IST, EST, PST, GMT, CET, JST and more. <strong>World Clock:</strong> Live time in New York, London, Paris, Dubai, Mumbai, Singapore, Tokyo, Sydney, Los Angeles, Cairo, Nairobi, Beijing, Seoul, Auckland.</p>
+  <p><strong>Unix Epoch Timestamp Converter:</strong> Convert Unix epoch (seconds or milliseconds) to human-readable date and time. <strong>Meeting Planner:</strong> Find best meeting time across cities with working hours highlighted. <strong>Date Calculator:</strong> Duration between dates in days, hours, minutes, seconds.</p>
+  <p><strong>FAQ — How do I convert UTC to IST?</strong> Add 5 hours 30 minutes to UTC. 12:00 UTC = 17:30 IST. <strong>UTC vs GMT?</strong> GMT is a timezone; UTC is a time standard. They show the same value but UTC is the global computing standard. <strong>Why store in UTC?</strong> UTC avoids DST ambiguity. <strong>Works offline?</strong> Yes — all calculations run locally in your browser.</p>
+  <p><strong>DST bugs for developers:</strong> US springs forward March 8 2026, falls back November 1 2026. Europe springs forward March 29. India IST never observes DST. Never hardcode UTC offsets — use IANA names like America/New_York with Intl.DateTimeFormat. Cron at 2 AM local time skips or doubles on DST days; schedule in UTC instead. Always store timestamps in UTC (MySQL TIMESTAMP, PostgreSQL TIMESTAMPTZ, or BIGINT epoch).</p>
+  <p><strong>Java datetime:</strong> Avoid java.util.Date (0-indexed month). Use java.time (Java 8+). Set -Duser.timezone=UTC or spring.jpa.properties.hibernate.jdbc.time_zone=UTC. Use Instant for UTC, not LocalDateTime in JPA entities.</p>
+  <p><strong>Python datetime:</strong> Use timezone-aware datetimes. Replace datetime.utcnow() (deprecated Python 3.12) with datetime.now(timezone.utc). Use pytz.localize() not replace(tzinfo=...). Set USE_TZ=True in Django.</p>
+  <p><strong>Go datetime:</strong> Reference time is Mon Jan 2 15:04:05 MST 2006 (use 2006/01/02 15:04:05). time.Parse assumes UTC; use time.ParseInLocation for specific zones. Compare time instants with .Equal() or .Unix(), not ==.</p>
+  <p><strong>Why IST is UTC+5:30:</strong> India spans 68–97 degrees East; center at 82.5° E = UTC+5:30. Single nationwide timezone since 1947. IST never has DST.</p>
+  <p><strong>India US overlap:</strong> IST overlaps with EST 7:30–11:30 PM, PST 10:30 PM–12:30 AM, UK GMT 2:30–6 PM, CET 1:30–6 PM, SGT 9 AM–3:30 PM.</p>
+  <p><strong>Specific EST to IST:</strong> 6AM=4:30PM, 7AM=5:30PM, 8AM=6:30PM, 9AM=7:30PM, 10AM=8:30PM, 11AM=9:30PM, 12PM=10:30PM, 1PM=11:30PM, 2PM=12:30AM+1, 3PM=1:30AM+1, 4PM=2:30AM+1, 5PM=3:30AM+1, 6PM=4:30AM+1, 8PM=6:30AM+1.</p>
+  <p><strong>Specific PST to IST:</strong> 6AM=7:30PM, 7AM=8:30PM, 8AM=9:30PM, 9AM=10:30PM, 10AM=11:30PM, 11AM=12:30AM+1, 12PM=1:30AM+1, 3PM=4:30AM+1, 5PM=6:30AM+1, 6PM=7:30AM+1.</p>
+  <p><strong>Specific GMT to IST:</strong> 6AM=11:30AM, 9AM=2:30PM, 12PM=5:30PM, 5PM=10:30PM, 6PM=11:30PM, 8PM=1:30AM+1. <strong>EDT to IST (US summer, UTC-4):</strong> add 9h30m — 9AM=6:30PM, 12PM=9:30PM. <strong>PDT to IST (US West summer, UTC-7):</strong> add 12h30m — 9AM=9:30PM, 12PM=12:30AM+1.</p>
+  <p><strong>India live clock cities:</strong> Current time in Mumbai, Delhi, Bangalore, Chennai, Kolkata, Hyderabad, Pune. IST is UTC+5:30 year-round.</p>
+  <p><strong>Time difference questions:</strong> India ahead of New York by 10h30m (EST), London by 5h30m (GMT winter), California by 13h30m (PST). India is ahead of all US timezones. India timezone: IST = UTC+5:30.</p>
 </div>
 <script>
 var DIFF_CARDS=[
@@ -3112,10 +3031,12 @@ document.addEventListener('DOMContentLoaded',function(){
   }
   requestAnimationFrame(_tick);
 
-  // ── City clocks: build DOM once, then update every 10s ──
-  buildInstantCityClocks();
-  updateInstantCityClocks();
-  setInterval(updateInstantCityClocks,10000);
+  // ── City clocks: deferred by one frame so first paint is not blocked ──
+  setTimeout(function(){
+    buildInstantCityClocks();
+    updateInstantCityClocks();
+    setInterval(updateInstantCityClocks,10000);
+  },0);
 
   // ── Home tab essentials — deferred so first paint is not blocked ──
   setTimeout(function(){
@@ -3172,7 +3093,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert UTC to IST?","acceptedAnswer":{"@type":"Answer","text":"Add 5 hours and 30 minutes to UTC. For example, 12:00 UTC = 17:30 IST. IST is UTC+5:30."}},{"@type":"Question","name":"What is IST time now?","acceptedAnswer":{"@type":"Answer","text":"IST (India Standard Time) is UTC+5:30. This tool shows the live current IST time updated every second."}},{"@type":"Question","name":"What is the difference between UTC and GMT?","acceptedAnswer":{"@type":"Answer","text":"GMT is a time zone; UTC is a time standard. They show the same time but UTC is more precise and universally used in computing."}},{"@type":"Question","name":"How to convert EST to IST?","acceptedAnswer":{"@type":"Answer","text":"Add 10 hours and 30 minutes to EST to get IST. EST is UTC-5:00 and IST is UTC+5:30, a difference of 10.5 hours. For example: 9 AM EST = 7:30 PM IST, 12 PM EST = 10:30 PM IST, 5 PM EST = 3:30 AM IST (next day)."}},{"@type":"Question","name":"What is 9 AM EST in India time?","acceptedAnswer":{"@type":"Answer","text":"9 AM EST is 7:30 PM IST. India (IST) is 10 hours and 30 minutes ahead of US Eastern Standard Time (EST)."}},{"@type":"Question","name":"What is 9 AM PST in India time?","acceptedAnswer":{"@type":"Answer","text":"9 AM PST is 10:30 PM IST. India (IST) is 13 hours and 30 minutes ahead of US Pacific Standard Time (PST)."}},{"@type":"Question","name":"What is 5 PM London time in India?","acceptedAnswer":{"@type":"Answer","text":"5 PM GMT (London) is 10:30 PM IST. India is 5 hours and 30 minutes ahead of UK GMT. In UK summer (BST), India is 4 hours 30 minutes ahead."}},{"@type":"Question","name":"What is 12 PM EST in IST?","acceptedAnswer":{"@type":"Answer","text":"12 PM (noon) EST is 10:30 PM IST the same day. EST is UTC-5 and IST is UTC+5:30, so add 10 hours 30 minutes."}},{"@type":"Question","name":"What is 8 AM EST in India time?","acceptedAnswer":{"@type":"Answer","text":"8 AM EST is 6:30 PM IST. India is 10 hours 30 minutes ahead of Eastern Standard Time."}},{"@type":"Question","name":"What is 6 PM EST in IST?","acceptedAnswer":{"@type":"Answer","text":"6 PM EST is 4:30 AM IST the next day. When US East Coast is in the evening, India is already in the early morning of the next day."}},{"@type":"Question","name":"Does India observe Daylight Saving Time?","acceptedAnswer":{"@type":"Answer","text":"No. India does not observe Daylight Saving Time. IST is always UTC+5:30, year-round. This makes India a very stable timezone for scheduling."}},{"@type":"Question","name":"What is the time difference between India and USA?","acceptedAnswer":{"@type":"Answer","text":"India (IST) is 10 hours 30 minutes ahead of US Eastern time (EST/EDT). India is 13 hours 30 minutes ahead of US Pacific time (PST). India is 11 hours 30 minutes ahead of US Central time (CST)."}},{"@type":"Question","name":"What is the time difference between India and UK?","acceptedAnswer":{"@type":"Answer","text":"India (IST) is 5 hours 30 minutes ahead of UK GMT in winter, and 4 hours 30 minutes ahead of UK BST in summer. India does not change its clocks."}},{"@type":"Question","name":"How to convert PST to IST?","acceptedAnswer":{"@type":"Answer","text":"Add 13 hours and 30 minutes to PST to get IST. PST is UTC-8:00 and IST is UTC+5:30, a difference of 13.5 hours. For example: 9 AM PST = 10:30 PM IST, 12 PM PST = 1:30 AM IST (next day)."}},{"@type":"Question","name":"What is a Unix epoch timestamp?","acceptedAnswer":{"@type":"Answer","text":"A Unix timestamp is the number of seconds since January 1, 1970 00:00:00 UTC. Use the Epoch tab to convert between timestamps and readable dates."}},{"@type":"Question","name":"Why should developers store timestamps in UTC?","acceptedAnswer":{"@type":"Answer","text":"Storing timestamps in UTC avoids daylight saving confusion and ensures consistency across servers and databases worldwide."}},{"@type":"Question","name":"Does this timezone converter work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once the page is loaded, all calculations run locally in your browser with no internet connection required."}},{"@type":"Question","name":"How do I calculate days between two dates?","acceptedAnswer":{"@type":"Answer","text":"Use the Date Calculator tab on this site. Enter a start and end date and it instantly shows the exact number of days, weeks, and months between them. No calculation needed — the answer appears immediately."}},{"@type":"Question","name":"How many business days are between two dates?","acceptedAnswer":{"@type":"Answer","text":"The Business Days Calculator on this site counts only Monday–Friday between any two dates, and separately shows how many weekend days fall in that range. Enter both dates and get the answer instantly."}},{"@type":"Question","name":"How old am I in days and hours?","acceptedAnswer":{"@type":"Answer","text":"Use the Age Calculator tab on this site. Enter your date of birth and it instantly shows your exact age in years, months, days, total days lived, total hours lived, and the number of days until your next birthday."}},{"@type":"Question","name":"Is 2028 a leap year?","acceptedAnswer":{"@type":"Answer","text":"Yes, 2028 is a leap year. It is divisible by 4 and not by 100, so it has 366 days with February 29. Use the Leap Year Checker on this site to check any year instantly."}},{"@type":"Question","name":"How many days until New Year 2026?","acceptedAnswer":{"@type":"Answer","text":"Use the Countdown tool on this site — click the 'New Year' button and it instantly shows the exact number of days, hours, and minutes until January 1, 2026. The answer updates live."}},{"@type":"Question","name":"How many days until Christmas 2025?","acceptedAnswer":{"@type":"Answer","text":"Click the 'Christmas' quick button in the Countdown section of our Date Calculator to instantly see how many days, hours, and minutes until December 25, 2025."}}]}
 </script>
-<script>window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7542838934089345';s.crossOrigin='anonymous';document.body.appendChild(s);});</script>
+<script>window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7542838934089345';s.crossOrigin='anonymous';s.onload=function(){try{document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])').forEach(function(ins){if(ins.offsetWidth>0){(adsbygoogle=window.adsbygoogle||[]).push({})}});}catch(e){}};document.body.appendChild(s);});</script>
 </body>
 </html>
 
