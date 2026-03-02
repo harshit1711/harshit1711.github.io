@@ -37,6 +37,9 @@
   <url><loc>https://harshit1711.github.io/india-us-overlap.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://harshit1711.github.io/india-no-daylight-saving.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
+  <!-- About page -->
+  <url><loc>https://harshit1711.github.io/about.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
   <!-- Privacy policy -->
   <url>
     <loc>https://harshit1711.github.io/privacy.html</loc>
