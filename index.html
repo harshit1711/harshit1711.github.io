@@ -211,6 +211,14 @@
   <a href="/notice-period-calculator.html">Notice Period Calculator India</a>
   <a href="/cron-to-ist.html">Cron to IST Converter</a>
   <a href="/timezone-abbreviations.html">Timezone Abbreviations Guide</a>
+  <a href="/utc-to-ist.html">UTC to IST Converter</a>
+  <a href="/est-to-ist.html">EST to IST Converter</a>
+  <a href="/pst-to-ist.html">PST to IST Converter</a>
+  <a href="/gmt-to-ist.html">GMT to IST Converter</a>
+  <a href="/utc-to-est.html">UTC to EST Converter</a>
+  <a href="/utc-to-pst.html">UTC to PST Converter</a>
+  <a href="/utc-to-cst.html">UTC to CST Converter</a>
+  <a href="/utc-to-aedt.html">UTC to AEDT Converter</a>
 </nav>
 <noscript><div style="background:#fffbe6;border:2px solid #ffe58f;border-radius:10px;padding:1.5rem;margin-bottom:2rem;color:#7a5a00;font-size:1.1rem;"><strong>JavaScript is disabled.</strong> This timezone converter requires JavaScript.<br><br><b>Quick Reference:</b> UTC+0:00=UTC | UTC+5:30=IST | UTC-5:00=EST | UTC-8:00=PST | UTC+1:00=CET | UTC+9:00=JST</div></noscript>
 
@@ -242,6 +250,24 @@
         <button class="snav-btn" id="snav-meeting" onclick="showTab('tab-meeting',this);closeSidenav()"><span class="snav-icon">&#x1F91D;</span>Meeting Planner</button>
         <button class="snav-btn" id="snav-callnow" onclick="showTab('tab-callnow',this);closeSidenav()"><span class="snav-icon">&#x1F4DE;</span>Call India?</button>
         <button class="snav-btn" id="snav-dst" onclick="showTab('tab-dst',this);closeSidenav()"><span class="snav-icon">&#x1F501;</span>DST Tracker</button>
+      </div>
+    </div>
+
+    <!-- CONVERTERS -->
+    <div class="snav-group" id="sgrp-conv">
+      <div class="snav-group-hdr" onclick="toggleSnavGroup('sgrp-conv')">
+        <span class="snav-group-label">&#x1F504; Converters</span>
+        <span class="snav-group-arrow">&#x25BC;</span>
+      </div>
+      <div class="snav-group-items">
+        <a class="snav-btn" href="/utc-to-ist.html"><span class="snav-icon">&#x1F555;</span>UTC to IST</a>
+        <a class="snav-btn" href="/est-to-ist.html"><span class="snav-icon">&#x1F555;</span>EST to IST</a>
+        <a class="snav-btn" href="/pst-to-ist.html"><span class="snav-icon">&#x1F555;</span>PST to IST</a>
+        <a class="snav-btn" href="/gmt-to-ist.html"><span class="snav-icon">&#x1F555;</span>GMT to IST</a>
+        <a class="snav-btn" href="/utc-to-est.html"><span class="snav-icon">&#x1F555;</span>UTC to EST</a>
+        <a class="snav-btn" href="/utc-to-pst.html"><span class="snav-icon">&#x1F555;</span>UTC to PST</a>
+        <a class="snav-btn" href="/utc-to-cst.html"><span class="snav-icon">&#x1F555;</span>UTC to CST</a>
+        <a class="snav-btn" href="/utc-to-aedt.html"><span class="snav-icon">&#x1F555;</span>UTC to AEDT</a>
       </div>
     </div>
 
@@ -1663,6 +1689,17 @@ System.out.println(istTime.format(fmt)); <span style="color:#888">// 2026-02-26 
     <a href="#info" onclick="showTab('tab-info',document.getElementById('snav-info'));window.scrollTo(0,0);return false;" style="color:#0a54a0;margin:0 0.5rem;">About</a> |
     <a href="/privacy.html" style="color:#0a54a0;margin:0 0.5rem;">Privacy Policy</a> |
     <a href="mailto:harshit1996yadav@gmail.com" style="color:#0a54a0;margin:0 0.5rem;">Contact</a>
+  </p>
+  <p style="margin-top:0.4rem;font-size:0.82rem;">
+    <strong style="color:#6b7280">Converters:</strong>
+    <a href="/utc-to-ist.html" style="color:#0a54a0;margin:0 0.4rem;">UTC to IST</a> &bull;
+    <a href="/est-to-ist.html" style="color:#0a54a0;margin:0 0.4rem;">EST to IST</a> &bull;
+    <a href="/pst-to-ist.html" style="color:#0a54a0;margin:0 0.4rem;">PST to IST</a> &bull;
+    <a href="/gmt-to-ist.html" style="color:#0a54a0;margin:0 0.4rem;">GMT to IST</a> &bull;
+    <a href="/utc-to-est.html" style="color:#0a54a0;margin:0 0.4rem;">UTC to EST</a> &bull;
+    <a href="/utc-to-pst.html" style="color:#0a54a0;margin:0 0.4rem;">UTC to PST</a> &bull;
+    <a href="/utc-to-cst.html" style="color:#0a54a0;margin:0 0.4rem;">UTC to CST</a> &bull;
+    <a href="/utc-to-aedt.html" style="color:#0a54a0;margin:0 0.4rem;">UTC to AEDT</a>
   </p>
   <p style="margin-top:0.4rem;font-size:0.82rem;">
     <strong style="color:#6b7280">Guides:</strong>

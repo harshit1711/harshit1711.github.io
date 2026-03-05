@@ -37,6 +37,16 @@
   <url><loc>https://harshit1711.github.io/india-us-overlap.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://harshit1711.github.io/india-no-daylight-saving.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
+  <!-- Dedicated timezone conversion pages (high-impression search targets) -->
+  <url><loc>https://harshit1711.github.io/utc-to-ist.html</loc><lastmod>2026-03-02</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://harshit1711.github.io/est-to-ist.html</loc><lastmod>2026-03-02</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://harshit1711.github.io/pst-to-ist.html</loc><lastmod>2026-03-02</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://harshit1711.github.io/gmt-to-ist.html</loc><lastmod>2026-03-02</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://harshit1711.github.io/utc-to-est.html</loc><lastmod>2026-03-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://harshit1711.github.io/utc-to-pst.html</loc><lastmod>2026-03-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://harshit1711.github.io/utc-to-cst.html</loc><lastmod>2026-03-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://harshit1711.github.io/utc-to-aedt.html</loc><lastmod>2026-03-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
   <!-- About page -->
   <url><loc>https://harshit1711.github.io/about.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 
