@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0a54a0" />
-  <title>WorkIndia – Tools for Everyone Working With India | Time, Holidays, Markets & More</title>
+  <title>India Time Zone Converter, IST Clock & Business Hours Guide | WorkIndia</title>
   <meta name="description" content="Is India open right now? WorkIndia gives you live IST time, India office hours status, EST/PST/GMT to IST converter, NSE/BSE market hours, India public holidays, shift overlap planner and NRI tools – free, instant, no signup." />
   <meta name="keywords" content="is India open right now, India office hours, India working hours today, India holiday today, EST to IST, PST to IST, GMT to IST, what time is it in India, India time for remote teams, NSE market hours EST, BSE open time UK, India US work overlap, India UK time difference, India timezone converter, India shift planner, India public holidays 2026, is today a holiday in India, NRI 183 day rule, invoice due date calculator, notice period calculator India, work with India tools" />
   <meta name="author" content="Harshit1711" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://harshit1711.github.io/" />
-  <meta property="og:title" content="WorkIndia – Is India Open Right Now? Tools for Global Teams Working With India" />
+  <meta property="og:title" content="India Time Zone Converter, IST Clock & Business Hours Guide | WorkIndia" />
   <meta property="og:description" content="Live IST clock, India office hours status, EST/PST/GMT to IST converter, NSE/BSE market hours, India holidays, shift planner &amp; NRI tools. Free, instant, no signup." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://harshit1711.github.io/" />
@@ -18,7 +18,7 @@
   <meta property="og:site_name" content="WorkIndia" />
   <meta property="og:image" content="https://harshit1711.github.io/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WorkIndia – Is India Open Right Now? Tools for Global Teams" />
+  <meta name="twitter:title" content="India Time Zone Converter, IST Clock & Business Hours Guide | WorkIndia" />
   <meta name="twitter:description" content="Live IST clock, India office hours, EST/PST/GMT→IST, NSE/BSE market hours, India holidays & shift planner. Free, no signup." />
   <meta name="twitter:image" content="https://harshit1711.github.io/og-image.png" />
   <meta name="twitter:creator" content="@harshit1711" />
@@ -322,8 +322,8 @@
 <div class="main-content" id="mainContent" role="main">
 
 <header>
-  <h1>&#x1F1EE;&#x1F1F3; WorkIndia</h1>
-  <p>Your command centre for working with India &mdash; time, holidays, markets &amp; team tools for global professionals. Free, instant, no signup.</p>
+  <h1 id="pageMainHeading">&#x1F1EE;&#x1F1F3; India Time Zone Converter, IST Clock &amp; Business Hours Tools</h1>
+  <p id="pageMainSubheading">Check live India time, convert IST with UTC/EST/PST/GMT, and plan calls, meetings, market hours, and holidays in one place.</p>
 </header>
 
 <!-- legacy hidden nav: keeps all btn-* IDs alive for routeFromHash -->
@@ -426,14 +426,14 @@
   <summary style="cursor:pointer;font-size:0.9rem;color:#637381;padding:0.5rem 0;user-select:none;">&#128187; Developer tools: Local &harr; UTC text converters</summary>
   <div style="margin-top:0.75rem;">
   <section class="converter" aria-label="Local to UTC Converter">
-    <h2>Local Time &rarr; UTC</h2>
+    <h2>Local Time to UTC Converter</h2>
     <p>Enter your local time to convert it to UTC. Accepts formats like <code>2026-02-26 17:30:00</code>, <code>17:30</code>, or <code>Feb 26, 2026 5:30 PM</code>.</p>
     <input type="text" id="localTimeInput" placeholder="e.g. 2026-02-26 17:30:00" />
     <button id="convertLocalToUTCBtn">Convert to UTC</button>
     <div id="localToUTCResult" class="result"></div>
   </section>
   <section class="converter" aria-label="UTC to Local Converter">
-    <h2>UTC &rarr; Local Time</h2>
+    <h2>UTC to Local Time Converter</h2>
     <p>Enter a UTC time to see it in your local timezone. Accepts the same flexible formats.</p>
     <input type="text" id="utcTimeInput" placeholder="e.g. 2026-02-26 12:00:00" />
     <button id="convertUTCToLocalBtn">Convert to Local</button>
@@ -584,7 +584,7 @@
 </section>
 
 <section aria-label="Developer guides" style="margin:2.5rem 0 1rem;">
-  <h2 style="color:#0a3a86;font-size:1.2rem;font-weight:700;margin:0 0 1rem;">&#128218; Developer Guides &amp; Reference</h2>
+  <h2 style="color:#0a3a86;font-size:1.2rem;font-weight:700;margin:0 0 1rem;">&#128218; Developer Guides: UTC, IST, DST and Timezone Reference</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;">
 
     <div onclick="openGuide('acc-dst')" style="background:#fff8f0;border:1px solid #f5c18a;border-radius:12px;padding:1.1rem 1.25rem;cursor:pointer;transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(200,80,0,0.13)'" onmouseout="this.style.boxShadow=''">
@@ -636,7 +636,7 @@
 <!-- TAB: TZ CONVERTER -->
 <div id="tab-tzconv" class="tab-panel">
 <section aria-label="Timezone Converter" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>Timezone Converter</h2>
+  <h2>Time Zone Converter (IST, UTC, EST, PST, GMT)</h2>
   <p>Pick any two cities and a time &mdash; instantly see the converted result. Perfect for scheduling international meetings.</p>
   <div class="two-col-grid" style="margin-bottom:1rem;">
     <div><label for="tzFrom" style="font-weight:600;display:block;margin-bottom:0.4rem;">From Timezone</label><select id="tzFrom"></select></div>
@@ -651,7 +651,7 @@
 <!-- TAB: WORLD CLOCK -->
 <div id="tab-worldclock" class="tab-panel">
 <section aria-label="World Clock" style="background:#e6f0fa;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>World Clock</h2>
+  <h2>World Clock: Current Time in India and Major Cities</h2>
   <p>Live current time in major cities around the world, updated every second.</p>
   <div id="worldClockGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:1rem;"></div>
 </section>
@@ -660,11 +660,11 @@
 <!-- TAB: EPOCH -->
 <div id="tab-epoch" class="tab-panel">
 <section aria-label="Unix Epoch Converter" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>Unix / Epoch Timestamp Converter</h2>
+  <h2>Unix Epoch Timestamp Converter (Epoch to Date and Date to Epoch)</h2>
   <p>Convert between Unix epoch (seconds or milliseconds) and human-readable date/time &mdash; essential for developers debugging logs and APIs.</p>
   <div class="two-col-grid-lg">
     <div>
-      <h3 style="font-size:1.1rem;color:#0a54a0;margin-bottom:0.75rem;">Epoch &rarr; Date</h3>
+      <h3 style="font-size:1.1rem;color:#0a54a0;margin-bottom:0.75rem;">Epoch to Date Converter</h3>
       <label for="epochInput" style="font-weight:600;display:block;margin-bottom:0.4rem;">Unix Timestamp</label>
       <input type="text" id="epochInput" placeholder="e.g. 1700000000 or 1700000000000" />
       <button onclick="epochToDate()" style="margin-top:0.75rem;">Convert to Date</button>
@@ -672,7 +672,7 @@
       <p style="margin-top:0.5rem;font-size:0.9rem;color:#555;">Current epoch: <strong id="liveEpoch">&ndash;</strong></p>
     </div>
     <div>
-      <h3 style="font-size:1.1rem;color:#0a54a0;margin-bottom:0.75rem;">Date &rarr; Epoch</h3>
+      <h3 style="font-size:1.1rem;color:#0a54a0;margin-bottom:0.75rem;">Date to Epoch Converter</h3>
       <label for="dateToEpochInput" style="font-weight:600;display:block;margin-bottom:0.4rem;">Date &amp; Time (local)</label>
       <input type="datetime-local" id="dateToEpochInput" />
       <button onclick="dateToEpoch()" style="margin-top:0.75rem;">Convert to Epoch</button>
@@ -685,7 +685,7 @@
 <!-- TAB: MEETING PLANNER -->
 <div id="tab-meeting" class="tab-panel">
 <section aria-label="Meeting Planner" style="background:#e6f0fa;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>Meeting Planner &mdash; Find the Best Time</h2>
+  <h2>Meeting Planner Across Time Zones (Find the Best Overlap)</h2>
   <p>Pick a date to see all 24 UTC hours across 9 cities. <strong style="color:#0a6e35;">Green rows</strong> = all overlap in working hours. <strong style="color:#0a54a0;">Blue highlight</strong> = current hour right now.</p>
   <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.75rem;align-items:flex-end;">
     <div><label for="meetingDate" style="font-weight:600;display:block;margin-bottom:0.4rem;">Date</label><input type="date" id="meetingDate" oninput="buildMeetingGrid()" style="padding:0.6rem 1rem;font-size:1rem;border-radius:8px;border:2px solid #b8c3d7;" /></div>
@@ -708,7 +708,7 @@
 <!-- TAB: DURATION -->
 <div id="tab-duration" class="tab-panel">
 <section aria-label="Date Calculator" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>&#x1F4C5; Date Calculator</h2>
+  <h2>&#x1F4C5; Date Calculator: Age, Business Days and Countdown</h2>
   <p style="color:#3d4651;">Age, days between dates, business days, countdown &amp; leap year &ndash; all calculated instantly for today.</p>
 
   <!-- AGE CALCULATOR -->
@@ -811,7 +811,7 @@
 <!-- TAB: TZ ABBREVIATION DECODER -->
 <div id="tab-abbr" class="tab-panel">
 <section aria-label="Timezone Abbreviation Decoder" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>&#x1F3F7; Timezone Abbreviation Decoder</h2>
+  <h2>&#x1F3F7; Time Zone Abbreviation Decoder (IST, EST, PST, GMT)</h2>
   <p style="color:#3d4651;">Paste any timezone abbreviation &ndash; <code>IST</code>, <code>CST</code>, <code>EST</code>, <code>PST</code>, <code>BST</code> etc ? and instantly see every possible meaning with live current times.</p>
   <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1.25rem;">
     <input type="text" id="abbrInput" placeholder="e.g. IST, CST, EDT, BST?" style="max-width:260px;text-transform:uppercase;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;" oninput="decodeAbbr()" />
@@ -833,7 +833,7 @@
 <!-- TAB: CRON TO IST -->
 <div id="tab-cron" class="tab-panel">
 <section aria-label="Cron Expression to IST" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>&#x2699; Cron Expression &rarr; IST Preview</h2>
+  <h2>&#x2699; Cron Expression to IST Converter and Preview</h2>
   <p style="color:#3d4651;">Enter a cron expression (UTC-based) and see the next 8 fire times in UTC, IST, and your local time &ndash; side by side. Essential for debugging cron jobs running on Indian servers.</p>
   <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1rem;">
     <div style="flex:1;min-width:200px;">
@@ -858,7 +858,7 @@
 <!-- TAB: ISO/RFC TIMESTAMP PARSER -->
 <div id="tab-timestamp" class="tab-panel">
 <section aria-label="ISO Timestamp Parser" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>&#x1F4CB; ISO / RFC Timestamp Parser</h2>
+  <h2>&#x1F4CB; Timestamp Parser (ISO 8601, RFC 2822, Unix Epoch)</h2>
   <p style="color:#3d4651;">Paste any timestamp string from an API log, email header, or calendar file &ndash; instantly decoded across all timezones.</p>
   <div style="margin-bottom:1rem;">
     <label for="tsInput" style="font-weight:600;display:block;margin-bottom:0.4rem;">Paste Timestamp</label>
@@ -879,25 +879,43 @@
 <!-- TAB: CAN I CALL INDIA NOW -->
 <div id="tab-callnow" class="tab-panel">
 <section aria-label="Can I call India now" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>&#x1F4DE; Can I Call India Right Now?</h2>
+  <h2>&#x1F4DE; Best Time to Call India Right Now (Live IST)</h2>
   <p style="color:#3d4651;">Pick your city &ndash; see instantly if India business hours (9 AM&ndash;6 PM IST) overlap with your current time right now, and find the best window today.</p>
   <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1.5rem;">
     <select id="callCitySelect" aria-label="Select your city" onchange="updateCallWidget()" style="font-size:1rem;padding:0.6rem 1rem;border-radius:8px;border:2px solid #b8c3d7;max-width:300px;background:#fff;"></select>
     <span style="font-size:0.88rem;color:#888;">Updates live every minute</span>
   </div>
   <div id="callResult" style="margin-bottom:1.5rem;"></div>
-  <div id="callTimeline" style="background:#fff;border-radius:12px;padding:1.25rem 1.5rem;border:1px solid #e0eaff;">
-    <div style="font-weight:700;color:#0a3a86;margin-bottom:0.75rem;font-size:0.95rem;">&#128197; Today&rsquo;s overlap window</div>
-    <div id="callTimelineBar"></div>
-    <div id="callTimelineLabels" style="display:flex;justify-content:space-between;font-size:0.75rem;color:#888;margin-top:0.3rem;"></div>
-  </div>
+  <div id="callOverlapChart" style="margin-top:1rem;background:#f8fbff;border:1px solid #d8e6ff;border-radius:10px;padding:0.9rem 1rem;"></div>
+
+  <article aria-label="Best time to call India guide" style="margin-top:1.5rem;background:#ffffff;border:1px solid #dbe7ff;border-radius:12px;padding:1.25rem 1.5rem;">
+    <h2 style="font-size:1.35rem;border-bottom:none;margin-bottom:0.5rem;padding:0;color:#0a3a86;">Best Time to Call India Across Time Zones</h2>
+    <p style="margin:0.55rem 0 0.85rem;color:#2f3a47;">If you are calling India for work, sales, support, or client meetings, the best approach is to target normal Indian business hours: <strong>9:00 AM to 6:00 PM IST</strong> (Monday to Friday). Most teams see the highest response rates between <strong>10:00 AM and 1:00 PM IST</strong> and again from <strong>2:30 PM to 5:30 PM IST</strong>. Calls outside these windows are more likely to be missed or delayed, especially for decision makers in finance, logistics, and operations.</p>
+    <p style="margin:0 0 0.85rem;color:#2f3a47;">Use the overlap windows below as a practical baseline, then adjust for Daylight Saving Time in the USA, UK, and Australia. If you are scheduling a first-time business call, aim for the earlier half of India&rsquo;s day when teams are less likely to be in internal meetings. For urgent conversations, choose overlap windows where both countries are in active office hours, not just awake hours.</p>
+    <p style="margin:0 0 0.85rem;color:#2f3a47;">Planning a meeting across different timezones? Use our <a href="/meeting-planner.html" style="color:#0a54a0;font-weight:700;">Meeting Planner</a> to find practical overlap slots by city and timezone.</p>
+    <div style="background:#f7faff;border:1px solid #dbe7ff;border-radius:10px;padding:0.8rem 1rem;">
+      <p style="margin:0 0 0.45rem;color:#2f3a47;font-weight:700;">Quick calling rule (timezone-neutral)</p>
+      <p style="margin:0;color:#2f3a47;font-size:0.92rem;">Target India business hours (9:00 AM - 6:00 PM IST), then prioritize the overlap where both sides are within normal office hours. The live overlap chart above already reflects this based on your selected city.</p>
+    </div>
+
+    <p style="margin:0.85rem 0 0;color:#2f3a47;">This guide works best when used with the live tool above, since the current IST time and city-specific offset can change your exact calling window across seasons.</p>
+
+    <section aria-label="Related tools" style="margin-top:1rem;padding-top:0.85rem;border-top:1px solid #e4ecff;">
+      <h3 style="font-size:1rem;color:#0a3a86;margin:0 0 0.45rem;">Related Tools</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+        <a href="/ist-converter.html" style="text-decoration:none;color:#0a54a0;background:#f0f6ff;border:1px solid #cfe0ff;padding:0.35rem 0.65rem;border-radius:8px;font-size:0.86rem;font-weight:600;">UTC to IST Converter</a>
+        <a href="/meeting-planner.html" style="text-decoration:none;color:#0a54a0;background:#f0f6ff;border:1px solid #cfe0ff;padding:0.35rem 0.65rem;border-radius:8px;font-size:0.86rem;font-weight:600;">Meeting Time Planner</a>
+        <a href="/world-clock.html" style="text-decoration:none;color:#0a54a0;background:#f0f6ff;border:1px solid #cfe0ff;padding:0.35rem 0.65rem;border-radius:8px;font-size:0.86rem;font-weight:600;">World Clock</a>
+      </div>
+    </section>
+  </article>
 </section>
 </div>
 
 <!-- TAB: DST TRANSITION COUNTDOWN -->
 <div id="tab-dst" class="tab-panel">
 <section aria-label="DST Transition Countdown" style="background:#f3f6fb;border-radius:12px;margin-bottom:2.5rem;padding:1.75rem 2rem;">
-  <h2>&#x1F501; DST Transition Countdown</h2>
+  <h2>&#x1F501; DST Transition Countdown for India Time Difference</h2>
   <p style="color:#3d4651;">India never observes DST &ndash; but the US, UK and EU do. When their clocks change, <strong>your IST meeting time shifts</strong>. See exactly when, and by how much.</p>
   <div id="dstCountdowns" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-top:1rem;"></div>
   <div style="margin-top:2rem;">
@@ -927,12 +945,12 @@
 
 <!-- TAB: INFO -->
 <div id="tab-info" class="tab-panel">
-  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>About This Tool</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p><strong>UTC to IST &amp; Timezone Converter</strong> is a free tool to convert between UTC, IST, GMT, EST, PST, CET, JST and other timezones instantly. Built for developers, remote workers, travelers, and business professionals worldwide.</p><p>Maintained by <strong>Harshit Yadav</strong>. All calculations run entirely in your browser &mdash; no data is ever sent to a server.</p></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>About This India Time Zone Converter Tool</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p><strong>UTC to IST &amp; Timezone Converter</strong> is a free tool to convert between UTC, IST, GMT, EST, PST, CET, JST and other timezones instantly. Built for developers, remote workers, travelers, and business professionals worldwide.</p><p>Maintained by <strong>Harshit Yadav</strong>. All calculations run entirely in your browser &mdash; no data is ever sent to a server.</p></div></div>
   <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Privacy Policy</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p>This site does not collect, store, or share any personal information. No user tracking is performed by this site. Google AdSense may use cookies to serve relevant ads &mdash; see <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's Ad Policy</a>.</p><p>No registration or login is required. Any data you enter is processed only in your browser.</p></div></div>
   <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Terms &amp; Disclaimer</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p>This tool is provided for informational purposes only. While we strive for accuracy, we do not guarantee the correctness of any conversion. Always verify critical times for business or travel. Use at your own risk.</p></div></div>
   <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Contact Us</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><p>Have feedback or suggestions?</p><ul style="list-style:none;padding-left:0;"><li><strong>Email:</strong> <a href="mailto:harshit1996yadav@gmail.com">harshit1996yadav@gmail.com</a></li><li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/harshityadav196/" target="_blank" rel="noopener">linkedin.com/in/harshityadav196</a></li></ul></div></div>
-  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Frequently Asked Questions</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><h3 style="color:#0a3a86;">How do I convert UTC to IST?</h3><p>Add 5 hours and 30 minutes. So <code>12:00 UTC</code> = <code>17:30 IST</code>. Use the Quick Convert bar on the Home tab for instant results.</p><h3 style="color:#0a3a86;">What is the difference between UTC and GMT?</h3><p>GMT is a time zone; UTC is a time standard. They show the same time value, but UTC is more precise and is the global standard used in computing and communications.</p><h3 style="color:#0a3a86;">Why should developers store timestamps in UTC?</h3><p>UTC avoids ambiguity from daylight saving time changes and regional offsets. Databases and APIs that store UTC timestamps work correctly for users in any timezone.</p><h3 style="color:#0a3a86;">Does this tool work offline?</h3><p>Yes &mdash; once the page is loaded, all timezone calculations run locally in your browser with no internet connection required.</p><h3 style="color:#0a3a86;">What is a Unix epoch timestamp?</h3><p>A Unix timestamp is the number of seconds (or milliseconds) since January 1, 1970 00:00:00 UTC. Use the Epoch tab to convert between timestamps and readable dates.</p></div></div>
-  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Developer's Guide to Timezone Handling</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><h3 style="color:#0a54a0;font-size:1.1rem;">Best Practices</h3><ul style="padding-left:1.5rem;line-height:1.8;"><li><strong>Always store in UTC</strong> &mdash; convert to local time only for display.</li><li><strong>Use ISO 8601 format</strong> &mdash; <code>YYYY-MM-DDTHH:mm:ss.sssZ</code> ensures universal compatibility.</li><li><strong>Handle DST transitions</strong> &mdash; use IANA timezone names (e.g. <code>America/New_York</code>) not fixed offsets.</li><li><strong>Test across timezones</strong> &mdash; run your app with different system timezone settings.</li></ul><h3 style="color:#0a54a0;font-size:1.1rem;margin-top:1rem;">Common Mistakes</h3><ul style="padding-left:1.5rem;line-height:1.8;"><li>Mixing local and UTC times &mdash; causes data inconsistencies.</li><li>Assuming fixed UTC offsets &mdash; regions change offsets seasonally.</li><li>Ignoring DST transitions &mdash; off-by-one-hour bugs appear twice a year.</li></ul></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>India Time Zone Converter FAQ</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><h3 style="color:#0a3a86;">How do I convert UTC to IST?</h3><p>Add 5 hours and 30 minutes. So <code>12:00 UTC</code> = <code>17:30 IST</code>. Use the Quick Convert bar on the Home tab for instant results.</p><h3 style="color:#0a3a86;">What is the difference between UTC and GMT?</h3><p>GMT is a time zone; UTC is a time standard. They show the same time value, but UTC is more precise and is the global standard used in computing and communications.</p><h3 style="color:#0a3a86;">Why should developers store timestamps in UTC?</h3><p>UTC avoids ambiguity from daylight saving time changes and regional offsets. Databases and APIs that store UTC timestamps work correctly for users in any timezone.</p><h3 style="color:#0a3a86;">Does this tool work offline?</h3><p>Yes &mdash; once the page is loaded, all timezone calculations run locally in your browser with no internet connection required.</p><h3 style="color:#0a3a86;">What is a Unix epoch timestamp?</h3><p>A Unix timestamp is the number of seconds (or milliseconds) since January 1, 1970 00:00:00 UTC. Use the Epoch tab to convert between timestamps and readable dates.</p></div></div>
+  <div class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Developer Guide: UTC, IST and Timezone Handling</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body"><h3 style="color:#0a54a0;font-size:1.1rem;">Best Practices</h3><ul style="padding-left:1.5rem;line-height:1.8;"><li><strong>Always store in UTC</strong> &mdash; convert to local time only for display.</li><li><strong>Use ISO 8601 format</strong> &mdash; <code>YYYY-MM-DDTHH:mm:ss.sssZ</code> ensures universal compatibility.</li><li><strong>Handle DST transitions</strong> &mdash; use IANA timezone names (e.g. <code>America/New_York</code>) not fixed offsets.</li><li><strong>Test across timezones</strong> &mdash; run your app with different system timezone settings.</li></ul><h3 style="color:#0a54a0;font-size:1.1rem;margin-top:1rem;">Common Mistakes</h3><ul style="padding-left:1.5rem;line-height:1.8;"><li>Mixing local and UTC times &mdash; causes data inconsistencies.</li><li>Assuming fixed UTC offsets &mdash; regions change offsets seasonally.</li><li>Ignoring DST transitions &mdash; off-by-one-hour bugs appear twice a year.</li></ul></div></div>
 
   <div id="acc-dst" class="accordion"><div class="accordion-header" onclick="toggleAccordion(this)" role="button" tabindex="0" aria-expanded="false"><h2>Daylight Saving Time (DST) &ndash; Developer Bugs &amp; Fixes</h2><span class="accordion-arrow">&#9660;</span></div><div class="accordion-body">
   <p style="color:#555;margin:0 0 1.1rem;">DST causes more production incidents than almost any other datetime issue. Here are the bugs developers hit every year and how to fix them.</p>
@@ -1486,7 +1504,7 @@ System.out.println(istTime.format(fmt)); <span style="color:#888">// 2026-02-26 
 
 <!-- ===== TAB: NSE/BSE MARKET HOURS ===== -->
 <div id="tab-market" class="tab-panel" style="display:none;">
-  <h2 style="font-size:1.35rem;font-weight:800;color:#0a54a0;margin-bottom:0.25rem;">&#x1F4C8; NSE / BSE Market Hours</h2>
+  <h2 style="font-size:1.35rem;font-weight:800;color:#0a54a0;margin-bottom:0.25rem;">&#x1F4C8; India Stock Market Hours (NSE/BSE) Live</h2>
   <p style="color:#637381;font-size:0.9rem;margin-bottom:1.2rem;">Live status of Indian stock market sessions. No login required &ndash; pure IST calculation.</p>
   <div id="marketContent">Loading&hellip;</div>
   <div style="margin-top:1.5rem;background:#f3f6fb;border-radius:10px;padding:1rem 1.5rem;border:1px solid #e0eaff;">
@@ -1501,7 +1519,7 @@ System.out.println(istTime.format(fmt)); <span style="color:#888">// 2026-02-26 
 
 <!-- ===== TAB: INDIA SHIFT PLANNER ===== -->
 <div id="tab-shift" class="tab-panel" style="display:none;">
-  <h2 style="font-size:1.35rem;font-weight:800;color:#0a54a0;margin-bottom:0.25rem;">&#x1F303; India Shift Timing Planner</h2>
+  <h2 style="font-size:1.35rem;font-weight:800;color:#0a54a0;margin-bottom:0.25rem;">&#x1F303; India Shift Planner: Convert Work Hours to IST</h2>
   <p style="color:#637381;font-size:0.9rem;margin-bottom:1.2rem;">Enter your work hours in any timezone and instantly see the equivalent IST hours &ndash; and how they map to other cities.</p>
   <div style="background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #e0eaff;margin-bottom:1.2rem;">
     <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:0.75rem;align-items:end;flex-wrap:wrap;">
@@ -2457,39 +2475,97 @@ function updateCallWidget(){
       +'<div style="color:#555;font-size:0.9rem;margin-top:0.3rem;">Your time: '+cityStr+'</div>'
       +'</div>';
   }
-  // Timeline bar: 24h, highlight IST 9-18 and city 9-18 overlap in green
-  buildCallTimeline(tz,now);
+  // Single visual chart for the selected city.
+  var cityLabel=sel.options&&sel.selectedIndex>=0?sel.options[sel.selectedIndex].textContent:tz;
+  buildCallOverlapChart(tz,now,cityLabel);
 }
-function buildCallTimeline(tz,now){
-  var barEl=document.getElementById('callTimelineBar');
-  var labEl=document.getElementById('callTimelineLabels');
-  if(!barEl)return;
-  // For each hour 0?23 UTC, compute IST and city hours
-  var cells='<div style="display:flex;height:32px;border-radius:6px;overflow:hidden;gap:1px;">';
-  var now_h=now.getUTCHours();
-  for(var h=0;h<24;h++){
-    var probe=new Date(now);probe.setUTCHours(h,0,0,0);
-    var istH2=(h*60+330)%1440/60|0;
-    var cityH2=parseInt(probe.toLocaleString('en-US',{timeZone:tz,hour:'numeric',hour12:false}),10);
-    var iInd=istH2>=9&&istH2<18,iCity=cityH2>=9&&cityH2<18;
-    var border=h===now_h?'3px solid #0a54a0':'none';
-    var bg;
-    if(iInd&&iCity)bg='#2e7d32';
-    else if(iInd||iCity)bg='#f7931e';
-    else bg='#e0eaff';
-    cells+='<div title="'+pad(h)+':00 UTC" style="flex:1;background:'+bg+';outline:'+border+';cursor:default;"></div>';
+function normalizeMinutes(v){
+  return ((v%1440)+1440)%1440;
+}
+function splitRangeByMidnight(startMin,endMin){
+  var s=normalizeMinutes(startMin),e=normalizeMinutes(endMin);
+  if(s===e)return[{start:0,end:1440}];
+  if(s<e)return[{start:s,end:e}];
+  return[{start:s,end:1440},{start:0,end:e}];
+}
+function intersectRanges(a,b){
+  var out=[];
+  a.forEach(function(ra){
+    b.forEach(function(rb){
+      var s=Math.max(ra.start,rb.start),e=Math.min(ra.end,rb.end);
+      if(e>s)out.push({start:s,end:e});
+    });
+  });
+  return out;
+}
+function minsToPct(v){
+  return (v/1440)*100;
+}
+function formatHourMin(minutes){
+  var m=normalizeMinutes(minutes);
+  var h=Math.floor(m/60),mm=m%60;
+  var h12=h%12||12;
+  var ampm=h>=12?'PM':'AM';
+  return h12+':'+pad(mm)+' '+ampm;
+}
+function getZoneHourMinute(date,tz){
+  return {
+    h:parseInt(date.toLocaleString('en-US',{timeZone:tz,hour:'numeric',hour12:false}),10),
+    m:parseInt(date.toLocaleString('en-US',{timeZone:tz,minute:'numeric'}),10)
+  };
+}
+function segmentsHtml(ranges,color){
+  return ranges.map(function(r){
+    return '<span style="position:absolute;left:'+minsToPct(r.start)+'%;width:'+Math.max(0.8,minsToPct(r.end-r.start))+'%;top:0;bottom:0;background:'+color+';display:block;"></span>';
+  }).join('');
+}
+function buildCallOverlapChart(tz,now,cityLabel){
+  var host=document.getElementById('callOverlapChart');
+  if(!host)return;
+
+  var cityNow=getZoneHourMinute(now,tz);
+  var istNow=getZoneHourMinute(now,'Asia/Kolkata');
+  var cityNowMin=cityNow.h*60+cityNow.m;
+  var istNowMin=istNow.h*60+istNow.m;
+
+  // Convert India 9:00-18:00 IST into selected city's local clock.
+  var delta=istNowMin-cityNowMin;
+  if(delta>720)delta-=1440;
+  if(delta<-720)delta+=1440;
+  var indiaStartLocal=normalizeMinutes(9*60-delta);
+  var indiaEndLocal=normalizeMinutes(18*60-delta);
+
+  var cityRanges=splitRangeByMidnight(9*60,18*60);
+  var indiaRanges=splitRangeByMidnight(indiaStartLocal,indiaEndLocal);
+  var overlapRanges=intersectRanges(cityRanges,indiaRanges);
+
+  var overlapText='No overlap';
+  if(overlapRanges.length){
+    overlapText=overlapRanges.map(function(r){return formatHourMin(r.start)+' - '+formatHourMin(r.end);}).join(', ');
   }
-  cells+='</div>';
-  cells+='<div style="margin-top:0.4rem;display:flex;gap:1rem;font-size:0.78rem;">'
-    +'<span><span style="display:inline-block;width:12px;height:12px;background:#2e7d32;border-radius:2px;vertical-align:middle;margin-right:3px;"></span>Both open</span>'
-    +'<span><span style="display:inline-block;width:12px;height:12px;background:#f7931e;border-radius:2px;vertical-align:middle;margin-right:3px;"></span>One side open</span>'
-    +'<span><span style="display:inline-block;width:12px;height:12px;background:#e0eaff;border-radius:2px;vertical-align:middle;margin-right:3px;"></span>Both closed</span>'
-    +'<span style="color:#0a54a0;font-weight:700;">? = now (UTC)</span>'
-    +'</div>';
-  barEl.innerHTML=cells;
-  var lbls='';
-  [0,6,12,18,23].forEach(function(h){lbls+='<span>'+pad(h)+':00</span>';});
-  labEl.innerHTML=lbls;
+
+  var chartHtml=''
+    +'<h3 style="font-size:1rem;color:#0a3a86;margin:0 0 0.35rem;">Today\'s Overlap Window ('+cityLabel+' vs India)</h3>'
+    +'<p style="margin:0 0 0.55rem;font-size:0.84rem;color:#516173;">Single-view chart in <strong>'+cityLabel+'</strong> local time.</p>'
+    +'<div style="display:flex;flex-wrap:wrap;gap:0.8rem;font-size:0.78rem;color:#455468;margin-bottom:0.65rem;">'
+    +'<span><span style="display:inline-block;width:11px;height:11px;background:#2f6fdf;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>City working hours</span>'
+    +'<span><span style="display:inline-block;width:11px;height:11px;background:#f7931e;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>India hours in city time</span>'
+    +'<span><span style="display:inline-block;width:11px;height:11px;background:#10b981;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Overlap</span>'
+    +'</div>'
+    +'<div style="display:grid;grid-template-columns:170px 1fr;gap:0.5rem 0.75rem;align-items:center;">'
+    +'<div style="font-size:0.84rem;font-weight:700;color:#304255;">'+cityLabel+' Working Hours</div>'
+    +'<div style="height:20px;background:#eef4ff;border-radius:999px;position:relative;overflow:hidden;">'+segmentsHtml(cityRanges,'#2f6fdf')+'</div>'
+    +'<div style="font-size:0.84rem;font-weight:700;color:#304255;">India Hours in '+cityLabel+'</div>'
+    +'<div style="height:20px;background:#eef4ff;border-radius:999px;position:relative;overflow:hidden;">'+segmentsHtml(indiaRanges,'#f7931e')+'</div>'
+    +'<div style="font-size:0.84rem;font-weight:700;color:#304255;">Overlap</div>'
+    +'<div style="height:20px;background:#eef4ff;border-radius:999px;position:relative;overflow:hidden;">'+segmentsHtml(overlapRanges,'#10b981')+'</div>'
+    +'</div>'
+    +'<div style="display:flex;justify-content:space-between;font-size:0.73rem;color:#6b7786;margin-top:0.45rem;">'
+    +'<span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span>'
+    +'</div>'
+    +'<p style="margin:0.55rem 0 0;font-size:0.8rem;color:#516173;">Overlap window today: <strong>'+overlapText+'</strong> ('+cityLabel+' local time).</p>';
+
+  host.innerHTML=chartHtml;
 }
 
 // -- DST COUNTDOWN & SHIFT CHECKER ------------------------------------
@@ -2678,25 +2754,52 @@ function updateSnavIstClock(){
 var _BASE_URL='https://harshit1711.github.io';
 // Each tab maps to: title, description, and its own clean canonical URL (matching existing redirect pages)
 var _TAB_META={
-  'tab-home':      {t:'WorkIndia – Is India Open Right Now? Live IST Clock & Tools',        d:'Live IST clock, India office hours status, EST/PST/GMT to IST converter, NSE/BSE market hours, India holidays & shift planner. Free, instant, no signup.',u:'/'},
-  'tab-tzconv':    {t:'IST Time Zone Converter – Convert IST to UTC, EST, PST, GMT | WorkIndia', d:'Instantly convert any timezone to IST (India Standard Time) and back. Free online timezone converter for global professionals working with India.',u:'/ist-converter.html'},
-  'tab-worldclock':{t:'World Clock – Live Time in India, USA, UK, Dubai, Singapore & Tokyo | WorkIndia',d:'See the current local time in major world cities alongside IST. Perfect for scheduling calls and meetings across timezones.',u:'/world-clock.html'},
-  'tab-meeting':   {t:'India Meeting Planner – Schedule Meetings Between IST and USA, UK, EU | WorkIndia',d:'Find the best meeting time between India (IST) and US, UK, Europe, or Australia. Visual overlap planner for remote teams.',u:'/meeting-planner.html'},
-  'tab-callnow':   {t:'Is It a Good Time to Call India Right Now? | WorkIndia',              d:'Check if Indian offices are open right now. See current IST time, office hours, and whether it is a good time to call India.',u:'/call-india.html'},
-  'tab-dst':       {t:'DST Transition Countdown – Daylight Saving Time Tracker for India Teams | WorkIndia',d:'Track Daylight Saving Time changes and see how they affect the time difference between India and the US, UK, and Europe.',u:'/dst-tracker.html'},
-  'tab-duration':  {t:'Date Calculator India – Days Between Dates, Business Days & Countdown | WorkIndia',d:'Calculate exact days between two dates, business days, age in days, and countdown to any future date. Free, instant.',u:'/date-calculator.html'},
-  'tab-epoch':     {t:'Unix Epoch Converter – Epoch to IST & Human Readable Time | WorkIndia',d:'Convert Unix epoch timestamps to human-readable dates and back. Supports seconds and milliseconds. Free, instant.',u:'/epoch-converter.html'},
-  'tab-timestamp': {t:'Timestamp Converter India – UTC to IST & ISO 8601 | WorkIndia',      d:'Convert UTC timestamps to local time in any timezone. Supports ISO 8601 and Unix formats. Free timezone timestamp tool.',u:'/timestamp-converter.html'},
-  'tab-market':    {t:'NSE BSE Market Hours – Is the Indian Stock Market Open Right Now? | WorkIndia',d:'Live NSE and BSE market status. See if Indian stock markets are open right now and their hours in EST, PST, GMT and IST.',u:'/nse-bse-market-hours.html'},
-  'tab-shift':     {t:'India Shift Planner – Find Your IST Work Hours for Night Shifts & BPO | WorkIndia',d:'Plan shift overlaps between India and US, UK, or Europe teams. See exactly which hours both locations are working simultaneously.',u:'/india-shift-planner.html'},
-  'tab-holidays':  {t:'India Public Holidays 2026 – Complete Gazetted Holiday List | WorkIndia',d:'Complete list of India public holidays in 2026. National, bank, and state holidays with dates in IST for global teams.',u:'/india-holidays-2026.html'},
-  'tab-nri183':    {t:'NRI 183-Day Rule Calculator – India Tax Residency Day Tracker | WorkIndia',d:'Track your India stay days for NRI tax residency status. Calculates days spent in India and remaining days under the 183-day rule.',u:'/nri-183-days.html'},
-  'tab-invoice':   {t:'Invoice Due Date Calculator India – Net 30, 45, 60, 90 Day Terms | WorkIndia',d:'Calculate invoice due dates from invoice date, with NET 30 / NET 60 / NET 90 payment terms. Free instant invoice calculator.',u:'/invoice-due-date.html'},
-  'tab-notice':    {t:'Notice Period Calculator India – Last Working Day Calculator | WorkIndia',d:'Calculate your last working day based on notice period. Supports 30, 60, 90-day and 1-year notice periods for Indian employment contracts.',u:'/notice-period-calculator.html'},
-  'tab-abbr':      {t:'Timezone Abbreviations Guide – IST, EST, PST, GMT, BST Decoded | WorkIndia',d:'Decode any timezone abbreviation \u2013 IST, EST, PST, CST, BST, CET and 200+ more. Includes UTC offset and current local time.',u:'/timezone-abbreviations.html'},
-  'tab-cron':      {t:'Cron Expression to IST Converter – When Does My Cron Job Run in India? | WorkIndia',d:'Convert cron job schedules to India Standard Time (IST). See when your cron jobs will run in IST, EST, and UTC. Free online cron to IST tool.',u:'/cron-to-ist.html'},
-  'tab-info':      {t:'About WorkIndia – Free Tools for Working With India',                 d:'WorkIndia is a free toolkit for global professionals working with India. Live IST clock, timezone converter, market hours, holidays & more.',u:'/'}
+  'tab-home':      {t:'India Time Zone Converter, IST Clock & Business Hours Guide | WorkIndia',d:'Live IST clock, India office hours status, IST converter, market hours, holidays, and shift planner for global teams. Free and instant.',u:'/'},
+  'tab-tzconv':    {t:'Time Zone Converter: IST to UTC, EST, PST, GMT | WorkIndia',d:'Convert IST to UTC, EST, PST, GMT and any major timezone instantly. Free online time zone converter for global scheduling.',u:'/ist-converter.html'},
+  'tab-worldclock':{t:'World Clock: India Time, USA, UK, Dubai, Singapore, Tokyo | WorkIndia',d:'Check current time in India and major global cities in one world clock view. Ideal for calls, meetings, and distributed teams.',u:'/world-clock.html'},
+  'tab-meeting':   {t:'Meeting Planner Across Time Zones | WorkIndia',d:'Find the best meeting overlap across cities and time zones with a visual 24-hour planner for remote teams.',u:'/meeting-planner.html'},
+  'tab-callnow':   {t:'Best Time to Call India Right Now | India Business Hours Tool',d:'See if now is a good time to call India using live IST, office-hours overlap, and city-based call windows.',u:'/call-india.html'},
+  'tab-dst':       {t:'DST Transition Countdown for India Time Difference | WorkIndia',d:'Track upcoming DST changes and how they shift India time difference with the US, UK, Europe, and Australia.',u:'/dst-tracker.html'},
+  'tab-duration':  {t:'Date Calculator: Age, Days Between Dates, Business Days | WorkIndia',d:'Calculate age, date difference, business days, and countdowns instantly with this free online date calculator.',u:'/date-calculator.html'},
+  'tab-epoch':     {t:'Unix Epoch Timestamp Converter (Epoch to Date) | WorkIndia',d:'Convert Unix epoch timestamps to readable date/time and convert back to epoch in seconds or milliseconds.',u:'/epoch-converter.html'},
+  'tab-timestamp': {t:'Timestamp Converter: ISO 8601, RFC 2822, Unix Epoch | WorkIndia',d:'Parse and convert ISO, RFC, and Unix timestamps across major time zones including IST, UTC, EST, and PST.',u:'/timestamp-converter.html'},
+  'tab-market':    {t:'India Stock Market Hours: NSE/BSE Open and Close Time | WorkIndia',d:'Check live NSE and BSE status and Indian stock market open-close times across IST and major global zones.',u:'/nse-bse-market-hours.html'},
+  'tab-shift':     {t:'India Shift Planner: Convert Work Hours to IST | WorkIndia',d:'Convert shift timings to IST and compare cross-time-zone overlap for support, operations, and distributed teams.',u:'/india-shift-planner.html'},
+  'tab-holidays':  {t:'India Public Holidays 2026 List (National and State) | WorkIndia',d:'Browse India public holidays for 2026 with national and state holiday dates useful for planning payroll and operations.',u:'/india-holidays-2026.html'},
+  'tab-nri183':    {t:'NRI 183-Day Rule Calculator for India Tax Residency | WorkIndia',d:'Track days spent in India and estimate residency status under the 183-day tax residency rule.',u:'/nri-183-days.html'},
+  'tab-invoice':   {t:'Invoice Due Date Calculator (Net 15, 30, 45, 60, 90) | WorkIndia',d:'Calculate invoice due dates and overdue status instantly for common Net payment terms.',u:'/invoice-due-date.html'},
+  'tab-notice':    {t:'Notice Period Calculator: Last Working Day & Probation | WorkIndia',d:'Calculate last working day, notice period end, and probation completion dates with a simple planner.',u:'/notice-period-calculator.html'},
+  'tab-abbr':      {t:'Time Zone Abbreviations Guide: IST, EST, PST, GMT | WorkIndia',d:'Decode timezone abbreviations and view their UTC offsets and current local times.',u:'/timezone-abbreviations.html'},
+  'tab-cron':      {t:'Cron Expression to IST Converter and Schedule Preview | WorkIndia',d:'Preview cron schedules in IST, UTC, and local time to avoid timezone mistakes in production jobs.',u:'/cron-to-ist.html'},
+  'tab-info':      {t:'About WorkIndia: India Time and Scheduling Tools',d:'Explore WorkIndia tools for IST conversion, business hours, meeting planning, market hours, and holidays.',u:'/'}
 };
+var _TAB_HEADER={
+  'tab-home':{h:'India Time Zone Converter, IST Clock & Business Hours Tools',s:'Check live India time, convert IST with UTC/EST/PST/GMT, and plan calls, meetings, market hours, and holidays in one place.'},
+  'tab-tzconv':{h:'Time Zone Converter for IST, UTC, EST, PST and GMT',s:'Convert any time zone instantly for meetings, support coverage, and cross-border scheduling.'},
+  'tab-worldclock':{h:'World Clock for India and Major Global Cities',s:'See live local time across key cities to plan calls and handoffs without timezone confusion.'},
+  'tab-meeting':{h:'Meeting Planner Across Time Zones',s:'Find practical overlap windows across cities and compare all 24 hours in one planning grid.'},
+  'tab-callnow':{h:'Best Time to Call India Right Now',s:'Use live IST and your city time to check business-hours overlap before you place a call.'},
+  'tab-dst':{h:'DST Transition Countdown and Shift Impact',s:'Track daylight-saving changes and see how they affect India time difference for recurring meetings.'},
+  'tab-duration':{h:'Date Calculator for Age, Business Days and Countdowns',s:'Calculate exact date differences, business days, age, and countdowns in seconds.'},
+  'tab-epoch':{h:'Unix Epoch Timestamp Converter',s:'Convert epoch timestamps to readable dates and convert dates back to epoch in seconds or milliseconds.'},
+  'tab-timestamp':{h:'Timestamp Parser for ISO, RFC and Unix Formats',s:'Decode timestamp strings and compare output across IST, UTC, and major global time zones.'},
+  'tab-market':{h:'India Stock Market Hours: NSE and BSE',s:'Check live open/close status and session hours for Indian markets in IST and global time zones.'},
+  'tab-shift':{h:'India Shift Planner: Convert Work Hours to IST',s:'Map shift schedules from your time zone to IST and compare practical overlap windows.'},
+  'tab-holidays':{h:'India Public Holidays 2026 (National and State)',s:'View upcoming India holidays by state and plan payroll, staffing, and communication timelines.'},
+  'tab-nri183':{h:'NRI 183-Day Rule Tax Residency Tracker',s:'Track days in India during the financial year and estimate residency status under the 183-day rule.'},
+  'tab-invoice':{h:'Invoice Due Date Calculator (Net Terms)',s:'Calculate due dates for Net 15, 30, 45, 60 and 90 terms and quickly spot overdue invoices.'},
+  'tab-notice':{h:'Notice Period and Probation Calculator',s:'Estimate last working day and probation completion date from start date and policy terms.'},
+  'tab-abbr':{h:'Time Zone Abbreviation Decoder',s:'Decode ambiguous abbreviations like IST, CST, BST and view valid time zones with live clocks.'},
+  'tab-cron':{h:'Cron Expression to IST Converter',s:'Preview upcoming cron fire times in IST, UTC, and local time to avoid deployment mistakes.'},
+  'tab-info':{h:'About WorkIndia and Timezone Guides',s:'Read FAQs, timezone developer guidance, DST references, and practical conversion resources.'}
+};
+function updatePageHeader(tabId){
+  var hdr=_TAB_HEADER[tabId]||_TAB_HEADER['tab-home'];
+  var hEl=document.getElementById('pageMainHeading');
+  var sEl=document.getElementById('pageMainSubheading');
+  if(hEl)hEl.textContent=hdr.h;
+  if(sEl)sEl.textContent=hdr.s;
+}
 function showTab(id,btn){
   document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
   var panel=document.getElementById(id);
@@ -2723,6 +2826,7 @@ function showTab(id,btn){
   var canonicalUrl=_BASE_URL+meta.u;
   var ogU=document.querySelector('meta[property="og:url"]');if(ogU)ogU.setAttribute('content',canonicalUrl);
   var canonEl=document.querySelector('link[rel="canonical"]');if(canonEl)canonEl.setAttribute('href',canonicalUrl);
+  updatePageHeader(id);
   // On GitHub Pages: use clean path (/nse-bse-market-hours.html)
   // On file:// locally: path-based replaceState throws SecurityError, so use hash instead
   var isDeployed=window.location.protocol==='https:';
