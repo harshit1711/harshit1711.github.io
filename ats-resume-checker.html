@@ -3,44 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Resume ATS Score Checker (With or Without Job Description) | WorkIndia</title>
-<meta name="description" content="Free resume ATS score checker. Get ATS readiness score from resume text alone, or compare with a job description for keyword match and missing skills.">
-<meta name="keywords" content="free resume ats score checker, ATS score checker, resume ATS checker, resume keyword checker, job description match, missing skills detector, ATS friendly resume India">
+<title>Resume ATS Score Checker Guide (With or Without Job Description) | WorkIndia</title>
+<meta name="description" content="Learn how to check ATS score using resume-only or resume + job description mode. See scoring factors, missing skills logic, and practical optimization steps.">
+<meta name="keywords" content="resume ATS score checker, ATS resume checker guide, ATS compatibility check, job description matching, missing skills detection, resume optimization">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://harshit1711.github.io/ats-resume-checker.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Resume ATS Score Checker (With or Without Job Description)">
-<meta property="og:description" content="Get a free ATS score for your resume alone or with a job description. Find missing keywords and skill gaps with transparent scoring.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Resume ATS Score Checker Guide (With or Without Job Description)">
+<meta property="og:description" content="Understand ATS score calculation, keyword matching, missing skills detection, and how to improve your resume step by step.">
 <meta property="og:url" content="https://harshit1711.github.io/ats-resume-checker.html">
 <meta property="og:image" content="https://harshit1711.github.io/og-image.png">
 <meta property="og:site_name" content="WorkIndia Tools">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Resume ATS Score Checker (With or Without Job Description)">
-<meta name="twitter:description" content="Free ATS score checker for resumes. Analyze ATS readiness, keyword match, and missing skills instantly.">
+<meta name="twitter:title" content="Resume ATS Score Checker Guide (With or Without Job Description)">
+<meta name="twitter:description" content="A practical ATS score guide: resume-only checks, JD matching, missing skills, and optimization priorities.">
 <meta name="twitter:image" content="https://harshit1711.github.io/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Resume ATS Score Checker","url":"https://harshit1711.github.io/ats-resume-checker.html","description":"Get ATS readiness score from resume text alone, or compare with a job description for keyword match and missing skills.","applicationCategory":"BusinessApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"provider":{"@type":"Organization","name":"WorkIndia Tools","url":"https://harshit1711.github.io"}}</script>
-<script>if(window.location.protocol==='https:'){if(window.location.pathname.indexOf('/ats-resume-checker.html')===-1)window.location.replace('https://harshit1711.github.io/ats-resume-checker.html');}else{window.location.replace('index.html#resumeats');}</script>
-<noscript><meta http-equiv="refresh" content="0;url=https://harshit1711.github.io/#resumeats"></noscript>
-<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f4ff;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem}.card{background:#fff;border-radius:16px;padding:2.5rem 2rem;max-width:520px;width:100%;text-align:center;box-shadow:0 4px 24px rgba(10,84,160,.10);border:1.5px solid #d0dff5}.brand{font-size:0.85rem;color:#637381;margin-bottom:1rem;font-weight:600}h1{font-size:1.55rem;color:#0a54a0;margin-bottom:0.75rem;font-weight:800}p{color:#4b5563;font-size:0.97rem;line-height:1.6;margin-bottom:1.5rem}.btn{display:inline-block;background:#0a54a0;color:#fff;padding:0.75rem 2rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem;transition:background .15s}.btn:hover{background:#0c62b8}.note{margin-top:1rem;font-size:0.8rem;color:#9ca3af}.features{text-align:left;background:#f3f6fb;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.88rem;color:#374151;line-height:1.9}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Resume ATS Score Checker Guide (With or Without Job Description)",
+  "description": "A practical guide to ATS scoring with resume-only and resume-vs-JD analysis, including missing skills detection and optimization tips.",
+  "url": "https://harshit1711.github.io/ats-resume-checker.html",
+  "author": {"@type": "Person", "name": "Harshit Yadav"},
+  "publisher": {"@type": "Organization", "name": "WorkIndia Tools", "url": "https://harshit1711.github.io"},
+  "datePublished": "2026-03-08",
+  "dateModified": "2026-03-08"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I get an ATS score without a job description?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use resume-only mode to get ATS readiness score based on structure, section completeness, skill breadth, and impact evidence."}
+    },
+    {
+      "@type": "Question",
+      "name": "What changes when I add a job description?",
+      "acceptedAnswer": {"@type": "Answer", "text": "The analysis switches to ATS match scoring, including must-have coverage, keyword relevance, and missing skill detection against that specific role."}
+    },
+    {
+      "@type": "Question",
+      "name": "Why might low-quality input be rejected?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Very short or noisy text can produce misleading scores, so the tool asks for clearer plain text to keep results reliable."}
+    }
+  ]
+}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f4ff;color:#1f2937;line-height:1.7}
+header{background:#0a54a0;color:#fff;padding:2rem 1.5rem;text-align:center}
+header h1{font-size:1.85rem;font-weight:800;margin-bottom:0.45rem}
+header p{font-size:1rem;color:#dce8f8;max-width:760px;margin:0 auto}
+nav.breadcrumb{background:#e8f0fb;padding:0.6rem 1.5rem;font-size:0.83rem;color:#4b5563}
+nav.breadcrumb a{color:#0a54a0;text-decoration:none}
+.container{max-width:840px;margin:0 auto;padding:2rem 1.5rem}
+h2{color:#0a54a0;font-size:1.28rem;margin:2rem 0 0.75rem;font-weight:700}
+h3{color:#1f2937;font-size:1.03rem;margin:1.2rem 0 0.35rem;font-weight:700}
+p{margin-bottom:1rem;color:#374151}
+ul{margin:0.45rem 0 1rem 1.4rem;color:#374151}
+ul li{margin-bottom:0.4rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.92rem}
+th{background:#0a54a0;color:#fff;padding:0.6rem 0.85rem;text-align:left}
+td{padding:0.55rem 0.85rem;border-bottom:1px solid #dde3f0;color:#374151}
+tr:nth-child(even) td{background:#f3f6fb}
+.highlight{background:#e8f0fb;border-left:4px solid #0a54a0;padding:1rem 1.2rem;border-radius:0 8px 8px 0;margin:1.15rem 0;font-size:0.94rem}
+.tip{background:#fefce8;border-left:4px solid #f59e0b;padding:0.85rem 1.1rem;border-radius:0 8px 8px 0;margin:1.15rem 0;font-size:0.92rem;color:#374151}
+.cta-box{background:#0a54a0;color:#fff;border-radius:14px;padding:1.7rem 1.4rem;text-align:center;margin:2rem 0}
+.cta-box p{color:#e8f0fb;margin-bottom:1rem}
+.cta-btn{display:inline-block;background:#fff;color:#0a54a0;padding:0.72rem 2rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem}
+.cta-btn:hover{background:#e8f0fb}
+footer{background:#1f2937;color:#d1d5db;text-align:center;padding:1.45rem;font-size:0.85rem;margin-top:3rem}
+footer a{color:#60a5fa;text-decoration:none}
+</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHX0KLJPDC"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HHX0KLJPDC');</script>
 </head>
 <body>
-<div class="card">
-  <div class="brand">&#x1F1EE;&#x1F1F3; WorkIndia Tools</div>
-  <h1>&#x1F50D; Resume ATS Score Checker</h1>
-  <p>Free tool: check ATS score for your resume instantly. Use resume-only mode for ATS readiness, or add a job description for keyword match and missing skill analysis.</p>
-  <div class="features">
-    &#x2705; Resume-only ATS readiness score (no JD required)<br>
-    &#x2705; Resume vs job description keyword match score<br>
-    &#x2705; Missing keywords and role-skill gap view<br>
-    &#x2705; Priority term boost visibility<br>
-    &#x2705; Transparent formula and assumptions<br>
-    &#x2705; Local in-browser processing only<br>
-    &#x2705; No signup required
+<header>
+  <div style="font-size:0.85rem;color:#c0d8f5;margin-bottom:0.45rem">&#x1F1EE;&#x1F1F3; WorkIndia Tools</div>
+  <h1>&#x1F50D; Resume ATS Score Checker Guide</h1>
+  <p>Use this page to understand ATS scoring logic clearly, then run the live checker with your resume only or with a target job description.</p>
+</header>
+
+<nav class="breadcrumb">
+  <a href="https://harshit1711.github.io/">WorkIndia</a> &rsaquo; Resume ATS Score Checker
+</nav>
+
+<main class="container">
+  <p>Most ATS tools feel opaque. This guide explains exactly what is measured, why a score changes, and what edits usually improve results fastest.</p>
+
+  <div class="cta-box">
+    <p>Run the live ATS checker now.</p>
+    <a href="https://harshit1711.github.io/#resumeats" class="cta-btn">Open Resume ATS Checker &rarr;</a>
   </div>
-  <a href="https://harshit1711.github.io/#resumeats" class="btn">Open ATS Checker &#x2192;</a>
-  <p class="note">Redirecting automatically&hellip;</p>
-</div>
+
+  <h2>How This ATS Check Works</h2>
+  <p>The tool supports two analysis modes:</p>
+  <ul>
+    <li><strong>Resume-only mode:</strong> ATS readiness score based on structure, section quality, skill breadth, and impact evidence.</li>
+    <li><strong>Resume + JD mode:</strong> role match score using job keywords, must-have coverage, missing skills, and relevance signals.</li>
+  </ul>
+
+  <div class="highlight">
+    Transparency note: this is a rule-based ATS simulation to help prioritize edits. It is not a direct score from any single commercial ATS vendor.
+  </div>
+
+  <h2>Scoring Factors (Resume + JD)</h2>
+  <table>
+    <tr><th>Factor</th><th>What It Measures</th><th>Weight</th></tr>
+    <tr><td>Hard Skill Coverage</td><td>Coverage of core technical skills from JD</td><td>35</td></tr>
+    <tr><td>Must-Have Coverage</td><td>Coverage of required/must-have terms</td><td>25</td></tr>
+    <tr><td>Keyword Relevance</td><td>Relevant JD vocabulary found in resume</td><td>15</td></tr>
+    <tr><td>Resume Structure</td><td>Section completeness and clarity</td><td>15</td></tr>
+    <tr><td>Impact Evidence</td><td>Action + metric + outcome quality in bullets</td><td>10</td></tr>
+  </table>
+
+  <h2>Scoring Factors (Resume-only)</h2>
+  <table>
+    <tr><th>Factor</th><th>What It Measures</th><th>Weight</th></tr>
+    <tr><td>Structure Quality</td><td>Contact, experience, skills, education, formatting</td><td>45</td></tr>
+    <tr><td>Impact Evidence</td><td>Outcome-driven bullet quality</td><td>25</td></tr>
+    <tr><td>Section Completeness</td><td>Presence of expected resume sections</td><td>15</td></tr>
+    <tr><td>Skill Breadth</td><td>Clarity and diversity of technical skills</td><td>10</td></tr>
+    <tr><td>Content Depth</td><td>Sufficient detail and context</td><td>5</td></tr>
+  </table>
+
+  <h2>Top Fixes That Usually Improve ATS Score</h2>
+  <ul>
+    <li>Add missing must-have terms from the JD naturally in experience/project bullets.</li>
+    <li>Rewrite weak bullets into action + scope + measurable outcome format.</li>
+    <li>Use standard section labels: <em>Experience</em>, <em>Skills</em>, <em>Education</em>, <em>Projects</em>.</li>
+    <li>Improve clarity of tools/frameworks (avoid vague wording like "worked on backend").</li>
+    <li>Keep resume text clean (plain text, minimal formatting noise).</li>
+  </ul>
+
+  <div class="tip">
+    If you only have resume text right now, run resume-only mode first. Then re-run with a job description for role-level precision.
+  </div>
+
+  <h2>Input Quality Tips</h2>
+  <p>The checker supports copy-paste and file uploads. It auto-cleans HTML, escaped text, and noisy paste patterns, but you get best results with:</p>
+  <ul>
+    <li>Plain text from resume/JD documents</li>
+    <li>At least 4-6 lines of meaningful content</li>
+    <li>Full section content, not one-line snippets</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>Can I use this without a job description?</h3>
+  <p>Yes. Resume-only ATS readiness is supported and useful for baseline quality checks.</p>
+
+  <h3>Does strict mode always lower score?</h3>
+  <p>Not always. Strict mode applies tighter penalties only when required coverage or impact evidence is weak.</p>
+
+  <h3>Will this replace recruiter review?</h3>
+  <p>No. It helps prioritize edits and improve machine readability before human screening.</p>
+
+  <div class="cta-box" style="margin-top:2.4rem">
+    <p>Ready to test your resume now?</p>
+    <a href="https://harshit1711.github.io/#resumeats" class="cta-btn">Check ATS Score Live &rarr;</a>
+  </div>
+</main>
+
+<footer>
+  WorkIndia Tools &bull; <a href="https://harshit1711.github.io/">Home</a> &bull; <a href="https://harshit1711.github.io/privacy.html">Privacy</a>
+</footer>
 </body>
 </html>
