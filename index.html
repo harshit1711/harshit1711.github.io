@@ -2944,7 +2944,7 @@ var _ROUTE_MAP={
 };
 function routeFromHash(){
   // 1. Try hash (works on file://, and on https:// from redirect pages)
-  var h=window.location.hash.replace('#','');
+  var h=window.location.hash.replace('#','').replace(/\.html$/,'');
   // 2. Try path stem (works on https:// direct loads: /nse-bse-market-hours.html)
   if(!h){
     var stem=window.location.pathname.replace(/^\/|index\.html$/g,'').replace('.html','');
@@ -3321,7 +3321,14 @@ function showTab(id,btn){
   // On GitHub Pages: use clean path (/nse-bse-market-hours.html)
   // On file:// locally: path-based replaceState throws SecurityError, so use hash instead
   var isDeployed=window.location.protocol==='https:';
-  var urlToSet=isDeployed ? meta.u : ('#'+(meta.u==='/'?'home':meta.u.replace(/^\/|\.html$/g,'')));
+  var urlToSet;
+  if(isDeployed){
+    urlToSet=meta.u;
+  }else if(/^\/#/.test(meta.u)){
+    urlToSet=meta.u.slice(1);
+  }else{
+    urlToSet='#'+(meta.u==='/'?'home':meta.u.replace(/^\/|\.html$/g,''));
+  }
   history.replaceState({tab:id},meta.t,urlToSet);
   if(id==='tab-worldclock'){buildWorldClock();updateWorldClock();}
   if(id==='tab-home'){buildDiffCards();buildInstantCityClocks();updateInstantCityClocks();}
