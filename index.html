@@ -189,6 +189,11 @@
     /* legacy tnav stubs ? keep for JS compatibility */
     .tnav-group-label{display:none;}
     .tnav-divider{display:none;}
+    .tool-guide{margin:0.85rem 0 1.25rem;padding:0.9rem 1rem;border:1px solid #d6e5ff;border-left:4px solid #0a54a0;background:#f7fbff;border-radius:10px}
+    .tool-guide h3{margin:0 0 0.35rem;font-size:0.98rem;color:#0a3a86;border-bottom:none;padding:0;line-height:1.25}
+    .tool-guide p{margin:0.25rem 0 0.45rem;font-size:0.9rem;color:#334155}
+    .tool-guide ul{margin:0.25rem 0 0;padding-left:1.1rem}
+    .tool-guide li{margin:0.2rem 0;font-size:0.86rem;color:#475569}
   </style>
 </head>
 <body>
@@ -209,6 +214,10 @@
   <a href="/nri-183-days.html">NRI 183 Day Tax Tracker</a>
   <a href="/invoice-due-date.html">Invoice Due Date Calculator</a>
   <a href="/notice-period-calculator.html">Notice Period Calculator India</a>
+  <a href="/ats-resume-checker.html">Free Resume ATS Score Checker</a>
+  <a href="/resume-bullet-rewriter.html">Free Resume Bullet Points Rewriter</a>
+  <a href="/interview-timezone-planner.html">Interview Timezone Planner</a>
+  <a href="/ctc-inhand-calculator.html">In Hand Salary Estimator</a>
   <a href="/cron-to-ist.html">Cron to IST Converter</a>
   <a href="/timezone-abbreviations.html">Timezone Abbreviations Guide</a>
   <a href="/utc-to-ist.html">UTC to IST Converter</a>
@@ -300,6 +309,20 @@
       </div>
     </div>
 
+    <!-- CAREER TOOLS -->
+    <div class="snav-group" id="sgrp-career">
+      <div class="snav-group-hdr" onclick="toggleSnavGroup('sgrp-career')">
+        <span class="snav-group-label">&#x1F4BC; Career Tools</span>
+        <span class="snav-group-arrow">&#x25BC;</span>
+      </div>
+      <div class="snav-group-items">
+        <button class="snav-btn" id="snav-resumeats" onclick="showTab('tab-resumeats',this);closeSidenav()"><span class="snav-icon">&#x1F50D;</span>ATS Resume Checker</button>
+        <button class="snav-btn" id="snav-resumebullets" onclick="showTab('tab-resumebullets',this);closeSidenav()"><span class="snav-icon">&#x270D;</span>Bullet Rewriter</button>
+        <button class="snav-btn" id="snav-interview" onclick="showTab('tab-interview',this);closeSidenav()"><span class="snav-icon">&#x1F4C5;</span>Interview Planner</button>
+        <button class="snav-btn" id="snav-ctc" onclick="showTab('tab-ctc',this);closeSidenav()"><span class="snav-icon">&#x1F4B0;</span>In Hand Salary</button>
+      </div>
+    </div>
+
     <!-- DEV TOOLS -->
     <div class="snav-group" id="sgrp-dev">
       <div class="snav-group-hdr" onclick="toggleSnavGroup('sgrp-dev')">
@@ -343,6 +366,10 @@
   <button class="tnav-btn" id="btn-nri183" tabindex="-1" aria-label="NRI 183 Days" onclick="showTab('tab-nri183',this)"></button>
   <button class="tnav-btn" id="btn-invoice" tabindex="-1" aria-label="Invoice Due Date" onclick="showTab('tab-invoice',this)"></button>
   <button class="tnav-btn" id="btn-notice" tabindex="-1" aria-label="Notice Period Calculator" onclick="showTab('tab-notice',this)"></button>
+  <button class="tnav-btn" id="btn-resumeats" tabindex="-1" aria-label="ATS Resume Checker" onclick="showTab('tab-resumeats',this)"></button>
+  <button class="tnav-btn" id="btn-resumebullets" tabindex="-1" aria-label="Resume Bullet Rewriter" onclick="showTab('tab-resumebullets',this)"></button>
+  <button class="tnav-btn" id="btn-interview" tabindex="-1" aria-label="Interview Timezone Planner" onclick="showTab('tab-interview',this)"></button>
+  <button class="tnav-btn" id="btn-ctc" tabindex="-1" aria-label="In Hand Salary Estimator" onclick="showTab('tab-ctc',this)"></button>
   <button class="tnav-btn" id="btn-abbr" tabindex="-1" aria-label="Timezone Abbreviations" onclick="showTab('tab-abbr',this)"></button>
   <button class="tnav-btn" id="btn-cron" tabindex="-1" aria-label="Cron to IST" onclick="showTab('tab-cron',this)"></button>
   <button class="tnav-btn" id="btn-info" tabindex="-1" aria-label="About" onclick="showTab('tab-info',this)"></button>
@@ -385,6 +412,10 @@
     <a href="/cron-to-ist.html" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:#f0f6ff;border-radius:8px;color:#0a54a0;font-size:0.875rem;font-weight:600;text-decoration:none;border:1px solid #d0e4ff;transition:background 0.15s;" onmouseover="this.style.background='#ddeeff'" onmouseout="this.style.background='#f0f6ff'">&#x2699; Cron to IST</a>
     <a href="/timezone-abbreviations.html" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:#f0f6ff;border-radius:8px;color:#0a54a0;font-size:0.875rem;font-weight:600;text-decoration:none;border:1px solid #d0e4ff;transition:background 0.15s;" onmouseover="this.style.background='#ddeeff'" onmouseout="this.style.background='#f0f6ff'">&#x1F3F7; TZ Abbreviations</a>
     <a href="/age-calculator.html" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:#f0f6ff;border-radius:8px;color:#0a54a0;font-size:0.875rem;font-weight:600;text-decoration:none;border:1px solid #d0e4ff;transition:background 0.15s;" onmouseover="this.style.background='#ddeeff'" onmouseout="this.style.background='#f0f6ff'">&#x1F382; Age Calculator</a>
+    <a href="/ats-resume-checker.html" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:#f0f6ff;border-radius:8px;color:#0a54a0;font-size:0.875rem;font-weight:600;text-decoration:none;border:1px solid #d0e4ff;transition:background 0.15s;" onmouseover="this.style.background='#ddeeff'" onmouseout="this.style.background='#f0f6ff'">&#x1F50D; Resume ATS Score Checker</a>
+    <a href="/resume-bullet-rewriter.html" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:#f0f6ff;border-radius:8px;color:#0a54a0;font-size:0.875rem;font-weight:600;text-decoration:none;border:1px solid #d0e4ff;transition:background 0.15s;" onmouseover="this.style.background='#ddeeff'" onmouseout="this.style.background='#f0f6ff'">&#x270D; Resume Bullet Points Rewriter</a>
+    <a href="/interview-timezone-planner.html" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:#f0f6ff;border-radius:8px;color:#0a54a0;font-size:0.875rem;font-weight:600;text-decoration:none;border:1px solid #d0e4ff;transition:background 0.15s;" onmouseover="this.style.background='#ddeeff'" onmouseout="this.style.background='#f0f6ff'">&#x1F4C5; Interview Planner</a>
+    <a href="/ctc-inhand-calculator.html" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:#f0f6ff;border-radius:8px;color:#0a54a0;font-size:0.875rem;font-weight:600;text-decoration:none;border:1px solid #d0e4ff;transition:background 0.15s;" onmouseover="this.style.background='#ddeeff'" onmouseout="this.style.background='#f0f6ff'">&#x1F4B0; In Hand Salary Estimator</a>
   </div>
 </nav>
 
@@ -1696,6 +1727,234 @@ System.out.println(istTime.format(fmt)); <span style="color:#888">// 2026-02-26 
   <p style="font-size:0.78rem;color:#9ca3af;margin-top:1rem;">&#9432; Calendar days are used. Your employment contract may specify working days or different terms ? always refer to your offer letter.</p>
 </div><!-- /tab-notice -->
 
+<!-- ===== TAB: ATS RESUME CHECKER ===== -->
+<div id="tab-resumeats" class="tab-panel" style="display:none;">
+  <h2 style="font-size:1.35rem;font-weight:800;color:#0a54a0;margin-bottom:0.25rem;">&#x1F50D; Resume ATS Score Checker</h2>
+  <p style="color:#637381;font-size:0.9rem;margin-bottom:1.1rem;">Free tool: get ATS score from your resume alone, or add a job description for role-specific match score, keyword extraction, and missing skills detection.</p>
+  <div style="background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #e0eaff;margin-bottom:1rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.35rem;">Job Description (Optional)</label>
+        <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;margin-bottom:0.4rem;">
+          <label style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.32rem 0.65rem;border:1px solid #c9d6e8;border-radius:7px;background:#f8fafc;color:#0a54a0;font-size:0.78rem;font-weight:700;cursor:pointer;">
+            Upload JD File
+            <input id="atsJobDescFile" type="file" accept=".pdf,.doc,.docx,.txt,.md,.rtf,.html,.htm" style="display:none;" />
+          </label>
+          <span id="atsJobDescFileStatus" style="font-size:0.76rem;color:#6b7280;">Supported: PDF, DOCX, TXT, HTML</span>
+        </div>
+        <textarea id="atsJobDesc" rows="11" placeholder="Paste role requirements, tech stack, responsibilities, must-have skills..." style="width:100%;padding:0.65rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;line-height:1.45;resize:vertical;"></textarea>
+        <div id="atsJobDescPasteNote" style="display:none;margin-top:0.4rem;font-size:0.78rem;"></div>
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.35rem;">Resume Text</label>
+        <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;margin-bottom:0.4rem;">
+          <label style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.32rem 0.65rem;border:1px solid #c9d6e8;border-radius:7px;background:#f8fafc;color:#0a54a0;font-size:0.78rem;font-weight:700;cursor:pointer;">
+            Upload Resume File
+            <input id="atsResumeFile" type="file" accept=".pdf,.doc,.docx,.txt,.md,.rtf,.html,.htm" style="display:none;" />
+          </label>
+          <span id="atsResumeFileStatus" style="font-size:0.76rem;color:#6b7280;">Supported: PDF, DOCX, TXT, HTML</span>
+        </div>
+        <textarea id="atsResumeText" rows="11" placeholder="Paste your resume summary, experience, projects, tools, certifications..." style="width:100%;padding:0.65rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;line-height:1.45;resize:vertical;"></textarea>
+        <div id="atsResumeTextPasteNote" style="display:none;margin-top:0.4rem;font-size:0.78rem;"></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:0.7rem;flex-wrap:wrap;align-items:center;margin-top:0.9rem;">
+      <select id="atsMode" style="padding:0.55rem 0.7rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.86rem;background:#fff;">
+        <option value="balanced" selected>Balanced scoring</option>
+        <option value="strict">Strict hiring bar</option>
+      </select>
+      <input id="atsRoleHint" type="text" placeholder="Optional target role (e.g., Senior Backend Engineer)" style="min-width:240px;flex:1;padding:0.55rem 0.7rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.86rem;" />
+      <button onclick="calcResumeAts()" style="width:auto;padding:0.62rem 1.25rem;font-size:0.95rem;margin-top:0;">Analyze ATS Score</button>
+      <span style="font-size:0.8rem;color:#6b7280;">Rule-based local analysis only. No content is sent to a server.</span>
+    </div>
+  </div>
+  <div id="atsResult"></div>
+</div><!-- /tab-resumeats -->
+
+<!-- ===== TAB: RESUME BULLET REWRITER ===== -->
+<div id="tab-resumebullets" class="tab-panel" style="display:none;">
+  <h2 style="font-size:1.35rem;font-weight:800;color:#0a54a0;margin-bottom:0.25rem;">&#x270D; Resume Bullet Points Rewriter</h2>
+  <p style="color:#637381;font-size:0.9rem;margin-bottom:1.1rem;">Free tool: rewrite resume bullet points into stronger ATS-friendly statements with action verbs, clear scope, and measurable outcomes.</p>
+  <div style="background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #e0eaff;margin-bottom:1rem;">
+    <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.35rem;">Paste raw bullet lines (one per line)</label>
+    <textarea id="bulletInput" rows="10" placeholder="Worked on API integrations\nResponsible for dashboard improvements\nHelped reduce incidents" style="width:100%;padding:0.65rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;line-height:1.45;resize:vertical;"></textarea>
+    <div id="bulletInputPasteNote" style="display:none;margin-top:0.4rem;font-size:0.78rem;"></div>
+    <div style="display:grid;grid-template-columns:minmax(180px,220px) 1fr;gap:0.7rem;align-items:end;margin-top:0.75rem;">
+      <div>
+        <label style="font-size:0.78rem;font-weight:700;color:#637381;display:block;margin-bottom:0.25rem;">Rewrite Tone</label>
+        <select id="bulletTone" style="width:100%;padding:0.5rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.86rem;background:#fff;">
+          <option value="concise" selected>Concise</option>
+          <option value="impact">Impact-driven</option>
+          <option value="executive">Executive</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:0.78rem;font-weight:700;color:#637381;display:block;margin-bottom:0.25rem;">Optional Role Keywords</label>
+        <input id="bulletRoleKeywords" type="text" placeholder="e.g., microservices, AWS, stakeholder management" style="width:100%;padding:0.5rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.86rem;" />
+      </div>
+    </div>
+    <div style="display:flex;gap:0.7rem;flex-wrap:wrap;align-items:center;margin-top:0.9rem;">
+      <button onclick="rewriteResumeBullets()" style="width:auto;padding:0.62rem 1.25rem;font-size:0.95rem;margin-top:0;">Rewrite Bullets</button>
+      <span style="font-size:0.8rem;color:#6b7280;">Tip: include numbers like %, $, time saved, users, latency, throughput.</span>
+    </div>
+  </div>
+  <div id="bulletResult"></div>
+</div><!-- /tab-resumebullets -->
+
+<!-- ===== TAB: INTERVIEW TIMEZONE PLANNER ===== -->
+<div id="tab-interview" class="tab-panel" style="display:none;">
+  <h2 style="font-size:1.35rem;font-weight:800;color:#0a54a0;margin-bottom:0.25rem;">&#x1F4C5; Interview Timezone Availability Planner</h2>
+  <p style="color:#637381;font-size:0.9rem;margin-bottom:1.1rem;">Find the best interview slots across candidate and interviewer timezones with transparent overlap calculation.</p>
+  <div style="background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #e0eaff;margin-bottom:1rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.85rem;">
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Candidate Timezone</label>
+        <select id="ivCandidateTz" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.9rem;"></select>
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Interviewer Timezone</label>
+        <select id="ivInterviewerTz" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.9rem;"></select>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:0.7rem;align-items:end;">
+      <div>
+        <label style="font-size:0.8rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Candidate Start</label>
+        <input id="ivCandStart" type="time" value="09:00" style="width:100%;padding:0.5rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.9rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.8rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Candidate End</label>
+        <input id="ivCandEnd" type="time" value="18:00" style="width:100%;padding:0.5rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.9rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.8rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Interviewer Start</label>
+        <input id="ivIntStart" type="time" value="09:00" style="width:100%;padding:0.5rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.9rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.8rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Interviewer End</label>
+        <input id="ivIntEnd" type="time" value="18:00" style="width:100%;padding:0.5rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.9rem;" />
+      </div>
+    </div>
+    <div style="margin-top:0.8rem;display:flex;gap:0.7rem;align-items:center;flex-wrap:wrap;">
+      <button onclick="calcInterviewPlanner()" style="width:auto;padding:0.6rem 1.2rem;font-size:0.95rem;margin-top:0;">Find Overlap</button>
+      <span style="font-size:0.8rem;color:#6b7280;">Calculation uses timezone offsets for current date and normalizes both schedules to UTC.</span>
+    </div>
+  </div>
+  <div id="interviewResult"></div>
+</div><!-- /tab-interview -->
+
+<!-- ===== TAB: CTC IN-HAND ESTIMATOR ===== -->
+<div id="tab-ctc" class="tab-panel" style="display:none;">
+  <h2 style="font-size:1.35rem;font-weight:800;color:#0a54a0;margin-bottom:0.25rem;">&#x1F4B0; CTC to In-Hand Salary Estimator (India)</h2>
+  <p style="color:#637381;font-size:0.9rem;margin-bottom:1.1rem;">Estimate monthly in-hand salary with a realistic payroll model: fixed vs variable pay, employer contributions, PF/PT, and old/new regime tax treatment.</p>
+  <div style="background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #e0eaff;margin-bottom:1rem;">
+    <div style="font-size:0.8rem;font-weight:700;color:#637381;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Core Inputs</div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:0.8rem;align-items:end;">
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Annual CTC (INR)</label>
+        <input id="ctcAnnual" type="number" min="0" step="1000" value="1200000" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Tax Regime</label>
+        <select id="ctcRegime" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;">
+          <option value="new" selected>New Regime (default)</option>
+          <option value="old">Old Regime</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Basic % of CTC</label>
+        <input id="ctcBasicPct" type="number" min="20" max="70" step="1" value="40" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Employee PF % of Basic</label>
+        <input id="ctcPfPct" type="number" min="0" max="20" step="0.5" value="12" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+    </div>
+
+    <div style="font-size:0.8rem;font-weight:700;color:#637381;text-transform:uppercase;letter-spacing:0.05em;margin:0.9rem 0 0.5rem;">Salary Structure Assumptions</div>
+    <div style="display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:0.8rem;align-items:end;">
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Variable Pay % of CTC</label>
+        <input id="ctcVariablePct" type="number" min="0" max="60" step="1" value="10" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Annual Bonus % of CTC</label>
+        <input id="ctcBonusPct" type="number" min="0" max="40" step="1" value="5" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Employer PF % of Basic</label>
+        <input id="ctcEmployerPfPct" type="number" min="0" max="20" step="0.5" value="12" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Gratuity % of Basic</label>
+        <input id="ctcGratuityPct" type="number" min="0" max="10" step="0.01" value="4.81" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Variable/Bonus Payout</label>
+        <select id="ctcPayoutMode" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;">
+          <option value="annual" selected>Annual lump-sum</option>
+          <option value="monthly">Monthly prorated</option>
+          <option value="quarterly">Quarterly payout</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="font-size:0.8rem;font-weight:700;color:#637381;text-transform:uppercase;letter-spacing:0.05em;margin:0.9rem 0 0.5rem;">Monthly Payroll Deductions</div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:0.8rem;align-items:end;">
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">PT State Preset</label>
+        <select id="ctcPtState" onchange="applyPtPreset();calcCtcInHand();" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;">
+          <option value="KA" selected>Karnataka</option>
+          <option value="MH">Maharashtra</option>
+          <option value="TN">Tamil Nadu</option>
+          <option value="WB">West Bengal</option>
+          <option value="TS">Telangana</option>
+          <option value="AP">Andhra Pradesh</option>
+          <option value="GJ">Gujarat (often nil)</option>
+          <option value="NONE">No PT / Other</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Professional Tax / month</label>
+        <input id="ctcProfTaxMonthly" type="number" min="0" max="5000" step="10" value="200" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Other Payroll Deductions / month</label>
+        <input id="ctcOtherDedMonthly" type="number" min="0" max="100000" step="100" value="0" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">Other Taxable Income / year</label>
+        <input id="ctcOtherIncomeAnnual" type="number" min="0" max="50000000" step="1000" value="0" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+    </div>
+
+    <div style="font-size:0.8rem;font-weight:700;color:#637381;text-transform:uppercase;letter-spacing:0.05em;margin:0.9rem 0 0.5rem;">Old Regime Deduction Inputs (Ignored for New Regime)</div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:0.8rem;align-items:end;">
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">80C (max 1.5L)</label>
+        <input id="ctc80c" type="number" min="0" max="150000" step="1000" value="0" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">80D (max 50k)</label>
+        <input id="ctc80d" type="number" min="0" max="50000" step="1000" value="0" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">80CCD(1B) NPS (max 50k)</label>
+        <input id="ctcNps" type="number" min="0" max="50000" step="1000" value="0" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+      <div>
+        <label style="font-size:0.82rem;font-weight:700;color:#637381;display:block;margin-bottom:0.3rem;">HRA Exemption / year</label>
+        <input id="ctcHraExempt" type="number" min="0" max="2000000" step="1000" value="0" style="width:100%;padding:0.55rem;border-radius:8px;border:1px solid #c9d6e8;font-size:0.92rem;" />
+      </div>
+    </div>
+
+    <div style="margin-top:0.8rem;display:flex;gap:0.7rem;align-items:center;flex-wrap:wrap;">
+      <button onclick="calcCtcInHand()" style="width:auto;padding:0.6rem 1.2rem;font-size:0.95rem;margin-top:0;">Estimate In-Hand</button>
+      <span style="font-size:0.8rem;color:#6b7280;">Model includes rebate logic (87A), cess, PF split, variable/bonus separation, and optional old-regime deductions.</span>
+    </div>
+  </div>
+  <div id="ctcResult"></div>
+</div><!-- /tab-ctc -->
+
 <section id="bottom-ad" aria-label="Advertisement" style="text-align:center;margin:3rem auto 2rem;padding:1rem;background:#fffbe6;border:1px solid #e6c200;border-radius:10px;max-width:728px;">
   <p style="font-size:0.8rem;color:#999;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:1px;">Advertisement</p>
   <ins class="adsbygoogle" style="display:block;margin:0 auto;min-height:90px;" data-ad-client="ca-pub-7542838934089345" data-ad-slot="1669945205" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -1726,6 +1985,13 @@ System.out.println(istTime.format(fmt)); <span style="color:#888">// 2026-02-26 
     <a href="/ist-to-est-guide.html" style="color:#0a54a0;margin:0 0.4rem;">IST to EST Guide</a> &bull;
     <a href="/india-us-overlap.html" style="color:#0a54a0;margin:0 0.4rem;">India&ndash;US Overlap</a> &bull;
     <a href="/india-no-daylight-saving.html" style="color:#0a54a0;margin:0 0.4rem;">Does India Have DST?</a>
+  </p>
+  <p style="margin-top:0.4rem;font-size:0.82rem;">
+    <strong style="color:#6b7280">Career:</strong>
+    <a href="/ats-resume-checker.html" style="color:#0a54a0;margin:0 0.4rem;">Free Resume ATS Score Checker</a> &bull;
+    <a href="/resume-bullet-rewriter.html" style="color:#0a54a0;margin:0 0.4rem;">Free Resume Bullet Points Rewriter</a> &bull;
+    <a href="/interview-timezone-planner.html" style="color:#0a54a0;margin:0 0.4rem;">Interview Planner</a> &bull;
+    <a href="/ctc-inhand-calculator.html" style="color:#0a54a0;margin:0 0.4rem;">In Hand Salary Estimator</a>
   </p>
 </footer>
 </div><!-- /main-content -->
@@ -2670,7 +2936,11 @@ var _ROUTE_MAP={
   holidays:'tab-holidays','india-holidays-2026':'tab-holidays',
   nri183:'tab-nri183','nri-183-days':'tab-nri183',
   invoice:'tab-invoice','invoice-due-date':'tab-invoice',
-  notice:'tab-notice','notice-period-calculator':'tab-notice'
+  notice:'tab-notice','notice-period-calculator':'tab-notice',
+  resumeats:'tab-resumeats','ats-resume-checker':'tab-resumeats',
+  resumebullets:'tab-resumebullets','resume-bullet-rewriter':'tab-resumebullets',
+  interview:'tab-interview','interview-timezone-planner':'tab-interview',
+  ctc:'tab-ctc','ctc-inhand-calculator':'tab-ctc'
 };
 function routeFromHash(){
   // 1. Try hash (works on file://, and on https:// from redirect pages)
@@ -2769,6 +3039,10 @@ var _TAB_META={
   'tab-nri183':    {t:'NRI 183-Day Rule Calculator for India Tax Residency | WorkIndia',d:'Track days spent in India and estimate residency status under the 183-day tax residency rule.',u:'/nri-183-days.html'},
   'tab-invoice':   {t:'Invoice Due Date Calculator (Net 15, 30, 45, 60, 90) | WorkIndia',d:'Calculate invoice due dates and overdue status instantly for common Net payment terms.',u:'/invoice-due-date.html'},
   'tab-notice':    {t:'Notice Period Calculator: Last Working Day & Probation | WorkIndia',d:'Calculate last working day, notice period end, and probation completion dates with a simple planner.',u:'/notice-period-calculator.html'},
+  'tab-resumeats': {t:'Resume ATS Score Checker (With or Without Job Description) | WorkIndia',d:'Get a free resume ATS score instantly. Analyze ATS readiness from resume text alone, or add a job description for keyword match and missing skills.',u:'/ats-resume-checker.html'},
+  'tab-resumebullets': {t:'Resume Bullet Points Rewriter (Action + Impact) | WorkIndia',d:'Free tool to rewrite weak resume bullet points into ATS-friendly action-impact statements with stronger verbs and measurable outcomes.',u:'/resume-bullet-rewriter.html'},
+  'tab-interview': {t:'Interview Timezone Availability Planner | WorkIndia Career Tools',d:'Find overlapping interview slots across candidate and interviewer timezones with transparent overlap calculations.',u:'/interview-timezone-planner.html'},
+  'tab-ctc': {t:'CTC to In-Hand Salary Estimator India | WorkIndia Career Tools',d:'Estimate monthly in-hand salary from annual CTC using transparent assumptions for PF and tax slabs.',u:'/ctc-inhand-calculator.html'},
   'tab-abbr':      {t:'Time Zone Abbreviations Guide: IST, EST, PST, GMT | WorkIndia',d:'Decode timezone abbreviations and view their UTC offsets and current local times.',u:'/timezone-abbreviations.html'},
   'tab-cron':      {t:'Cron Expression to IST Converter and Schedule Preview | WorkIndia',d:'Preview cron schedules in IST, UTC, and local time to avoid timezone mistakes in production jobs.',u:'/cron-to-ist.html'},
   'tab-info':      {t:'About WorkIndia: India Time and Scheduling Tools',d:'Explore WorkIndia tools for IST conversion, business hours, meeting planning, market hours, and holidays.',u:'/'}
@@ -2789,10 +3063,227 @@ var _TAB_HEADER={
   'tab-nri183':{h:'NRI 183-Day Rule Tax Residency Tracker',s:'Track days in India during the financial year and estimate residency status under the 183-day rule.'},
   'tab-invoice':{h:'Invoice Due Date Calculator (Net Terms)',s:'Calculate due dates for Net 15, 30, 45, 60 and 90 terms and quickly spot overdue invoices.'},
   'tab-notice':{h:'Notice Period and Probation Calculator',s:'Estimate last working day and probation completion date from start date and policy terms.'},
+  'tab-resumeats':{h:'Resume ATS Score Checker',s:'Analyze ATS readiness from resume text alone, or compare with a job description to find missing keywords and skills.'},
+  'tab-resumebullets':{h:'Resume Bullet Points Rewriter',s:'Free tool to turn weak resume bullet points into action-impact lines that are easier for recruiters and ATS systems to scan.'},
+  'tab-interview':{h:'Interview Timezone Availability Planner',s:'Find best overlap slots between candidate and interviewer schedules across global timezones.'},
+  'tab-ctc':{h:'In Hand Salary Estimator',s:'Estimate monthly in-hand salary from annual CTC with clear PF and tax assumptions.'},
   'tab-abbr':{h:'Time Zone Abbreviation Decoder',s:'Decode ambiguous abbreviations like IST, CST, BST and view valid time zones with live clocks.'},
   'tab-cron':{h:'Cron Expression to IST Converter',s:'Preview upcoming cron fire times in IST, UTC, and local time to avoid deployment mistakes.'},
   'tab-info':{h:'About WorkIndia and Timezone Guides',s:'Read FAQs, timezone developer guidance, DST references, and practical conversion resources.'}
 };
+
+function insertToolGuides(){
+  if(document.getElementById('tool-guide-seo-anchor'))return;
+  var guides={
+    'tab-tzconv':{
+      title:'Time Zone Converter Method',
+      what:'This time zone converter turns a selected date-time from one timezone into another using browser-native timezone rules and daylight saving adjustments.',
+      points:[
+        'Calculation: input local date-time is normalized to UTC and then rendered in the destination timezone.',
+        'Data source: timezone offsets come from the IANA timezone database used by your browser runtime.',
+        'Transparency note: if a region enters DST, output changes automatically for that date.'
+      ]
+    },
+    'tab-worldclock':{
+      title:'World Clock Calculation',
+      what:'This world clock for India and global cities shows current local time in each city from the same live UTC moment.',
+      points:[
+        'Calculation: one current timestamp is formatted separately for each city timezone.',
+        'Refresh model: clocks update in real time so scheduling reflects current offsets.',
+        'Transparency note: no manual offset table is hardcoded for cities with DST.'
+      ]
+    },
+    'tab-epoch':{
+      title:'Epoch Converter Method',
+      what:'This Unix epoch converter translates between epoch seconds or milliseconds and readable date-time formats for developers and analysts.',
+      points:[
+        'Epoch to date: treats 10-digit values as seconds and 13-digit values as milliseconds.',
+        'Date to epoch: converts chosen local datetime to UTC-based Unix timestamp.',
+        'Transparency note: Unix epoch starts at 1970-01-01 00:00:00 UTC.'
+      ]
+    },
+    'tab-meeting':{
+      title:'Meeting Planner Logic',
+      what:'This meeting planner compares a full 24-hour day across multiple cities to identify practical overlap windows for remote teams.',
+      points:[
+        'Calculation: each UTC hour is mapped to local time in every listed city.',
+        'Overlap rule: highlighted rows indicate simultaneous working-hour windows.',
+        'Transparency note: overlap depends on weekday, city timezone, and DST season.'
+      ]
+    },
+    'tab-duration':{
+      title:'Date Calculator Methodology',
+      what:'This date calculator computes age, days between dates, business days, countdowns, and leap-year checks using calendar arithmetic.',
+      points:[
+        'Calculation: date differences use normalized date objects and millisecond deltas.',
+        'Business day rule: Monday-Friday counted as business days unless specified otherwise.',
+        'Transparency note: leap-year logic follows Gregorian calendar rules (4/100/400).' 
+      ]
+    },
+    'tab-abbr':{
+      title:'Timezone Abbreviation Decoder Logic',
+      what:'This timezone abbreviation tool explains ambiguous short codes like IST, CST, and BST and lists possible meanings.',
+      points:[
+        'Calculation: abbreviation is matched to known timezone candidates and offsets.',
+        'Live context: each candidate can display current local time for disambiguation.',
+        'Transparency note: abbreviations are not globally unique; region context is required.'
+      ]
+    },
+    'tab-cron':{
+      title:'Cron to IST Conversion Method',
+      what:'This cron expression converter previews upcoming execution times in UTC, IST, and your local timezone to prevent schedule mistakes.',
+      points:[
+        'Calculation: cron fields are parsed into future fire timestamps from a UTC baseline.',
+        'Timezone conversion: each run is rendered in IST and selected local display timezone.',
+        'Transparency note: cron syntax assumes minute hour day month weekday order.'
+      ]
+    },
+    'tab-timestamp':{
+      title:'Timestamp Parser Method',
+      what:'This timestamp parser decodes ISO 8601, RFC 2822, and Unix-style inputs into unified, comparable date-time output.',
+      points:[
+        'Calculation: input string is parsed into a single instant, then formatted for multiple zones.',
+        'Epoch output: milliseconds and seconds are derived from the same parsed instant.',
+        'Transparency note: malformed or locale-ambiguous formats may parse differently by browser.'
+      ]
+    },
+    'tab-callnow':{
+      title:'Best Time to Call India Logic',
+      what:'This call India now checker compares your city time with India business hours to show whether both sides are in working windows.',
+      points:[
+        'Calculation: India business window defaults to 09:00-18:00 IST.',
+        'Overlap result: status is based on simultaneous working-hours intersection.',
+        'Transparency note: daylight saving changes in your city can shift overlap by one hour.'
+      ]
+    },
+    'tab-dst':{
+      title:'DST Tracker Method',
+      what:'This DST transition tracker estimates upcoming timezone clock changes and their effect on India time difference.',
+      points:[
+        'Calculation: compares pre- and post-transition offsets for tracked regions.',
+        'Shift impact: recurring meeting times are recalculated against fixed IST (UTC+5:30).',
+        'Transparency note: India does not observe DST, so only foreign zones shift.'
+      ]
+    },
+    'tab-market':{
+      title:'India Market Hours Calculation',
+      what:'This NSE and BSE market-hours tool determines session status in IST and translates regular trading windows to global cities.',
+      points:[
+        'Calculation: compares current IST minute to pre-open, regular, and post-close session ranges.',
+        'Calendar logic: weekends are marked closed; holiday data may require official exchange confirmation.',
+        'Transparency note: special sessions like Muhurat trading can differ from regular hours.'
+      ]
+    },
+    'tab-shift':{
+      title:'Shift Planner Conversion Logic',
+      what:'This India shift planner converts start and end hours from your selected timezone into IST and other major locations.',
+      points:[
+        'Calculation: selected timezone offset is converted to IST offset for the same day.',
+        'Cross-day handling: overnight shifts are detected when end time wraps past midnight.',
+        'Transparency note: results can vary seasonally for DST-observing countries.'
+      ]
+    },
+    'tab-holidays':{
+      title:'India Holiday List Method',
+      what:'This India holidays tool lists national and selected state holidays with upcoming countdowns for operations planning.',
+      points:[
+        'Calculation: days-away values are computed as date difference from today.',
+        'Filter rule: state filter shows holidays tagged for that region plus national entries.',
+        'Transparency note: official gazette notifications can update observed dates.'
+      ]
+    },
+    'tab-nri183':{
+      title:'NRI 183-Day Rule Tracker Method',
+      what:'This NRI tax residency calculator estimates days in India in a financial year and checks against the 183-day threshold.',
+      points:[
+        'Calculation: each financial-year day is counted as in-India unless covered by a travel interval.',
+        'Status logic: 183 or more in-India days marks resident under the basic rule.',
+        'Transparency note: additional look-back conditions may apply in tax law.'
+      ]
+    },
+    'tab-invoice':{
+      title:'Invoice Due Date Formula',
+      what:'This invoice due date calculator adds Net terms (15/30/45/60/90 or custom days) to invoice date and flags overdue status.',
+      points:[
+        'Calculation: due date = invoice date + net term in calendar days.',
+        'Status output: compares due date to today to mark due, upcoming, or overdue.',
+        'Transparency note: business-day payment clauses are not applied unless contract-specific.'
+      ]
+    },
+    'tab-notice':{
+      title:'Notice Period Calculator Formula',
+      what:'This notice period and probation calculator projects last working day and probation completion from your start date and policy days.',
+      points:[
+        'Calculation: end date = start date + selected days - 1 (calendar-day basis).',
+        'Progress view: shows days remaining or completion status relative to current date.',
+        'Transparency note: employer policy may use working days instead of calendar days.'
+      ]
+    },
+    'tab-resumeats':{
+      title:'ATS Resume Checker Method',
+      what:'This ATS resume checker compares extracted role keywords from a job description against your resume content and generates a transparent match score.',
+      points:[
+        'Calculation: keyword overlap = matched role terms divided by total extracted role terms.',
+        'Scoring model: weighted by frequency and priority terms (skills, tools, role nouns).',
+        'Transparency note: this is a rule-based estimator, not an official ATS vendor score.'
+      ]
+    },
+    'tab-resumebullets':{
+      title:'Resume Bullet Rewriter Method',
+      what:'This bullet rewriter strengthens resume statements by applying action-first phrasing and impact-focused structure recruiters expect.',
+      points:[
+        'Calculation: weak starters are replaced with strong action verbs based on sentence intent.',
+        'Output format: Action + Task + Result pattern to improve scannability and clarity.',
+        'Transparency note: if no metrics are present, suggestions include placeholders for quantifiable impact.'
+      ]
+    },
+    'tab-interview':{
+      title:'Interview Planner Overlap Method',
+      what:'This interview planner computes schedule overlap between two timezones by normalizing both time windows into UTC first.',
+      points:[
+        'Calculation: candidate and interviewer availability windows are converted from local time to UTC minutes.',
+        'Overlap logic: final slots are the intersection of both UTC windows, then displayed in both local zones.',
+        'Transparency note: DST changes can shift overlap windows by one hour seasonally.'
+      ]
+    },
+    'tab-ctc':{
+      title:'CTC In-Hand Estimator Method',
+      what:'This salary estimator approximates monthly in-hand pay from annual CTC using PF and tax-slab assumptions.',
+      points:[
+        'Calculation: gross monthly = annual CTC / 12; PF and tax are deducted to estimate net pay.',
+        'Tax logic: uses simplified slab-based annual tax with cess and selected regime (old/new).',
+        'Transparency note: actual payroll depends on HRA, exemptions, bonus, and employer policy.'
+      ]
+    }
+  };
+
+  Object.keys(guides).forEach(function(tabId,idx){
+    var tab=document.getElementById(tabId);
+    if(!tab)return;
+    var data=guides[tabId];
+    var container=tab.querySelector('section')||tab;
+    var guide=document.createElement('section');
+    guide.className='tool-guide';
+    if(idx===0)guide.id='tool-guide-seo-anchor';
+    guide.setAttribute('aria-label',data.title+' and calculation method');
+    var html='<h3>'+data.title+'</h3>'
+      +'<p>'+data.what+'</p>'
+      +'<ul>'
+      +'<li>'+data.points[0]+'</li>'
+      +'<li>'+data.points[1]+'</li>'
+      +'<li>'+data.points[2]+'</li>'
+      +'</ul>';
+    guide.innerHTML=html;
+
+    var firstParagraph=container.querySelector('p');
+    if(firstParagraph&&firstParagraph.parentNode===container){
+      firstParagraph.insertAdjacentElement('afterend',guide);
+    } else {
+      container.insertAdjacentElement('afterbegin',guide);
+    }
+  });
+}
+
 function updatePageHeader(tabId){
   var hdr=_TAB_HEADER[tabId]||_TAB_HEADER['tab-home'];
   var hEl=document.getElementById('pageMainHeading');
@@ -2842,6 +3333,10 @@ function showTab(id,btn){
   if(id==='tab-market'){buildMarketTab();}
   if(id==='tab-shift'){buildShiftPlan();}
   if(id==='tab-holidays'){buildHolidayTab();}
+  if(id==='tab-resumeats'){calcResumeAts();}
+  if(id==='tab-resumebullets'){rewriteResumeBullets();}
+  if(id==='tab-interview'){calcInterviewPlanner();}
+  if(id==='tab-ctc'){calcCtcInHand();}
 }
 function toggleAccordion(header){var body=header.nextElementSibling,isOpen=body.classList.contains('open');body.classList.toggle('open',!isOpen);header.classList.toggle('open',!isOpen);header.setAttribute('aria-expanded',String(!isOpen))}
 document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('accordion-header')){e.preventDefault();toggleAccordion(e.target)}});
@@ -3179,7 +3674,987 @@ function calcNotice(){
   document.getElementById('noticeResult').innerHTML=html;
 }
 
+/* ===== CAREER TOOLS: ATS CHECKER + BULLET REWRITER ===== */
+function _tokenizeAtsText(v){
+  return (v||'')
+    .toLowerCase()
+    .replace(/[^a-z0-9+#.\s-]/g,' ')
+    .split(/\s+/)
+    .filter(function(x){return x&&x.length>2;});
+}
+var ATS_SKILL_DICT=[
+  {k:'python',a:['python','pandas','numpy','fastapi','django']},
+  {k:'java',a:['java','spring','springboot','jvm']},
+  {k:'javascript',a:['javascript','typescript','node','react','nextjs']},
+  {k:'sql',a:['sql','postgres','mysql','mssql','query']},
+  {k:'nosql',a:['mongodb','redis','cassandra','dynamodb']},
+  {k:'aws',a:['aws','ec2','lambda','s3','cloudwatch','rds']},
+  {k:'azure',a:['azure','aks','functions','cosmos']},
+  {k:'gcp',a:['gcp','bigquery','gke','pubsub']},
+  {k:'docker',a:['docker','container','containers']},
+  {k:'kubernetes',a:['kubernetes','k8s','helm']},
+  {k:'microservices',a:['microservices','service-oriented','distributed systems']},
+  {k:'api',a:['api','rest','graphql','grpc']},
+  {k:'ci/cd',a:['ci/cd','jenkins','github actions','gitlab ci','pipeline']},
+  {k:'testing',a:['testing','unit test','integration test','pytest','junit']},
+  {k:'etl/data',a:['etl','airflow','spark','data pipeline']},
+  {k:'system design',a:['system design','scalability','high availability']},
+  {k:'leadership',a:['leadership','mentoring','stakeholder','cross-functional']},
+  {k:'communication',a:['communication','collaboration','client-facing']}
+];
+function _dictMatches(text){
+  var lower=' '+(text||'').toLowerCase()+' ';
+  var hits=[];
+  ATS_SKILL_DICT.forEach(function(item){
+    var ok=item.a.some(function(alias){
+      var p=alias.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+      return new RegExp('(?:^|\\W)'+p+'(?:$|\\W)','i').test(lower);
+    });
+    if(ok)hits.push(item.k);
+  });
+  return hits;
+}
+function _extractMustHaveTerms(jd){
+  var lines=(jd||'').split(/\n|\.|;/).map(function(x){return x.trim();}).filter(Boolean);
+  var mustLines=lines.filter(function(l){
+    return /(must|required|mandatory|need to|hands-on|strong experience|proficient)/i.test(l);
+  });
+  var mustHits={};
+  mustLines.forEach(function(l){_dictMatches(l).forEach(function(k){mustHits[k]=1;});});
+  return Object.keys(mustHits);
+}
+function _resumeStructureScore(resume){
+  var r=resume||'';
+  var score=0;
+  var checks=[];
+  var email=/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(r); if(email){score+=2;} checks.push(['Contact email',email]);
+  var profile=/(linkedin\.com|github\.com|portfolio|behance|dribbble)/i.test(r); if(profile){score+=1;} checks.push(['Profile links',profile]);
+  var secExp=/(experience|work experience|employment)/i.test(r); if(secExp){score+=2;} checks.push(['Experience section',secExp]);
+  var secSkills=/(skills|tech stack|technical skills)/i.test(r); if(secSkills){score+=2;} checks.push(['Skills section',secSkills]);
+  var secEdu=/(education|degree|b\.tech|bachelor|master)/i.test(r); if(secEdu){score+=1;} checks.push(['Education section',secEdu]);
+  var secProj=/(projects|project experience)/i.test(r); if(secProj){score+=1;} checks.push(['Projects section',secProj]);
+  var bullets=(r.match(/(^|\n)\s*[-*\u2022]/g)||[]).length>=4; if(bullets){score+=1;} checks.push(['Bullet formatting',bullets]);
+  return {score:Math.min(10,score),checks:checks};
+}
+function _impactEvidenceScore(resume){
+  var lines=(resume||'').split(/\n+/).map(function(l){return l.trim();}).filter(Boolean);
+  var bulletLines=lines.filter(function(l){return /^[-*\u2022]|^\d+[.)]\s+/.test(l)||l.length>40;});
+  if(!bulletLines.length)return {ratio:0,score:0};
+  var actionRe=/\b(led|built|designed|implemented|optimized|automated|delivered|improved|reduced|developed|managed|launched|scaled|migrated|resolved)\b/i;
+  var metricRe=/\d|%|ms|sec|minute|hour|days|weeks|months|users|customers|revenue|cost|latency|throughput|uptime|sla|kpi/i;
+  var outcomeRe=/\b(increase|reduc|improv|save|boost|cut|achiev|result|grow)\w*/i;
+  var strong=bulletLines.filter(function(l){return actionRe.test(l)&&metricRe.test(l)&&outcomeRe.test(l);}).length;
+  var ratio=strong/bulletLines.length;
+  return {ratio:ratio,score:Math.min(10,Math.round(ratio*10))};
+}
+function _decodeEscapedNewlines(v){
+  return (v||'').replace(/\\r\\n/g,'\n').replace(/\\n/g,'\n').replace(/\\t/g,' ');
+}
+function _stripHtmlTags(v){
+  return (v||'')
+    .replace(/<br\s*\/?>/gi,'\n')
+    .replace(/<\/p>/gi,'\n')
+    .replace(/<\/div>/gi,'\n')
+    .replace(/<[^>]*>/g,' ');
+}
+function _normalizePastedCareerText(raw,opts){
+  var options=opts||{};
+  var minAlpha=typeof options.minAlpha==='number'?options.minAlpha:40;
+  var minWords=typeof options.minWords==='number'?options.minWords:25;
+  var src=(raw||'').trim();
+  var notes=[];
+  if(!src)return {text:'',notes:notes,error:'Empty input.'};
+
+  var parsedObj=null;
+  if((src[0]==='{'&&src[src.length-1]==='}')||(src[0]==='['&&src[src.length-1]===']')){
+    try{ parsedObj=JSON.parse(src); }catch(e){}
+  }
+  if(parsedObj){
+    var pulled=[];
+    var walk=function(node){
+      if(node==null)return;
+      if(typeof node==='string')pulled.push(node);
+      else if(Array.isArray(node))node.forEach(walk);
+      else if(typeof node==='object')Object.keys(node).forEach(function(k){walk(node[k]);});
+    };
+    walk(parsedObj);
+    src=pulled.join('\n');
+    notes.push('Detected JSON-like pasted content; extracted readable text fields.');
+  }
+
+  if(/<[^>]+>/.test(src)){
+    src=_stripHtmlTags(src);
+    notes.push('Detected rich text/HTML paste; converted to plain text.');
+  }
+  if(/\\n|\\r\\n|\\t/.test(src)){
+    src=_decodeEscapedNewlines(src);
+    notes.push('Detected escaped line breaks; normalized formatting.');
+  }
+
+  src=src
+    .replace(/\u00a0/g,' ')
+    .replace(/[\u200B-\u200D\uFEFF]/g,'')
+    .replace(/[“”]/g,'"')
+    .replace(/[‘’]/g,"'")
+    .replace(/[\t ]+/g,' ')
+    .replace(/\n{3,}/g,'\n\n')
+    .trim();
+
+  var alpha=(src.match(/[a-z]/gi)||[]).length;
+  var words=src.split(/\s+/).filter(Boolean);
+  if(alpha<minAlpha||words.length<minWords){
+    return {text:src,notes:notes,error:'Input looks too short or noisy after cleanup. Paste fuller plain text (at least 4-6 lines) for reliable analysis.'};
+  }
+  return {text:src,notes:notes,error:''};
+}
+function _renderInputMessages(kind,messages,color){
+  if(!messages||!messages.length)return '';
+  var tone=color||'#475569';
+  return '<div style="margin-top:0.65rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:'+tone+';line-height:1.55;">'
+    +'<strong style="color:'+tone+';">'+kind+':</strong><br>'
+    +messages.map(function(m){return '- '+escapeHtml(m);}).join('<br>')
+    +'</div>';
+}
+function _setPasteNote(noteId,msg,kind){
+  var el=document.getElementById(noteId);
+  if(!el)return;
+  if(!msg){
+    el.style.display='none';
+    el.innerHTML='';
+    return;
+  }
+  var map={
+    ok:{c:'#166534',bg:'#f0fdf4',b:'#bbf7d0'},
+    warn:{c:'#9a3412',bg:'#fff7ed',b:'#fed7aa'},
+    info:{c:'#475569',bg:'#f8fafc',b:'#e2e8f0'}
+  };
+  var t=map[kind||'info']||map.info;
+  el.style.display='block';
+  el.style.color=t.c;
+  el.style.background=t.bg;
+  el.style.border='1px solid '+t.b;
+  el.style.borderRadius='7px';
+  el.style.padding='0.35rem 0.5rem';
+  el.innerHTML=escapeHtml(msg);
+}
+function _insertTextAtCursor(el,text){
+  if(!el)return;
+  var start=typeof el.selectionStart==='number'?el.selectionStart:el.value.length;
+  var end=typeof el.selectionEnd==='number'?el.selectionEnd:el.value.length;
+  var pre=el.value.slice(0,start);
+  var post=el.value.slice(end);
+  el.value=pre+text+post;
+  var next=start+text.length;
+  if(el.setSelectionRange)el.setSelectionRange(next,next);
+}
+function _setFileStatus(elId,msg,kind){
+  var el=document.getElementById(elId);
+  if(!el)return;
+  var palette={
+    ok:'#166534',warn:'#9a3412',info:'#6b7280',err:'#dc2626'
+  };
+  el.style.color=palette[kind||'info']||palette.info;
+  el.textContent=msg||'';
+}
+function _readFileAsText(file){
+  return new Promise(function(resolve,reject){
+    var reader=new FileReader();
+    reader.onload=function(){resolve(String(reader.result||''));};
+    reader.onerror=function(){reject(new Error('Unable to read file as text.'));};
+    reader.readAsText(file);
+  });
+}
+function _readFileAsArrayBuffer(file){
+  return new Promise(function(resolve,reject){
+    var reader=new FileReader();
+    reader.onload=function(){resolve(reader.result);};
+    reader.onerror=function(){reject(new Error('Unable to read binary file.'));};
+    reader.readAsArrayBuffer(file);
+  });
+}
+function _extractPdfText(buffer){
+  return new Promise(function(resolve,reject){
+    if(!window.pdfjsLib){reject(new Error('PDF parser unavailable.'));return;}
+    var task=window.pdfjsLib.getDocument({data:buffer});
+    task.promise.then(function(pdf){
+      var pages=[];
+      for(var p=1;p<=pdf.numPages;p++)pages.push(p);
+      return Promise.all(pages.map(function(pn){
+        return pdf.getPage(pn).then(function(page){
+          return page.getTextContent().then(function(tc){
+            return (tc.items||[]).map(function(it){return it.str;}).join(' ');
+          });
+        });
+      }));
+    }).then(function(pageTexts){
+      resolve(pageTexts.join('\n'));
+    }).catch(function(e){reject(e);});
+  });
+}
+function _ensurePdfParserReady(){
+  if(window.pdfjsLib&&window.pdfjsLib.getDocument)return Promise.resolve();
+  return _loadScriptOnce('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js').then(function(){
+    if(window.pdfjsLib&&window.pdfjsLib.GlobalWorkerOptions){
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  });
+}
+function _extractDocxText(buffer){
+  return new Promise(function(resolve,reject){
+    if(!window.mammoth||!window.mammoth.extractRawText){reject(new Error('DOCX parser unavailable.'));return;}
+    window.mammoth.extractRawText({arrayBuffer:buffer})
+      .then(function(result){resolve(String(result&&result.value||''));})
+      .catch(function(e){reject(e);});
+  });
+}
+function _ensureDocxParserReady(){
+  if(window.mammoth&&window.mammoth.extractRawText)return Promise.resolve();
+  return _loadScriptOnce('https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js')
+    .catch(function(){return _loadScriptOnce('https://unpkg.com/mammoth/mammoth.browser.min.js');});
+}
+function _extractUploadedCareerText(file){
+  return new Promise(function(resolve,reject){
+    var name=(file&&file.name||'').toLowerCase();
+    var ext=(name.split('.').pop()||'').toLowerCase();
+    var type=(file&&file.type||'').toLowerCase();
+    var isPdf=ext==='pdf'||type==='application/pdf';
+    var isDocx=ext==='docx'||type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    var isDoc=ext==='doc'||type==='application/msword';
+    var isTextLike=['txt','md','rtf','json','csv','html','htm'].indexOf(ext)>=0||/^text\//.test(type);
+
+    if(isDoc){
+      reject(new Error('Legacy .doc parsing is unreliable in-browser. Please save as .docx, .pdf, or .txt and retry.'));
+      return;
+    }
+    if(isTextLike){
+      _readFileAsText(file).then(resolve).catch(reject);
+      return;
+    }
+    if(isPdf){
+      _ensurePdfParserReady()
+        .then(function(){return _readFileAsArrayBuffer(file);})
+        .then(_extractPdfText)
+        .then(resolve)
+        .catch(reject);
+      return;
+    }
+    if(isDocx){
+      _ensureDocxParserReady()
+        .then(function(){return _readFileAsArrayBuffer(file);})
+        .then(_extractDocxText)
+        .then(resolve)
+        .catch(reject);
+      return;
+    }
+    reject(new Error('Unsupported file type. Use PDF, DOCX, TXT, or HTML.'));
+  });
+}
+function _wireCareerFileUpload(fileInputId,textareaId,pasteNoteId,statusId,normalizeOpts){
+  var fileEl=document.getElementById(fileInputId);
+  var textEl=document.getElementById(textareaId);
+  if(!fileEl||!textEl)return;
+  fileEl.addEventListener('change',function(){
+    var file=fileEl.files&&fileEl.files[0];
+    if(!file)return;
+    _setFileStatus(statusId,'Reading '+file.name+' ...','info');
+    _extractUploadedCareerText(file).then(function(raw){
+      var norm=_normalizePastedCareerText(raw,normalizeOpts||{});
+      if(norm.error){
+        _setFileStatus(statusId,'Parsed '+file.name+' but quality is low. '+norm.error,'warn');
+      } else {
+        _setFileStatus(statusId,'Loaded '+file.name+' successfully.','ok');
+      }
+      textEl.value=norm.text||'';
+      textEl.dispatchEvent(new Event('input',{bubbles:true}));
+      if(norm.notes&&norm.notes.length)_setPasteNote(pasteNoteId,norm.notes[0],norm.error?'warn':'ok');
+      fileEl.value='';
+    }).catch(function(err){
+      _setFileStatus(statusId,(err&&err.message)?err.message:'Could not process file.','err');
+      fileEl.value='';
+    });
+  });
+}
+function _loadScriptOnce(src){
+  return new Promise(function(resolve,reject){
+    var existing=document.querySelector('script[data-src="'+src+'"]');
+    if(existing&&existing.dataset.loaded==='1'){resolve();return;}
+    if(existing){
+      existing.addEventListener('load',function(){resolve();},{once:true});
+      existing.addEventListener('error',function(){reject(new Error('Failed to load script: '+src));},{once:true});
+      return;
+    }
+    var s=document.createElement('script');
+    s.async=true;
+    s.src=src;
+    s.dataset.src=src;
+    s.onload=function(){s.dataset.loaded='1';resolve();};
+    s.onerror=function(){reject(new Error('Failed to load script: '+src));};
+    document.body.appendChild(s);
+  });
+}
+function initCareerDocParsers(){
+  _ensurePdfParserReady()
+    .then(function(){
+      if(window.pdfjsLib&&window.pdfjsLib.GlobalWorkerOptions){
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      }
+      _setFileStatus('atsJobDescFileStatus','Supported: PDF, DOCX, TXT, HTML','info');
+      _setFileStatus('atsResumeFileStatus','Supported: PDF, DOCX, TXT, HTML','info');
+    })
+    .catch(function(){
+      _setFileStatus('atsJobDescFileStatus','PDF parser could not load; TXT/HTML still supported.','warn');
+      _setFileStatus('atsResumeFileStatus','PDF parser could not load; TXT/HTML still supported.','warn');
+    });
+
+  _ensureDocxParserReady().catch(function(){});
+}
+function _wireSmartPasteInput(fieldId,noteId,opts){
+  var el=document.getElementById(fieldId);
+  if(!el)return;
+  var options=opts||{};
+  el.addEventListener('paste',function(e){
+    var clip=e.clipboardData||window.clipboardData;
+    if(!clip)return;
+    var plain=clip.getData('text/plain')||'';
+    var html=clip.getData('text/html')||'';
+    var raw=(plain&&plain.trim())?plain:html;
+    if(!raw)return;
+
+    var norm=_normalizePastedCareerText(raw,options.normalize||{});
+    var cleaned=norm.text||String(raw||'').trim();
+    if(!cleaned)return;
+
+    e.preventDefault();
+    _insertTextAtCursor(el,cleaned);
+    el.dispatchEvent(new Event('input',{bubbles:true}));
+
+    var changed=cleaned.trim()!==String(raw||'').trim();
+    var noteParts=[];
+    if(changed)noteParts.push('Pasted content cleaned to plain text.');
+    if(norm.notes&&norm.notes.length)noteParts.push(norm.notes[0]);
+    if(norm.error){
+      _setPasteNote(noteId,(noteParts.join(' ')+' '+norm.error).trim(),'warn');
+    }else if(noteParts.length){
+      _setPasteNote(noteId,noteParts.join(' '),'ok');
+    }else{
+      _setPasteNote(noteId,'Pasted plain text.','info');
+    }
+
+    clearTimeout(el.__pasteNoteTimer);
+    el.__pasteNoteTimer=setTimeout(function(){_setPasteNote(noteId,'','info');},5200);
+  });
+}
+function calcResumeAts(){
+  var jdEl=document.getElementById('atsJobDesc');
+  var rsEl=document.getElementById('atsResumeText');
+  var mode=((document.getElementById('atsMode')||{}).value||'balanced');
+  var roleHint=((document.getElementById('atsRoleHint')||{}).value||'').trim();
+  var out=document.getElementById('atsResult');
+  if(!out)return;
+  var jdRaw=(jdEl&&jdEl.value?jdEl.value.trim():'');
+  var rsRaw=(rsEl&&rsEl.value?rsEl.value.trim():'');
+  var hasJd=!!jdRaw;
+  var rsNorm=_normalizePastedCareerText(rsRaw,{minAlpha:40,minWords:25});
+  var jdNorm=hasJd?_normalizePastedCareerText(jdRaw,{minAlpha:40,minWords:25}):{text:'',notes:[],error:''};
+  var jd=jdNorm.text;
+  var rs=rsNorm.text;
+  if(!rs){
+    out.innerHTML='<div style="background:#f8fbff;border:1px solid #dbe7ff;border-radius:10px;padding:0.9rem 1rem;color:#516173;font-size:0.88rem;">Paste your resume text, then click <strong>Analyze ATS Score</strong>. Job description is optional.</div>';
+    return;
+  }
+  if(rsNorm.error||(hasJd&&jdNorm.error)){
+    out.innerHTML='<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:0.9rem 1rem;color:#9a3412;font-size:0.88rem;line-height:1.55;">'
+      +'<strong>Could not analyze reliably.</strong><br>'
+      +((hasJd&&jdNorm.error)?('Job Description: '+escapeHtml(jdNorm.error)+'<br>'):'')
+      +(rsNorm.error?('Resume: '+escapeHtml(rsNorm.error)+'<br>'):'')
+      +'Try pasting plain text copied from the original source (avoid screenshot OCR snippets or heavily formatted tables).'
+      +((hasJd&&jdNorm.error)?'<br>You can also clear JD and run resume-only ATS readiness.':'')
+      +'</div>';
+    return;
+  }
+  if(hasJd&&jdEl&&jd!==jdRaw)jdEl.value=jd;
+  if(rsEl&&rs!==rsRaw)rsEl.value=rs;
+
+  var stop={the:1,and:1,for:1,with:1,that:1,from:1,this:1,have:1,will:1,your:1,you:1,our:1,are:1,job:1,role:1,team:1,years:1,year:1,work:1,using:1,able:1,into:1,about:1,their:1,requirements:1,responsibilities:1,experience:1,should:1,must:1};
+  var rsTokens=_tokenizeAtsText(rs);
+  var rsSet={};rsTokens.forEach(function(t){rsSet[t]=1;});
+  var rsSkills=_dictMatches(rs);
+  var rsSkillSet={};rsSkills.forEach(function(s){rsSkillSet[s]=1;});
+  var structure=_resumeStructureScore(rs);
+  var impact=_impactEvidenceScore(rs);
+  var checks=structure.checks||[];
+  var presentSections=checks.filter(function(c){return c[1];}).map(function(c){return c[0];});
+  var missingSections=checks.filter(function(c){return !c[1];}).map(function(c){return c[0];});
+
+  var finalScore=0;
+  var scoreColor='';
+  var scoreLabel='';
+  var scoreTitle='';
+  var summaryMeta='';
+  var recommendations=[];
+  var roleHintRow=roleHint?'<div style="font-size:0.8rem;color:#64748b;margin-top:0.25rem;">Target role context: <strong>'+escapeHtml(roleHint)+'</strong></div>':'';
+  var metricCards='';
+  var matchBlocks='';
+
+  if(hasJd){
+    var jdTokens=_tokenizeAtsText(jd).filter(function(t){return !stop[t];});
+    var freq={};
+    jdTokens.forEach(function(t){freq[t]=(freq[t]||0)+1;});
+    var keywords=Object.keys(freq)
+      .filter(function(k){return k.length>=3;})
+      .sort(function(a,b){return freq[b]-freq[a];})
+      .slice(0,40);
+
+    var matched=[];var missing=[];
+    keywords.forEach(function(k){(rsSet[k]?matched:missing).push(k);});
+
+    var jdSkills=_dictMatches(jd);
+    var mustHave=_extractMustHaveTerms(jd);
+    var mustMissing=mustHave.filter(function(k){return !rsSkillSet[k];});
+    var mustMatched=mustHave.filter(function(k){return rsSkillSet[k];});
+
+    var skillCoverage=jdSkills.length?mustMatched.concat(jdSkills.filter(function(x){return rsSkillSet[x]&&mustMatched.indexOf(x)<0;})).length/jdSkills.length:0;
+    var mustCoverage=mustHave.length?mustMatched.length/mustHave.length:1;
+    var keywordCoverage=keywords.length?matched.length/keywords.length:0;
+
+    var hardSkillScore=Math.round(skillCoverage*35);
+    var mustScore=Math.round(mustCoverage*25);
+    var keywordScore=Math.round(keywordCoverage*15);
+    var structureScore=Math.round((structure.score/10)*15);
+    var impactScore=Math.round((impact.score/10)*10);
+    finalScore=hardSkillScore+mustScore+keywordScore+structureScore+impactScore;
+    if(mode==='strict'){
+      if(mustMissing.length)finalScore-=Math.min(18,mustMissing.length*4);
+      if(impact.ratio<0.25)finalScore-=6;
+    }
+    finalScore=Math.max(0,Math.min(100,finalScore));
+
+    if(mustMissing.length)recommendations.push('Add missing must-have skills: '+mustMissing.slice(0,6).join(', ')+'.');
+    if(skillCoverage<0.55)recommendations.push('Increase role-skill alignment by adding relevant tools/frameworks from the JD in experience bullets.');
+    if(impact.ratio<0.35)recommendations.push('Improve bullet quality: include action + measurable impact + business outcome in more bullets.');
+    if(structure.score<7)recommendations.push('Improve resume structure: ensure clear Experience, Skills, Education, and profile/contact sections.');
+    if(keywordCoverage<0.45)recommendations.push('Mirror critical JD terminology naturally across summary, experience, and project sections.');
+
+    scoreTitle='ATS Match Score';
+    scoreColor=finalScore>=75?'#16a34a':(finalScore>=55?'#d97706':'#dc2626');
+    scoreLabel=finalScore>=75?'Strong Match':(finalScore>=55?'Moderate Match':'Low Match');
+    summaryMeta='Mode: '+(mode==='strict'?'Strict':'Balanced')+'<br>JD skills detected: <strong style="color:#0a54a0;">'+jdSkills.length+'</strong><br>Must-have covered: <strong style="color:#0a54a0;">'+mustMatched.length+'</strong> / '+mustHave.length;
+    metricCards=''
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Hard Skill Coverage<br><strong style="font-size:0.95rem;color:#1e293b;">'+hardSkillScore+'/35</strong></div>'
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Must-Have Coverage<br><strong style="font-size:0.95rem;color:#1e293b;">'+mustScore+'/25</strong></div>'
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Keyword Relevance<br><strong style="font-size:0.95rem;color:#1e293b;">'+keywordScore+'/15</strong></div>'
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Resume Structure<br><strong style="font-size:0.95rem;color:#1e293b;">'+structureScore+'/15</strong></div>'
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Impact Evidence<br><strong style="font-size:0.95rem;color:#1e293b;">'+impactScore+'/10</strong></div>';
+    matchBlocks=''
+      +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.8rem;">'
+      +'<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.75rem;">'
+      +'<div style="font-size:0.8rem;font-weight:700;color:#166534;margin-bottom:0.45rem;">Matched Skills / Terms</div>'
+      +'<div style="font-size:0.84rem;color:#166534;line-height:1.65;">'+(jdSkills.filter(function(s){return rsSkillSet[s];}).slice(0,16).join(', ')||matched.slice(0,16).join(', ')||'None yet')+'</div></div>'
+      +'<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:0.75rem;">'
+      +'<div style="font-size:0.8rem;font-weight:700;color:#9a3412;margin-bottom:0.45rem;">Missing Must-Have / Priority</div>'
+      +'<div style="font-size:0.84rem;color:#9a3412;line-height:1.65;">'+(mustMissing.concat(missing).slice(0,16).join(', ')||'Great coverage')+'</div></div>'
+      +'</div>';
+  } else {
+    var sectionCoverage=checks.length?(presentSections.length/checks.length):0;
+    var structurePts=Math.round((structure.score/10)*45);
+    var impactPts=Math.round((impact.score/10)*25);
+    var sectionPts=Math.round(sectionCoverage*15);
+    var skillPts=Math.round(Math.min(1,rsSkills.length/8)*10);
+    var depthPts=Math.round(Math.min(1,rsTokens.length/220)*5);
+    finalScore=structurePts+impactPts+sectionPts+skillPts+depthPts;
+    if(mode==='strict'&&impact.ratio<0.25)finalScore-=5;
+    finalScore=Math.max(0,Math.min(100,finalScore));
+
+    if(missingSections.length)recommendations.push('Add missing resume sections: '+missingSections.slice(0,4).join(', ')+'.');
+    if(impact.ratio<0.35)recommendations.push('Strengthen bullets with action + metric + outcome to improve ATS confidence.');
+    if(rsSkills.length<4)recommendations.push('Add a clearer technical skills section with tools/languages relevant to your role.');
+    if(rsTokens.length<120)recommendations.push('Resume content looks brief; add project scope, scale, and quantified outcomes.');
+    if(roleHint&&!recommendations.length)recommendations.push('Optional: paste JD for '+roleHint+' to get role-specific match and missing skill insights.');
+
+    scoreTitle='ATS Resume Readiness Score';
+    scoreColor=finalScore>=75?'#16a34a':(finalScore>=55?'#d97706':'#dc2626');
+    scoreLabel=finalScore>=75?'High Readiness':(finalScore>=55?'Moderate Readiness':'Needs Improvement');
+    summaryMeta='Mode: '+(mode==='strict'?'Strict':'Balanced')+'<br>Detected skill groups: <strong style="color:#0a54a0;">'+rsSkills.length+'</strong><br>Section coverage: <strong style="color:#0a54a0;">'+Math.round(sectionCoverage*100)+'%</strong>';
+    metricCards=''
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Structure Quality<br><strong style="font-size:0.95rem;color:#1e293b;">'+structurePts+'/45</strong></div>'
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Impact Evidence<br><strong style="font-size:0.95rem;color:#1e293b;">'+impactPts+'/25</strong></div>'
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Section Completeness<br><strong style="font-size:0.95rem;color:#1e293b;">'+sectionPts+'/15</strong></div>'
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Skill Breadth<br><strong style="font-size:0.95rem;color:#1e293b;">'+skillPts+'/10</strong></div>'
+      +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.65rem 0.75rem;font-size:0.8rem;color:#475569;">Content Depth<br><strong style="font-size:0.95rem;color:#1e293b;">'+depthPts+'/5</strong></div>';
+    matchBlocks=''
+      +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.8rem;">'
+      +'<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.75rem;">'
+      +'<div style="font-size:0.8rem;font-weight:700;color:#166534;margin-bottom:0.45rem;">Detected Sections</div>'
+      +'<div style="font-size:0.84rem;color:#166534;line-height:1.65;">'+(presentSections.join(', ')||'No clear sections detected')+'</div></div>'
+      +'<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:0.75rem;">'
+      +'<div style="font-size:0.8rem;font-weight:700;color:#9a3412;margin-bottom:0.45rem;">Missing / Weak Areas</div>'
+      +'<div style="font-size:0.84rem;color:#9a3412;line-height:1.65;">'+(missingSections.join(', ')||'Core sections look complete')+'</div></div>'
+      +'</div>';
+  }
+
+  if(!recommendations.length)recommendations.push(hasJd?'Profile is well aligned. Next step: tailor top 4 bullets to match this role context.':'Resume has strong ATS readiness. Optional next step: add JD for role-specific matching.');
+
+  var html='<div style="background:#fff;border-radius:10px;padding:1rem 1.1rem;border:1px solid #e0eaff;">';
+  html+='<div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;">';
+  html+='<div><div style="font-size:0.78rem;color:#637381;text-transform:uppercase;font-weight:700;">'+scoreTitle+'</div><div style="font-size:2rem;font-weight:800;color:'+scoreColor+';line-height:1;">'+finalScore+'%</div><div style="font-size:0.85rem;color:'+scoreColor+';font-weight:700;">'+scoreLabel+'</div></div>';
+  html+='<div style="font-size:0.83rem;color:#637381;line-height:1.65;">'+summaryMeta+'</div>';
+  html+='</div>';
+  html+=roleHintRow;
+  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.6rem;margin-top:0.9rem;">';
+  html+=metricCards;
+  html+='</div>';
+  html+=matchBlocks;
+  html+='<div style="margin-top:0.75rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.75rem 0.8rem;">';
+  html+='<div style="font-size:0.8rem;font-weight:700;color:#334155;margin-bottom:0.35rem;">Prioritized Recommendations</div>';
+  html+='<div style="font-size:0.82rem;color:#475569;line-height:1.6;">'+recommendations.map(function(r){return '- '+escapeHtml(r);}).join('<br>')+'</div>';
+  html+='</div>';
+  html+=_renderInputMessages('Input cleanup notes',(hasJd?jdNorm.notes:[]).concat(rsNorm.notes));
+  html+='<div style="margin-top:0.7rem;font-size:0.8rem;color:#64748b;">Transparency: this is a rule-based ATS simulation. Without JD it estimates ATS readiness; with JD it adds role-fit matching and missing-skill analysis.</div>';
+  html+='</div>';
+  out.innerHTML=html;
+}
+
+function escapeHtml(str){
+  return String(str||'')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+function normalizeBulletInput(line){
+  if(!line)return '';
+  var txt=line
+    .replace(/^\s*(?:[-*\u2022]+|\d+[.)])\s*/,'')
+    .replace(/^\s*\[[^\]]+\]\s*/,'')
+    .replace(/^\s*(worked on|responsible for|helped|involved in|handled|did|made|participated in|was involved in|was responsible for)\s+/i,'')
+    .replace(/\s+/g,' ')
+    .trim();
+  return txt.replace(/[;,.]+$/,'');
+}
+function inferVerb(text,idx){
+  var t=(text||'').toLowerCase();
+  var rules=[
+    {re:/autom|script|pipeline|ci\/cd|deploy/,v:'Automated'},
+    {re:/migrat|refactor|moderniz/,v:'Refactored'},
+    {re:/analys|insight|dashboard|report/,v:'Analyzed'},
+    {re:/optimiz|perform|latency|throughput/,v:'Optimized'},
+    {re:/design|architect/,v:'Designed'},
+    {re:/build|develop|implement|create/,v:'Built'},
+    {re:/lead|mentor|manage|coordinate/,v:'Led'},
+    {re:/test|qa|validate|quality/,v:'Validated'},
+    {re:/fix|resolve|debug|incident/,v:'Resolved'}
+  ];
+  for(var i=0;i<rules.length;i++){if(rules[i].re.test(t))return rules[i].v;}
+  var fallback=['Delivered','Improved','Implemented','Streamlined','Developed'];
+  return fallback[idx%fallback.length];
+}
+function hasMetric(text){
+  return /(\d|%|percent|ms|s\b|sec|minute|hour|day|week|month|year|users|customers|tickets|revenue|cost|kpi|sla|uptime|latency|throughput)/i.test(text||'');
+}
+function hasResultSignal(text){
+  return /(increas|reduc|improv|decreas|sav|grew|boost|cut|delivered|achiev|result)/i.test(text||'');
+}
+function _hasActionVerb(text){
+  return /\b(led|built|designed|implemented|optimized|automated|delivered|improved|reduced|developed|managed|launched|scaled|migrated|resolved|analyzed|created|streamlined|owned)\b/i.test(text||'');
+}
+function _roleKeywordList(v){
+  return (v||'').split(',').map(function(x){return x.trim();}).filter(function(x){return x&&x.length>2;}).slice(0,8);
+}
+function _injectRoleKeyword(text,keywords){
+  if(!keywords||!keywords.length)return text;
+  var lower=(' '+text.toLowerCase()+' ');
+  var chosen='';
+  for(var i=0;i<keywords.length;i++){
+    if(lower.indexOf(' '+keywords[i].toLowerCase()+' ')<0){chosen=keywords[i];break;}
+  }
+  if(!chosen)return text;
+  if(/\b(using|via|through|with)\b/i.test(text))return text;
+  return text.replace(/\.$/,'')+' using '+chosen+'.';
+}
+function _bulletQuality(text){
+  var words=(text||'').split(/\s+/).filter(Boolean).length;
+  var metric=hasMetric(text);
+  var result=hasResultSignal(text);
+  var action=_hasActionVerb(text);
+  var context=/(api|service|system|platform|process|pipeline|dashboard|automation|incident|sla|workflow|integration|migration|module|feature|customer|stakeholder)/i.test(text||'');
+  var score=0;
+  if(action)score+=2;
+  if(metric)score+=2;
+  if(result)score+=2;
+  if(context)score+=1;
+  if(words>=11)score+=1;
+  return {score:score,words:words,action:action,metric:metric,result:result,context:context};
+}
+function _composeRewrite(cleaned,verb,tone,quality){
+  var base=cleaned;
+  var startsVerb=/^(Led|Built|Designed|Implemented|Optimized|Delivered|Automated|Improved|Reduced|Accelerated|Streamlined|Developed|Refactored|Analyzed|Validated|Resolved|Managed|Owned|Created|Launched|Scaled|Migrated)\b/i.test(base);
+  if(!startsVerb){
+    base=base.charAt(0).toLowerCase()+base.slice(1);
+    base=verb+' '+base;
+  }
+  var out=base.replace(/\s+/g,' ').trim();
+  if(!/[.!?]$/.test(out))out+='.';
+
+  if(tone==='impact'&&!quality.metric){
+    out=out.replace(/\.$/,'')+', improving a measurable KPI.';
+  }
+  if(tone==='executive'&&!quality.result){
+    out=out.replace(/\.$/,'')+' to support strategic business goals.';
+  }
+  if(tone==='concise'&&quality.words>20){
+    var parts=out.split(/,| and /);
+    out=(parts[0]||out).trim();
+    if(!/[.!?]$/.test(out))out+='.';
+  }
+  return out;
+}
+function mergeWrappedBulletLines(lines){
+  var merged=[];
+  lines.forEach(function(raw){
+    var line=(raw||'').trim();
+    if(!line)return;
+    if(!merged.length){merged.push(line);return;}
+    var prev=merged[merged.length-1];
+    var prevEnds=/[.!?]$/.test(prev);
+    var startsContinuation=/^[a-z(]/.test(line)||/^(and|or|with|for|to|across|in|on|by|from|while|using)\b/i.test(line);
+    var shortTail=line.split(/\s+/).length<=4;
+    var prevLooksOpen=/[,;:]$/.test(prev);
+    if(!prevEnds&&(startsContinuation||shortTail||prevLooksOpen)){
+      merged[merged.length-1]=prev.replace(/[;,:]+$/,'')+' '+line;
+    } else {
+      merged.push(line);
+    }
+  });
+  return merged;
+}
+window.__resumeRewritePayload='';
+function copyResumeRewrites(btn){
+  var payload=window.__resumeRewritePayload||'';
+  if(!payload)return;
+  navigator.clipboard.writeText(payload).then(function(){
+    if(btn){
+      btn.textContent='Copied';
+      setTimeout(function(){btn.textContent='Copy All';},1200);
+    }
+  });
+}
+function rewriteResumeBullets(){
+  var inEl=document.getElementById('bulletInput');
+  var tone=((document.getElementById('bulletTone')||{}).value||'concise');
+  var roleKeywords=_roleKeywordList(((document.getElementById('bulletRoleKeywords')||{}).value||''));
+  var out=document.getElementById('bulletResult');
+  if(!out)return;
+  var raw=(inEl&&inEl.value?inEl.value:'').trim();
+  var norm=_normalizePastedCareerText(raw,{minAlpha:12,minWords:8});
+  raw=norm.text;
+  if(!raw){
+    out.innerHTML='<div style="background:#f8fbff;border:1px solid #dbe7ff;border-radius:10px;padding:0.9rem 1rem;color:#516173;font-size:0.88rem;">Paste at least one bullet line and click <strong>Rewrite Bullets</strong>.</div>';
+    return;
+  }
+  if(norm.error){
+    out.innerHTML='<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:0.9rem 1rem;color:#9a3412;font-size:0.88rem;line-height:1.55;">'
+      +'<strong>Need clearer bullet input.</strong><br>'
+      +escapeHtml(norm.error)
+      +'<br>Paste 3+ bullet lines in plain text (one line per bullet).'
+      +'</div>';
+    return;
+  }
+  if(inEl&&raw!==inEl.value.trim())inEl.value=raw;
+
+  var rawLines=raw.split(/\r?\n/).map(function(l){return l.trim();}).filter(Boolean).slice(0,50);
+  var lines=mergeWrappedBulletLines(rawLines).slice(0,30);
+  if(!lines.length){
+    out.innerHTML='<div style="background:#f8fbff;border:1px solid #dbe7ff;border-radius:10px;padding:0.9rem 1rem;color:#516173;font-size:0.88rem;">No valid lines found. Add one bullet per line.</div>';
+    return;
+  }
+
+  var rewrites=[];
+  var weakCount=0;
+  var polishedCount=0;
+  var strongCount=0;
+  lines.forEach(function(line,idx){
+    var cleaned=normalizeBulletInput(line);
+    if(!cleaned){
+      rewrites.push({orig:line,newText:'Delivered a scoped initiative with measurable business impact.',tip:'Add a clear action, scope, and one metric.'});
+      weakCount++;
+      return;
+    }
+
+    var quality=_bulletQuality(cleaned);
+    var verb=inferVerb(cleaned,idx);
+    var rewritten='';
+    var tip='';
+    if(quality.score>=6){
+      rewritten=_composeRewrite(cleaned,verb,tone,quality);
+      tip='Strong bullet. Minor polish only.';
+      strongCount++;
+    } else if(quality.score>=4){
+      rewritten=_composeRewrite(cleaned,verb,tone,quality);
+      polishedCount++;
+      if(!quality.metric)tip='Good structure. Add one metric to increase credibility.';
+      else if(!quality.result)tip='Consider adding the business result or outcome.';
+    } else {
+      rewritten=_composeRewrite(cleaned,verb,'impact',quality);
+      weakCount++;
+      tip='Needs stronger STAR pattern: action + scope + measurable outcome.';
+    }
+
+    rewritten=_injectRoleKeyword(rewritten,roleKeywords);
+    rewrites.push({orig:line,newText:rewritten,tip:tip});
+  });
+
+  var copyPayload=rewrites.map(function(r){return '- '+r.newText;}).join('\n');
+  window.__resumeRewritePayload=copyPayload;
+  var html='<div style="background:#fff;border-radius:10px;padding:1rem 1.1rem;border:1px solid #e0eaff;">';
+  html+='<div style="display:flex;justify-content:space-between;gap:0.8rem;align-items:center;flex-wrap:wrap;margin-bottom:0.65rem;">';
+  html+='<div style="font-size:0.82rem;font-weight:700;color:#637381;text-transform:uppercase;">Rewritten Bullets ('+rewrites.length+')</div>';
+  html+='<button type="button" onclick="copyResumeRewrites(this)" style="width:auto;margin-top:0;padding:0.35rem 0.75rem;border-radius:6px;border:1px solid #c9d6e8;background:#f8fafc;color:#0a54a0;font-size:0.8rem;font-weight:700;cursor:pointer;">Copy All</button>';
+  html+='</div>';
+
+  html+='<div style="display:grid;gap:0.55rem;">';
+  rewrites.forEach(function(r){
+    html+='<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.7rem 0.8rem;">';
+    html+='<div style="font-size:0.76rem;color:#6b7280;margin-bottom:0.25rem;"><strong>Original:</strong> '+escapeHtml(r.orig)+'</div>';
+    html+='<div style="font-size:0.9rem;color:#1e293b;line-height:1.55;"><strong>Rewrite:</strong> '+escapeHtml(r.newText)+'</div>';
+    if(r.tip)html+='<div style="margin-top:0.25rem;font-size:0.78rem;color:#9a3412;">Tip: '+escapeHtml(r.tip)+'</div>';
+    html+='</div>';
+  });
+  html+='</div>';
+
+  html+='<div style="margin-top:0.7rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.7rem 0.8rem;font-size:0.82rem;color:#475569;line-height:1.55;">';
+  html+='Rewrite profile: <strong>'+tone+'</strong> tone | Strong bullets preserved: <strong>'+strongCount+'</strong> | Polished: <strong>'+polishedCount+'</strong> | Deep rewrites: <strong>'+weakCount+'</strong>.';
+  if(roleKeywords.length){html+='<br>Role keywords applied contextually: '+escapeHtml(roleKeywords.join(', '))+'.';}
+  html+='</div>';
+  html+='</div>';
+  out.innerHTML=html;
+}
+
+function ivToMin(v){
+  if(!v||v.indexOf(':')<0)return 0;
+  var p=v.split(':');
+  return (parseInt(p[0],10)||0)*60+(parseInt(p[1],10)||0);
+}
+function ivNormalizeRange(startMin,endMin){
+  startMin=((startMin%1440)+1440)%1440;
+  endMin=((endMin%1440)+1440)%1440;
+  if(startMin===endMin)return[{s:0,e:1440}];
+  if(startMin<endMin)return[{s:startMin,e:endMin}];
+  return[{s:startMin,e:1440},{s:0,e:endMin}];
+}
+function ivIntersect(a,b){
+  var out=[];
+  a.forEach(function(x){
+    b.forEach(function(y){
+      var s=Math.max(x.s,y.s),e=Math.min(x.e,y.e);
+      if(e>s)out.push({s:s,e:e});
+    });
+  });
+  return out;
+}
+function ivFmt(min){
+  min=((min%1440)+1440)%1440;
+  var h=Math.floor(min/60),m=min%60;
+  var h12=h%12||12;
+  return h12+':'+pad(m)+' '+(h>=12?'PM':'AM');
+}
+function buildInterviewTzSelects(){
+  var c=document.getElementById('ivCandidateTz');
+  var i=document.getElementById('ivInterviewerTz');
+  if(!c||!i)return;
+  if(c.options.length&&i.options.length)return;
+  var options=TZ_LIST.slice();
+  options.forEach(function(t){
+    var o1=document.createElement('option');o1.value=t.tz;o1.textContent=t.label;c.appendChild(o1);
+    var o2=document.createElement('option');o2.value=t.tz;o2.textContent=t.label;i.appendChild(o2);
+  });
+  c.value='Asia/Kolkata';
+  i.value='America/New_York';
+}
+function calcInterviewPlanner(){
+  buildInterviewTzSelects();
+  var cTz=(document.getElementById('ivCandidateTz')||{}).value;
+  var iTz=(document.getElementById('ivInterviewerTz')||{}).value;
+  var out=document.getElementById('interviewResult');
+  if(!out||!cTz||!iTz)return;
+  var cs=ivToMin((document.getElementById('ivCandStart')||{}).value||'09:00');
+  var ce=ivToMin((document.getElementById('ivCandEnd')||{}).value||'18:00');
+  var is=ivToMin((document.getElementById('ivIntStart')||{}).value||'09:00');
+  var ie=ivToMin((document.getElementById('ivIntEnd')||{}).value||'18:00');
+
+  var now=new Date();
+  var cOff=getOffsetMinutes(now,cTz);
+  var iOff=getOffsetMinutes(now,iTz);
+
+  var cUtcRanges=ivNormalizeRange(cs-cOff,ce-cOff);
+  var iUtcRanges=ivNormalizeRange(is-iOff,ie-iOff);
+  var overlap=ivIntersect(cUtcRanges,iUtcRanges);
+
+  var candHours=((ce-cs+1440)%1440)||1440;
+  var intHours=((ie-is+1440)%1440)||1440;
+  var overlapMinutes=overlap.reduce(function(a,b){return a+(b.e-b.s);},0);
+  var scoreBase=Math.min(candHours,intHours);
+  var score=scoreBase?Math.round((overlapMinutes/scoreBase)*100):0;
+  var scoreColor=score>=60?'#16a34a':(score>=35?'#d97706':'#dc2626');
+
+  var slots='No practical overlap in current setup.';
+  if(overlap.length){
+    slots=overlap.map(function(r){
+      return ivFmt(r.s+cOff)+' - '+ivFmt(r.e+cOff)+' (candidate) | '+ivFmt(r.s+iOff)+' - '+ivFmt(r.e+iOff)+' (interviewer)';
+    }).join('<br>');
+  }
+
+  out.innerHTML=''
+    +'<div style="background:#fff;border-radius:10px;padding:1rem 1.1rem;border:1px solid #e0eaff;">'
+    +'<div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center;">'
+    +'<div><div style="font-size:0.78rem;color:#637381;text-transform:uppercase;font-weight:700;">Overlap Score</div><div style="font-size:2rem;font-weight:800;color:'+scoreColor+';line-height:1;">'+score+'%</div></div>'
+    +'<div style="font-size:0.84rem;color:#475569;line-height:1.7;">Candidate window: '+Math.round(candHours/60*10)/10+'h<br>Interviewer window: '+Math.round(intHours/60*10)/10+'h<br>Overlap: '+Math.round(overlapMinutes/60*10)/10+'h</div>'
+    +'</div>'
+    +'<div style="margin-top:0.8rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.75rem 0.85rem;font-size:0.84rem;color:#334155;line-height:1.65;">'
+    +'<strong>Best slots:</strong><br>'+slots
+    +'</div>'
+    +'<div style="margin-top:0.65rem;font-size:0.8rem;color:#64748b;">Transparency: overlap is computed using timezone offsets for the current date. Seasonal DST changes can alter future-day overlap.</div>'
+    +'</div>';
+}
+
+function calcTaxOldRegime(taxable){
+  var t=0;
+  if(taxable>250000)t+=Math.min(taxable-250000,250000)*0.05;
+  if(taxable>500000)t+=Math.min(taxable-500000,500000)*0.2;
+  if(taxable>1000000)t+=(taxable-1000000)*0.3;
+  // Rebate u/s 87A (old regime) for taxable income up to 5L.
+  if(taxable<=500000)t=Math.max(0,t-Math.min(12500,t));
+  return t;
+}
+function calcTaxNewRegime(taxable){
+  var t=0;
+  var slabs=[
+    [0,300000,0],
+    [300000,700000,0.05],
+    [700000,1000000,0.1],
+    [1000000,1200000,0.15],
+    [1200000,1500000,0.2],
+    [1500000,1e12,0.3]
+  ];
+  slabs.forEach(function(s){
+    var a=s[0],b=s[1],r=s[2];
+    if(taxable>b)t+=(b-a)*r;
+    else if(taxable>a)t+=(taxable-a)*r;
+  });
+  // Rebate u/s 87A (new regime) for taxable income up to 7L.
+  if(taxable<=700000)t=Math.max(0,t-Math.min(25000,t));
+  return t;
+}
+function getNum(id,fallback){
+  var el=document.getElementById(id);
+  if(!el)return fallback;
+  var v=parseFloat(el.value);
+  return Number.isFinite(v)?v:fallback;
+}
+var PT_PRESET_MONTHLY={KA:200,MH:200,TN:208,WB:200,TS:200,AP:200,GJ:0,NONE:0};
+function applyPtPreset(){
+  var state=(document.getElementById('ctcPtState')||{}).value||'KA';
+  var pt=(PT_PRESET_MONTHLY.hasOwnProperty(state)?PT_PRESET_MONTHLY[state]:200);
+  var el=document.getElementById('ctcProfTaxMonthly');
+  if(el)el.value=pt;
+}
+function calcCtcInHand(){
+  var ctc=getNum('ctcAnnual',0);
+  var regime=(document.getElementById('ctcRegime')||{}).value||'new';
+  var basicPct=Math.max(20,Math.min(70,getNum('ctcBasicPct',40)));
+  var empPfPct=Math.max(0,Math.min(20,getNum('ctcPfPct',12)));
+  var erPfPct=Math.max(0,Math.min(20,getNum('ctcEmployerPfPct',12)));
+  var gratuityPct=Math.max(0,Math.min(10,getNum('ctcGratuityPct',4.81)));
+  var variablePct=Math.max(0,Math.min(60,getNum('ctcVariablePct',10)));
+  var bonusPct=Math.max(0,Math.min(40,getNum('ctcBonusPct',5)));
+  var payoutMode=((document.getElementById('ctcPayoutMode')||{}).value||'annual');
+  var profTaxMonthly=Math.max(0,getNum('ctcProfTaxMonthly',200));
+  var otherDedMonthly=Math.max(0,getNum('ctcOtherDedMonthly',0));
+  var otherIncomeAnnual=Math.max(0,getNum('ctcOtherIncomeAnnual',0));
+  var d80c=Math.max(0,Math.min(150000,getNum('ctc80c',0)));
+  var d80d=Math.max(0,Math.min(50000,getNum('ctc80d',0)));
+  var dNps=Math.max(0,Math.min(50000,getNum('ctcNps',0)));
+  var hraExempt=Math.max(0,getNum('ctcHraExempt',0));
+  var out=document.getElementById('ctcResult');
+  if(!out)return;
+  if(!ctc||ctc<=0){
+    out.innerHTML='<div style="background:#f8fbff;border:1px solid #dbe7ff;border-radius:10px;padding:0.9rem 1rem;color:#516173;font-size:0.88rem;">Enter annual CTC to estimate in-hand salary.</div>';
+    return;
+  }
+
+  // CTC breakup model: fixed + variable + bonus + employer PF + gratuity = total CTC.
+  var basic=ctc*(basicPct/100);
+  var variableAnnual=ctc*(variablePct/100);
+  var bonusAnnual=ctc*(bonusPct/100);
+  var employerPfAnnual=basic*(erPfPct/100);
+  var gratuityAnnual=basic*(gratuityPct/100);
+  var fixedGrossAnnual=Math.max(0,ctc-variableAnnual-bonusAnnual-employerPfAnnual-gratuityAnnual);
+
+  var employeePfAnnual=basic*(empPfPct/100);
+  var professionalTaxAnnual=profTaxMonthly*12;
+  var otherDedAnnual=otherDedMonthly*12;
+
+  var stdDed=50000;
+  var preDedTaxable=fixedGrossAnnual+variableAnnual+bonusAnnual+otherIncomeAnnual;
+  var oldRegimeDeductions=(regime==='old')?(d80c+d80d+dNps+hraExempt):0;
+  var taxable=Math.max(0,preDedTaxable-stdDed-oldRegimeDeductions);
+  var taxBase=regime==='old'?calcTaxOldRegime(taxable):calcTaxNewRegime(taxable);
+  var cess=taxBase*0.04;
+  var annualTax=taxBase+cess;
+
+  // Monthly in-hand supports payout-mode cash flow for variable and bonus components.
+  var monthlyGrossFixed=fixedGrossAnnual/12;
+  var annualVarBonus=variableAnnual+bonusAnnual;
+  var monthlyVarBonusAvg=annualVarBonus/12;
+  var monthlyVarBonusCash=0;
+  var payoutMonthExtra=0;
+  if(payoutMode==='monthly'){
+    monthlyVarBonusCash=monthlyVarBonusAvg;
+  } else if(payoutMode==='quarterly'){
+    monthlyVarBonusCash=monthlyVarBonusAvg; // average monthly view
+    payoutMonthExtra=annualVarBonus/4;
+  } else {
+    monthlyVarBonusCash=0;
+    payoutMonthExtra=annualVarBonus;
+  }
+
+  var monthlyEmpPf=employeePfAnnual/12;
+  var monthlyTaxTds=annualTax/12;
+  var monthlyInHand=Math.max(0,monthlyGrossFixed+monthlyVarBonusCash-monthlyEmpPf-profTaxMonthly-otherDedMonthly-monthlyTaxTds);
+  var monthlyInHandFixedOnly=Math.max(0,monthlyGrossFixed-monthlyEmpPf-profTaxMonthly-otherDedMonthly-monthlyTaxTds);
+  var annualInHand=Math.max(0,(monthlyInHandFixedOnly*12)+annualVarBonus);
+
+  function inr(n){return n.toLocaleString('en-IN',{maximumFractionDigits:0});}
+
+  out.innerHTML=''
+    +'<div style="background:#fff;border-radius:10px;padding:1rem 1.1rem;border:1px solid #e0eaff;">'
+    +'<div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center;">'
+    +'<div><div style="font-size:0.78rem;color:#637381;text-transform:uppercase;font-weight:700;">Estimated Monthly In-Hand (Average)</div><div style="font-size:2rem;font-weight:800;color:#0a54a0;line-height:1;">INR '+inr(monthlyInHand)+'</div></div>'
+    +'<div style="font-size:0.84rem;color:#475569;line-height:1.75;">Annual CTC: INR '+inr(ctc)+'<br>Regime: '+(regime==='old'?'Old':'New')+'<br>Payout mode: '+(payoutMode==='monthly'?'Monthly':payoutMode==='quarterly'?'Quarterly':'Annual lump-sum')+'</div>'
+    +'</div>'
+    +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0.6rem;margin-top:0.8rem;">'
+    +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 0.7rem;font-size:0.82rem;color:#475569;">Fixed Gross (annual)<br><strong style="color:#1e293b;font-size:0.95rem;">INR '+inr(fixedGrossAnnual)+'</strong></div>'
+    +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 0.7rem;font-size:0.82rem;color:#475569;">Variable + Bonus (annual)<br><strong style="color:#1e293b;font-size:0.95rem;">INR '+inr(annualVarBonus)+'</strong></div>'
+    +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 0.7rem;font-size:0.82rem;color:#475569;">Employee PF (annual)<br><strong style="color:#1e293b;font-size:0.95rem;">INR '+inr(employeePfAnnual)+'</strong></div>'
+    +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 0.7rem;font-size:0.82rem;color:#475569;">Annual Income Tax + cess<br><strong style="color:#1e293b;font-size:0.95rem;">INR '+inr(annualTax)+'</strong></div>'
+    +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 0.7rem;font-size:0.82rem;color:#475569;">Professional Tax + Other Ded (annual)<br><strong style="color:#1e293b;font-size:0.95rem;">INR '+inr(professionalTaxAnnual+otherDedAnnual)+'</strong></div>'
+    +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 0.7rem;font-size:0.82rem;color:#475569;">Monthly In-Hand (fixed-only months)<br><strong style="color:#1e293b;font-size:0.95rem;">INR '+inr(monthlyInHandFixedOnly)+'</strong></div>'
+    +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 0.7rem;font-size:0.82rem;color:#475569;">Payout Month Increment<br><strong style="color:#1e293b;font-size:0.95rem;">INR '+inr(payoutMonthExtra)+'</strong></div>'
+    +'<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.6rem 0.7rem;font-size:0.82rem;color:#475569;">Estimated Total In-Hand (annual)<br><strong style="color:#1e293b;font-size:0.95rem;">INR '+inr(annualInHand)+'</strong></div>'
+    +'</div>'
+    +'<div style="margin-top:0.65rem;font-size:0.8rem;color:#64748b;">Transparency: this model is closer to real payroll, but still an estimator. Employer-specific structures (special allowance split, LTA, meal card, NPS employer contribution, surcharge/marginal relief, state PT rules, and perquisite taxation) can change final in-hand.</div>'
+    +'</div>';
+}
+
 document.addEventListener('DOMContentLoaded',function(){
+  insertToolGuides();
+  initCareerDocParsers();
+  _wireSmartPasteInput('atsJobDesc','atsJobDescPasteNote',{normalize:{minAlpha:40,minWords:25}});
+  _wireSmartPasteInput('atsResumeText','atsResumeTextPasteNote',{normalize:{minAlpha:40,minWords:25}});
+  _wireSmartPasteInput('bulletInput','bulletInputPasteNote',{normalize:{minAlpha:12,minWords:8}});
+  _wireCareerFileUpload('atsJobDescFile','atsJobDesc','atsJobDescPasteNote','atsJobDescFileStatus',{minAlpha:40,minWords:25});
+  _wireCareerFileUpload('atsResumeFile','atsResumeText','atsResumeTextPasteNote','atsResumeFileStatus',{minAlpha:40,minWords:25});
+
   // -- Critical path: hero clock + nav --
   updateHeroClock();updateSnavIstClock();
 
@@ -3209,6 +4684,8 @@ document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
     populateTzSelects();populateQcSelects();
     buildPeSelect();
+    buildInterviewTzSelects();
+    applyPtPreset();
     buildUtcIstTable();
     buildDiffCards();
   },200);
@@ -3216,6 +4693,12 @@ document.addEventListener('DOMContentLoaded',function(){
   // -- Wire up static buttons --
   document.getElementById('convertLocalToUTCBtn').addEventListener('click',convertLocalToUTC);
   document.getElementById('convertUTCToLocalBtn').addEventListener('click',convertUTCToLocal);
+  ['ctcAnnual','ctcRegime','ctcBasicPct','ctcPfPct','ctcEmployerPfPct','ctcGratuityPct','ctcVariablePct','ctcBonusPct','ctcPayoutMode','ctcProfTaxMonthly','ctcOtherDedMonthly','ctcOtherIncomeAnnual','ctc80c','ctc80d','ctcNps','ctcHraExempt']
+    .forEach(function(id){
+      var el=document.getElementById(id);
+      if(el)el.addEventListener('input',calcCtcInHand);
+      if(el&&el.tagName==='SELECT')el.addEventListener('change',calcCtcInHand);
+    });
 
   // -- Route to correct tab first (may be a deep-link) --
   routeFromHash();
@@ -3232,6 +4715,8 @@ document.addEventListener('DOMContentLoaded',function(){
     var invEl=document.getElementById('invoiceDate');if(invEl){invEl.value=todayStr;calcInvoice();}
     var noticeEl=document.getElementById('noticeStart');if(noticeEl){noticeEl.value=todayStr;calcNotice();}
     var md=document.getElementById('meetingDate');if(md){md.value=todayStr;}
+    calcCtcInHand();
+    calcInterviewPlanner();
 
     // Heavy tab builds ? only if that tab is currently active, otherwise lazy on first open
     var activeTab=document.querySelector('.tab-panel.active');
@@ -3245,6 +4730,10 @@ document.addEventListener('DOMContentLoaded',function(){
     if(activeId==='tab-shift'){buildShiftPlan();}
     if(activeId==='tab-holidays'){buildHolidayTab();}
     if(activeId==='tab-duration'){buildDateCalc();}
+    if(activeId==='tab-resumeats'){calcResumeAts();}
+    if(activeId==='tab-resumebullets'){rewriteResumeBullets();}
+    if(activeId==='tab-interview'){calcInterviewPlanner();}
+    if(activeId==='tab-ctc'){calcCtcInHand();}
 
     // Periodic refresh for market + call widget (lightweight intervals)
     setInterval(buildMarketTab,30000);
