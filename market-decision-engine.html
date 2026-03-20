@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Market Decision Engine | Clear action plan for your investments in volatile markets</title>
+<meta name="description" content="India-focused Market Decision Engine. Get a clear action plan for your investments in volatile markets. No login, instant results."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0b1120;--surface:#131a2e;--card:#1a2340;--border:#2a3558;
+  --text:#e2e8f0;--muted:#94a3b8;--accent:#6366f1;--accent-light:#818cf8;
+  --green:#22c55e;--green-bg:rgba(34,197,94,.12);
+  --yellow:#eab308;--yellow-bg:rgba(234,179,8,.12);
+  --red:#ef4444;--red-bg:rgba(239,68,68,.12);
+  --blue:#3b82f6;--blue-bg:rgba(59,130,246,.12);
+  --radius:12px;--radius-sm:8px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:var(--accent-light);text-decoration:none}
+h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
+
+/* Header */
+.header{text-align:center;padding:3rem 1rem 2rem;background:linear-gradient(180deg,rgba(99,102,241,.1) 0%,transparent 100%)}
+.header h1{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:.4rem}
+.header .tag{color:var(--muted);font-size:.95rem}
+.header .badge{display:inline-block;margin-top:.8rem;background:var(--accent);color:#fff;padding:.25rem .8rem;border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.04em}
+
+/* Layout */
+.container{max-width:760px;margin:0 auto;padding:0 1rem 4rem}
+
+/* Section */
+.section{margin-bottom:1.5rem}
+.section-title{font-size:1rem;color:var(--muted);margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.section-title span{font-size:1.1rem}
+
+/* Card */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem}
+
+/* Form Inputs */
+.form-grid{display:grid;gap:1rem}
+.form-grid.two-col{grid-template-columns:1fr 1fr}
+@media(max-width:500px){.form-grid.two-col{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field label{font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.field input,.field select{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.65rem .85rem;color:var(--text);font-size:.95rem;transition:border .2s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field input::placeholder{color:#475569}
+.field .hint{font-size:.7rem;color:#475569}
+
+/* Range slider */
+.range-wrap{display:flex;align-items:center;gap:1rem}
+.range-wrap input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:6px;background:var(--border);border-radius:3px;outline:none}
+.range-wrap input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--accent);cursor:pointer;border:3px solid var(--card)}
+.range-val{min-width:60px;text-align:center;font-weight:700;font-size:1.1rem;color:var(--accent-light)}
+
+/* Risk buttons */
+.risk-group{display:flex;gap:.6rem}
+.risk-btn{flex:1;padding:.6rem;border:2px solid var(--border);border-radius:var(--radius-sm);background:transparent;color:var(--muted);font-weight:600;font-size:.85rem;cursor:pointer;transition:all .2s;text-align:center}
+.risk-btn:hover{border-color:var(--accent);color:var(--text)}
+.risk-btn.active-low{border-color:var(--green);background:var(--green-bg);color:var(--green)}
+.risk-btn.active-medium{border-color:var(--yellow);background:var(--yellow-bg);color:var(--yellow)}
+.risk-btn.active-high{border-color:var(--red);background:var(--red-bg);color:var(--red)}
+
+/* Toggle for optional */
+.optional-toggle{display:flex;align-items:center;gap:.5rem;cursor:pointer;font-size:.85rem;color:var(--accent-light);margin-top:.75rem;user-select:none}
+.optional-toggle:hover{color:var(--accent)}
+.optional-fields{display:none;margin-top:1rem}
+.optional-fields.show{display:block}
+
+/* CTA */
+.cta-btn{width:100%;padding:.9rem;border:none;border-radius:var(--radius);background:linear-gradient(135deg,var(--accent),#4f46e5);color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:1.5rem;transition:transform .15s,box-shadow .15s;letter-spacing:.01em}
+.cta-btn:hover{transform:translateY(-1px);box-shadow:0 8px 25px rgba(99,102,241,.35)}
+.cta-btn:active{transform:translateY(0)}
+
+/* Results */
+#results{display:none;animation:fadeUp .5s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Decision Card */
+.decision-card{border-radius:var(--radius);padding:1.5rem;text-align:center;margin-bottom:1.5rem}
+.decision-card.continue{background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(34,197,94,.05));border:1.5px solid rgba(34,197,94,.3)}
+.decision-card.buy{background:linear-gradient(135deg,rgba(34,197,94,.2),rgba(59,130,246,.1));border:1.5px solid rgba(34,197,94,.4)}
+.decision-card.accumulate{background:linear-gradient(135deg,rgba(234,179,8,.15),rgba(34,197,94,.05));border:1.5px solid rgba(234,179,8,.3)}
+.decision-card.rebalance{background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(99,102,241,.05));border:1.5px solid rgba(59,130,246,.3)}
+.decision-card.defensive{background:linear-gradient(135deg,rgba(239,68,68,.15),rgba(239,68,68,.05));border:1.5px solid rgba(239,68,68,.3)}
+.decision-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;font-weight:600}
+.decision-title{font-size:clamp(1.4rem,3.5vw,1.8rem);font-weight:800;margin-bottom:.5rem}
+.decision-sub{font-size:.9rem;color:var(--muted);max-width:500px;margin:0 auto}
+
+/* Metric pills */
+.metrics-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.5rem;justify-content:center}
+.metric-pill{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:.4rem 1rem;font-size:.8rem;display:flex;align-items:center;gap:.4rem}
+.metric-pill .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-green{background:var(--green)}.dot-yellow{background:var(--yellow)}.dot-red{background:var(--red)}.dot-blue{background:var(--blue)}
+
+/* Reasoning */
+.reasoning-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.reasoning-card h3{font-size:.95rem;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.reasoning-list{list-style:none}
+.reasoning-list li{position:relative;padding:.4rem 0 .4rem 1.5rem;font-size:.9rem;color:var(--muted)}
+.reasoning-list li::before{content:'→';position:absolute;left:0;color:var(--accent-light);font-weight:700}
+
+/* Allocation */
+.alloc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem}
+@media(max-width:400px){.alloc-grid{grid-template-columns:1fr}}
+.alloc-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;text-align:center}
+.alloc-pct{font-size:1.6rem;font-weight:800}
+.alloc-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem}
+.alloc-bar-wrap{margin-top:1rem}
+.alloc-bar{display:flex;height:12px;border-radius:6px;overflow:hidden}
+.alloc-bar div{transition:width .5s ease}
+.bar-equity{background:var(--accent)}
+.bar-gold{background:var(--yellow)}
+.bar-debt{background:var(--green)}
+
+/* Avoid Mistakes + Action Plan */
+.avoid-card{background:var(--surface);border:1px solid rgba(239,68,68,.2);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.avoid-card h3{color:var(--red);font-size:.95rem;margin-bottom:.75rem}
+.avoid-list{list-style:none}
+.avoid-list li{padding:.35rem 0 .35rem 1.8rem;font-size:.88rem;color:var(--muted);position:relative}
+.avoid-list li::before{content:'✕';position:absolute;left:0;color:var(--red);font-weight:800;font-size:.85rem;width:1.3rem;height:1.3rem;display:flex;align-items:center;justify-content:center;background:rgba(239,68,68,.1);border-radius:50%}
+.action-card{background:var(--surface);border:1px solid rgba(34,197,94,.2);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.action-card h3{color:var(--green);font-size:.95rem;margin-bottom:.75rem}
+.action-list{list-style:none;counter-reset:action}
+.action-list li{padding:.45rem 0 .45rem 2.2rem;font-size:.88rem;color:var(--muted);position:relative;counter-increment:action}
+.action-list li::before{content:counter(action);position:absolute;left:0;background:rgba(34,197,94,.15);color:var(--green);font-weight:700;font-size:.75rem;width:1.5rem;height:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:50%;top:.4rem}
+
+/* Why card */
+.why-card{background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(59,130,246,.05));border:1px solid rgba(99,102,241,.2);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.why-card h3{font-size:.95rem;margin-bottom:.5rem;color:var(--accent-light)}
+.why-card p{font-size:.9rem;color:var(--muted);line-height:1.7}
+
+/* Disclaimer */
+.disclaimer{text-align:center;padding:2rem 1rem;font-size:.75rem;color:#475569;border-top:1px solid var(--border);margin-top:2rem}
+
+/* Reset btn */
+.reset-btn{display:block;margin:1rem auto 0;background:transparent;border:1px solid var(--border);color:var(--muted);padding:.6rem 1.5rem;border-radius:var(--radius-sm);cursor:pointer;font-size:.85rem;transition:all .2s}
+.reset-btn:hover{border-color:var(--accent);color:var(--text)}
+
+/* Smooth scroll */
+html{scroll-behavior:smooth}
+
+/* Print */
+@media print{body{background:#fff;color:#000}.card,.reasoning-card,.avoid-card,.action-card,.why-card,.decision-card,.alloc-item{border-color:#ccc;background:#fafafa!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 Market Decision Engine</h1>
+  <p class="tag">Clear action plan for your investments in volatile markets</p>
+  <span class="badge">🇮🇳 INDIA-FOCUSED</span>
+</div>
+
+<div class="container">
+
+  <!-- INPUT SECTION -->
+  <div class="section">
+    <div class="section-title"><span>📥</span> Your Portfolio Details</div>
+    <div class="card">
+      <div class="form-grid two-col">
+        <div class="field">
+          <label>Current Portfolio Value (₹)</label>
+          <input type="number" id="currentValue" placeholder="e.g. 5,00,000" min="0" step="1000"/>
+          <span class="hint">What your portfolio is worth today</span>
+        </div>
+        <div class="field">
+          <label>Total Invested Amount (₹)</label>
+          <input type="number" id="investedAmount" placeholder="e.g. 6,00,000" min="0" step="1000"/>
+          <span class="hint">Total money you put in</span>
+        </div>
+        <div class="field">
+          <label>Monthly SIP (₹)</label>
+          <input type="number" id="monthlySip" placeholder="e.g. 10,000" min="0" step="500"/>
+          <span class="hint">Your monthly investment amount</span>
+        </div>
+        <div class="field">
+          <label>Investment Horizon</label>
+          <div class="range-wrap">
+            <input type="range" id="horizon" min="1" max="15" value="7" step="1"/>
+            <span class="range-val" id="horizonVal">7 yrs</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.25rem">
+        <label style="font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.5rem">Risk Appetite</label>
+        <div class="risk-group">
+          <button class="risk-btn" data-risk="low" onclick="selectRisk('low')">🛡️ Low</button>
+          <button class="risk-btn active-medium" data-risk="medium" onclick="selectRisk('medium')">⚖️ Medium</button>
+          <button class="risk-btn" data-risk="high" onclick="selectRisk('high')">🔥 High</button>
+        </div>
+      </div>
+
+      <div class="optional-toggle" onclick="toggleOptional()">
+        <span id="optArrow">▶</span> Optional inputs for better recommendations
+      </div>
+      <div class="optional-fields" id="optionalFields">
+        <div class="form-grid two-col">
+          <div class="field">
+            <label>Equity Allocation (%)</label>
+            <input type="number" id="equityPct" placeholder="e.g. 70" min="0" max="100"/>
+          </div>
+          <div class="field">
+            <label>Lump Sum Available (₹)</label>
+            <input type="number" id="lumpSum" placeholder="e.g. 1,00,000" min="0" step="1000"/>
+          </div>
+          <div class="field">
+            <label>Your Age</label>
+            <input type="number" id="age" placeholder="e.g. 30" min="18" max="80"/>
+          </div>
+          <div class="field">
+            <label>Goal Type</label>
+            <select id="goalType">
+              <option value="">— Not specified —</option>
+              <option value="wealth">Wealth Creation</option>
+              <option value="retirement">Retirement</option>
+              <option value="short-term">Short-term Goal</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <button class="cta-btn" onclick="analyze()">⚡ Generate My Action Plan</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results">
+    <!-- Populated by JS -->
+  </div>
+
+</div>
+
+<div class="disclaimer">
+  ⚠️ This tool is for <strong>educational purposes only</strong>. It does not constitute financial advice.<br/>
+  Consult a SEBI-registered advisor before making investment decisions.<br/><br/>
+  Built with ❤️ for Indian investors
+</div>
+
+<script>
+// ── State ──
+let selectedRisk = 'medium';
+
+// ── UI Helpers ──
+const $ = id => document.getElementById(id);
+const horizonSlider = $('horizon');
+const horizonVal = $('horizonVal');
+horizonSlider.addEventListener('input', () => { horizonVal.textContent = horizonSlider.value + ' yrs'; });
+
+function selectRisk(r) {
+  selectedRisk = r;
+  document.querySelectorAll('.risk-btn').forEach(b => {
+    b.className = 'risk-btn' + (b.dataset.risk === r ? ' active-' + r : '');
+  });
+}
+
+function toggleOptional() {
+  const f = $('optionalFields');
+  const a = $('optArrow');
+  f.classList.toggle('show');
+  a.textContent = f.classList.contains('show') ? '▼' : '▶';
+}
+
+// ── Core Engine ──
+function analyze() {
+  const currentValue = parseFloat($('currentValue').value);
+  const investedAmount = parseFloat($('investedAmount').value);
+  const monthlySip = parseFloat($('monthlySip').value);
+  const horizon = parseInt(horizonSlider.value);
+  const risk = selectedRisk;
+
+  // Validation
+  if (!currentValue || !investedAmount || !monthlySip || investedAmount <= 0) {
+    alert('Please fill in all required fields with valid amounts.');
+    return;
+  }
+
+  // Optional
+  const equityPct = parseFloat($('equityPct').value) || null;
+  const lumpSum = parseFloat($('lumpSum').value) || 0;
+  const age = parseInt($('age').value) || null;
+  const goalType = $('goalType').value || null;
+
+  // ── Derived Metrics ──
+  const lossPct = ((currentValue - investedAmount) / investedAmount) * 100;
+  const sipStrength = (monthlySip / investedAmount) * 100;
+  const timeStrength = horizon;
+
+  // ── Step 1: Market Phase ──
+  let phase, phaseColor;
+  if (lossPct >= 0) {
+    phase = 'Bull / Stable';
+    phaseColor = 'green';
+  } else if (lossPct > -10) {
+    phase = 'Normal Correction';
+    phaseColor = 'yellow';
+  } else if (lossPct > -25) {
+    phase = 'Deep Correction';
+    phaseColor = 'yellow';
+  } else {
+    phase = 'Crash Zone';
+    phaseColor = 'red';
+  }
+
+  // ── Step 2: Time Horizon Power ──
+  let timePower;
+  if (horizon >= 7) timePower = 'strong';
+  else if (horizon >= 3) timePower = 'moderate';
+  else timePower = 'weak';
+
+  // ── Step 3: Risk Mapping ──
+  const riskEquity = { low: [40, 50], medium: [60, 70], high: [80, 90] };
+
+  // ── Goal + age adjustments ──
+  let goalAdj = 0;
+  if (goalType === 'short-term') goalAdj = -10;
+  if (goalType === 'retirement' && age && age > 50) goalAdj = -10;
+  if (goalType === 'wealth' && age && age < 35) goalAdj = 5;
+
+  // ── Decision + Allocation ──
+  let decision, decisionClass, reasoning, avoidList, actionPlan, whyText;
+  let equity, gold, debt;
+
+  if (lossPct >= 0) {
+    // ── CASE 4: Market Up ──
+    decision = lossPct >= 20 ? 'REBALANCE & BOOK PARTIAL PROFIT' : 'CONTINUE SIP';
+    decisionClass = lossPct >= 20 ? 'rebalance' : 'continue';
+
+    const baseEq = riskEquity[risk][0] + goalAdj;
+    equity = Math.max(30, Math.min(90, baseEq));
+    if (lossPct >= 20) equity = Math.max(30, equity - 10);
+    gold = risk === 'low' ? 20 : 10;
+    debt = 100 - equity - gold;
+
+    reasoning = [
+      `Your portfolio is up <strong>${lossPct.toFixed(1)}%</strong> — you're in profit.`,
+      lossPct >= 20 ? 'Gains above 20% are a signal to trim and rebalance.' : 'Steady gains — no drastic action needed.',
+      `Time horizon of <strong>${horizon} yrs</strong> (${timePower}) gives stability.`,
+      `Risk appetite: <strong>${risk}</strong> — allocation tuned accordingly.`
+    ];
+    avoidList = [
+      'Don\'t get greedy — markets don\'t go up forever.',
+      'Don\'t shift 100% into equity chasing momentum.',
+      'Don\'t skip SIP just because the market is up.'
+    ];
+    actionPlan = lossPct >= 20
+      ? [`Continue SIP of ₹${fmt(monthlySip)}/month`, 'Trim equity allocation by 5–10%', 'Move excess to debt/gold for balance', lumpSum > 0 ? `Hold lump sum of ₹${fmt(lumpSum)} — deploy on next dip` : null].filter(Boolean)
+      : [`Continue SIP of ₹${fmt(monthlySip)}/month`, 'Maintain current allocation', lumpSum > 0 ? `Keep lump sum of ₹${fmt(lumpSum)} in liquid fund for opportunity` : null].filter(Boolean);
+    whyText = lossPct >= 20
+      ? 'Your portfolio has gained significantly. Rebalancing locks in some profits and reduces risk. This is a disciplined move, not a panic reaction.'
+      : 'Markets are positive and your SIP is working well. Staying invested with your current plan is the statistically optimal choice. Timing the market rarely outperforms time in the market.';
+
+  } else if (lossPct > -10) {
+    // ── CASE 1: Normal Correction ──
+    decision = 'CONTINUE SIP — STAY THE COURSE';
+    decisionClass = 'continue';
+
+    equity = riskEquity[risk][1] + goalAdj;
+    equity = Math.max(30, Math.min(90, equity));
+    gold = risk === 'low' ? 20 : 10;
+    debt = 100 - equity - gold;
+
+    reasoning = [
+      `Your portfolio is down <strong>${Math.abs(lossPct).toFixed(1)}%</strong> — this is a <strong>normal correction</strong>.`,
+      'Markets correct 5–10% multiple times a year — this is healthy.',
+      `Your ${timePower} time horizon (${horizon} yrs) absorbs this easily.`,
+      `SIP strength: <strong>${sipStrength.toFixed(1)}%</strong> of invested amount — ${sipStrength > 2 ? 'solid' : 'consider increasing'}.`
+    ];
+    avoidList = [
+      'Don\'t panic or stop your SIP over a small dip.',
+      'Don\'t try to time the bottom — it\'s not a bottom yet.',
+      'Don\'t switch your mutual funds based on 1-month returns.',
+      'Don\'t check your portfolio daily — it increases anxiety.'
+    ];
+    actionPlan = [
+      `Continue SIP of ₹${fmt(monthlySip)}/month — no changes needed`,
+      'Maintain your current asset allocation',
+      lumpSum > 0 ? `Hold ₹${fmt(lumpSum)} lump sum — wait for deeper correction to deploy` : null
+    ].filter(Boolean);
+    whyText = 'A 0–10% correction is completely normal market behaviour. Indian markets have seen corrections of this size dozens of times. Your SIP is automatically buying at lower prices, which is exactly what should happen. Staying disciplined now is key.';
+
+  } else if (lossPct > -25) {
+    // ── CASE 2: Deep Correction ──
+    if (timePower === 'strong') {
+      decision = 'ACCUMULATE MORE';
+      decisionClass = 'accumulate';
+
+      equity = Math.min(90, riskEquity[risk][1] + 5 + goalAdj);
+      gold = 10;
+      debt = 100 - equity - gold;
+
+      reasoning = [
+        `Portfolio down <strong>${Math.abs(lossPct).toFixed(1)}%</strong> — entering <strong>opportunity zone</strong>.`,
+        `Your long horizon (${horizon} yrs) makes this a buying opportunity.`,
+        'Deep corrections of 10–25% happen every 2–4 years on average.',
+        `Risk: <strong>${risk}</strong> with strong time power — aggressive accumulation justified.`
+      ];
+      const sipIncrease = Math.round(monthlySip * 0.2);
+      actionPlan = [
+        `Increase SIP to ₹${fmt(monthlySip + sipIncrease)}/month (+20%)`,
+        lumpSum > 0 ? `Deploy ₹${fmt(Math.round(lumpSum * 0.5))} (50% of lump sum) now` : 'Deploy any available lump sum in 2–3 phases',
+        lumpSum > 0 ? `Keep ₹${fmt(Math.round(lumpSum * 0.5))} for further dips` : null,
+        'Focus on large-cap and index funds for stability'
+      ].filter(Boolean);
+      whyText = `Your ${horizon}-year horizon is your biggest advantage. Historical data shows that Nifty 50 has recovered from every correction within 2–4 years, and investors who accumulated during dips earned significantly higher returns. This is a time to be greedy when others are fearful.`;
+
+    } else if (timePower === 'moderate') {
+      decision = 'CONTINUE + SELECTIVE BUY';
+      decisionClass = 'accumulate';
+
+      equity = riskEquity[risk][0] + goalAdj;
+      equity = Math.max(30, Math.min(80, equity));
+      gold = 15;
+      debt = 100 - equity - gold;
+
+      reasoning = [
+        `Portfolio down <strong>${Math.abs(lossPct).toFixed(1)}%</strong> — deep correction, but your horizon is moderate.`,
+        `${horizon} years gives some room but not unlimited.`,
+        'Selective buying works; aggressive all-in is risky here.',
+        `Your SIP at ₹${fmt(monthlySip)} provides steady accumulation.`
+      ];
+      actionPlan = [
+        `Continue SIP of ₹${fmt(monthlySip)}/month — don't stop`,
+        lumpSum > 0 ? `Deploy ₹${fmt(Math.round(lumpSum * 0.3))} (30% of lump sum) in quality funds` : 'Avoid large lump sum deployment',
+        'Stick to diversified or large-cap funds',
+        'Avoid sector or thematic bets'
+      ].filter(Boolean);
+      whyText = `With a ${horizon}-year horizon, you have some ability to ride out corrections, but you shouldn't bet everything. A measured approach — continue SIP plus small selective buys — balances opportunity with prudence. Indian markets typically recover, but the timeline matters for you.`;
+
+    } else {
+      decision = 'REBALANCE — REDUCE EQUITY';
+      decisionClass = 'defensive';
+
+      equity = Math.max(30, riskEquity[risk][0] - 10 + goalAdj);
+      gold = 20;
+      debt = 100 - equity - gold;
+
+      reasoning = [
+        `Portfolio down <strong>${Math.abs(lossPct).toFixed(1)}%</strong> with only <strong>${horizon} yr(s)</strong> remaining.`,
+        'Short horizon + deep correction = high risk zone.',
+        'Capital protection takes priority over growth.',
+        'Rebalancing now reduces potential further damage.'
+      ];
+      actionPlan = [
+        `Continue SIP of ₹${fmt(monthlySip)} but redirect to debt/liquid funds`,
+        `Move ${Math.round(equityPct || 70) > equity ? Math.round((equityPct || 70) - equity) + '% of' : 'some'} equity to debt or gold`,
+        'Avoid any new equity lump sum investment',
+        'Focus on capital preservation'
+      ];
+      whyText = `With only ${horizon} year(s) left, recovery time is limited. Even though markets eventually recover, they may not recover fast enough for your timeline. Shifting to safer assets protects your capital while still keeping some equity exposure for potential upside.`;
+    }
+
+    avoidList = [
+      'Don\'t stop your SIP — corrections are when SIPs create most value.',
+      'Don\'t exit completely — you lock in losses permanently.',
+      'Don\'t wait for the "perfect bottom" — it\'s only visible in hindsight.',
+      'Don\'t make emotional decisions based on news headlines.'
+    ];
+
+  } else {
+    // ── CASE 3: Crash Zone ──
+    if (timePower === 'strong') {
+      decision = 'STRONG BUY — RARE OPPORTUNITY';
+      decisionClass = 'buy';
+
+      equity = Math.min(90, riskEquity[risk][1] + 10 + goalAdj);
+      gold = 5;
+      debt = 100 - equity - gold;
+
+      reasoning = [
+        `Portfolio down <strong>${Math.abs(lossPct).toFixed(1)}%</strong> — this is a <strong>crash zone</strong>.`,
+        'Historically, crashes are the best long-term entry points.',
+        `Your ${horizon}-year horizon is strong enough to ride this out.`,
+        'Maximum fear = maximum opportunity for long-term investors.'
+      ];
+      const sipIncrease = Math.round(monthlySip * 0.5);
+      actionPlan = [
+        `Increase SIP aggressively to ₹${fmt(monthlySip + sipIncrease)}/month (+50%)`,
+        lumpSum > 0 ? `Deploy lump sum of ₹${fmt(lumpSum)} in 3 monthly phases:` : 'Deploy available cash in 3 monthly phases',
+        lumpSum > 0 ? `→ Month 1: ₹${fmt(Math.round(lumpSum * 0.4))} | Month 2: ₹${fmt(Math.round(lumpSum * 0.3))} | Month 3: ₹${fmt(Math.round(lumpSum * 0.3))}` : null,
+        'Focus on Nifty 50 index funds and large-cap equity',
+        'Set up alerts — if market falls another 10%, deploy remaining cash'
+      ].filter(Boolean);
+      whyText = 'This is a historically rare opportunity. Every major crash in Indian markets — 2008 (-60%), 2020 (-38%), 2001 (-50%) — was followed by massive recoveries within 2–5 years. Investors who bought aggressively during crashes have generated 3–5x returns over the following decade. Your long horizon makes this a textbook accumulation opportunity.';
+
+    } else if (timePower === 'moderate') {
+      decision = 'CONTROLLED ACCUMULATION';
+      decisionClass = 'accumulate';
+
+      equity = riskEquity[risk][0] + goalAdj;
+      equity = Math.max(30, Math.min(80, equity));
+      gold = 15;
+      debt = 100 - equity - gold;
+
+      reasoning = [
+        `Portfolio down <strong>${Math.abs(lossPct).toFixed(1)}%</strong> — crash territory, but moderate horizon.`,
+        `${horizon} years gives partial safety, but beware extended bear markets.`,
+        'Controlled accumulation — not aggressive — is the right play.',
+        `SIP of ₹${fmt(monthlySip)} is auto-averaging; add small amounts.`
+      ];
+      actionPlan = [
+        `Continue SIP of ₹${fmt(monthlySip)}/month — this is crucial`,
+        lumpSum > 0 ? `Add small lump sum: ₹${fmt(Math.round(lumpSum * 0.25))} now` : 'Add small available cash if possible',
+        lumpSum > 0 ? `Reserve ₹${fmt(Math.round(lumpSum * 0.75))} for further dips or emergencies` : null,
+        'Split between large-cap equity and Gold ETFs',
+        'Review in 3 months and reassess'
+      ].filter(Boolean);
+      whyText = `Crashes are painful but historically temporary. With ${horizon} years, you have a reasonable chance of recovery, but not certainty — hence controlled accumulation rather than aggressive buying. Keep reserves for emergencies. The key is to not stop your SIP, which is auto-buying at deeply discounted prices.`;
+
+    } else {
+      decision = 'DEFENSIVE SHIFT — PROTECT CAPITAL';
+      decisionClass = 'defensive';
+
+      equity = Math.max(20, riskEquity[risk][0] - 20 + goalAdj);
+      gold = 20;
+      debt = 100 - equity - gold;
+
+      reasoning = [
+        `Portfolio down <strong>${Math.abs(lossPct).toFixed(1)}%</strong> — crash with only <strong>${horizon} yr(s)</strong> left.`,
+        'Recovery may not happen within your time frame.',
+        'Capital protection is now the priority, not growth.',
+        'Equity exposure must be minimized immediately.'
+      ];
+      actionPlan = [
+        'Stop equity SIP — redirect to liquid/ultra-short debt funds',
+        `Move most equity to debt: target ${equity}% equity / ${debt}% debt / ${gold}% gold`,
+        'Preserve whatever capital remains',
+        'Avoid panic selling all at once — phase out over 1–2 months',
+        'Consult a SEBI-registered advisor for your specific situation'
+      ];
+      whyText = `With only ${horizon} year(s) and losses exceeding 25%, the priority shifts to damage control. While markets always eventually recover, "eventually" can mean 5+ years. You may not have that time. Protecting remaining capital now gives you certainty, even if it means accepting some loss. This is not failure — it's prudent risk management.`;
+    }
+
+    avoidList = [
+      'Don\'t panic sell everything — you crystallize losses permanently.',
+      'Don\'t stop SIP if your horizon is long — crashes are where SIP magic happens.',
+      'Don\'t wait for the "perfect bottom" — it\'s unknowable.',
+      'Don\'t borrow money to invest during a crash.',
+      'Don\'t listen to social media "experts" — follow your plan.'
+    ];
+  }
+
+  // Clamp allocation
+  equity = Math.max(0, Math.min(100, Math.round(equity)));
+  debt = Math.max(0, Math.min(100, Math.round(debt)));
+  gold = Math.max(0, Math.min(100, Math.round(gold)));
+  const total = equity + gold + debt;
+  if (total !== 100) debt += (100 - total);
+
+  // ── Render ──
+  renderResults({
+    decision, decisionClass, phase, phaseColor, lossPct, timePower, horizon, risk,
+    sipStrength, equity, gold, debt, reasoning, avoidList, actionPlan, whyText
+  });
+}
+
+function renderResults(d) {
+  const r = $('results');
+  const lossLabel = d.lossPct >= 0 ? `+${d.lossPct.toFixed(1)}%` : `${d.lossPct.toFixed(1)}%`;
+  const lossColor = d.lossPct >= 0 ? 'green' : d.lossPct > -10 ? 'yellow' : 'red';
+
+  r.innerHTML = `
+    <!-- Decision -->
+    <div class="decision-card ${d.decisionClass}">
+      <div class="decision-label">Recommended Action</div>
+      <div class="decision-title">${d.decision}</div>
+      <div class="decision-sub">Based on ${d.phase} market, ${d.timePower} time horizon, and ${d.risk} risk appetite</div>
+    </div>
+
+    <!-- Metric Pills -->
+    <div class="metrics-row">
+      <div class="metric-pill"><span class="dot dot-${lossColor}"></span> P&L: ${lossLabel}</div>
+      <div class="metric-pill"><span class="dot dot-${d.phaseColor}"></span> ${d.phase}</div>
+      <div class="metric-pill"><span class="dot dot-${d.timePower === 'strong' ? 'green' : d.timePower === 'moderate' ? 'yellow' : 'red'}"></span> ${d.horizon} yr horizon (${d.timePower})</div>
+      <div class="metric-pill"><span class="dot dot-blue"></span> SIP Strength: ${d.sipStrength.toFixed(1)}%</div>
+    </div>
+
+    <!-- Why -->
+    <div class="why-card">
+      <h3>💡 Why this recommendation?</h3>
+      <p>${d.whyText}</p>
+    </div>
+
+    <!-- Reasoning -->
+    <div class="reasoning-card">
+      <h3>📊 Analysis Breakdown</h3>
+      <ul class="reasoning-list">${d.reasoning.map(r => `<li>${r}</li>`).join('')}</ul>
+    </div>
+
+    <!-- Allocation -->
+    <div class="section-title" style="margin-top:.5rem"><span>📈</span> Suggested Allocation</div>
+    <div class="alloc-grid">
+      <div class="alloc-item">
+        <div class="alloc-pct" style="color:var(--accent)">${d.equity}%</div>
+        <div class="alloc-label">Equity</div>
+      </div>
+      <div class="alloc-item">
+        <div class="alloc-pct" style="color:var(--yellow)">${d.gold}%</div>
+        <div class="alloc-label">Gold</div>
+      </div>
+      <div class="alloc-item">
+        <div class="alloc-pct" style="color:var(--green)">${d.debt}%</div>
+        <div class="alloc-label">Debt</div>
+      </div>
+    </div>
+    <div class="alloc-bar-wrap">
+      <div class="alloc-bar">
+        <div class="bar-equity" style="width:${d.equity}%"></div>
+        <div class="bar-gold" style="width:${d.gold}%"></div>
+        <div class="bar-debt" style="width:${d.debt}%"></div>
+      </div>
+    </div>
+
+    <!-- Avoid -->
+    <div class="avoid-card" style="margin-top:1.5rem">
+      <h3>⚠️ What NOT to Do</h3>
+      <ul class="avoid-list">${d.avoidList.map(a => `<li>${a}</li>`).join('')}</ul>
+    </div>
+
+    <!-- Action Plan -->
+    <div class="action-card">
+      <h3>💰 Your Action Plan</h3>
+      <ul class="action-list">${d.actionPlan.map(a => `<li>${a}</li>`).join('')}</ul>
+    </div>
+
+    <button class="reset-btn" onclick="resetForm()">↺ Start Over</button>
+  `;
+
+  r.style.display = 'block';
+  r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetForm() {
+  $('results').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function fmt(n) {
+  return n.toLocaleString('en-IN');
+}
+</script>
+</body>
+</html>
